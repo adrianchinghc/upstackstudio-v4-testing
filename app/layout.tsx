@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 const display = Bricolage_Grotesque({
@@ -68,7 +70,9 @@ export default function RootLayout({
         className={`${display.variable} ${body.variable} font-sans antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
           <Toaster
             position="bottom-right"
             toastOptions={{
