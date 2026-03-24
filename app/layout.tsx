@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { CookieConsent } from '@/components/layout/CookieConsent'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -74,6 +75,7 @@ export default function RootLayout({
               },
             }}
           />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

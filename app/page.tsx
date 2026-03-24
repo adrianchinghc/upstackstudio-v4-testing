@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection, TestimonialCard, RatingsStrip } from '@/components/common'
 import { LudaSection } from '@/components/luda/LudaSection'
@@ -15,6 +16,44 @@ import {
   Briefcase,
   Factory,
 } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Upstack Studio | AI-Enabled Software Engineering Malaysia',
+  description:
+    'AI-enabled software engineering for established companies. Operations digitalisation, AI integration, and custom platform development. Trusted by Daikin, Magnum 4D, BookXcess. Built on the LUDA™ Framework.',
+  alternates: { canonical: 'https://upstackstudio.com' },
+  openGraph: {
+    title: 'Upstack Studio | AI-Enabled Software Engineering Malaysia',
+    description: 'Operations digitalisation, AI integration, and custom platform development for established, growing companies.',
+    url: 'https://upstackstudio.com',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Upstack Studio | AI-Enabled Software Engineering',
+    description: 'AI-enabled software engineering for established, growing companies.',
+  },
+}
+
+const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Upstack Studio',
+  url: 'https://upstackstudio.com',
+  foundingDate: '2017',
+  founder: { '@type': 'Person', name: 'Adrian Ching' },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Petaling Jaya',
+    addressRegion: 'Selangor',
+    addressCountry: 'MY',
+  },
+  areaServed: ['MY', 'SG', 'AU', 'GB', 'US', 'ID', 'TH', 'PH'],
+  description:
+    'AI-enabled software engineering firm specialising in operations digitalisation, AI integration, and custom platform development for established companies.',
+}
 
 // Testimonials data
 const TESTIMONIALS = [
@@ -116,6 +155,10 @@ const INDUSTRIES = [
 export default function Home() {
   return (
     <div className="bg-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
         {/* Background pattern */}
