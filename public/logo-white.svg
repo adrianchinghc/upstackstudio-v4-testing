@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none">
+  <!-- Upstack Studio logo - white version for dark backgrounds -->
+  <!-- A-mark symbol -->
+  <path d="M0 32L12 8h6l12 24h-6l-2.4-5H8.4L6 32H0zm10.8-10h8.4L15 12.8 10.8 22z" fill="#ffffff"/>
+  <!-- Wordmark: UPSTACK -->
+  <text x="38" y="28" font-family="Montserrat, sans-serif" font-weight="300" font-size="18" fill="#ffffff">UPSTACK</text>
+  <!-- STUDIO -->
+  <text x="118" y="28" font-family="Montserrat, sans-serif" font-weight="300" font-size="18" fill="#75C7DA">STUDIO</text>
+</svg>
