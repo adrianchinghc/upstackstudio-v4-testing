@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ================================
+   UPSTACK STUDIO — BRAND TOKENS
+   ================================ */
+
+@theme inline {
+  /* Brand Colors — from Upstack_brand_guideline.pdf */
+  --color-brand-navy: #302D83;
+  --color-brand-sky: #75C7DA;
+  --color-brand-black: #231F20;
+  --color-brand-grey: #414042;
+
+  /* CTA Gradient */
+  --cta-gradient: linear-gradient(197.95deg, #0099FF 0%, #1300FF 100%);
+
+  /* Font families */
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-inter);
+}
+
+/* ================================
+   LIGHT MODE (Default)
+   ================================ */
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f3fa;
+  --border: #e4e3ef;
+  --muted: #8e8ba0;
+  --text: #1a1928;
+  --text-secondary: #4a4862;
+}
+
+/* ================================
+   DARK MODE
+   ================================ */
+.dark {
+  --bg: #05050a;
+  --surface: #0f0e18;
+  --surface-2: #12111e;
+  --border: #1e1d2e;
+  --muted: #6b6880;
+  --text: #e8e8f4;
+  --text-secondary: #a8a6b8;
+}
+
+/* ================================
+   BASE STYLES
+   ================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   TYPOGRAPHY
+   ================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+/* Hero H1 */
+.text-hero {
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+/* Page H1 */
+.text-page-title {
+  font-size: clamp(32px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Section H2 */
+.text-section-title {
+  font-size: clamp(26px, 3.2vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Card H3 */
+.text-card-title {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Section Label */
+.text-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-brand-sky);
+}
+
+/* ================================
+   UTILITY CLASSES
+   ================================ */
+.bg-page {
+  background-color: var(--bg);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.bg-surface-2 {
+  background-color: var(--surface-2);
+}
+
+.border-default {
+  border-color: var(--border);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Brand gradient for CTAs */
+.bg-cta-gradient {
+  background: linear-gradient(197.95deg, #0099FF 0%, #1300FF 100%);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-brand-sky);
+  color: var(--color-brand-black);
+}
+
+/* Scrollbar (dark mode) */
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-sky);
+  outline-offset: 2px;
+}
