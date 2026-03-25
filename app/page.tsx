@@ -161,11 +161,14 @@ export default function Home() {
       />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-20 md:pt-24 pb-16 md:pb-24 overflow-hidden">
-        {/* Background pattern */}
+        {/* Background dot grid */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, var(--muted) 1px, transparent 0)',
           backgroundSize: '40px 40px',
         }} />
+        {/* Sky glow — subtle, not decorative */}
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] rounded-full opacity-[0.08] blur-[120px] pointer-events-none"
+          style={{ background: 'var(--color-brand-sky)' }} />
 
         <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
           <div className="max-w-4xl">
@@ -173,7 +176,7 @@ export default function Home() {
               <SectionLabel className="mb-6">AI-Enabled Software Engineering</SectionLabel>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.1}>
+            <AnimatedSection delay={0.08}>
               <h1 className="text-hero mb-6">
                 Your revenue has scaled.
                 <br />
@@ -183,7 +186,7 @@ export default function Home() {
               </h1>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2}>
+            <AnimatedSection delay={0.16}>
               <p className="text-lg md:text-xl text-secondary max-w-2xl leading-relaxed mb-4">
                 We map your broken processes, design the system, and build it in 16 weeks — with AI-enabled engineering and the same senior team from kickoff to handover. No juniors. No handoffs. No disappearing after launch.
               </p>
@@ -192,7 +195,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.24}>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Button asChild size="lg">
                   <Link href="/strategy-session">
@@ -206,7 +209,7 @@ export default function Home() {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.4}>
+            <AnimatedSection delay={0.3}>
               <p className="text-sm text-muted">
                 Trusted by Daikin · Magnum 4D · BookXcess · Teleme · AFA Malaysia
               </p>
@@ -228,7 +231,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {PAIN_CARDS.map((card, index) => (
               <AnimatedSection key={card.title} delay={index * 0.1}>
-                <div className="h-full rounded-2xl border border-default bg-surface-2 p-6 md:p-8 transition-all hover:border-[var(--color-brand-sky)]/30">
+                <div className="h-full rounded-2xl border border-default bg-surface-2 p-6 md:p-8 transition-colors duration-200 hover:border-[var(--color-brand-sky)]/30">
                   <card.icon className="h-10 w-10 text-[var(--color-brand-sky)] mb-4" />
                   <h3 className="text-lg font-semibold mb-3">{card.title}</h3>
                   <p className="text-secondary text-base leading-relaxed">
@@ -265,20 +268,25 @@ export default function Home() {
       {/* BookXcess Feature Callout */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <AnimatedSection>
+          <AnimatedSection direction="none">
             <div className="rounded-2xl border border-[var(--color-brand-sky)]/30 bg-surface p-8 md:p-12 text-center max-w-3xl mx-auto">
-              <div className="text-6xl md:text-8xl font-extrabold text-[var(--color-brand-sky)] mb-4 font-display">
-                15×
-              </div>
-              <p className="text-xl md:text-2xl font-semibold mb-4">
-                ecommerce revenue growth
-              </p>
-              <blockquote className="text-lg text-secondary italic mb-4">
-                &ldquo;Brilliant job guys! Just brilliant!&rdquo;
-              </blockquote>
-              <p className="text-muted">
-                — Andrew Yap, Founder, BookXcess
-              </p>
+              {/* Spring scale from 0.85 — landmark stat deserves a landmark entrance */}
+              <AnimatedSection spring scaleFrom={0.85} direction="none" delay={0.1}>
+                <div className="text-6xl md:text-8xl font-extrabold text-[var(--color-brand-sky)] mb-4 font-display">
+                  15×
+                </div>
+              </AnimatedSection>
+              <AnimatedSection delay={0.2} direction="none">
+                <p className="text-xl md:text-2xl font-semibold mb-4">
+                  ecommerce revenue growth
+                </p>
+                <blockquote className="text-lg text-secondary italic mb-4">
+                  &ldquo;Brilliant job guys! Just brilliant!&rdquo;
+                </blockquote>
+                <p className="text-muted">
+                  — Andrew Yap, Founder, BookXcess
+                </p>
+              </AnimatedSection>
             </div>
           </AnimatedSection>
         </div>
@@ -303,7 +311,7 @@ export default function Home() {
               <AnimatedSection key={service.title} delay={index * 0.1}>
                 <Link
                   href={service.href}
-                  className="group block h-full rounded-2xl border border-default bg-surface-2 p-6 md:p-8 transition-all hover:border-[var(--color-brand-sky)]/50"
+                  className="group block h-full rounded-2xl border border-default bg-surface-2 p-6 md:p-8 transition-colors duration-200 hover:border-[var(--color-brand-sky)]/50"
                 >
                   <h3 className="text-card-title mb-3 group-hover:text-[var(--color-brand-sky)] transition-colors">
                     {service.title}
@@ -332,12 +340,12 @@ export default function Home() {
       <LudaSection variant="full" />
 
       {/* Client Marquee */}
-      <section className="py-12 md:py-16 border-y border-default overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
+      <section className="py-12 md:py-16 border-y border-default overflow-hidden group/marquee">
+        <div className="flex animate-marquee whitespace-nowrap group-hover/marquee:[animation-play-state:paused]">
           {[...CLIENTS, ...CLIENTS].map((client, index) => (
             <span
               key={`${client}-${index}`}
-              className="mx-8 md:mx-12 text-lg md:text-xl font-semibold text-muted"
+              className="mx-8 md:mx-12 text-lg md:text-xl font-semibold text-muted transition-colors duration-200 hover:text-[var(--text)]"
             >
               {client}
             </span>
@@ -447,8 +455,14 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Glow — navy + sky gradient, behind content */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] opacity-[0.12] blur-[100px]"
+            style={{ background: 'radial-gradient(ellipse at center, var(--color-brand-sky) 0%, var(--color-brand-navy) 60%, transparent 100%)' }} />
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-section-title mb-6">
