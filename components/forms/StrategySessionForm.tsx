@@ -17,9 +17,7 @@ const step1Schema = z.object({
   biggest_operational_pain: z
     .string()
     .min(10, 'Please share more detail about your operational challenge'),
-  cost_of_inaction: z
-    .string()
-    .min(10, 'Please describe what happens if this remains unsolved'),
+  cost_of_inaction: z.string().min(10, 'Please describe what happens if this remains unsolved'),
   previous_attempts: z.string().optional(),
 })
 
@@ -137,11 +135,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
     }
 
     // Redirect to Calendly with pre-filled info
-    const calendlyUrl = buildCalendlyUrl(
-      data.firstname,
-      data.lastname || '',
-      data.email
-    )
+    const calendlyUrl = buildCalendlyUrl(data.firstname, data.lastname || '', data.email)
     router.push(calendlyUrl)
   }
 
@@ -149,24 +143,26 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
     <div className={cn('w-full', className)}>
       {/* Progress indicator */}
       <div className="flex items-center gap-2 mb-8">
-        <div className={cn(
-          'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
-          step >= 1
-            ? 'bg-[var(--color-brand-blue)] text-white'
-            : 'bg-surface-2 text-muted'
-        )}>
+        <div
+          className={cn(
+            'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
+            step >= 1 ? 'bg-[var(--color-brand-blue)] text-white' : 'bg-surface-2 text-muted'
+          )}
+        >
           1
         </div>
-        <div className={cn(
-          'flex-1 h-1 rounded-full transition-colors',
-          step >= 2 ? 'bg-[var(--color-brand-blue)]' : 'bg-surface-2'
-        )} />
-        <div className={cn(
-          'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
-          step >= 2
-            ? 'bg-[var(--color-brand-blue)] text-white'
-            : 'bg-surface-2 text-muted'
-        )}>
+        <div
+          className={cn(
+            'flex-1 h-1 rounded-full transition-colors',
+            step >= 2 ? 'bg-[var(--color-brand-blue)]' : 'bg-surface-2'
+          )}
+        />
+        <div
+          className={cn(
+            'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
+            step >= 2 ? 'bg-[var(--color-brand-blue)] text-white' : 'bg-surface-2 text-muted'
+          )}
+        >
           2
         </div>
       </div>
@@ -178,7 +174,8 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
         <form onSubmit={step1Form.handleSubmit(handleStep1Submit)} className="space-y-6">
           <div>
             <label htmlFor="biggest_operational_pain" className="block text-sm font-medium mb-2">
-              What's the one operational problem costing you the most time or money right now? <span className="text-red-500">*</span>
+              What's the one operational problem costing you the most time or money right now?{' '}
+              <span className="text-red-500">*</span>
             </label>
             <textarea
               id="biggest_operational_pain"
@@ -196,7 +193,8 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
 
           <div>
             <label htmlFor="cost_of_inaction" className="block text-sm font-medium mb-2">
-              What happens to your business if this problem is still unsolved 12 months from now? <span className="text-red-500">*</span>
+              What happens to your business if this problem is still unsolved 12 months from now?{' '}
+              <span className="text-red-500">*</span>
             </label>
             <textarea
               id="cost_of_inaction"
@@ -438,12 +436,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
 
           {/* Actions */}
           <div className="flex flex-col gap-4">
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full"
-              disabled={isSubmitting}
-            >
+            <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />

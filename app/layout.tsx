@@ -47,8 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Upstack Studio | AI-Enabled Software Engineering',
-    description:
-      'AI-enabled software engineering for established, growing companies.',
+    description: 'AI-enabled software engineering for established, growing companies.',
   },
   robots: {
     index: true,

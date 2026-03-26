@@ -19,19 +19,20 @@ export function GuaranteeBar({ className, variant = 'default' }: GuaranteeBarPro
       {GUARANTEES.map((guarantee) => (
         <div
           key={guarantee}
-          className={cn(
-            'flex items-center gap-2',
-            variant === 'compact' && 'gap-1.5'
-          )}
+          className={cn('flex items-center gap-2', variant === 'compact' && 'gap-1.5')}
         >
-          <CheckCircle className={cn(
-            'icon-brand-blue shrink-0',
-            variant === 'default' ? 'h-5 w-5' : 'h-4 w-4'
-          )} />
-          <span className={cn(
-            'font-medium',
-            variant === 'default' ? 'text-sm md:text-base' : 'text-xs md:text-sm'
-          )}>
+          <CheckCircle
+            className={cn(
+              'icon-brand-blue shrink-0',
+              variant === 'default' ? 'h-5 w-5' : 'h-4 w-4'
+            )}
+          />
+          <span
+            className={cn(
+              'font-medium',
+              variant === 'default' ? 'text-sm md:text-base' : 'text-xs md:text-sm'
+            )}
+          >
             {guarantee}
           </span>
         </div>

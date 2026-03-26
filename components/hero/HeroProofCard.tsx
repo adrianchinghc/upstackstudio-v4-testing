@@ -1,7 +1,14 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion, useSpring, useTransform, useMotionValue } from 'framer-motion'
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  useMotionValue,
+} from 'framer-motion'
 import { AnimatedCounter } from '@/components/common'
 
 // Spring config for mouse parallax — subtle, not nauseating
@@ -28,10 +35,10 @@ export function HeroProofCard() {
   const cardY = useTransform(smoothMouseY, [-0.5, 0.5], [-8, 8])
   const cardRotateX = useTransform(smoothMouseY, [-0.5, 0.5], [2, -2])
   const cardRotateY = useTransform(smoothMouseX, [-0.5, 0.5], [-2, 2])
-  const secondaryX = useTransform(cardX, v => v * 0.5)
-  const secondaryY = useTransform(cardY, v => v * 0.5)
-  const tertiaryX = useTransform(cardX, v => v * 1.2)
-  const tertiaryY = useTransform(cardY, v => v * 1.2)
+  const secondaryX = useTransform(cardX, (v) => v * 0.5)
+  const secondaryY = useTransform(cardY, (v) => v * 0.5)
+  const tertiaryX = useTransform(cardX, (v) => v * 1.2)
+  const tertiaryY = useTransform(cardY, (v) => v * 1.2)
 
   // Handle mouse move
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -115,7 +122,10 @@ export function HeroProofCard() {
     return (
       <div ref={containerRef} className="relative">
         {/* Subtle glow — toned down from original */}
-        <div className="absolute -inset-8 opacity-10 blur-[40px] rounded-full" style={{ background: 'radial-gradient(circle, #0A4DFF 0%, transparent 70%)' }} />
+        <div
+          className="absolute -inset-8 opacity-10 blur-[40px] rounded-full"
+          style={{ background: 'radial-gradient(circle, #0A4DFF 0%, transparent 70%)' }}
+        />
 
         <div className="relative bg-surface border border-[var(--border)] rounded-2xl p-10 shadow-lg">
           <div className="text-[80px] md:text-[100px] font-extrabold text-gradient leading-none font-display tracking-[-0.04em] mb-4">
@@ -132,7 +142,11 @@ export function HeroProofCard() {
         <div className="absolute -bottom-10 -left-6 bg-surface border border-[var(--border)] rounded-lg px-5 py-3 shadow-md">
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold font-display text-[var(--color-brand-blue)]">17</div>
-            <div className="text-xs text-muted leading-tight font-medium">projects<br/>delivered</div>
+            <div className="text-xs text-muted leading-tight font-medium">
+              projects
+              <br />
+              delivered
+            </div>
           </div>
         </div>
 
@@ -157,7 +171,11 @@ export function HeroProofCard() {
       {/* Subtle glow — single layer, toned down */}
       <motion.div
         className="absolute -inset-8 opacity-10 blur-[40px] rounded-full"
-        style={{ x: glowX, y: glowY, background: 'radial-gradient(circle, #0A4DFF 0%, transparent 70%)' }}
+        style={{
+          x: glowX,
+          y: glowY,
+          background: 'radial-gradient(circle, #0A4DFF 0%, transparent 70%)',
+        }}
         variants={glowVariants}
       />
 
@@ -175,12 +193,7 @@ export function HeroProofCard() {
       >
         {/* The landmark stat */}
         <div className="text-[80px] md:text-[100px] font-extrabold text-gradient leading-none font-display tracking-[-0.04em] mb-4">
-          <AnimatedCounter
-            value={15}
-            suffix="×"
-            stiffness={40}
-            damping={12}
-          />
+          <AnimatedCounter value={15} suffix="×" stiffness={40} damping={12} />
         </div>
         <p className="text-xl font-semibold mb-2">ecommerce revenue growth</p>
         <p className="text-base text-muted">BookXcess</p>
@@ -207,7 +220,11 @@ export function HeroProofCard() {
             stiffness={60}
             damping={14}
           />
-          <div className="text-xs text-muted leading-tight font-medium">projects<br/>delivered</div>
+          <div className="text-xs text-muted leading-tight font-medium">
+            projects
+            <br />
+            delivered
+          </div>
         </div>
       </motion.div>
 

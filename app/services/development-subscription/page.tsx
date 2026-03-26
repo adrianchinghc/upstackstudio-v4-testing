@@ -36,7 +36,8 @@ const TIERS = [
     myr: PRICING.essential.myr,
     usd: PRICING.essential.usd,
     requests: 1,
-    description: 'For platforms in maintenance mode — keep it running, fix bugs, small improvements.',
+    description:
+      'For platforms in maintenance mode — keep it running, fix bugs, small improvements.',
     features: [
       '1 active development request at a time',
       'Bug fixes and security patches',
@@ -45,11 +46,7 @@ const TIERS = [
       'Slack communication',
       '5-business-day response SLA',
     ],
-    notIncluded: [
-      'New feature development',
-      'Third-party integrations',
-      'Design changes',
-    ],
+    notIncluded: ['New feature development', 'Third-party integrations', 'Design changes'],
     cta: 'Get Started',
     highlight: false,
   },
@@ -58,7 +55,8 @@ const TIERS = [
     myr: PRICING.pro.myr,
     usd: PRICING.pro.usd,
     requests: 1,
-    description: 'For actively evolving platforms — new features, integrations, and continuous improvement.',
+    description:
+      'For actively evolving platforms — new features, integrations, and continuous improvement.',
     features: [
       '1 active development request at a time',
       'New feature development',
@@ -69,10 +67,7 @@ const TIERS = [
       '2-business-day response SLA',
       'Priority queue over Essential',
     ],
-    notIncluded: [
-      'Multiple concurrent requests',
-      'Full platform rebuilds',
-    ],
+    notIncluded: ['Multiple concurrent requests', 'Full platform rebuilds'],
     cta: 'Get Started',
     highlight: true,
   },
@@ -81,7 +76,8 @@ const TIERS = [
     myr: PRICING.platinum.myr,
     usd: PRICING.platinum.usd,
     requests: 2,
-    description: 'For teams building fast — multiple workstreams, dedicated bandwidth, maximum velocity.',
+    description:
+      'For teams building fast — multiple workstreams, dedicated bandwidth, maximum velocity.',
     features: [
       '2 active development requests simultaneously',
       'All Pro tier features',
@@ -131,7 +127,7 @@ const FAQS = [
   {
     question: 'How do I submit requests?',
     answer:
-      'Via a shared project board (Linear or Jira, depending on your preference) and Slack. You submit requests, we scope them, you approve, we build. The board gives you full visibility into what\'s in progress, what\'s next, and what\'s done.',
+      "Via a shared project board (Linear or Jira, depending on your preference) and Slack. You submit requests, we scope them, you approve, we build. The board gives you full visibility into what's in progress, what's next, and what's done.",
   },
   {
     question: 'Do I still own the code developed under the subscription?',
@@ -143,7 +139,6 @@ const FAQS = [
 export default function DevelopmentSubscriptionPage() {
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -158,9 +153,9 @@ export default function DevelopmentSubscriptionPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              Software doesn't stand still. Your business doesn't stand still. The Development Subscription
-              gives you a dedicated senior team, a predictable monthly cost, and continuous delivery — without the
-              overhead of managing a development team in-house.
+              Software doesn't stand still. Your business doesn't stand still. The Development
+              Subscription gives you a dedicated senior team, a predictable monthly cost, and
+              continuous delivery — without the overhead of managing a development team in-house.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
@@ -171,13 +166,12 @@ export default function DevelopmentSubscriptionPage() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#pricing">
-                  See Pricing
-                </Link>
+                <Link href="#pricing">See Pricing</Link>
               </Button>
             </div>
             <p className="mt-4 text-sm text-muted">
-              From RM {PRICING.essential.myr.toLocaleString()}/month · Pause or cancel with 1 month notice.
+              From RM {PRICING.essential.myr.toLocaleString()}/month · Pause or cancel with 1 month
+              notice.
             </p>
           </AnimatedSection>
         </div>
@@ -191,7 +185,10 @@ export default function DevelopmentSubscriptionPage() {
             <h2 className="text-section-h2 mt-3 mb-10">The baseline we don't negotiate on.</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {INCLUDED_ALL.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl border border-default bg-page p-5">
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl border border-default bg-page p-5"
+                >
                   <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                   <span className="text-sm text-secondary">{item}</span>
                 </div>
@@ -217,13 +214,11 @@ export default function DevelopmentSubscriptionPage() {
             {TIERS.map((tier, i) => (
               <AnimatedSection key={tier.name} delay={i * 0.1}>
                 <div
-                  className={
-                    `relative h-full rounded-2xl border p-8 flex flex-col ${
-                      tier.highlight
-                        ? 'border-[var(--color-brand-sky)] bg-[var(--color-brand-sky)]/5'
-                        : 'border-default bg-surface'
-                    }`
-                  }
+                  className={`relative h-full rounded-2xl border p-8 flex flex-col ${
+                    tier.highlight
+                      ? 'border-[var(--color-brand-sky)] bg-[var(--color-brand-sky)]/5'
+                      : 'border-default bg-surface'
+                  }`}
                 >
                   {tier.highlight && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -255,7 +250,10 @@ export default function DevelopmentSubscriptionPage() {
                       </li>
                     ))}
                     {tier.notIncluded.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5 text-sm text-muted line-through decoration-muted/40">
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2.5 text-sm text-muted line-through decoration-muted/40"
+                      >
                         <X className="h-4 w-4 text-muted shrink-0 mt-0.5" />
                         {feature}
                       </li>
@@ -279,8 +277,8 @@ export default function DevelopmentSubscriptionPage() {
 
           <AnimatedSection delay={0.3}>
             <p className="text-center text-sm text-muted mt-8">
-              Not sure which tier fits? Book a strategy call — we'll match you to the right level based on your
-              platform and roadmap.
+              Not sure which tier fits? Book a strategy call — we'll match you to the right level
+              based on your platform and roadmap.
             </p>
           </AnimatedSection>
         </div>
@@ -332,8 +330,8 @@ export default function DevelopmentSubscriptionPage() {
               Your platform needs to grow. Let's make sure it does.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              Book a strategy call to discuss your platform, your roadmap, and which subscription tier makes
-              sense. We'll onboard within one week of agreement.
+              Book a strategy call to discuss your platform, your roadmap, and which subscription
+              tier makes sense. We'll onboard within one week of agreement.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">
@@ -341,7 +339,8 @@ export default function DevelopmentSubscriptionPage() {
               </Link>
             </Button>
             <p className="mt-4 text-sm text-muted">
-              From RM {PRICING.essential.myr.toLocaleString()}/month · Pause or cancel with 1 month notice.
+              From RM {PRICING.essential.myr.toLocaleString()}/month · Pause or cancel with 1 month
+              notice.
             </p>
           </AnimatedSection>
         </div>

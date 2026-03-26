@@ -36,27 +36,15 @@ export function CaseStudyCard({
       </span>
 
       {/* Client name */}
-      <h3 className={cn(
-        'text-card-title',
-        featured && 'text-section-title'
-      )}>
-        {client}
-      </h3>
+      <h3 className={cn('text-card-title', featured && 'text-section-title')}>{client}</h3>
 
       {/* Outcome - the key metric */}
-      <p className={cn(
-        'text-lg font-semibold text-gradient',
-        featured && 'text-2xl md:text-3xl'
-      )}>
+      <p className={cn('text-lg font-semibold text-gradient', featured && 'text-2xl md:text-3xl')}>
         {outcome}
       </p>
 
       {/* Description */}
-      {description && (
-        <p className="text-secondary text-base leading-relaxed">
-          {description}
-        </p>
-      )}
+      {description && <p className="text-secondary text-base leading-relaxed">{description}</p>}
 
       {/* Link indicator */}
       {slug && (

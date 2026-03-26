@@ -36,7 +36,9 @@ export function CookieConsent() {
       document.head.appendChild(script)
       window.dataLayer = window.dataLayer || []
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      window.gtag = function(...args: any[]) { (window as any).dataLayer.push(args) }
+      window.gtag = function (...args: any[]) {
+        window.dataLayer.push(args)
+      }
       window.gtag('js', new Date())
       window.gtag('config', gaId)
     }
@@ -46,7 +48,11 @@ export function CookieConsent() {
     if (pixelId && typeof window !== 'undefined') {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const f = window as any
-      f.fbq = f.fbq || function(...args: unknown[]) { (f.fbq.q = f.fbq.q || []).push(args) }
+      f.fbq =
+        f.fbq ||
+        function (...args: unknown[]) {
+          ;(f.fbq.q = f.fbq.q || []).push(args)
+        }
       const script = document.createElement('script')
       script.src = 'https://connect.facebook.net/en_US/fbevents.js'
       script.async = true

@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://upstackstudio.com/united-states' },
   openGraph: {
     title: 'Software Development USA | Upstack Studio',
-    description: 'US companies that need APAC-ready software at a fraction of US agency prices. Senior engineers, clean codebase, no juniors, no handoffs.',
+    description:
+      'US companies that need APAC-ready software at a fraction of US agency prices. Senior engineers, clean codebase, no juniors, no handoffs.',
     url: 'https://upstackstudio.com/united-states',
     siteName: 'Upstack Studio',
     locale: 'en_US',

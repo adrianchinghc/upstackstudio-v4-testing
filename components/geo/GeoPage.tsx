@@ -17,7 +17,8 @@ export interface GeoPageProps {
 
 const TESTIMONIALS_FEATURED = [
   {
-    quote: "Brilliant job guys! Just brilliant! So many amazing changes in just a few days. You really don't know how much this means to us.",
+    quote:
+      "Brilliant job guys! Just brilliant! So many amazing changes in just a few days. You really don't know how much this means to us.",
     author: 'Andrew Yap',
     role: 'Founder',
     company: 'BookXcess',
@@ -32,7 +33,8 @@ const TESTIMONIALS_FEATURED = [
     image: '/images/clients/mark-choo.webp',
   },
   {
-    quote: "I shopped around. I looked at assembling a team of freelancers. I reached out to about two other agencies here in the United States in San Diego, California. In hindsight, I'm glad I did not do that. You had a great process. You had a great team.",
+    quote:
+      "I shopped around. I looked at assembling a team of freelancers. I reached out to about two other agencies here in the United States in San Diego, California. In hindsight, I'm glad I did not do that. You had a great process. You had a great team.",
     author: 'Justin Ruffier',
     role: 'Founder',
     company: 'Whisker Tracker (San Diego, USA)',
@@ -41,7 +43,7 @@ const TESTIMONIALS_FEATURED = [
 
 const WHY_US = [
   'The people who pitch you are the people who build for you.',
-  'We tell you the truth about what\'s possible — even when it\'s not what you want to hear.',
+  "We tell you the truth about what's possible — even when it's not what you want to hear.",
   'No juniors, no interns on design or development.',
   'Bi-weekly calls. Slack always open. You always know where your project stands.',
   'If we cause delays, we pay for them — not you.',
@@ -57,12 +59,17 @@ export function GeoPage({
   callout,
   clientsHeadline = 'Trusted by companies across the globe.',
 }: GeoPageProps) {
-  const transformPrice = formatPrice(market === 'malaysia' ? PRICING.transform.myr : PRICING.transform.usd, market)
-  const essentialPrice = formatPrice(market === 'malaysia' ? PRICING.essential.myr : PRICING.essential.usd, market)
+  const transformPrice = formatPrice(
+    market === 'malaysia' ? PRICING.transform.myr : PRICING.transform.usd,
+    market
+  )
+  const essentialPrice = formatPrice(
+    market === 'malaysia' ? PRICING.essential.myr : PRICING.essential.usd,
+    market
+  )
 
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -70,14 +77,10 @@ export function GeoPage({
             <SectionLabel>Upstack Studio · {country}</SectionLabel>
           </AnimatedSection>
           <AnimatedSection delay={0.08}>
-            <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
-              {h1}
-            </h1>
+            <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">{h1}</h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
-            <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              {subCopy}
-            </p>
+            <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">{subCopy}</p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -117,8 +120,8 @@ export function GeoPage({
             <SectionLabel>Why Upstack Studio</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">{clientsHeadline}</h2>
             <p className="text-secondary max-w-2xl mb-12">
-              We've delivered for companies in Malaysia, Australia, the US, UK, and the Netherlands. The same
-              standards and senior team for every client, regardless of geography.
+              We've delivered for companies in Malaysia, Australia, the US, UK, and the Netherlands.
+              The same standards and senior team for every client, regardless of geography.
             </p>
           </AnimatedSection>
 
@@ -157,7 +160,13 @@ export function GeoPage({
                   <span className="text-secondary text-sm ml-2">fixed price</span>
                 </div>
                 <ul className="space-y-2.5 mb-8">
-                  {['Single platform', '16-week delivery', 'PM + engineers + designer + QA', '30-day post-launch support', 'Full IP ownership'].map(f => (
+                  {[
+                    'Single platform',
+                    '16-week delivery',
+                    'PM + engineers + designer + QA',
+                    '30-day post-launch support',
+                    'Full IP ownership',
+                  ].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-secondary">
                       <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                       {f}
@@ -165,7 +174,9 @@ export function GeoPage({
                   ))}
                 </ul>
                 <Button size="lg" className="w-full" asChild>
-                  <Link href="/strategy-session">Book a Strategy Call <ArrowRight className="h-4 w-4" /></Link>
+                  <Link href="/strategy-session">
+                    Book a Strategy Call <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -177,12 +188,21 @@ export function GeoPage({
                 <p className="text-sm text-secondary mb-6">Web + Mobile. 4–6 months.</p>
                 <div className="mb-6">
                   <span className="text-3xl font-extrabold font-display">
-                    {formatPrice(market === 'malaysia' ? PRICING.accelerate.myr : PRICING.accelerate.usd, market)}
+                    {formatPrice(
+                      market === 'malaysia' ? PRICING.accelerate.myr : PRICING.accelerate.usd,
+                      market
+                    )}
                   </span>
                   <span className="text-secondary text-sm ml-2">fixed price</span>
                 </div>
                 <ul className="space-y-2.5 mb-8">
-                  {['Web + Mobile platforms', '4–6 month delivery', 'Full senior squad', '90-day post-launch support', 'Full IP ownership'].map(f => (
+                  {[
+                    'Web + Mobile platforms',
+                    '4–6 month delivery',
+                    'Full senior squad',
+                    '90-day post-launch support',
+                    'Full IP ownership',
+                  ].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-secondary">
                       <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                       {f}
@@ -190,7 +210,9 @@ export function GeoPage({
                   ))}
                 </ul>
                 <Button size="lg" variant="outline" className="w-full" asChild>
-                  <Link href="/strategy-session">Book a Strategy Call <ArrowRight className="h-4 w-4" /></Link>
+                  <Link href="/strategy-session">
+                    Book a Strategy Call <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -218,9 +240,7 @@ export function GeoPage({
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>What Clients Say</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-12">
-              Results that speak for themselves.
-            </h2>
+            <h2 className="text-section-h2 mt-3 mb-12">Results that speak for themselves.</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -262,9 +282,7 @@ export function GeoPage({
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <SectionLabel>Next Step</SectionLabel>
-            <h2 className="text-section-h2 mt-4 mb-6">
-              Tell us what you need to build.
-            </h2>
+            <h2 className="text-section-h2 mt-4 mb-6">Tell us what you need to build.</h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
               Adrian personally reviews every submission before the call. Not a junior sales rep.
               Not a template pitch deck. A real conversation about your operations.

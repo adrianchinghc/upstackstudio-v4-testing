@@ -35,21 +35,36 @@ const AI_TYPES = [
     title: 'Document & Data Intelligence',
     description:
       'Extract, classify, and act on information locked in documents, emails, and PDFs. Contracts, invoices, reports, compliance forms — AI reads them, structures the data, and routes it where it needs to go.',
-    examples: ['Invoice processing automation', 'Contract clause extraction', 'Compliance document review', 'Unstructured data classification'],
+    examples: [
+      'Invoice processing automation',
+      'Contract clause extraction',
+      'Compliance document review',
+      'Unstructured data classification',
+    ],
   },
   {
     icon: Cog,
     title: 'Operational AI Automation',
     description:
       'Connect AI to your existing workflows. Automate decisions that currently require a human to look at data and make a call — exception handling, demand forecasting, anomaly detection, prioritisation.',
-    examples: ['Inventory demand prediction', 'Maintenance schedule optimisation', 'Customer churn signals', 'Operations anomaly alerts'],
+    examples: [
+      'Inventory demand prediction',
+      'Maintenance schedule optimisation',
+      'Customer churn signals',
+      'Operations anomaly alerts',
+    ],
   },
   {
     icon: BrainCircuit,
     title: 'Internal AI Tools',
     description:
       'AI-powered tools your team actually uses — knowledge bases, internal search, operations co-pilots. Not a chatbot on your website. Tools that make your operations team faster and more accurate.',
-    examples: ['Internal knowledge assistant', 'Operations decision support', 'Meeting summary + action routing', 'Multi-system data Q&A'],
+    examples: [
+      'Internal knowledge assistant',
+      'Operations decision support',
+      'Meeting summary + action routing',
+      'Multi-system data Q&A',
+    ],
   },
 ]
 
@@ -116,7 +131,6 @@ const FAQS = [
 export default function AiIntegrationPage() {
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -131,16 +145,16 @@ export default function AiIntegrationPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-6 leading-relaxed">
-              You've sat through the demos. You've heard the claims. Most of it is either too vague or too
-              disconnected from how your business actually runs. We build AI that fits your operations — not a chatbot
-              bolted onto your homepage.
+              You've sat through the demos. You've heard the claims. Most of it is either too vague
+              or too disconnected from how your business actually runs. We build AI that fits your
+              operations — not a chatbot bolted onto your homepage.
             </p>
             <div className="rounded-xl border border-[var(--color-brand-sky)]/30 bg-[var(--color-brand-sky)]/5 p-5 mb-8 max-w-2xl">
               <p className="text-sm font-semibold text-sky-accent mb-1">Honest framing</p>
               <p className="text-sm text-secondary leading-relaxed">
-                We will tell you directly if AI isn't the right answer yet. You can't automate chaos. Most
-                companies need 60–90 days of operations work before AI becomes genuinely powerful. We'll tell you
-                exactly where you are.
+                We will tell you directly if AI isn't the right answer yet. You can't automate
+                chaos. Most companies need 60–90 days of operations work before AI becomes genuinely
+                powerful. We'll tell you exactly where you are.
               </p>
             </div>
           </AnimatedSection>
@@ -155,7 +169,9 @@ export default function AiIntegrationPage() {
                 <Link href="/work">See Our Work</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -165,10 +181,12 @@ export default function AiIntegrationPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>What We Build</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-4">Three types of AI integration that deliver measurable ROI.</h2>
+            <h2 className="text-section-h2 mt-3 mb-4">
+              Three types of AI integration that deliver measurable ROI.
+            </h2>
             <p className="text-secondary max-w-2xl mb-16">
-              Not every AI application is worth building. These three categories have the clearest ROI for established
-              companies — clear inputs, clear outputs, clear value.
+              Not every AI application is worth building. These three categories have the clearest
+              ROI for established companies — clear inputs, clear outputs, clear value.
             </p>
           </AnimatedSection>
 
@@ -203,8 +221,8 @@ export default function AiIntegrationPage() {
             <SectionLabel>Real Scenarios</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">AI that changed how operations run.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              These aren't proof-of-concepts. They're systems running in production, used daily by the teams
-              we built them for.
+              These aren't proof-of-concepts. They're systems running in production, used daily by
+              the teams we built them for.
             </p>
           </AnimatedSection>
 
@@ -214,13 +232,17 @@ export default function AiIntegrationPage() {
                 <div className="rounded-2xl border border-default bg-surface p-8 md:p-10">
                   <div className="grid md:grid-cols-5 gap-8">
                     <div className="md:col-span-3">
-                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">{scenario.label}</span>
+                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">
+                        {scenario.label}
+                      </span>
                       <h3 className="text-xl font-semibold mb-3">{scenario.problem}</h3>
                       <p className="text-secondary leading-relaxed">{scenario.detail}</p>
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">
+                          What we built
+                        </p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>
@@ -278,15 +300,17 @@ export default function AiIntegrationPage() {
               Not sure if you're AI-ready? That's exactly what we assess on the call.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              We'll tell you honestly where your operations stand, what needs to happen before AI makes sense, and
-              what a realistic timeline and investment looks like.
+              We'll tell you honestly where your operations stand, what needs to happen before AI
+              makes sense, and what a realistic timeline and investment looks like.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>

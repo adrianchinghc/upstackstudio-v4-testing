@@ -92,7 +92,8 @@ const CASE_STUDIES = [
     client: 'NiuAce for Builders',
     industry: 'Construction Tech',
     outcome: 'Completed on time, retained for ongoing work',
-    description: 'Construction management platform delivered on schedule, now in ongoing development.',
+    description:
+      'Construction management platform delivered on schedule, now in ongoing development.',
   },
   {
     client: 'Fitness Annotations',
@@ -109,11 +110,10 @@ export default function WorkPage() {
         {/* Header */}
         <AnimatedSection className="max-w-3xl mb-16 md:mb-20">
           <SectionLabel className="mb-4 block">Case Studies</SectionLabel>
-          <h1 className="text-page-title mb-6">
-            Work that moves businesses forward.
-          </h1>
+          <h1 className="text-page-title mb-6">Work that moves businesses forward.</h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Projects delivered across Malaysia, Australia, the US, UK, and the Netherlands. From 15× revenue growth to rebuilding failed projects — here's what we've built.
+            Projects delivered across Malaysia, Australia, the US, UK, and the Netherlands. From 15×
+            revenue growth to rebuilding failed projects — here's what we've built.
           </p>
         </AnimatedSection>
 
@@ -127,10 +127,12 @@ export default function WorkPage() {
                 </span>
                 <h2 className="text-section-title mb-4">BookXcess</h2>
                 <p className="text-lg text-secondary mb-6">
-                  When BookXcess needed to transform their ecommerce operations, we delivered a Shopify migration that drove results nobody expected.
+                  When BookXcess needed to transform their ecommerce operations, we delivered a
+                  Shopify migration that drove results nobody expected.
                 </p>
                 <blockquote className="text-base italic text-secondary border-l-2 border-[var(--color-brand-blue)] pl-4 mb-6">
-                  &ldquo;Brilliant job guys! Just brilliant! So many amazing changes in just a few days.&rdquo;
+                  &ldquo;Brilliant job guys! Just brilliant! So many amazing changes in just a few
+                  days.&rdquo;
                   <footer className="text-sm text-muted mt-2 not-italic">
                     — Andrew Yap, Founder
                   </footer>
@@ -148,7 +150,7 @@ export default function WorkPage() {
 
         {/* Case Studies Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {CASE_STUDIES.filter(cs => cs.client !== 'BookXcess').map((caseStudy, index) => (
+          {CASE_STUDIES.filter((cs) => cs.client !== 'BookXcess').map((caseStudy, index) => (
             <AnimatedSection key={caseStudy.client} delay={index * 0.05}>
               <CaseStudyCard {...caseStudy} />
             </AnimatedSection>
@@ -157,9 +159,7 @@ export default function WorkPage() {
 
         {/* CTA */}
         <AnimatedSection className="text-center">
-          <p className="text-lg text-secondary mb-6">
-            Ready to see what we can build for you?
-          </p>
+          <p className="text-lg text-secondary mb-6">Ready to see what we can build for you?</p>
           <Button asChild size="lg">
             <Link href="/strategy-session">
               Book a Strategy Call
