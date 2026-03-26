@@ -15,6 +15,8 @@ const eslintConfig = [
     rules: {
       // Font loaded via <link> in layout.tsx head — intended for App Router
       "@next/next/no-page-custom-font": "off",
+      // Allow unescaped apostrophes in JSX text content
+      "react/no-unescaped-entities": "off",
     },
   },
 ];

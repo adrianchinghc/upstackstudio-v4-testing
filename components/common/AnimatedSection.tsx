@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -36,6 +36,7 @@ export function AnimatedSection({
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once, margin: '-40px' })
+  const prefersReducedMotion = useReducedMotion()
 
   const getInitialPosition = () => {
     switch (direction) {
@@ -50,6 +51,15 @@ export function AnimatedSection({
   const transition = spring
     ? { type: 'spring' as const, duration: 0.5, bounce: 0.15, delay }
     : { duration, delay, ease: direction === 'none' ? EASE_IN_OUT : EASE_OUT }
+
+  // Respect prefers-reduced-motion: skip all animations, render immediately
+  if (prefersReducedMotion) {
+    return (
+      <div ref={ref} className={cn(className)}>
+        {children}
+      </div>
+    )
+  }
 
   return (
     <motion.div
