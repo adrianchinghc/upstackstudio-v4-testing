@@ -63,7 +63,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all whitespace-nowrap ${
                   selectedCategory === cat
                     ? 'bg-[var(--color-brand-navy)] text-white dark:bg-[var(--color-brand-sky)] dark:text-[var(--color-brand-black)]'
-                    : 'bg-surface border border-default text-secondary hover:border-[var(--color-brand-sky)]'
+                    : 'bg-surface border border-default text-secondary hover:border-sky-faint'
                 }`}
               >
                 {cat}
@@ -80,7 +80,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <div className="text-center py-20">
               <BookOpen className="h-12 w-12 text-muted mx-auto mb-4" />
               <p className="text-lg text-secondary mb-2">No posts in this category yet.</p>
-              <Link href="/blog" className="text-[var(--color-brand-sky)] hover:underline text-sm">
+              <Link href="/blog" className="text-sky-accent hover:underline text-sm">
                 View all posts
               </Link>
             </div>
@@ -90,10 +90,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <AnimatedSection key={post.slug} delay={i * 0.04}>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group block h-full rounded-2xl border border-default bg-surface p-6 hover:border-[var(--color-brand-sky)] transition-colors"
+                    className="group block h-full rounded-2xl border border-default bg-surface p-6 hover:border-sky-faint transition-colors"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="rounded-full bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]">
+                      <span className="rounded-full bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-navy)] dark:text-sky-accent">
                         {post.category}
                       </span>
                       <span className="text-xs text-muted flex items-center gap-1">
@@ -101,7 +101,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         {post.readingTime}
                       </span>
                     </div>
-                    <h2 className="font-semibold text-base leading-snug mb-3 group-hover:text-[var(--color-brand-sky)] transition-colors line-clamp-2">
+                    <h2 className="font-semibold text-base leading-snug mb-3 group-hover:text-sky-accent transition-colors line-clamp-2">
                       {post.title}
                     </h2>
                     <p className="text-sm text-secondary line-clamp-3 leading-relaxed mb-4">
@@ -109,7 +109,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     </p>
                     <div className="flex items-center justify-between text-xs text-muted">
                       <span>{post.date}</span>
-                      <ArrowRight className="h-3.5 w-3.5 group-hover:text-[var(--color-brand-sky)] transition-colors" />
+                      <ArrowRight className="h-3.5 w-3.5 group-hover:text-sky-accent transition-colors" />
                     </div>
                   </Link>
                 </AnimatedSection>
@@ -148,7 +148,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           <AnimatedSection>
             <h2 className="text-section-h2 mb-4">Ready to stop reading and start building?</h2>
             <p className="text-secondary mb-8">
-              Building something like this? Let&apos;s talk about what it would take.
+              Building something like this? Let's talk about what it would take.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">

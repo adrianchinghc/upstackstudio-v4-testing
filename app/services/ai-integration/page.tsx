@@ -125,21 +125,21 @@ export default function AiIntegrationPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
-              AI isn&apos;t magic. But in the right place, it&apos;s the{' '}
-              <span className="text-[var(--color-brand-sky)]">highest-ROI</span> investment you can make.
+              AI isn't magic. But in the right place, it's the{' '}
+              <span className="text-sky-accent">highest-ROI</span> investment you can make.
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-6 leading-relaxed">
-              You&apos;ve sat through the demos. You&apos;ve heard the claims. Most of it is either too vague or too
+              You've sat through the demos. You've heard the claims. Most of it is either too vague or too
               disconnected from how your business actually runs. We build AI that fits your operations — not a chatbot
               bolted onto your homepage.
             </p>
             <div className="rounded-xl border border-[var(--color-brand-sky)]/30 bg-[var(--color-brand-sky)]/5 p-5 mb-8 max-w-2xl">
-              <p className="text-sm font-semibold text-[var(--color-brand-sky)] mb-1">Honest framing</p>
+              <p className="text-sm font-semibold text-sky-accent mb-1">Honest framing</p>
               <p className="text-sm text-secondary leading-relaxed">
-                We will tell you directly if AI isn&apos;t the right answer yet. You can&apos;t automate chaos. Most
-                companies need 60–90 days of operations work before AI becomes genuinely powerful. We&apos;ll tell you
+                We will tell you directly if AI isn't the right answer yet. You can't automate chaos. Most
+                companies need 60–90 days of operations work before AI becomes genuinely powerful. We'll tell you
                 exactly where you are.
               </p>
             </div>
@@ -177,7 +177,7 @@ export default function AiIntegrationPage() {
               <AnimatedSection key={type.title} delay={i * 0.1}>
                 <div className="h-full rounded-2xl border border-default bg-page p-8">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 mb-5">
-                    <type.icon className="h-5 w-5 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                    <type.icon className="h-5 w-5 text-[var(--color-brand-navy)] dark:text-sky-accent" />
                   </div>
                   <h3 className="text-card-title mb-3">{type.title}</h3>
                   <p className="text-secondary text-sm leading-relaxed mb-5">{type.description}</p>
@@ -203,7 +203,7 @@ export default function AiIntegrationPage() {
             <SectionLabel>Real Scenarios</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">AI that changed how operations run.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              These aren&apos;t proof-of-concepts. They&apos;re systems running in production, used daily by the teams
+              These aren't proof-of-concepts. They're systems running in production, used daily by the teams
               we built them for.
             </p>
           </AnimatedSection>
@@ -220,7 +220,7 @@ export default function AiIntegrationPage() {
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-sky)] mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>
@@ -275,10 +275,10 @@ export default function AiIntegrationPage() {
           <AnimatedSection>
             <SectionLabel>Next Step</SectionLabel>
             <h2 className="text-section-h2 mt-4 mb-6">
-              Not sure if you&apos;re AI-ready? That&apos;s exactly what we assess on the call.
+              Not sure if you're AI-ready? That's exactly what we assess on the call.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              We&apos;ll tell you honestly where your operations stand, what needs to happen before AI makes sense, and
+              We'll tell you honestly where your operations stand, what needs to happen before AI makes sense, and
               what a realistic timeline and investment looks like.
             </p>
             <Button size="lg" asChild>

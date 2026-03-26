@@ -103,7 +103,7 @@ export function Navbar() {
                           className={cn(
                             'block px-4 py-2.5 text-sm transition-colors',
                             pathname === child.href
-                              ? 'text-[var(--color-brand-sky)] bg-surface-2'
+                              ? 'text-sky-accent bg-surface-2'
                               : 'text-secondary hover:text-[var(--text)] hover:bg-surface-2'
                           )}
                         >
@@ -148,7 +148,7 @@ export function Navbar() {
                     className={cn(
                       'block px-4 py-3 text-base font-medium transition-colors rounded-lg',
                       pathname === link.href
-                        ? 'text-[var(--color-brand-sky)] bg-surface'
+                        ? 'text-sky-accent bg-surface'
                         : 'text-secondary hover:text-[var(--text)] hover:bg-surface'
                     )}
                   >
@@ -163,7 +163,7 @@ export function Navbar() {
                           className={cn(
                             'block px-3 py-2 text-sm transition-colors',
                             pathname === child.href
-                              ? 'text-[var(--color-brand-sky)]'
+                              ? 'text-sky-accent'
                               : 'text-muted hover:text-[var(--text)]'
                           )}
                         >

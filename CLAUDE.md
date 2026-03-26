@@ -43,34 +43,47 @@ Do NOT produce a Webflow template. Do NOT produce a generic SaaS landing page. B
 
 ## BRAND TOKENS — NON-NEGOTIABLE
 
-From the official brand guidelines (Upstack_brand_guideline.pdf). These cannot be changed by any tool or skill.
+From the official brand guidelines (upstack-studio-brand.pdf, March 2025). These cannot be changed by any tool or skill.
 
 ### Colours
 ```css
---brand-navy:   #302D83;   /* Primary brand colour */
---brand-sky:    #75C7DA;   /* Accent — surgical use only, never as fills */
---brand-black:  #231F20;
---brand-grey:   #414042;
+/* Primary palette — from brand PDF */
+--brand-blue:   #0A4DFF;   /* Primary brand blue */
+--brand-lime:   #E6FE52;   /* Electric lime accent — use sparingly for highlights */
+--brand-black:  #000000;
+--brand-grey:   #BDBDBD;
+--brand-white:  #FFFFFF;
 
-/* CTA gradient — primary buttons and hero accents */
---cta-gradient: linear-gradient(197.95deg, #0099FF 0%, #1300FF 100%);
+/* Gradients — from brand PDF */
+--gradient-text: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);  /* Cyan to blue, for text */
+--gradient-cta:  linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);  /* Blue gradient, for CTA buttons */
+--gradient-glow: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);  /* Soft cyan glow */
 
 /* Dark mode tokens */
---bg:           #05050a;
---surface:      #0f0e18;
---surface-2:    #12111e;
---border:       #1e1d2e;
---muted:        #6b6880;
---text:         #e8e8f4;
+--bg:           #000000;
+--surface:      #0a0a0a;
+--surface-2:    #141414;
+--border:       #262626;
+--muted:        #737373;
+--text:         #FFFFFF;
 
 /* Light mode tokens */
---bg-light:       #fafafa;
---surface-light:  #ffffff;
---surface-2-light:#f4f3fa;
---border-light-m: #e4e3ef;
---muted-light:    #8e8ba0;
---text-light:     #1a1928;
+--bg-light:       #FFFFFF;
+--surface-light:  #FAFAFA;
+--surface-2-light:#F5F5F5;
+--border-light:   #E5E5E5;
+--muted-light:    #737373;
+--text-light:     #000000;
 ```
+
+### Colour Usage Guidelines
+| Color | Usage | Notes |
+|-------|-------|-------|
+| `--brand-blue` #0A4DFF | Primary CTAs, links, key highlights | Main brand color |
+| `--brand-lime` #E6FE52 | Accent moments, badges, success states | Use sparingly — high contrast |
+| `--gradient-text` | Hero headlines, feature text | Cyan → Blue direction |
+| `--gradient-cta` | Primary buttons | Blue-only gradient |
+| `--gradient-glow` | Subtle background effects | Soft cyan radial |
 
 ### Typography
 **Primary (headings, display, stat numbers):** Bricolage Grotesque
@@ -157,16 +170,16 @@ export function ThemeToggle() {
 ```css
 /* globals.css */
 :root {
-  --bg: #fafafa; --surface: #ffffff; --surface-2: #f4f3fa;
-  --border: #e4e3ef; --muted: #8e8ba0; --text: #1a1928;
+  --bg: #FFFFFF; --surface: #FAFAFA; --surface-2: #F5F5F5;
+  --border: #E5E5E5; --muted: #737373; --text: #000000;
 }
 .dark {
-  --bg: #05050a; --surface: #0f0e18; --surface-2: #12111e;
-  --border: #1e1d2e; --muted: #6b6880; --text: #e8e8f4;
+  --bg: #000000; --surface: #0a0a0a; --surface-2: #141414;
+  --border: #262626; --muted: #737373; --text: #FFFFFF;
 }
 ```
 
-**Light mode quality bar:** Light mode is not an afterthought. It must look equally premium. Use brand navy as strong accent. The `--brand-sky` accent works on both modes. Test every section in both modes before marking complete.
+**Light mode quality bar:** Light mode is not an afterthought. It must look equally premium. Use brand blue (#0A4DFF) as strong accent. The lime (#E6FE52) accent can be used sparingly for highlights in both modes. Test every section in both modes before marking complete.
 
 ---
 
@@ -833,6 +846,6 @@ git push origin main --tags
 *Stack: Next.js 15 App Router · TypeScript · Tailwind · next-themes · shadcn/ui v4 · Magic UI · Framer Motion*
 *Tools: UI UX Pro Max · @21st-dev/magic · 21st.dev registry · shadcn/ui MCP*
 *Skills: frontend-design · copywriting · page-cro · copy-editing · form-cro · marketing-psychology*
-*Design: Bricolage Grotesque + Inter · #302D83 navy · #75C7DA sky · Light + Dark mode*
+*Design: Bricolage Grotesque + Inter · #0A4DFF blue · #E6FE52 lime · Light + Dark mode*
 *Positioning: AI-enabled software engineering · ICP: RM20M–RM100M+ established companies*
 *MANDATE: Bold, memorable, architecturally significant. Never a Webflow template.*

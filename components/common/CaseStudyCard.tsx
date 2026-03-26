@@ -25,13 +25,13 @@ export function CaseStudyCard({
     <div
       className={cn(
         'group relative flex flex-col gap-4 rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all',
-        slug && 'hover:border-[var(--color-brand-sky)]/50 cursor-pointer',
+        slug && 'hover:border-[var(--color-brand-blue)]/50 cursor-pointer',
         featured && 'md:col-span-2 bg-surface-2',
         className
       )}
     >
       {/* Industry badge */}
-      <span className="inline-flex self-start rounded-full bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]">
+      <span className="inline-flex self-start rounded-full bg-[var(--color-brand-blue)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-blue)]">
         {industry}
       </span>
 
@@ -45,7 +45,7 @@ export function CaseStudyCard({
 
       {/* Outcome - the key metric */}
       <p className={cn(
-        'text-lg font-semibold text-[var(--color-brand-sky)]',
+        'text-lg font-semibold text-gradient',
         featured && 'text-2xl md:text-3xl'
       )}>
         {outcome}
@@ -60,7 +60,7 @@ export function CaseStudyCard({
 
       {/* Link indicator */}
       {slug && (
-        <div className="flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-sky)] transition-colors mt-auto pt-4">
+        <div className="flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-blue)] transition-colors mt-auto pt-4">
           View case study
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </div>

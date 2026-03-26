@@ -111,7 +111,7 @@ export default function CustomPlatformDevelopmentPage() {
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
               When off-the-shelf software stops fitting —{' '}
-              <span className="text-[var(--color-brand-sky)]">we build what actually works.</span>
+              <span className="text-sky-accent">we build what actually works.</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
@@ -148,8 +148,8 @@ export default function CustomPlatformDevelopmentPage() {
                   Off-the-shelf software is designed for the average business.
                 </h2>
                 <p className="text-secondary leading-relaxed">
-                  Yours isn&apos;t average. Your approval chains, your data relationships, your exception handling —
-                  all have specific requirements that generic platforms weren&apos;t designed for. By year two, the
+                  Yours isn't average. Your approval chains, your data relationships, your exception handling —
+                  all have specific requirements that generic platforms weren't designed for. By year two, the
                   workaround cost exceeds what a custom build would have cost from the start.
                 </p>
               </div>
@@ -157,7 +157,7 @@ export default function CustomPlatformDevelopmentPage() {
                 <ul className="space-y-3">
                   {WHY_NOT_OFF_SHELF.map((reason) => (
                     <li key={reason} className="flex items-start gap-3 text-sm text-secondary">
-                      <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                      <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                       {reason}
                     </li>
                   ))}
@@ -174,7 +174,7 @@ export default function CustomPlatformDevelopmentPage() {
           <AnimatedSection>
             <div className="flex items-start gap-5 mb-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 shrink-0 mt-1">
-                <Smartphone className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                <Smartphone className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-sky-accent" />
               </div>
               <div>
                 <SectionLabel>Mobile App Development Malaysia</SectionLabel>
@@ -209,7 +209,7 @@ export default function CustomPlatformDevelopmentPage() {
           <AnimatedSection>
             <div className="flex items-start gap-5 mb-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 shrink-0 mt-1">
-                <Globe className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                <Globe className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-sky-accent" />
               </div>
               <div>
                 <SectionLabel>Web App Development Malaysia</SectionLabel>
@@ -245,7 +245,7 @@ export default function CustomPlatformDevelopmentPage() {
           <AnimatedSection>
             <div className="flex items-start gap-5 mb-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 shrink-0 mt-1">
-                <Layers className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                <Layers className="h-6 w-6 text-[var(--color-brand-navy)] dark:text-sky-accent" />
               </div>
               <div>
                 <SectionLabel>PWA Development Malaysia</SectionLabel>
@@ -280,7 +280,7 @@ export default function CustomPlatformDevelopmentPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>Real Scenarios</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-4">Projects we&apos;ve delivered.</h2>
+            <h2 className="text-section-h2 mt-3 mb-4">Projects we've delivered.</h2>
             <p className="text-secondary max-w-2xl mb-16">
               Delivered across Malaysia, Australia, the US, the UK, and the Netherlands.
             </p>
@@ -298,7 +298,7 @@ export default function CustomPlatformDevelopmentPage() {
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-sky)] mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>
@@ -353,10 +353,10 @@ export default function CustomPlatformDevelopmentPage() {
           <AnimatedSection>
             <SectionLabel>Next Step</SectionLabel>
             <h2 className="text-section-h2 mt-4 mb-6">
-              Tell us what you need to build. We&apos;ll tell you how we&apos;d build it.
+              Tell us what you need to build. We'll tell you how we'd build it.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              We work best with companies that know what problem they&apos;re solving — even if they don&apos;t know
+              We work best with companies that know what problem they're solving — even if they don't know
               what the solution looks like yet. Come to the call with the problem. Leave with a plan.
             </p>
             <Button size="lg" asChild>

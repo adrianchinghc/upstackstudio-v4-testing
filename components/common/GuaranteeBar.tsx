@@ -1,12 +1,6 @@
 import { cn } from '@/lib/utils'
 import { CheckCircle } from 'lucide-react'
-
-const GUARANTEES = [
-  '2-Week Risk-Free Trial',
-  'No Extra Charge for Our Delays',
-  'Transparent Pricing',
-  '24-Hour Response SLA',
-] as const
+import { GUARANTEES } from '@/lib/constants'
 
 interface GuaranteeBarProps {
   className?: string
@@ -31,7 +25,7 @@ export function GuaranteeBar({ className, variant = 'default' }: GuaranteeBarPro
           )}
         >
           <CheckCircle className={cn(
-            'text-[var(--color-brand-sky)] shrink-0',
+            'icon-brand-blue shrink-0',
             variant === 'default' ? 'h-5 w-5' : 'h-4 w-4'
           )} />
           <span className={cn(

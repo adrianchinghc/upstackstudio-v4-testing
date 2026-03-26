@@ -32,7 +32,7 @@ export default function ContactPage() {
 
               <Link
                 href="/strategy-session"
-                className="inline-flex items-center gap-2 text-[var(--color-brand-sky)] hover:underline font-medium mb-12"
+                className="inline-flex items-center gap-2 text-sky-accent hover:underline font-medium mb-12"
               >
                 Looking to start a project? Book a Strategy Call
                 <ArrowRight className="h-4 w-4" />
@@ -41,7 +41,7 @@ export default function ContactPage() {
               {/* Location */}
               <div className="flex items-start gap-4 mb-8">
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface border border-default">
-                  <MapPin className="h-5 w-5 text-[var(--color-brand-sky)]" />
+                  <MapPin className="h-5 w-5 text-sky-accent" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Location</h3>

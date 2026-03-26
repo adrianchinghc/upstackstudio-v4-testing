@@ -105,13 +105,13 @@ export default function OperationsDigitalisationPage() {
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
               Stop running your business on{' '}
-              <span className="text-[var(--color-brand-sky)]">spreadsheets</span> and WhatsApp chains.
+              <span className="text-sky-accent">spreadsheets</span> and WhatsApp chains.
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
               Every day your team copies data between systems, chases approvals over group chats, and re-enters
-              information that should flow automatically — that&apos;s revenue leaking through process gaps. We map
+              information that should flow automatically — that's revenue leaking through process gaps. We map
               your operations, design the system, and build it. Built on the LUDA™ Framework.
             </p>
           </AnimatedSection>
@@ -136,7 +136,7 @@ export default function OperationsDigitalisationPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>Real Scenarios</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-4">Operations problems we&apos;ve solved.</h2>
+            <h2 className="text-section-h2 mt-3 mb-4">Operations problems we've solved.</h2>
             <p className="text-secondary max-w-2xl mb-16">
               Not hypotheticals. These are the exact types of engagements we run — described in the same terms our
               clients used before we started.
@@ -151,7 +151,7 @@ export default function OperationsDigitalisationPage() {
                     <div className="md:col-span-3">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10">
-                          <scenario.icon className="h-4 w-4 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                          <scenario.icon className="h-4 w-4 text-[var(--color-brand-navy)] dark:text-sky-accent" />
                         </div>
                         <span className="text-xs font-semibold tracking-widest uppercase text-muted">{scenario.label}</span>
                       </div>
@@ -160,7 +160,7 @@ export default function OperationsDigitalisationPage() {
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-sky)] mb-3">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">
                           What we built
                         </p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
@@ -217,7 +217,7 @@ export default function OperationsDigitalisationPage() {
           <AnimatedSection>
             <SectionLabel>Next Step</SectionLabel>
             <h2 className="text-section-h2 mt-4 mb-6">
-              Tell us what&apos;s broken. We&apos;ll tell you what it costs to fix it.
+              Tell us what's broken. We'll tell you what it costs to fix it.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
               Adrian personally reviews every submission before the call. Not a junior sales rep. Not a template

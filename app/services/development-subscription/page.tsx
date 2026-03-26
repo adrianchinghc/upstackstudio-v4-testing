@@ -153,12 +153,12 @@ export default function DevelopmentSubscriptionPage() {
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
               Your platform launched. Now it needs to{' '}
-              <span className="text-[var(--color-brand-sky)]">keep up with your business.</span>
+              <span className="text-sky-accent">keep up with your business.</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              Software doesn&apos;t stand still. Your business doesn&apos;t stand still. The Development Subscription
+              Software doesn't stand still. Your business doesn't stand still. The Development Subscription
               gives you a dedicated senior team, a predictable monthly cost, and continuous delivery — without the
               overhead of managing a development team in-house.
             </p>
@@ -188,11 +188,11 @@ export default function DevelopmentSubscriptionPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>Included in Every Tier</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-10">The baseline we don&apos;t negotiate on.</h2>
+            <h2 className="text-section-h2 mt-3 mb-10">The baseline we don't negotiate on.</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {INCLUDED_ALL.map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-xl border border-default bg-page p-5">
-                  <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                  <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                   <span className="text-sm text-secondary">{item}</span>
                 </div>
               ))}
@@ -250,7 +250,7 @@ export default function DevelopmentSubscriptionPage() {
                   <ul className="space-y-2.5 flex-1 mb-8">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2.5 text-sm text-secondary">
-                        <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                        <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                         {feature}
                       </li>
                     ))}
@@ -279,7 +279,7 @@ export default function DevelopmentSubscriptionPage() {
 
           <AnimatedSection delay={0.3}>
             <p className="text-center text-sm text-muted mt-8">
-              Not sure which tier fits? Book a strategy call — we&apos;ll match you to the right level based on your
+              Not sure which tier fits? Book a strategy call — we'll match you to the right level based on your
               platform and roadmap.
             </p>
           </AnimatedSection>
@@ -329,11 +329,11 @@ export default function DevelopmentSubscriptionPage() {
           <AnimatedSection>
             <SectionLabel>Get Started</SectionLabel>
             <h2 className="text-section-h2 mt-4 mb-6">
-              Your platform needs to grow. Let&apos;s make sure it does.
+              Your platform needs to grow. Let's make sure it does.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
               Book a strategy call to discuss your platform, your roadmap, and which subscription tier makes
-              sense. We&apos;ll onboard within one week of agreement.
+              sense. We'll onboard within one week of agreement.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">

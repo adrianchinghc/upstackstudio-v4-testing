@@ -73,9 +73,9 @@ export default function ServicesPage() {
         <AnimatedSection className="max-w-3xl mb-16 md:mb-20">
           <SectionLabel className="mb-4 block">Services</SectionLabel>
           <h1 className="text-page-title mb-6">
-            We don&apos;t build apps.
+            We don't build apps.
             <br />
-            <span className="text-[var(--color-brand-sky)]">
+            <span className="text-sky-accent">
               We build the infrastructure your business runs on.
             </span>
           </h1>
@@ -91,16 +91,16 @@ export default function ServicesPage() {
               <AnimatedSection key={service.title} delay={index * 0.1}>
                 <Link
                   href={service.href}
-                  className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-[var(--color-brand-sky)]/50"
+                  className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-sky-faint"
                 >
-                  <service.icon className="h-10 w-10 text-[var(--color-brand-sky)] mb-4" />
-                  <h3 className="text-card-title mb-3 group-hover:text-[var(--color-brand-sky)] transition-colors">
+                  <service.icon className="h-10 w-10 text-sky-accent mb-4" />
+                  <h3 className="text-card-title mb-3 group-hover:text-sky-accent transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-secondary text-base leading-relaxed mb-4 flex-1">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-sky)] transition-colors mt-auto">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-sky-accent transition-colors mt-auto">
                     Learn more
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -123,7 +123,7 @@ export default function ServicesPage() {
             {PROCESS_STEPS.map((step, index) => (
               <AnimatedSection key={step.number} delay={index * 0.1}>
                 <div className="relative">
-                  <span className="text-6xl font-extrabold text-[var(--color-brand-sky)]/20 font-display absolute -top-4 left-0">
+                  <span className="text-6xl font-extrabold text-sky-accent/20 font-display absolute -top-4 left-0">
                     {step.number}
                   </span>
                   <div className="pt-8">

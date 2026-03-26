@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <AnimatedSection>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-muted hover:text-[var(--color-brand-sky)] transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm text-muted hover:text-sky-accent transition-colors mb-8"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to Blog
@@ -123,10 +123,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Inline CTA - appears at end of article */}
-          <div className="mt-16 rounded-2xl border border-[var(--color-brand-sky)]/30 bg-[var(--color-brand-sky)]/5 p-8 text-center">
+          <div className="mt-16 rounded-2xl border border-sky-faint bg-sky-faint p-8 text-center">
             <SectionLabel>Next Step</SectionLabel>
             <h2 className="text-2xl font-bold mt-3 mb-3">
-              Building something like this? Let&apos;s talk.
+              Building something like this? Let's talk.
             </h2>
             <p className="text-secondary mb-6 max-w-sm mx-auto text-sm">
               45 minutes with Adrian. No scripts. No generic questions. A real conversation about your operations.
@@ -153,13 +153,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <AnimatedSection key={relPost.slug} delay={i * 0.08}>
                   <Link
                     href={`/blog/${relPost.slug}`}
-                    className="group block h-full rounded-2xl border border-default bg-page p-6 hover:border-[var(--color-brand-sky)] transition-colors"
+                    className="group block h-full rounded-2xl border border-default bg-page p-6 hover:border-sky-faint transition-colors"
                   >
                     <span className="text-xs text-muted flex items-center gap-1 mb-3">
                       <Clock className="h-3 w-3" />
                       {relPost.readingTime}
                     </span>
-                    <h3 className="font-semibold text-sm leading-snug mb-2 group-hover:text-[var(--color-brand-sky)] transition-colors line-clamp-2">
+                    <h3 className="font-semibold text-sm leading-snug mb-2 group-hover:text-sky-accent transition-colors line-clamp-2">
                       {relPost.title}
                     </h3>
                     <p className="text-xs text-secondary line-clamp-2">{relPost.description}</p>

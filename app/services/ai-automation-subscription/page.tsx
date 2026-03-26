@@ -135,7 +135,7 @@ export default function AiAutomationSubscriptionPage() {
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
               Automate operations. Eliminate manual work.{' '}
-              <span className="text-[var(--color-brand-sky)]">Scale without adding headcount.</span>
+              <span className="text-sky-accent">Scale without adding headcount.</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
@@ -167,9 +167,9 @@ export default function AiAutomationSubscriptionPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionLabel>What We Automate</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-4">The manual work that shouldn&apos;t be manual.</h2>
+            <h2 className="text-section-h2 mt-3 mb-4">The manual work that shouldn't be manual.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              If someone on your team is copying, pasting, routing, or re-entering data — that&apos;s an automation
+              If someone on your team is copying, pasting, routing, or re-entering data — that's an automation
               waiting to happen. We find them and build them.
             </p>
           </AnimatedSection>
@@ -179,7 +179,7 @@ export default function AiAutomationSubscriptionPage() {
               <AnimatedSection key={item.title} delay={i * 0.08}>
                 <div className="h-full rounded-2xl border border-default bg-page p-8">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10 mb-5">
-                    <item.icon className="h-5 w-5 text-[var(--color-brand-navy)] dark:text-[var(--color-brand-sky)]" />
+                    <item.icon className="h-5 w-5 text-[var(--color-brand-navy)] dark:text-sky-accent" />
                   </div>
                   <h3 className="text-card-title mb-3">{item.title}</h3>
                   <p className="text-secondary text-sm leading-relaxed">{item.description}</p>
@@ -216,7 +216,7 @@ export default function AiAutomationSubscriptionPage() {
             <SectionLabel>Real Scenarios</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">What automation looks like in practice.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              These are examples from the types of workflows we&apos;ve automated for clients across different industries.
+              These are examples from the types of workflows we've automated for clients across different industries.
             </p>
           </AnimatedSection>
 
@@ -232,7 +232,7 @@ export default function AiAutomationSubscriptionPage() {
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-sky)] mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>
@@ -290,7 +290,7 @@ export default function AiAutomationSubscriptionPage() {
               Start with your highest-cost manual process.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              Tell us where your team is spending time they shouldn&apos;t be. We&apos;ll map the automation
+              Tell us where your team is spending time they shouldn't be. We'll map the automation
               opportunity and tell you exactly what it would take to eliminate it.
             </p>
             <Button size="lg" asChild>

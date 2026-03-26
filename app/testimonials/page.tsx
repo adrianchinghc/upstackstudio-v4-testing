@@ -20,7 +20,8 @@ const TESTIMONIALS = [
     quote: "Brilliant job guys! Just brilliant! So many amazing changes in just a few days. Thank you for the quick response to our predicament. You really don't know how much this means to us. I owe you guys the biggest favour.",
     author: 'Andrew Yap',
     role: 'Founder',
-    company: 'BookXcess & Big Bad Wolf Books',
+    company: 'BookXcess',
+    image: '/images/clients/andrewyap.png',
     featured: true,
   },
   {
@@ -28,54 +29,63 @@ const TESTIMONIALS = [
     author: 'Mark Choo',
     role: 'Ex-CEO',
     company: 'Teleme',
+    image: '/images/clients/mark-choo.webp',
   },
   {
     quote: 'Pleasant experience working with a team of professionals who were responsive and reliable. Most impressive was that the entire team from Upstack Studio went above and beyond to ensure the deliverables and deadline were met.',
     author: 'Eddy How',
     role: 'Deputy Manager',
     company: 'Magnum 4D Berhad',
+    image: '/images/clients/eddyhow.png',
   },
   {
     quote: 'I was impressed by their knowledge on web design, user experience, and optimization. The total app delivery process exceeded our expectations with remarkable turnaround speed.',
     author: 'Heidzir Jamarajid',
     role: 'IT Administrator',
     company: 'The Malaysian Insight',
+    image: '/images/clients/heidzirjamaraji.png',
   },
   {
     quote: "We worked closely with Adrian and his team during the project and their response was very quick and timely. Work is delivered on time and sometimes, they even go out of their way to complete urgent tasks which we really appreciate.",
     author: 'Dinie Johari',
     role: 'Assistant Manager',
     company: 'BookXcess',
+    image: '/images/clients/diniejohari.png',
   },
   {
     quote: 'Adrian and his team were very agile and responsive. They are very transparent in their communication and operations throughout the project as we\'re always able to reach them whenever we need to.',
     author: 'Bon Chee Fong',
     role: 'Project Coordinator',
     company: 'OneStop Manpower',
+    image: '/images/clients/cheefongbon.png',
   },
   {
     quote: "They were very patient in dealing with us, which we appreciated, as we're not a technology company.",
     author: 'Siyuan Lye',
     role: 'Ex-Head of Marketing',
     company: 'Whitman Independent Advisors',
+    image: '/images/clients/siyuan.jpeg',
   },
   {
     quote: 'The management team are satisfied with the deliverables, and decided to continue engaging Upstack team for the ongoing product enhancement and support. Upstack Team was able to complete the project within the agreeable timeframe. We were very satisfied with their work every step of the way.',
     author: 'Tan Loo Toon',
     role: 'CTO',
     company: 'NiuAce for Builders',
+    image: '/images/clients/loo-toon-tan.jpg',
   },
   {
     quote: 'They made sure the prototype was better than what I imagined initially. Very approachable and very easy to work with.',
     author: 'Chien Yee Tan',
     role: 'Founder',
     company: 'PriverCar',
+    image: '/images/clients/chienyeetan.png',
   },
   {
     quote: "Working with Adrian and his team was a great experience. They handled everything professionally and made sure to address any potential issues before delivering the project. Even when our requirements changed, they were patient and worked with us to make the necessary adjustments, explaining everything clearly. Their dedication and passion made a huge difference compared to other vendors. They didn't just deliver and leave; they supported us every step of the way.",
     author: 'Ivan Lee',
     role: 'Executive Committee Member',
     company: 'AFA Malaysia',
+    image: '/images/clients/ivan-lee.png',
     featured: true,
   },
   {
@@ -83,6 +93,7 @@ const TESTIMONIALS = [
     author: 'MaoSheng Toh',
     role: 'Co-founder',
     company: 'Poof Cafe',
+    image: '/images/clients/maoshengtoh.png',
   },
 ]
 
@@ -127,7 +138,7 @@ export default function TestimonialsPage() {
             What our clients say.
           </h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Real testimonials from real companies. Every word here is verbatim from our clients — we don&apos;t paraphrase or summarize.
+            Real testimonials from real companies. Every word here is verbatim from our clients — we don't paraphrase or summarize.
           </p>
         </AnimatedSection>
 
@@ -149,7 +160,8 @@ export default function TestimonialsPage() {
                   <div className="aspect-video">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}`}
-                      title={`${video.author} Testimonial`}
+                      title={`${video.author} - ${video.company} Testimonial`}
+                      loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"

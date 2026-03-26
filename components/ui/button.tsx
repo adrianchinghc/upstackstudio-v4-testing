@@ -4,22 +4,22 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-150 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-sky)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-150 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-blue)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]',
   {
     variants: {
       variant: {
         default:
-          'bg-cta-gradient text-white shadow-sm hover:opacity-90',
+          'bg-cta-gradient text-white shadow-md hover:shadow-lg hover:opacity-95',
         destructive:
           'bg-red-600 text-white shadow-sm hover:bg-red-700',
         outline:
-          'border border-default bg-transparent hover:bg-surface text-[var(--text)]',
+          'border border-default bg-transparent hover:bg-surface hover:border-[var(--color-brand-blue)]/30 text-[var(--text)]',
         secondary:
           'bg-surface-2 text-[var(--text)] shadow-sm hover:bg-surface',
         ghost:
           'hover:bg-surface text-[var(--text)]',
         link:
-          'text-[var(--color-brand-sky)] underline-offset-4 hover:underline',
+          'text-[var(--color-brand-blue)] underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 px-5 py-2',

@@ -32,12 +32,12 @@ const VALUES = [
   },
   {
     title: 'Uncompromising Standards',
-    description: 'We push back on bad features. We tell you the truth about what&apos;s possible. We don&apos;t cut corners.',
+    description: "We push back on bad features. We tell you the truth about what's possible. We don't cut corners.",
     icon: ShieldCheck,
   },
   {
     title: 'Proactive by Default',
-    description: 'We don&apos;t wait for problems to become crises. We flag issues early, propose solutions, and move fast.',
+    description: "We don't wait for problems to become crises. We flag issues early, propose solutions, and move fast.",
     icon: Zap,
   },
   {
@@ -49,7 +49,7 @@ const VALUES = [
 
 const WHY_US = [
   'The people who pitch you are the people who build for you.',
-  'We tell you the truth about what&apos;s possible — even when it&apos;s not what you want to hear.',
+  "We tell you the truth about what's possible — even when it's not what you want to hear.",
   'No juniors, no interns on design or development.',
   'Bi-weekly calls. Slack always open. You always know where your project stands.',
   'If we cause delays, we pay for them — not you.',
@@ -68,7 +68,7 @@ const QUALIFYING_QUESTIONS = [
   },
   {
     question: 'Why us?',
-    description: 'Are we the right team for this specific problem? Sometimes we&apos;re not — and we&apos;ll tell you.',
+    description: "Are we the right team for this specific problem? Sometimes we're not — and we'll tell you.",
   },
 ]
 
@@ -89,20 +89,20 @@ export default function AboutPage() {
 
         {/* AI-Enabled Section */}
         <AnimatedSection className="mb-16 md:mb-24">
-          <div className="rounded-2xl border border-[var(--color-brand-sky)]/30 bg-surface p-8 md:p-12">
+          <div className="rounded-2xl border border-sky-faint bg-surface p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <SectionLabel className="mb-4 block">How We Build</SectionLabel>
                 <h2 className="text-section-title mb-4">AI-Enabled Engineering</h2>
                 <p className="text-lg text-secondary mb-6 leading-relaxed">
-                  We build software the way the world&apos;s best engineers build it — with AI. Our team uses Claude Code, AI-assisted code review, and automated testing on every sprint. Not because it&apos;s trendy. Because it makes us faster, more thorough, and more predictable.
+                  We build software the way the world's best engineers build it — with AI. Our team uses Claude Code, AI-assisted code review, and automated testing on every sprint. Not because it's trendy. Because it makes us faster, more thorough, and more predictable.
                 </p>
                 <p className="text-base text-muted">
-                  AI-enabled doesn&apos;t mean AI-replaced. It means your project gets our senior engineers plus the best tools on the planet. That&apos;s why 16 weeks is achievable when competitors quote 12 months.
+                  AI-enabled doesn't mean AI-replaced. It means your project gets our senior engineers plus the best tools on the planet. That's why 16 weeks is achievable when competitors quote 12 months.
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-6xl md:text-7xl font-extrabold text-[var(--color-brand-sky)] font-display mb-2">
+                <div className="text-6xl md:text-7xl font-extrabold text-sky-accent font-display mb-2">
                   17+
                 </div>
                 <p className="text-xl font-semibold">projects shipped with AI-enabled engineering</p>
@@ -124,13 +124,13 @@ export default function AboutPage() {
                 We started in a café in Petaling Jaya. Just a few engineers who believed there had to be a better way to build software for growing companies.
               </p>
               <p>
-                We&apos;ve walked away from a RM350,000 prospect because there were too many red flags. Both co-founders left within a year. We survived 3 months with no clients — team still on payroll — and had to tell a prospect honestly: &ldquo;I don&apos;t know whether I will still be here.&rdquo;
+                We've walked away from a RM350,000 prospect because there were too many red flags. Both co-founders left within a year. We survived 3 months with no clients — team still on payroll — and had to tell a prospect honestly: &ldquo;I don't know whether I will still be here.&rdquo;
               </p>
               <p>
-                We&apos;ve carried RM80,000 in bad debt from a client who doubled scope then refused to pay. Every one of those failures taught us something that now protects our clients.
+                We've carried RM80,000 in bad debt from a client who doubled scope then refused to pay. Every one of those failures taught us something that now protects our clients.
               </p>
               <p>
-                From those lessons came the LUDA™ Framework and the three qualifying questions we ask before every engagement. Now we&apos;re delivering for 9-figure brands and public-listed companies across six countries.
+                From those lessons came the LUDA™ Framework and the three qualifying questions we ask before every engagement. Now we're delivering for 9-figure brands and public-listed companies across six countries.
               </p>
             </div>
 
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 href={PRESS.inRealLife.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 text-[var(--color-brand-sky)] hover:underline"
+                className="group inline-flex items-center gap-3 text-sky-accent hover:underline"
               >
                 <span className="text-sm font-medium">Read more:</span>
                 <span className="text-base">{PRESS.inRealLife.title}</span>
@@ -165,7 +165,7 @@ export default function AboutPage() {
                   key={item.question}
                   className="rounded-xl border border-default bg-surface p-6"
                 >
-                  <span className="text-4xl font-bold text-[var(--color-brand-sky)] font-display">
+                  <span className="text-4xl font-bold text-sky-accent font-display">
                     {index + 1}.
                   </span>
                   <h3 className="text-xl font-semibold mt-2 mb-2">{item.question}</h3>
@@ -189,7 +189,7 @@ export default function AboutPage() {
             {VALUES.map((value, index) => (
               <AnimatedSection key={value.title} delay={index * 0.1}>
                 <div className="rounded-xl border border-default bg-surface p-6 md:p-8 h-full">
-                  <value.icon className="h-10 w-10 text-[var(--color-brand-sky)] mb-4" />
+                  <value.icon className="h-10 w-10 text-sky-accent mb-4" />
                   <h3 className="text-card-title mb-3">{value.title}</h3>
                   <p className="text-secondary">{value.description}</p>
                 </div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
             <ol className="space-y-4">
               {WHY_US.map((reason, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] font-semibold text-sm">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-sky-faint text-sky-accent font-semibold text-sm">
                     {index + 1}
                   </span>
                   <p className="text-lg pt-1" dangerouslySetInnerHTML={{ __html: reason }} />
@@ -231,7 +231,7 @@ export default function AboutPage() {
             </p>
 
             <div className="rounded-xl border border-default bg-surface p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
-              <div className="w-24 h-24 rounded-full bg-surface-2 flex items-center justify-center text-4xl font-bold text-[var(--color-brand-sky)] font-display">
+              <div className="w-24 h-24 rounded-full bg-surface-2 flex items-center justify-center text-4xl font-bold text-sky-accent font-display">
                 AC
               </div>
               <div>
@@ -263,7 +263,8 @@ export default function AboutPage() {
                 <div className="aspect-video">
                   <iframe
                     src={`https://www.youtube.com/embed/${YT_JUSTIN}`}
-                    title="Justin Ruffier Testimonial"
+                    title="Justin Ruffier - Whisker Tracker Testimonial"
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
@@ -276,7 +277,8 @@ export default function AboutPage() {
                 <div className="aspect-video">
                   <iframe
                     src={`https://www.youtube.com/embed/${YT_JASON}`}
-                    title="Jason Anderson Testimonial"
+                    title="Jason Anderson - Tradelink Testimonial"
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
@@ -302,7 +304,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-default bg-surface hover:bg-surface-2 transition-colors"
             >
-              <Podcast className="h-5 w-5 text-[var(--color-brand-sky)]" />
+              <Podcast className="h-5 w-5 text-sky-accent" />
               <span className="font-medium">Tech It Or Leave It Podcast</span>
             </a>
           </AnimatedSection>
@@ -319,7 +321,7 @@ export default function AboutPage() {
             Ready to talk?
           </h2>
           <p className="text-lg text-secondary mb-8 max-w-2xl mx-auto">
-            45 minutes with Adrian. Not a sales pitch. A real conversation about your operations and what we&apos;d do about it.
+            45 minutes with Adrian. Not a sales pitch. A real conversation about your operations and what we'd do about it.
           </p>
           <Button asChild size="lg">
             <Link href="/strategy-session">

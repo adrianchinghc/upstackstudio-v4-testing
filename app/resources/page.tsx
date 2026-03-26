@@ -92,16 +92,16 @@ export default function ResourcesPage() {
                     href={category.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-[var(--color-brand-sky)]/50"
+                    className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-sky-faint"
                   >
-                    <category.icon className="h-10 w-10 text-[var(--color-brand-sky)] mb-4" />
-                    <h3 className="text-card-title mb-2 group-hover:text-[var(--color-brand-sky)] transition-colors">
+                    <category.icon className="h-10 w-10 text-sky-accent mb-4" />
+                    <h3 className="text-card-title mb-2 group-hover:text-sky-accent transition-colors">
                       {category.title}
                     </h3>
                     <p className="text-secondary text-base leading-relaxed mb-4 flex-1">
                       {category.description}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-sky)] transition-colors mt-auto">
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-sky-accent transition-colors mt-auto">
                       Visit
                       <ExternalLink className="h-4 w-4" />
                     </span>
@@ -109,19 +109,19 @@ export default function ResourcesPage() {
                 ) : (
                   <Link
                     href={category.href}
-                    className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-[var(--color-brand-sky)]/50"
+                    className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 md:p-8 transition-all hover:border-sky-faint"
                   >
-                    <category.icon className="h-10 w-10 text-[var(--color-brand-sky)] mb-4" />
-                    <h3 className="text-card-title mb-2 group-hover:text-[var(--color-brand-sky)] transition-colors">
+                    <category.icon className="h-10 w-10 text-sky-accent mb-4" />
+                    <h3 className="text-card-title mb-2 group-hover:text-sky-accent transition-colors">
                       {category.title}
                     </h3>
                     {category.count && (
-                      <span className="text-sm text-[var(--color-brand-sky)] mb-2">{category.count}</span>
+                      <span className="text-sm text-sky-accent mb-2">{category.count}</span>
                     )}
                     <p className="text-secondary text-base leading-relaxed mb-4 flex-1">
                       {category.description}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-sky)] transition-colors mt-auto">
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-sky-accent transition-colors mt-auto">
                       Explore
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -144,7 +144,7 @@ export default function ResourcesPage() {
                 <div className="rounded-2xl border border-default bg-surface p-6 md:p-8">
                   <div className="flex items-start gap-4">
                     <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface-2">
-                      <tool.icon className="h-6 w-6 text-[var(--color-brand-sky)]" />
+                      <tool.icon className="h-6 w-6 text-sky-accent" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">

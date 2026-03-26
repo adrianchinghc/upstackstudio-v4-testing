@@ -78,7 +78,7 @@ export function CookieConsent() {
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
         <div className="flex-1 text-sm text-secondary leading-relaxed pr-4">
           We use cookies to understand how visitors use our site and improve the experience.{' '}
-          <Link href="/contact" className="text-[var(--color-brand-sky)] hover:underline">
+          <Link href="/contact" className="text-sky-accent hover:underline">
             Learn more
           </Link>
         </div>

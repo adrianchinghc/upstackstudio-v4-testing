@@ -20,7 +20,8 @@ const TESTIMONIALS_FEATURED = [
     quote: "Brilliant job guys! Just brilliant! So many amazing changes in just a few days. You really don't know how much this means to us.",
     author: 'Andrew Yap',
     role: 'Founder',
-    company: 'BookXcess & Big Bad Wolf Books',
+    company: 'BookXcess',
+    image: '/images/clients/andrewyap.png',
     featured: true,
   },
   {
@@ -28,6 +29,7 @@ const TESTIMONIALS_FEATURED = [
     author: 'Mark Choo',
     role: 'Ex-CEO',
     company: 'Teleme',
+    image: '/images/clients/mark-choo.webp',
   },
   {
     quote: "I shopped around. I looked at assembling a team of freelancers. I reached out to about two other agencies here in the United States in San Diego, California. In hindsight, I'm glad I did not do that. You had a great process. You had a great team.",
@@ -97,10 +99,10 @@ export function GeoPage({
 
       {/* Special Callout (used for US page and others with specific messaging) */}
       {callout && (
-        <section className="py-12 px-6 bg-[var(--color-brand-navy)]/5 border-y border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10">
+        <section className="py-12 px-6 bg-[var(--color-brand-navy)]/5 border-y border-[var(--color-brand-navy)]/10 dark:border-sky-faint/10">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
-              <p className="text-lg font-semibold text-[var(--color-brand-sky)] text-center leading-relaxed">
+              <p className="text-lg font-semibold text-sky-accent text-center leading-relaxed">
                 {callout}
               </p>
             </AnimatedSection>
@@ -115,7 +117,7 @@ export function GeoPage({
             <SectionLabel>Why Upstack Studio</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">{clientsHeadline}</h2>
             <p className="text-secondary max-w-2xl mb-12">
-              We&apos;ve delivered for companies in Malaysia, Australia, the US, UK, and the Netherlands. The same
+              We've delivered for companies in Malaysia, Australia, the US, UK, and the Netherlands. The same
               standards and senior team for every client, regardless of geography.
             </p>
           </AnimatedSection>
@@ -124,7 +126,7 @@ export function GeoPage({
             {WHY_US.map((reason, i) => (
               <AnimatedSection key={i} delay={i * 0.06}>
                 <div className="flex items-start gap-3 rounded-xl border border-default bg-page p-5">
-                  <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                  <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                   <span className="text-sm text-secondary">{reason}</span>
                 </div>
               </AnimatedSection>
@@ -147,7 +149,7 @@ export function GeoPage({
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Transform */}
             <AnimatedSection>
-              <div className="rounded-2xl border border-[var(--color-brand-sky)] bg-[var(--color-brand-sky)]/5 p-8">
+              <div className="rounded-2xl border border-sky-faint bg-sky-faint p-8">
                 <h3 className="text-xl font-bold mb-1">Transform</h3>
                 <p className="text-sm text-secondary mb-6">One platform. 16 weeks. Done.</p>
                 <div className="mb-6">
@@ -157,7 +159,7 @@ export function GeoPage({
                 <ul className="space-y-2.5 mb-8">
                   {['Single platform', '16-week delivery', 'PM + engineers + designer + QA', '30-day post-launch support', 'Full IP ownership'].map(f => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-secondary">
-                      <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                      <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
@@ -182,7 +184,7 @@ export function GeoPage({
                 <ul className="space-y-2.5 mb-8">
                   {['Web + Mobile platforms', '4–6 month delivery', 'Full senior squad', '90-day post-launch support', 'Full IP ownership'].map(f => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-secondary">
-                      <CheckCircle className="h-4 w-4 text-[var(--color-brand-sky)] shrink-0 mt-0.5" />
+                      <CheckCircle className="h-4 w-4 text-sky-accent shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
