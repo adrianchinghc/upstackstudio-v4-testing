@@ -44,10 +44,7 @@ export function formatPrice(amount: number, market: Market): string {
   return `USD ${amount.toLocaleString()}`
 }
 
-export function getPriceForMarket(
-  pricing: { myr: number; usd: number },
-  market: Market
-): number {
+export function getPriceForMarket(pricing: { myr: number; usd: number }, market: Market): number {
   return market === 'malaysia' ? pricing.myr : pricing.usd
 }
 

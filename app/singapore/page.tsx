@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://upstackstudio.com/singapore' },
   openGraph: {
     title: 'Software Development Agency Singapore | Upstack Studio',
-    description: 'Singapore companies building enterprise-grade software at a price that makes sense. Based in Malaysia, delivering to Singapore and beyond.',
+    description:
+      'Singapore companies building enterprise-grade software at a price that makes sense. Based in Malaysia, delivering to Singapore and beyond.',
     url: 'https://upstackstudio.com/singapore',
     siteName: 'Upstack Studio',
     locale: 'en_SG',

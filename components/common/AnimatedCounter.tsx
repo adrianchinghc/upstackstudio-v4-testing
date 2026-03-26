@@ -17,8 +17,8 @@ export function AnimatedCounter({
   value,
   suffix = '',
   className,
-  stiffness = 50,  // Lower = slower, more dramatic
-  damping = 15,    // Lower = more overshoot/bounce
+  stiffness = 50, // Lower = slower, more dramatic
+  damping = 15, // Lower = more overshoot/bounce
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -51,7 +51,8 @@ export function AnimatedCounter({
   if (prefersReducedMotion) {
     return (
       <span ref={ref} className={cn(className)}>
-        {value}{suffix}
+        {value}
+        {suffix}
       </span>
     )
   }

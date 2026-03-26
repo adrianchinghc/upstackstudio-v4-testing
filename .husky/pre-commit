@@ -1,0 +1,8 @@
+# Run lint-staged for linting and formatting
+npx lint-staged
+
+# Run type checking
+npm run typecheck
+
+# Run tests related to changed files
+npm run test:ci

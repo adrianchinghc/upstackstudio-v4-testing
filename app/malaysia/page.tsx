@@ -4,11 +4,12 @@ import { GeoPage } from '@/components/geo/GeoPage'
 export const metadata: Metadata = {
   title: 'Software Development Company Malaysia | Upstack Studio',
   description:
-    'Malaysia\'s growing companies trust Upstack Studio for operations digitalisation, AI integration, and custom platform development. Petaling Jaya, Selangor. Built on the LUDA™ Framework.',
+    "Malaysia's growing companies trust Upstack Studio for operations digitalisation, AI integration, and custom platform development. Petaling Jaya, Selangor. Built on the LUDA™ Framework.",
   alternates: { canonical: 'https://upstackstudio.com/malaysia' },
   openGraph: {
     title: 'Software Development Company Malaysia | Upstack Studio',
-    description: 'Operations digitalisation, AI integration, and custom platform development for established Malaysian companies. Built on the LUDA™ Framework.',
+    description:
+      'Operations digitalisation, AI integration, and custom platform development for established Malaysian companies. Built on the LUDA™ Framework.',
     url: 'https://upstackstudio.com/malaysia',
     siteName: 'Upstack Studio',
     locale: 'en_MY',

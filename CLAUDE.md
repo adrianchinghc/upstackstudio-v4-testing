@@ -1,4 +1,5 @@
 # CLAUDE.md — Upstack Studio
+
 ## Engineering Rules, Design Intelligence & Agent Behaviour
 
 > This file is the single operational rulebook for Claude Code. Read it fully at project start. Apply every rule to every sprint. When in doubt: re-read this file.
@@ -8,6 +9,7 @@
 ## AGENT IDENTITY
 
 You are operating as a **world top 0.5% expert** across:
+
 - B2B enterprise conversion architecture and sales psychology
 - Full-stack Next.js 15 App Router engineering (TypeScript, Tailwind, shadcn/ui v4)
 - World-class marketing copywriting for corporate buyers
@@ -34,7 +36,7 @@ You are also the **copywriter**. You do not leave copy as placeholder. Every hea
 **Design philosophy:**
 Refined industrial authority. Dark-first with a genuine light mode. Typographically dominant. The visual equivalent of a firm that has seen everything and is quietly the best at it.
 
-**The one memorable thing:** When someone sees this site, they should think: *"I didn't know a software agency website could look like this."*
+**The one memorable thing:** When someone sees this site, they should think: _"I didn't know a software agency website could look like this."_
 
 **ANTI-SAFE-UI MANDATE — NON-NEGOTIABLE:**
 Do NOT produce a Webflow template. Do NOT produce a generic SaaS landing page. Bold, intentional, architecturally significant. Unexpected layouts. Asymmetry. Overlap. Grid-breaking elements. One well-orchestrated page load animation is worth more than 20 scattered micro-interactions.
@@ -46,46 +48,61 @@ Do NOT produce a Webflow template. Do NOT produce a generic SaaS landing page. B
 From the official brand guidelines (upstack-studio-brand.pdf, March 2025). These cannot be changed by any tool or skill.
 
 ### Colours
+
 ```css
 /* Primary palette — from brand PDF */
---brand-blue:   #0A4DFF;   /* Primary brand blue */
---brand-lime:   #E6FE52;   /* Electric lime accent — use sparingly for highlights */
---brand-black:  #000000;
---brand-grey:   #BDBDBD;
---brand-white:  #FFFFFF;
+--brand-blue: #0a4dff; /* Primary brand blue */
+--brand-lime: #e6fe52; /* Electric lime accent — use sparingly for highlights */
+--brand-black: #000000;
+--brand-grey: #bdbdbd;
+--brand-white: #ffffff;
 
 /* Gradients — from brand PDF */
---gradient-text: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);  /* Cyan to blue, for text */
---gradient-cta:  linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);  /* Blue gradient, for CTA buttons */
---gradient-glow: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);  /* Soft cyan glow */
+--gradient-text: linear-gradient(
+  135deg,
+  #00d4ff 0%,
+  #0a4dff 100%
+); /* Cyan to blue, for text */
+--gradient-cta: linear-gradient(
+  135deg,
+  #0a4dff 0%,
+  #0033cc 100%
+); /* Blue gradient, for CTA buttons */
+--gradient-glow: radial-gradient(
+  circle,
+  rgba(0, 212, 255, 0.3) 0%,
+  transparent 70%
+); /* Soft cyan glow */
 
 /* Dark mode tokens */
---bg:           #000000;
---surface:      #0a0a0a;
---surface-2:    #141414;
---border:       #262626;
---muted:        #737373;
---text:         #FFFFFF;
+--bg: #000000;
+--surface: #0a0a0a;
+--surface-2: #141414;
+--border: #262626;
+--muted: #737373;
+--text: #ffffff;
 
 /* Light mode tokens */
---bg-light:       #FFFFFF;
---surface-light:  #FAFAFA;
---surface-2-light:#F5F5F5;
---border-light:   #E5E5E5;
---muted-light:    #737373;
---text-light:     #000000;
+--bg-light: #ffffff;
+--surface-light: #fafafa;
+--surface-2-light: #f5f5f5;
+--border-light: #e5e5e5;
+--muted-light: #737373;
+--text-light: #000000;
 ```
 
 ### Colour Usage Guidelines
-| Color | Usage | Notes |
-|-------|-------|-------|
-| `--brand-blue` #0A4DFF | Primary CTAs, links, key highlights | Main brand color |
+
+| Color                  | Usage                                  | Notes                         |
+| ---------------------- | -------------------------------------- | ----------------------------- |
+| `--brand-blue` #0A4DFF | Primary CTAs, links, key highlights    | Main brand color              |
 | `--brand-lime` #E6FE52 | Accent moments, badges, success states | Use sparingly — high contrast |
-| `--gradient-text` | Hero headlines, feature text | Cyan → Blue direction |
-| `--gradient-cta` | Primary buttons | Blue-only gradient |
-| `--gradient-glow` | Subtle background effects | Soft cyan radial |
+| `--gradient-text`      | Hero headlines, feature text           | Cyan → Blue direction         |
+| `--gradient-cta`       | Primary buttons                        | Blue-only gradient            |
+| `--gradient-glow`      | Subtle background effects              | Soft cyan radial              |
 
 ### Typography
+
 **Primary (headings, display, stat numbers):** Bricolage Grotesque
 **Body (UI copy, labels, buttons, captions):** Inter
 **NEVER USE:** Sora, Playfair Display, Space Grotesk, Roboto, Arial
@@ -96,13 +113,13 @@ import { Bricolage_Grotesque, Inter } from 'next/font/google'
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400','500','600','700','800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 })
 const body = Inter({
   subsets: ['latin'],
-  weight: ['400','500','600','700','800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-body',
   display: 'swap',
 })
@@ -119,6 +136,7 @@ const body = Inter({
 | Section label | `11px`, ALL CAPS, tracking-widest | 700 |
 
 ### Logo
+
 ```tsx
 // ALWAYS use next/image. NEVER recreate in JSX. NEVER add effects.
 // Dark mode: white logo
@@ -130,6 +148,7 @@ const body = Inter({
 ```
 
 Logo rules (from brand guidelines):
+
 - Never stretch, distort, rotate, or alter proportions
 - Never rearrange letter spacing or modify logotype
 - Never add outlines, shadows, glow, or effects
@@ -170,12 +189,20 @@ export function ThemeToggle() {
 ```css
 /* globals.css */
 :root {
-  --bg: #FFFFFF; --surface: #FAFAFA; --surface-2: #F5F5F5;
-  --border: #E5E5E5; --muted: #737373; --text: #000000;
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --surface-2: #f5f5f5;
+  --border: #e5e5e5;
+  --muted: #737373;
+  --text: #000000;
 }
 .dark {
-  --bg: #000000; --surface: #0a0a0a; --surface-2: #141414;
-  --border: #262626; --muted: #737373; --text: #FFFFFF;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #141414;
+  --border: #262626;
+  --muted: #737373;
+  --text: #ffffff;
 }
 ```
 
@@ -188,12 +215,14 @@ export function ThemeToggle() {
 Upstack Studio is **AI-enabled**. This is a core differentiator that must appear throughout the site.
 
 **What it means:**
+
 - We use tools like Claude Code to accelerate engineering without sacrificing quality
 - Our team is constantly adopting the latest AI tools in software development
 - AI makes our engineers faster and more thorough — your timeline and codebase quality benefit
 - We move faster than traditional agencies because our tools are better
 
 **Copy angles to use across the site:**
+
 - "AI-enabled engineering" — the positioning statement
 - "We build software the way the world's best engineers build it — with AI."
 - "AI-enabled doesn't mean AI-replaced. It means your project gets our engineers plus the best tools on the planet."
@@ -201,6 +230,7 @@ Upstack Studio is **AI-enabled**. This is a core differentiator that must appear
 - "Our engineers use Claude Code. Your delivery timeline benefits."
 
 **Where to surface AI-enabled messaging:**
+
 - Hero section badge or sub-copy
 - About / How We Work section (dedicated card)
 - Services page intro paragraph
@@ -215,12 +245,14 @@ Upstack Studio is **AI-enabled**. This is a core differentiator that must appear
 These rules apply to every line of copy Claude Code writes.
 
 ### Voice & tone
+
 - Direct. Confident. Specific. Not corporate fluff, not friendly-startup.
 - The voice of a firm that knows it's excellent and doesn't need to say so.
 - Short sentences. Hard stops. Specific numbers over vague claims.
 - "We delivered 15× revenue growth for BookXcess" beats "We help companies grow"
 
 ### Never write
+
 - "Seamless" — banned
 - "Solutions" as standalone noun — banned
 - "Cutting-edge" — banned
@@ -230,16 +262,21 @@ These rules apply to every line of copy Claude Code writes.
 - Generic transformation claims without a specific number or company
 
 ### Headline formula
+
 Pain → Mechanism → Outcome
+
 - Not: "We build custom software"
 - Yes: "Your operations are costing you money every day. We stop that in 16 weeks."
 
 ### Pricing anchor rule
+
 Always include a pricing signal before the CTA on key pages.
 "Typical engagements from USD 45,000." — filters tyre-kickers, validates the right prospects.
 
 ### Dual-reader rule
+
 Every page has two readers:
+
 - **Scout** (IT Manager, Ops Manager) — needs: technical credibility, process clarity, vendor comparison ammunition
 - **Decision-Maker** (COO, MD, GM) — needs: outcome metrics, risk mitigation, pricing signal, peer company proof
 
@@ -291,6 +328,7 @@ Claude Code owns the final structure. Deviate from this if there's a better conv
 13. Footer
 
 **Hero copy:**
+
 ```
 Headline:   Your revenue has scaled.
             — Your operations haven't.
@@ -308,6 +346,7 @@ Secondary CTA: See Our Work           (href="/work")
 ```
 
 **Who is it for — 6 cards (operational pain, not generic):**
+
 1. Procurement approvals running on email chains and WhatsApp groups
 2. Field team and back office working from different versions of the truth
 3. Zero real-time visibility into operations across locations
@@ -316,6 +355,7 @@ Secondary CTA: See Our Work           (href="/work")
 6. RMK-13 / internal budget allocated with a deadline to spend
 
 **DNA section cards (6):**
+
 1. Stay Agile & Nimble — 2-week sprints
 2. Quality is Priority — design review, code review, QA
 3. AI-Enabled Engineering — Claude Code, best tools, faster delivery
@@ -455,6 +495,7 @@ Submit: "Send Message →"
 ```
 
 Page copy (above form):
+
 ```
 Heading: "Get in touch."
 Sub:     "For project enquiries, book a strategy call. This form is for
@@ -529,28 +570,37 @@ upstack-studio/
 
 ```typescript
 // lib/constants.ts
-export const SITE_URL     = 'https://upstackstudio.com'
-export const CALENDLY_URL = 'https://calendly.com/upstackstudio/45-minute-strategy-session'
+export const SITE_URL = 'https://upstackstudio.com'
+export const CALENDLY_URL =
+  'https://calendly.com/upstackstudio/45-minute-strategy-session'
 
 export const SOCIAL = {
-  youtube:   'https://youtube.com/@adrianchinghc',
+  youtube: 'https://youtube.com/@adrianchinghc',
   instagram: 'https://www.instagram.com/adrianchinghc/',
-  linkedin:  'https://my.linkedin.com/in/adrianchinghc',
-  tiktok:    'https://www.tiktok.com/@adrianchinghc',
-  twitter:   'https://x.com/adrianchinghc',
-  podcast:   'https://adrianchinghc.buzzsprout.com',
-  companyLinkedin:  'https://www.linkedin.com/company/upstack-studio/',
+  linkedin: 'https://my.linkedin.com/in/adrianchinghc',
+  tiktok: 'https://www.tiktok.com/@adrianchinghc',
+  twitter: 'https://x.com/adrianchinghc',
+  podcast: 'https://adrianchinghc.buzzsprout.com',
+  companyLinkedin: 'https://www.linkedin.com/company/upstack-studio/',
   companyInstagram: 'https://www.instagram.com/upstackstudio/',
 }
 
 export const YT_JUSTIN = 'kRUL8NrM_Rk'
-export const YT_JASON  = 'KdxPAqwEDHY'
+export const YT_JASON = 'KdxPAqwEDHY'
 
 export const CLIENTS = [
-  'Daikin Malaysia','Magnum 4D','BookXcess','Teleme',
-  'The Malaysian Insight','AFA Malaysia','Tradelink',
-  'Whisker Tracker','One Stop Manpower','Recruitopia',
-  'Niuace','Black Tulip',
+  'Daikin Malaysia',
+  'Magnum 4D',
+  'BookXcess',
+  'Teleme',
+  'The Malaysian Insight',
+  'AFA Malaysia',
+  'Tradelink',
+  'Whisker Tracker',
+  'One Stop Manpower',
+  'Recruitopia',
+  'Niuace',
+  'Black Tulip',
 ]
 ```
 
@@ -559,15 +609,17 @@ export const CLIENTS = [
 export type Market = 'malaysia' | 'international'
 
 export const PRICING = {
-  transform:  { myr: 155000, usd: 45000, weeks: 16 },
+  transform: { myr: 155000, usd: 45000, weeks: 16 },
   accelerate: { myr: 295000, usd: 75000, months: '4–6' },
-  essential:  { myr: 4995,   usd: 2995 },
-  pro:        { myr: 24995,  usd: 7995 },
-  platinum:   { myr: 39995,  usd: 9995 },
+  essential: { myr: 4995, usd: 2995 },
+  pro: { myr: 24995, usd: 7995 },
+  platinum: { myr: 39995, usd: 9995 },
 }
 
 export const formatPrice = (amount: number, market: Market) =>
-  market === 'malaysia' ? `RM ${amount.toLocaleString()}` : `USD ${amount.toLocaleString()}`
+  market === 'malaysia'
+    ? `RM ${amount.toLocaleString()}`
+    : `USD ${amount.toLocaleString()}`
 
 export const buildCalendlyUrl = (f: string, l: string, e: string) => {
   const p = new URLSearchParams({ first_name: f, last_name: l, email: e })
@@ -589,7 +641,12 @@ import { toast } from 'sonner'
 toast.error('Something went wrong. Please try again.')
 
 // FAQ
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 
 // Magic UI
 // NumberTicker — wrap in AnimatedSection
@@ -605,7 +662,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 Both forms (`/strategy-session` and `/contact`) submit directly to the **HubSpot Forms API v3** via a Next.js server action. No HubSpot JS embed, no tracking pixel required, no client-side proxy route.
 
-### Environment variables (server-side only — no NEXT_PUBLIC_ prefix)
+### Environment variables (server-side only — no NEXT*PUBLIC* prefix)
 
 ```bash
 # .env.local
@@ -614,7 +671,7 @@ HUBSPOT_STRATEGY_FORM_ID=     # Form ID for /strategy-session
 HUBSPOT_CONTACT_FORM_ID=      # Form ID for /contact
 ```
 
-These are server-side only. Never prefix with NEXT_PUBLIC_. Never expose to the client bundle.
+These are server-side only. Never prefix with NEXT*PUBLIC*. Never expose to the client bundle.
 
 ### Server action — `lib/hubspot.ts`
 
@@ -677,32 +734,32 @@ The `name` values below must match the internal field names in your HubSpot form
 
 **Strategy Session form (`HUBSPOT_STRATEGY_FORM_ID`):**
 
-| Field | HubSpot `name` |
-|---|---|
+| Field                    | HubSpot `name`             |
+| ------------------------ | -------------------------- |
 | Biggest operational pain | `biggest_operational_pain` |
-| Cost of inaction | `cost_of_inaction` |
-| Previous attempts | `previous_attempts` |
-| First name | `firstname` |
-| Last name | `lastname` |
-| Email | `email` |
-| Phone | `phone` |
-| Company | `company` |
-| Role / title | `jobtitle` |
-| Website | `website` |
-| Timeline | `project_timeline` |
-| Budget | `budget_range` |
-| Existing assets | `existing_assets` |
-| How did you hear | `how_did_you_hear` |
+| Cost of inaction         | `cost_of_inaction`         |
+| Previous attempts        | `previous_attempts`        |
+| First name               | `firstname`                |
+| Last name                | `lastname`                 |
+| Email                    | `email`                    |
+| Phone                    | `phone`                    |
+| Company                  | `company`                  |
+| Role / title             | `jobtitle`                 |
+| Website                  | `website`                  |
+| Timeline                 | `project_timeline`         |
+| Budget                   | `budget_range`             |
+| Existing assets          | `existing_assets`          |
+| How did you hear         | `how_did_you_hear`         |
 
 **Contact form (`HUBSPOT_CONTACT_FORM_ID`):**
 
-| Field | HubSpot `name` |
-|---|---|
-| Name | `firstname` |
-| Email | `email` |
-| Company | `company` |
-| Subject | `subject` |
-| Message | `message` |
+| Field   | HubSpot `name` |
+| ------- | -------------- |
+| Name    | `firstname`    |
+| Email   | `email`        |
+| Company | `company`      |
+| Subject | `subject`      |
+| Message | `message`      |
 
 ### Usage in StrategySessionForm.tsx
 
@@ -722,7 +779,9 @@ const onSubmit = async (step2Data: Step2Fields) => {
     setSubmitting(false)
     return
   }
-  router.push(buildCalendlyUrl(step2Data.firstName, step2Data.lastName, step2Data.email))
+  router.push(
+    buildCalendlyUrl(step2Data.firstName, step2Data.lastName, step2Data.email)
+  )
 }
 ```
 
@@ -741,7 +800,7 @@ const onSubmit = async (data: ContactFields) => {
     setSubmitting(false)
     return
   }
-  setSubmitted(true)  // Inline confirmation — no redirect
+  setSubmitted(true) // Inline confirmation — no redirect
 }
 ```
 
@@ -778,6 +837,7 @@ Design looks generic    → Re-read frontend-design/SKILL.md
 ```
 
 ### UI UX Pro Max (`.claude/skills/ui-ux-pro-max/`)
+
 ```bash
 # Sprint 0 — run before any code
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py \
@@ -791,22 +851,26 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py \
 ```
 
 ### Marketing Skills (`coreyhaines31/marketingskills`)
+
 Always read `.agents/product-marketing-context.md` before any copy task.
 
-| Skill | Trigger |
-|---|---|
+| Skill                       | Trigger                                                   |
+| --------------------------- | --------------------------------------------------------- |
 | `product-marketing-context` | Create `.agents/product-marketing-context.md` at Sprint 0 |
-| `copywriting` | Any page copy |
-| `page-cro` | Review every page before finalising |
-| `copy-editing` | Tighten existing copy |
-| `form-cro` | StrategySessionForm review |
-| `marketing-psychology` | Social proof, anchoring, FOMO |
+| `copywriting`               | Any page copy                                             |
+| `page-cro`                  | Review every page before finalising                       |
+| `copy-editing`              | Tighten existing copy                                     |
+| `form-cro`                  | StrategySessionForm review                                |
+| `marketing-psychology`      | Social proof, anchoring, FOMO                             |
 
 ### Figma MCP — brand reference only
+
 Not a design constraint. Only for extracting brand asset details if needed.
+
 ```
 Figma:get_metadata(fileKey: "bJzbHRH3uHEaozw4OcOBqQ", nodeId: "0:1")
 ```
+
 Section nodes only. Never full page nodes (timeout). `get_metadata` → children → `get_design_context`.
 
 ---
@@ -814,6 +878,7 @@ Section nodes only. Never full page nodes (timeout). `get_metadata` → children
 ## SPRINT PASS CRITERIA
 
 Before every push:
+
 1. `npm run build` — zero TypeScript errors, zero ESLint warnings
 2. Dark mode AND light mode — both premium
 3. 375px + 768px + 1280px — no horizontal scroll
@@ -842,10 +907,10 @@ git push origin main --tags
 
 ---
 
-*CLAUDE.md — Upstack Studio Website Rebuild · March 2026*
-*Stack: Next.js 15 App Router · TypeScript · Tailwind · next-themes · shadcn/ui v4 · Magic UI · Framer Motion*
-*Tools: UI UX Pro Max · @21st-dev/magic · 21st.dev registry · shadcn/ui MCP*
-*Skills: frontend-design · copywriting · page-cro · copy-editing · form-cro · marketing-psychology*
-*Design: Bricolage Grotesque + Inter · #0A4DFF blue · #E6FE52 lime · Light + Dark mode*
-*Positioning: AI-enabled software engineering · ICP: RM20M–RM100M+ established companies*
-*MANDATE: Bold, memorable, architecturally significant. Never a Webflow template.*
+_CLAUDE.md — Upstack Studio Website Rebuild · March 2026_
+_Stack: Next.js 15 App Router · TypeScript · Tailwind · next-themes · shadcn/ui v4 · Magic UI · Framer Motion_
+_Tools: UI UX Pro Max · @21st-dev/magic · 21st.dev registry · shadcn/ui MCP_
+_Skills: frontend-design · copywriting · page-cro · copy-editing · form-cro · marketing-psychology_
+_Design: Bricolage Grotesque + Inter · #0A4DFF blue · #E6FE52 lime · Light + Dark mode_
+_Positioning: AI-enabled software engineering · ICP: RM20M–RM100M+ established companies_
+_MANDATE: Bold, memorable, architecturally significant. Never a Webflow template._

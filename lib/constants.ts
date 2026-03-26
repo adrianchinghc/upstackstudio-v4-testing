@@ -1,8 +1,7 @@
 export const SITE_URL = 'https://upstackstudio.com'
 export const SITE_NAME = 'Upstack Studio'
 
-export const CALENDLY_URL =
-  'https://calendly.com/upstackstudio/45-minute-strategy-session'
+export const CALENDLY_URL = 'https://calendly.com/upstackstudio/45-minute-strategy-session'
 
 export const SOCIAL = {
   // Adrian's personal channels (primary content)
@@ -54,8 +53,7 @@ export const RATINGS = {
 // Press
 export const PRESS = {
   inRealLife: {
-    title:
-      'I Made RM 2 Million Building Apps After Losing RM 80,000 With Zero Backup Plan',
+    title: 'I Made RM 2 Million Building Apps After Losing RM 80,000 With Zero Backup Plan',
     url: 'https://inreallife.my/i-made-rm-2-million-building-apps-after-losing-rm-80000-with-zero-backup-plan/',
     source: 'In Real Life Malaysia',
   },

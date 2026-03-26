@@ -57,8 +57,18 @@ const WHAT_WE_AUTOMATE = [
 ]
 
 const TOOLS = [
-  'n8n', 'Make.com', 'Zapier', 'OpenAI Agents', 'Anthropic Claude', 'Google Gemini',
-  'Airtable', 'Notion', 'Slack', 'Microsoft Teams', 'Google Workspace', 'HubSpot',
+  'n8n',
+  'Make.com',
+  'Zapier',
+  'OpenAI Agents',
+  'Anthropic Claude',
+  'Google Gemini',
+  'Airtable',
+  'Notion',
+  'Slack',
+  'Microsoft Teams',
+  'Google Workspace',
+  'HubSpot',
 ]
 
 const SCENARIOS = [
@@ -103,7 +113,7 @@ const FAQS = [
   {
     question: 'What happens if an automation breaks?',
     answer:
-      "Automations break. APIs change. Services have downtime. We build with error handling, retry logic, and alerting so breakages are caught and resolved quickly — not when someone notices the data is wrong three days later. Active subscriptions include monitoring and fixes.",
+      'Automations break. APIs change. Services have downtime. We build with error handling, retry logic, and alerting so breakages are caught and resolved quickly — not when someone notices the data is wrong three days later. Active subscriptions include monitoring and fixes.',
   },
   {
     question: 'Do we need to give you access to our internal systems?',
@@ -113,7 +123,7 @@ const FAQS = [
   {
     question: 'Can automations be paused or adjusted?',
     answer:
-      "Yes. Automations are versioned and documented. You can pause, modify, or disable any workflow with 1 business day notice. We build for flexibility — your operations change, and your automations should be able to change too.",
+      'Yes. Automations are versioned and documented. You can pause, modify, or disable any workflow with 1 business day notice. We build for flexibility — your operations change, and your automations should be able to change too.',
   },
   {
     question: 'Is this different from your AI Integration service?',
@@ -125,7 +135,6 @@ const FAQS = [
 export default function AiAutomationSubscriptionPage() {
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -140,9 +149,9 @@ export default function AiAutomationSubscriptionPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              Most companies have a long list of &quot;we should automate this&quot; items that never get done.
-              The Automation Subscription converts that list into shipped workflows — month after month, systematically.
-              We handle the build. You handle the strategy.
+              Most companies have a long list of &quot;we should automate this&quot; items that
+              never get done. The Automation Subscription converts that list into shipped workflows
+              — month after month, systematically. We handle the build. You handle the strategy.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
@@ -157,7 +166,9 @@ export default function AiAutomationSubscriptionPage() {
               </Button>
             </div>
             {/* TODO: Confirm AI Automation Subscription pricing with Adrian */}
-            <p className="mt-4 text-sm text-muted">Monthly subscription pricing — details confirmed on the call.</p>
+            <p className="mt-4 text-sm text-muted">
+              Monthly subscription pricing — details confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -169,8 +180,8 @@ export default function AiAutomationSubscriptionPage() {
             <SectionLabel>What We Automate</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">The manual work that shouldn't be manual.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              If someone on your team is copying, pasting, routing, or re-entering data — that's an automation
-              waiting to happen. We find them and build them.
+              If someone on your team is copying, pasting, routing, or re-entering data — that's an
+              automation waiting to happen. We find them and build them.
             </p>
           </AnimatedSection>
 
@@ -194,7 +205,9 @@ export default function AiAutomationSubscriptionPage() {
       <section className="py-14 px-6">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
-            <p className="text-xs font-semibold tracking-widest uppercase text-muted mb-6 text-center">Tools we work with</p>
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted mb-6 text-center">
+              Tools we work with
+            </p>
             <div className="flex flex-wrap justify-center gap-3">
               {TOOLS.map((tool) => (
                 <span
@@ -216,7 +229,8 @@ export default function AiAutomationSubscriptionPage() {
             <SectionLabel>Real Scenarios</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">What automation looks like in practice.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              These are examples from the types of workflows we've automated for clients across different industries.
+              These are examples from the types of workflows we've automated for clients across
+              different industries.
             </p>
           </AnimatedSection>
 
@@ -226,13 +240,17 @@ export default function AiAutomationSubscriptionPage() {
                 <div className="rounded-2xl border border-default bg-page p-8 md:p-10">
                   <div className="grid md:grid-cols-5 gap-8">
                     <div className="md:col-span-3">
-                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">{scenario.label}</span>
+                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">
+                        {scenario.label}
+                      </span>
                       <h3 className="text-xl font-semibold mb-3">{scenario.problem}</h3>
                       <p className="text-secondary leading-relaxed">{scenario.detail}</p>
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">
+                          What we built
+                        </p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>

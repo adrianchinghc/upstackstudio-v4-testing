@@ -25,21 +25,24 @@ export const metadata: Metadata = {
 const RESOURCE_CATEGORIES = [
   {
     title: 'Blog',
-    description: 'In-depth articles on software development, AI integration, and digital transformation.',
+    description:
+      'In-depth articles on software development, AI integration, and digital transformation.',
     href: '/blog',
     icon: BookOpen,
     count: '200+ articles',
   },
   {
     title: 'YouTube',
-    description: 'Video content covering project walkthroughs, client testimonials, and tech insights.',
+    description:
+      'Video content covering project walkthroughs, client testimonials, and tech insights.',
     href: SOCIAL.youtube,
     icon: Youtube,
     external: true,
   },
   {
     title: 'Podcast',
-    description: 'Tech It Or Leave It — conversations about technology, business, and building products.',
+    description:
+      'Tech It Or Leave It — conversations about technology, business, and building products.',
     href: SOCIAL.podcast,
     icon: Podcast,
     external: true,
@@ -56,7 +59,8 @@ const TOOLS = [
   },
   {
     title: 'Project Brief Template',
-    description: 'A template to help you document your requirements before talking to any developer.',
+    description:
+      'A template to help you document your requirements before talking to any developer.',
     href: '#', // TODO: Add actual URL when available
     icon: FileText,
     coming: true,
@@ -70,11 +74,10 @@ export default function ResourcesPage() {
         {/* Header */}
         <AnimatedSection className="max-w-3xl mb-16 md:mb-20">
           <SectionLabel className="mb-4 block">Resources</SectionLabel>
-          <h1 className="text-page-title mb-6">
-            Learn before you decide.
-          </h1>
+          <h1 className="text-page-title mb-6">Learn before you decide.</h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Blog posts, videos, podcasts, and tools to help you make better decisions about software development for your business.
+            Blog posts, videos, podcasts, and tools to help you make better decisions about software
+            development for your business.
           </p>
         </AnimatedSection>
 
@@ -169,9 +172,7 @@ export default function ResourcesPage() {
 
         {/* CTA */}
         <AnimatedSection className="text-center">
-          <h2 className="text-section-title mb-6">
-            Ready to talk?
-          </h2>
+          <h2 className="text-section-title mb-6">Ready to talk?</h2>
           <p className="text-lg text-secondary mb-8 max-w-2xl mx-auto">
             Skip the reading and get straight to a conversation about your specific situation.
           </p>

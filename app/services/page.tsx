@@ -17,13 +17,15 @@ export const metadata: Metadata = {
 const SERVICES = [
   {
     title: 'Operations Digitalisation',
-    description: 'Replace manual processes, spreadsheets, and WhatsApp chains with systems that run your business.',
+    description:
+      'Replace manual processes, spreadsheets, and WhatsApp chains with systems that run your business.',
     href: '/services/operations-digitalisation',
     icon: Settings,
   },
   {
     title: 'AI Integration',
-    description: "AI isn't magic — but in the right place, it's the highest-ROI investment you can make.",
+    description:
+      "AI isn't magic — but in the right place, it's the highest-ROI investment you can make.",
     href: '/services/ai-integration',
     icon: Brain,
   },
@@ -35,7 +37,8 @@ const SERVICES = [
   },
   {
     title: 'Custom Platform Development',
-    description: "When off-the-shelf software stops fitting — we build what actually works for your business.",
+    description:
+      'When off-the-shelf software stops fitting — we build what actually works for your business.',
     href: '/services/custom-platform-development',
     icon: Code,
   },
@@ -51,17 +54,20 @@ const PROCESS_STEPS = [
   {
     number: '01',
     title: 'Strategy Call',
-    description: '45 minutes with Adrian. We understand your problem, assess fit, and outline next steps.',
+    description:
+      '45 minutes with Adrian. We understand your problem, assess fit, and outline next steps.',
   },
   {
     number: '02',
     title: 'Discovery & Scoping',
-    description: 'We map your processes, define requirements, and deliver a detailed proposal with fixed scope and timeline.',
+    description:
+      'We map your processes, define requirements, and deliver a detailed proposal with fixed scope and timeline.',
   },
   {
     number: '03',
     title: 'Build & Deliver',
-    description: 'Bi-weekly sprints, constant communication, and a working product in 16 weeks or less.',
+    description:
+      'Bi-weekly sprints, constant communication, and a working product in 16 weeks or less.',
   },
 ]
 
@@ -80,7 +86,8 @@ export default function ServicesPage() {
             </span>
           </h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Every engagement starts with understanding your operations — not a feature list. We engineer the exact solution your business needs, built on the LUDA™ Framework.
+            Every engagement starts with understanding your operations — not a feature list. We
+            engineer the exact solution your business needs, built on the LUDA™ Framework.
           </p>
         </AnimatedSection>
 
@@ -114,9 +121,7 @@ export default function ServicesPage() {
         <section className="mb-16 md:mb-24">
           <AnimatedSection className="text-center mb-12">
             <SectionLabel className="mb-4 block">How We Work</SectionLabel>
-            <h2 className="text-section-title">
-              A simple, proven process.
-            </h2>
+            <h2 className="text-section-title">A simple, proven process.</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -147,14 +152,15 @@ export default function ServicesPage() {
         {/* Pricing Note */}
         <AnimatedSection className="text-center py-16 md:py-24">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-section-title mb-6">
-              Pricing
-            </h2>
+            <h2 className="text-section-title mb-6">Pricing</h2>
             <p className="text-lg text-secondary mb-4">
-              Typical zero-to-launch engagements start from <span className="font-semibold text-[var(--text)]">USD 45,000</span> for a single platform delivered in 16 weeks.
+              Typical zero-to-launch engagements start from{' '}
+              <span className="font-semibold text-[var(--text)]">USD 45,000</span> for a single
+              platform delivered in 16 weeks.
             </p>
             <p className="text-muted mb-8">
-              Development subscriptions available from USD 2,995/month. All pricing confirmed on the strategy call.
+              Development subscriptions available from USD 2,995/month. All pricing confirmed on the
+              strategy call.
             </p>
             <Button asChild size="lg">
               <Link href="/strategy-session">

@@ -6,11 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function buildCalendlyUrl(
-  firstName: string,
-  lastName: string,
-  email: string
-): string {
+export function buildCalendlyUrl(firstName: string, lastName: string, email: string): string {
   const params = new URLSearchParams({
     first_name: firstName,
     last_name: lastName,

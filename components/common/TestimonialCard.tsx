@@ -35,28 +35,23 @@ export function TestimonialCard({
         <Quote className="relative h-8 w-8 text-[var(--color-brand-blue)] opacity-60 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      <blockquote className={cn(
-        'flex-1 text-base md:text-lg leading-relaxed text-secondary',
-        featured && 'md:text-xl'
-      )}>
+      <blockquote
+        className={cn(
+          'flex-1 text-base md:text-lg leading-relaxed text-secondary',
+          featured && 'md:text-xl'
+        )}
+      >
         &ldquo;{quote}&rdquo;
       </blockquote>
 
       <footer className="flex items-center gap-4 pt-4 border-t border-[var(--color-brand-blue)]/10">
         {image && (
           <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[var(--color-brand-blue)]/20">
-            <Image
-              src={image}
-              alt={author}
-              fill
-              className="object-cover"
-            />
+            <Image src={image} alt={author} fill className="object-cover" />
           </div>
         )}
         <div className="flex-1">
-          <cite className="not-italic font-semibold text-[var(--text)]">
-            {author}
-          </cite>
+          <cite className="not-italic font-semibold text-[var(--text)]">{author}</cite>
           <p className="text-sm text-muted">
             {role}, <span className="text-[var(--color-brand-blue)] font-medium">{company}</span>
           </p>

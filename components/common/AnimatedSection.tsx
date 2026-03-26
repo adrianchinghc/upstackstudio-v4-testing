@@ -40,11 +40,16 @@ export function AnimatedSection({
 
   const getInitialPosition = () => {
     switch (direction) {
-      case 'up':    return { y: 16 }   // 16px — subtle, natural. 24px is overdramatic.
-      case 'down':  return { y: -16 }
-      case 'left':  return { x: 16 }
-      case 'right': return { x: -16 }
-      default:      return {}
+      case 'up':
+        return { y: 16 } // 16px — subtle, natural. 24px is overdramatic.
+      case 'down':
+        return { y: -16 }
+      case 'left':
+        return { x: 16 }
+      case 'right':
+        return { x: -16 }
+      default:
+        return {}
     }
   }
 
@@ -72,8 +77,19 @@ export function AnimatedSection({
       }}
       animate={
         isInView
-          ? { opacity: 1, filter: 'none', x: 0, y: 0, ...(scaleFrom !== undefined ? { scale: 1 } : {}) }
-          : { opacity: 0, filter: blur ? 'blur(4px)' : 'none', ...(scaleFrom !== undefined ? { scale: scaleFrom } : {}), ...getInitialPosition() }
+          ? {
+              opacity: 1,
+              filter: 'none',
+              x: 0,
+              y: 0,
+              ...(scaleFrom !== undefined ? { scale: 1 } : {}),
+            }
+          : {
+              opacity: 0,
+              filter: blur ? 'blur(4px)' : 'none',
+              ...(scaleFrom !== undefined ? { scale: scaleFrom } : {}),
+              ...getInitialPosition(),
+            }
       }
       transition={transition}
       className={cn(className)}

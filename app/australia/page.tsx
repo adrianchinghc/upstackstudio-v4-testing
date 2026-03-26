@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://upstackstudio.com/australia' },
   openGraph: {
     title: 'Software Development Australia | Upstack Studio',
-    description: 'Australian companies building digital infrastructure for APAC expansion. Senior engineering team, transparent process, fixed pricing.',
+    description:
+      'Australian companies building digital infrastructure for APAC expansion. Senior engineering team, transparent process, fixed pricing.',
     url: 'https://upstackstudio.com/australia',
     siteName: 'Upstack Studio',
     locale: 'en_AU',

@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://upstackstudio.com/philippines' },
   openGraph: {
     title: 'Software Development Philippines | Upstack Studio',
-    description: 'Philippine enterprises building custom software to replace the tools that no longer fit. Senior ASEAN engineering team. Fixed pricing. Full IP ownership.',
+    description:
+      'Philippine enterprises building custom software to replace the tools that no longer fit. Senior ASEAN engineering team. Fixed pricing. Full IP ownership.',
     url: 'https://upstackstudio.com/philippines',
     siteName: 'Upstack Studio',
     locale: 'en_PH',

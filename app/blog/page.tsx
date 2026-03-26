@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://upstackstudio.com/blog' },
   openGraph: {
     title: 'Blog | Upstack Studio',
-    description: 'Software development, AI integration, and digital transformation insights for established companies.',
+    description:
+      'Software development, AI integration, and digital transformation insights for established companies.',
     url: 'https://upstackstudio.com/blog',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
@@ -48,8 +49,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               Insights on software, AI, and digital transformation.
             </h1>
             <p className="text-lg text-secondary max-w-2xl leading-relaxed">
-              In-depth articles on building software that actually works, integrating AI where it matters, and
-              digitalising operations for established companies.
+              In-depth articles on building software that actually works, integrating AI where it
+              matters, and digitalising operations for established companies.
             </p>
           </AnimatedSection>
         </div>
@@ -125,7 +126,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <div className="flex justify-center gap-2 mt-12">
               {currentPage > 1 && (
                 <Button variant="outline" asChild>
-                  <Link href={`/blog?${selectedCategory !== 'All' ? `category=${encodeURIComponent(selectedCategory)}&` : ''}page=${currentPage - 1}`}>
+                  <Link
+                    href={`/blog?${selectedCategory !== 'All' ? `category=${encodeURIComponent(selectedCategory)}&` : ''}page=${currentPage - 1}`}
+                  >
                     ← Previous
                   </Link>
                 </Button>
@@ -135,7 +138,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </span>
               {currentPage < totalPages && (
                 <Button variant="outline" asChild>
-                  <Link href={`/blog?${selectedCategory !== 'All' ? `category=${encodeURIComponent(selectedCategory)}&` : ''}page=${currentPage + 1}`}>
+                  <Link
+                    href={`/blog?${selectedCategory !== 'All' ? `category=${encodeURIComponent(selectedCategory)}&` : ''}page=${currentPage + 1}`}
+                  >
                     Next →
                   </Link>
                 </Button>

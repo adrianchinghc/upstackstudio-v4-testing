@@ -23,11 +23,10 @@ export default function ContactPage() {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <AnimatedSection>
               <SectionLabel className="mb-4 block">Contact</SectionLabel>
-              <h1 className="text-page-title mb-6">
-                Get in touch.
-              </h1>
+              <h1 className="text-page-title mb-6">Get in touch.</h1>
               <p className="text-lg text-secondary leading-relaxed mb-8">
-                For project enquiries, book a strategy call. This form is for everything else — existing clients, partnerships, press.
+                For project enquiries, book a strategy call. This form is for everything else —
+                existing clients, partnerships, press.
               </p>
 
               <Link

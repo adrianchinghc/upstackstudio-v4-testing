@@ -1,176 +1,128 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  SectionLabel,
-  AnimatedSection,
-  RatingsStrip,
-} from "@/components/common";
-import { LudaSection } from "@/components/luda/LudaSection";
-import {
-  StatsGrid,
-  TeamGrid,
-  TeamPhotoCollage,
-  GlobalReach,
-  WrittenTestimonial,
-} from "@/components/about";
-import { Button } from "@/components/ui/button";
-import { SOCIAL, PRESS, YT_JUSTIN, YT_JASON } from "@/lib/constants";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { SectionLabel, AnimatedSection, RatingsStrip } from '@/components/common'
+import { LudaSection } from '@/components/luda/LudaSection'
+import { Button } from '@/components/ui/button'
+import { SOCIAL, PRESS, YT_JUSTIN, YT_JASON } from '@/lib/constants'
 import {
   ArrowRight,
   TrendingUp,
   ShieldCheck,
   Zap,
   Users,
-  Target,
-  MessageSquare,
   Youtube,
   Podcast,
   ExternalLink,
-} from "lucide-react";
+} from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: 'About Us',
   description:
-    "We exist for one reason: to help growing companies build technology that actually works. Learn about our story, values, and the LUDA Framework.",
+    'We exist for one reason: to help growing companies build technology that actually works. Learn about our story, values, and the LUDA™ Framework.',
   alternates: {
-    canonical: "/about",
+    canonical: '/about',
   },
-};
+}
 
-const DNA_VALUES = [
+const VALUES = [
   {
-    title: "2-Week Sprints",
+    title: 'Growth Mindset',
     description:
-      "You see working software every 14 days. Not mockups. Not promises. Deployable code you can test with real users.",
-    icon: Zap,
-  },
-  {
-    title: "Senior-Only Teams",
-    description:
-      "No juniors learning on your project. Every engineer has 5+ years experience and has shipped production software for paying customers.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "We Push Back",
-    description:
-      "You're paying us to tell you the truth. If a feature will waste your money or delay your launch, we'll say so — even if you disagree.",
-    icon: Target,
-  },
-  {
-    title: "Fixed-Scope Pricing",
-    description:
-      "You know exactly what you pay before we start. No hourly billing. No surprise invoices. Scope creep is on us, not you.",
+      'We learn from every project. Every failure teaches us something. Every success is a chance to raise the bar.',
     icon: TrendingUp,
   },
   {
-    title: "Bi-Weekly Reviews",
+    title: 'Uncompromising Standards',
     description:
-      "Every two weeks, you see progress on a call with the team that built it. Questions answered in real-time. No waiting for status updates.",
-    icon: MessageSquare,
+      "We push back on bad features. We tell you the truth about what's possible. We don't cut corners.",
+    icon: ShieldCheck,
   },
   {
-    title: "One Squad, Start to Finish",
+    title: 'Proactive by Default',
     description:
-      "The PM, designer, and developers who start your project are the same ones who finish it. No handoffs. No re-explaining.",
+      "We don't wait for problems to become crises. We flag issues early, propose solutions, and move fast.",
+    icon: Zap,
+  },
+  {
+    title: 'People Before Technology',
+    description:
+      'Technology is a tool. The goal is always better outcomes for people — your team, your customers, your business.',
     icon: Users,
   },
-];
+]
 
 const WHY_US = [
-  "<strong>The person you meet is the person who builds.</strong> No sales handoff. Adrian reviews every project personally.",
-  "<strong>We say no more than we say yes.</strong> If the fit isn't right, we tell you — and recommend someone who is.",
-  "<strong>Senior engineers only.</strong> No juniors. No interns. No offshore night shifts you never meet.",
-  "<strong>You always know where you stand.</strong> Bi-weekly calls. Slack access. A live sprint board you can check anytime.",
-  "<strong>Our delays, our cost.</strong> If we miss a deadline we agreed to, we pay for the extra time — not you.",
-  "<strong>You own everything.</strong> Code, designs, documentation, credentials. From day one, not just at handover.",
-  "<strong>Proven across industries.</strong> Manufacturing (Daikin), retail (BookXcess), healthcare (Teleme), media (TMI), fintech, logistics, HR tech.",
-];
+  'The people who pitch you are the people who build for you.',
+  "We tell you the truth about what's possible — even when it's not what you want to hear.",
+  'No juniors, no interns on design or development.',
+  'Bi-weekly calls. Slack always open. You always know where your project stands.',
+  'If we cause delays, we pay for them — not you.',
+  'You own everything we build, from kickoff to final delivery.',
+  'Delivered across manufacturing, financial services, healthcare, media, logistics, consumer tech, and sports.',
+]
 
 const QUALIFYING_QUESTIONS = [
   {
-    question: "Why now?",
-    description:
-      "What changed in your business that makes this problem worth solving today — not next quarter?",
+    question: 'Why now?',
+    description: 'What changed? Why is this problem urgent enough to solve today?',
   },
   {
-    question: "Why custom software?",
-    description:
-      "We'll ask if you've tried off-the-shelf tools, hiring internally, or process changes. Sometimes those are better answers.",
+    question: 'Why this solution?',
+    description: 'Why software? Why not a process change, a hire, or an off-the-shelf tool?',
   },
   {
-    question: "Are we the right team?",
+    question: 'Why us?',
     description:
-      "We're not the cheapest. We're not the fastest. If you need either, we'll tell you and recommend someone else.",
+      "Are we the right team for this specific problem? Sometimes we're not — and we'll tell you.",
   },
-];
+]
 
 export default function AboutPage() {
   return (
     <div className="bg-page pt-20 md:pt-24 pb-16 md:pb-24">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        {/* Header — left-aligned, asymmetric */}
-        <AnimatedSection className="max-w-3xl mb-12 md:mb-16">
-          <SectionLabel className="mb-4 block">About Us</SectionLabel>
+        {/* Header */}
+        <AnimatedSection className="max-w-3xl mb-16 md:mb-20">
+          <SectionLabel className="mb-4 block">About Upstack Studio</SectionLabel>
           <h1 className="text-page-title mb-6">
-            We Build the Software Your Business Can&apos;t Buy Off the Shelf
+            We exist for one reason: to help growing companies build technology that actually works.
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-relaxed mb-4">
-            When your operations outgrow spreadsheets and your industry has no
-            perfect SaaS — you need custom software. We&apos;ve been building it
-            since 2017, for companies doing RM20M–RM500M+ in revenue who
-            can&apos;t afford another failed project.
-          </p>
-          <p className="text-base text-muted">
-            Kuala Lumpur-based. Delivered in 6 countries. 40+ clients. 25+
-            production systems running today.
+          <p className="text-lg text-secondary leading-relaxed">
+            Not technology that looks good in a demo. Technology that runs your business, day after
+            day, without breaking.
           </p>
         </AnimatedSection>
 
-        {/* Team Photo Collage */}
-        <TeamPhotoCollage />
-
-        {/* Stats Grid */}
-        <StatsGrid />
-
-        {/* Global Reach — compact strip */}
-        <GlobalReach />
-
-        {/* AI-Enabled Section — HERO MOMENT */}
-        <section className="py-20 md:py-32 -mx-4 md:-mx-6 px-4 md:px-6 bg-surface-2 mb-16 md:mb-24">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedSection>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-12 md:gap-16">
-                <div className="max-w-2xl">
-                  <SectionLabel className="mb-4 block">
-                    How We Build
-                  </SectionLabel>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display mb-6 leading-[1.1]">
-                    AI-Enabled Engineering
-                  </h2>
-                  <p className="text-xl md:text-2xl text-secondary mb-6 leading-relaxed">
-                    We build software the way the world&apos;s best engineers
-                    build it — with AI. Our team uses Claude Code, AI-assisted
-                    code review, and automated testing on every sprint.
-                  </p>
-                  <p className="text-lg text-muted leading-relaxed">
-                    AI-enabled doesn&apos;t mean AI-replaced. It means your
-                    project gets our senior engineers plus the best tools on the
-                    planet. That&apos;s why 16 weeks is achievable when
-                    competitors quote 12 months.
-                  </p>
-                </div>
-                <div className="flex-shrink-0 md:text-right">
-                  <div className="text-7xl md:text-8xl lg:text-9xl font-extrabold text-brand-blue font-display leading-none">
-                    17+
-                  </div>
-                  <p className="text-lg md:text-xl font-semibold mt-4 md:max-w-[200px] md:ml-auto">
-                    projects shipped with AI-enabled engineering
-                  </p>
-                </div>
+        {/* AI-Enabled Section */}
+        <AnimatedSection className="mb-16 md:mb-24">
+          <div className="rounded-2xl border border-sky-faint bg-surface p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <SectionLabel className="mb-4 block">How We Build</SectionLabel>
+                <h2 className="text-section-title mb-4">AI-Enabled Engineering</h2>
+                <p className="text-lg text-secondary mb-6 leading-relaxed">
+                  We build software the way the world's best engineers build it — with AI. Our team
+                  uses Claude Code, AI-assisted code review, and automated testing on every sprint.
+                  Not because it's trendy. Because it makes us faster, more thorough, and more
+                  predictable.
+                </p>
+                <p className="text-base text-muted">
+                  AI-enabled doesn't mean AI-replaced. It means your project gets our senior
+                  engineers plus the best tools on the planet. That's why 16 weeks is achievable
+                  when competitors quote 12 months.
+                </p>
               </div>
-            </AnimatedSection>
+              <div className="text-center">
+                <div className="text-6xl md:text-7xl font-extrabold text-sky-accent font-display mb-2">
+                  17+
+                </div>
+                <p className="text-xl font-semibold">
+                  projects shipped with AI-enabled engineering
+                </p>
+              </div>
+            </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Story Section */}
         <AnimatedSection className="mb-16 md:mb-24">
@@ -182,27 +134,23 @@ export default function AboutPage() {
 
             <div className="prose prose-lg text-secondary max-w-none">
               <p>
-                We started in a cafe in Petaling Jaya. Just a few engineers who
-                believed there had to be a better way to build software for
-                growing companies.
+                We started in a café in Petaling Jaya. Just a few engineers who believed there had
+                to be a better way to build software for growing companies.
               </p>
               <p>
-                We&apos;ve walked away from a RM350,000 prospect because there
-                were too many red flags. Both co-founders left within a year. We
-                survived 3 months with no clients — team still on payroll — and
-                had to tell a prospect honestly: &ldquo;I don&apos;t know
-                whether I will still be here.&rdquo;
+                We've walked away from a RM350,000 prospect because there were too many red flags.
+                Both co-founders left within a year. We survived 3 months with no clients — team
+                still on payroll — and had to tell a prospect honestly: &ldquo;I don't know whether
+                I will still be here.&rdquo;
               </p>
               <p>
-                We&apos;ve carried RM80,000 in bad debt from a client who
-                doubled scope then refused to pay. Every one of those failures
-                taught us something that now protects our clients.
+                We've carried RM80,000 in bad debt from a client who doubled scope then refused to
+                pay. Every one of those failures taught us something that now protects our clients.
               </p>
               <p>
-                From those lessons came the LUDA Framework and the three
-                qualifying questions we ask before every engagement. Now
-                we&apos;re delivering for 9-figure brands and public-listed
-                companies across six countries.
+                From those lessons came the LUDA™ Framework and the three qualifying questions we
+                ask before every engagement. Now we're delivering for 9-figure brands and
+                public-listed companies across six countries.
               </p>
             </div>
 
@@ -212,130 +160,117 @@ export default function AboutPage() {
                 href={PRESS.inRealLife.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 text-brand-blue hover:underline"
+                className="group inline-flex items-center gap-3 text-sky-accent hover:underline"
               >
                 <span className="text-sm font-medium">Read more:</span>
                 <span className="text-base">{PRESS.inRealLife.title}</span>
                 <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="text-sm text-muted mt-1">
-                {PRESS.inRealLife.source}
-              </p>
+              <p className="text-sm text-muted mt-1">{PRESS.inRealLife.source}</p>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Team Grid */}
-        <TeamGrid />
+        {/* Qualifying Questions */}
+        <AnimatedSection className="mb-16 md:mb-24">
+          <div className="max-w-3xl">
+            <SectionLabel className="mb-4 block">Before Every Engagement</SectionLabel>
+            <h2 className="text-section-title mb-8">Three questions we ask before we say yes.</h2>
 
-        {/* Product Development DNA — horizontal icon-forward cards */}
+            <div className="grid gap-6">
+              {QUALIFYING_QUESTIONS.map((item, index) => (
+                <div
+                  key={item.question}
+                  className="rounded-xl border border-default bg-surface p-6"
+                >
+                  <span className="text-4xl font-bold text-sky-accent font-display">
+                    {index + 1}.
+                  </span>
+                  <h3 className="text-xl font-semibold mt-2 mb-2">{item.question}</h3>
+                  <p className="text-secondary">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Values */}
         <section className="mb-16 md:mb-24">
-          <AnimatedSection className="mb-12 md:mb-16 max-w-3xl">
-            <SectionLabel className="mb-4 block">How We Work</SectionLabel>
-            <h2 className="text-section-title mb-4">What You Actually Get</h2>
-            <p className="text-lg text-secondary leading-relaxed">
-              Not promises. Not values statements. Here&apos;s the concrete
-              experience of working with us — the same process that grew
-              BookXcess eCommerce revenue 15×, launched GO DAIKIN in half the
-              quoted time, and shipped TMI&apos;s mobile app in 2 weeks.
-            </p>
+          <AnimatedSection className="text-center mb-12">
+            <SectionLabel className="mb-4 block">Our Values</SectionLabel>
+            <h2 className="text-section-title">What we stand for.</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {DNA_VALUES.map((value, index) => (
-              <AnimatedSection key={value.title} delay={index * 0.05}>
-                <div className="group flex gap-5 p-6 rounded-xl bg-surface border border-border hover:border-brand-blue/30 transition-all duration-300">
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-brand-blue/10 group-hover:bg-brand-blue/20 transition-colors">
-                    <value.icon className="h-6 w-6 text-brand-blue" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">
-                      {value.title}
-                    </h3>
-                    <p className="text-secondary text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
+            {VALUES.map((value, index) => (
+              <AnimatedSection key={value.title} delay={index * 0.1}>
+                <div className="rounded-xl border border-default bg-surface p-6 md:p-8 h-full">
+                  <value.icon className="h-10 w-10 text-sky-accent mb-4" />
+                  <h3 className="text-card-title mb-3">{value.title}</h3>
+                  <p className="text-secondary">{value.description}</p>
                 </div>
               </AnimatedSection>
             ))}
           </div>
         </section>
 
-        {/* Qualifying Questions — no cards, editorial typography */}
-        <AnimatedSection className="mb-16 md:mb-24">
-          <div className="max-w-3xl">
-            <SectionLabel className="mb-4 block">We Say No a Lot</SectionLabel>
-            <h2 className="text-section-title mb-12">
-              3 questions we ask before taking your money.
-            </h2>
-
-            <div className="space-y-10">
-              {QUALIFYING_QUESTIONS.map((item, index) => (
-                <div
-                  key={item.question}
-                  className="grid grid-cols-[auto,1fr] gap-6 items-baseline"
-                >
-                  <span className="text-5xl md:text-6xl font-bold text-brand-blue/40 dark:text-brand-blue/30 font-display leading-none">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                      {item.question}
-                    </h3>
-                    <p className="text-secondary leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
         {/* Why Us */}
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="rounded-2xl bg-surface border border-default p-8 md:p-12">
-            <SectionLabel className="mb-4 block">Why Us</SectionLabel>
-            <h2 className="text-section-title mb-8">
-              7 Things We Do That Most Agencies Won&apos;t
-            </h2>
+            <SectionLabel className="mb-4 block">7 Reasons</SectionLabel>
+            <h2 className="text-section-title mb-8">Why work with us?</h2>
 
             <ol className="space-y-4">
               {WHY_US.map((reason, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-semibold text-sm">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-sky-faint text-sky-accent font-semibold text-sm">
                     {index + 1}
                   </span>
-                  <p
-                    className="text-lg pt-1"
-                    dangerouslySetInnerHTML={{ __html: reason }}
-                  />
+                  <p className="text-lg pt-1" dangerouslySetInnerHTML={{ __html: reason }} />
                 </li>
               ))}
             </ol>
           </div>
         </AnimatedSection>
 
-        {/* Written Testimonial */}
-        <WrittenTestimonial />
+        {/* Team */}
+        <AnimatedSection className="mb-16 md:mb-24">
+          <div className="max-w-3xl">
+            <SectionLabel className="mb-4 block">The Team</SectionLabel>
+            <h2 className="text-section-title mb-6">A lean, senior team.</h2>
+            <p className="text-lg text-secondary leading-relaxed mb-8">
+              Engineers, designers, and strategists — all full-time, all based in Malaysia. No
+              distributed freelance networks. No offshore handoffs at midnight. The people who scope
+              your project are the people who build it.
+            </p>
+
+            <div className="rounded-xl border border-default bg-surface p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+              <div className="w-24 h-24 rounded-full bg-surface-2 flex items-center justify-center text-4xl font-bold text-sky-accent font-display">
+                AC
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">Adrian Ching</h3>
+                <p className="text-muted mb-3">Founder</p>
+                <p className="text-secondary text-base">
+                  Adrian personally reviews every strategy session submission and leads client
+                  relationships from start to finish.
+                </p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
         {/* LUDA Section */}
         <LudaSection variant="full" />
 
         {/* YouTube / Podcast */}
-        <section className="mb-16 md:mb-24">
-          <AnimatedSection className="mb-12 md:mb-16 max-w-3xl">
-            <SectionLabel className="mb-4 block">
-              Don&apos;t Take Our Word For It
-            </SectionLabel>
-            <h2 className="text-section-title">
-              Hear it from the people who paid us.
-            </h2>
+        <section className="py-16 md:py-24">
+          <AnimatedSection className="text-center mb-12">
+            <SectionLabel className="mb-4 block">Learn How We Think</SectionLabel>
+            <h2 className="text-section-title">Watch. Listen. Decide.</h2>
           </AnimatedSection>
 
-          {/* Two videos side by side */}
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
             <AnimatedSection>
               <div className="rounded-2xl overflow-hidden bg-surface border border-default">
                 <div className="aspect-video">
@@ -349,12 +284,7 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-              <p className="mt-4">
-                <span className="font-semibold">Justin Ruffier</span>
-                <span className="text-muted"> · Founder, Whisker Tracker</span>
-              </p>
             </AnimatedSection>
-
             <AnimatedSection delay={0.1}>
               <div className="rounded-2xl overflow-hidden bg-surface border border-default">
                 <div className="aspect-video">
@@ -368,35 +298,27 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-              <p className="mt-4">
-                <span className="font-semibold">Jason Anderson</span>
-                <span className="text-muted"> · CEO, Tradelink</span>
-              </p>
             </AnimatedSection>
           </div>
 
-          {/* Links */}
-          <AnimatedSection
-            delay={0.15}
-            className="flex flex-wrap items-center gap-4"
-          >
+          <AnimatedSection className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={SOCIAL.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-default bg-surface hover:bg-surface-2 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-default bg-surface hover:bg-surface-2 transition-colors"
             >
-              <Youtube className="h-4 w-4 text-red-500" />
-              <span className="font-medium">More on YouTube</span>
+              <Youtube className="h-5 w-5 text-red-500" />
+              <span className="font-medium">YouTube Channel</span>
             </a>
             <a
               href={SOCIAL.podcast}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-default bg-surface hover:bg-surface-2 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-default bg-surface hover:bg-surface-2 transition-colors"
             >
-              <Podcast className="h-4 w-4 text-brand-blue" />
-              <span className="font-medium">Tech It Or Leave It</span>
+              <Podcast className="h-5 w-5 text-sky-accent" />
+              <span className="font-medium">Tech It Or Leave It Podcast</span>
             </a>
           </AnimatedSection>
         </section>
@@ -408,26 +330,19 @@ export default function AboutPage() {
 
         {/* CTA */}
         <AnimatedSection className="text-center">
-          <h2 className="text-section-title mb-6">
-            Still reading? Let&apos;s see if we&apos;re the right fit.
-          </h2>
-          <p className="text-lg text-secondary mb-4 max-w-2xl mx-auto">
-            45 minutes with Adrian. You&apos;ll walk away with a clear picture
-            of what your project would look like — timeline, team, investment —
-            whether you work with us or not.
-          </p>
-          <p className="text-base text-muted mb-8">
-            We take 3–4 new projects per quarter. If your timeline is urgent,
-            don&apos;t wait.
+          <h2 className="text-section-title mb-6">Ready to talk?</h2>
+          <p className="text-lg text-secondary mb-8 max-w-2xl mx-auto">
+            45 minutes with Adrian. Not a sales pitch. A real conversation about your operations and
+            what we'd do about it.
           </p>
           <Button asChild size="lg">
             <Link href="/strategy-session">
-              Book Your Strategy Call
+              Book a Strategy Call
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
           </Button>
         </AnimatedSection>
       </div>
     </div>
-  );
+  )
 }

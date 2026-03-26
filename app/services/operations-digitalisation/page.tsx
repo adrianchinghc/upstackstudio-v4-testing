@@ -81,21 +81,21 @@ const FAQS = [
       'Most operations digitalisation projects land in the 12–20 week range depending on complexity. The LUDA™ Framework gives you a committed launch date at kickoff — not a range. If we cause delays, we absorb the cost.',
   },
   {
-    question: "We tried off-the-shelf software and it didn't fit our workflow. Why will this be different?",
+    question:
+      "We tried off-the-shelf software and it didn't fit our workflow. Why will this be different?",
     answer:
       "Off-the-shelf software is designed for the average business. Your operations aren't average — your approval chains, your data flows, your exception handling all have specific requirements. We build to your workflow, not the other way around. That's the only way it actually gets adopted.",
   },
   {
     question: 'Do your systems need ongoing maintenance?',
     answer:
-      "All software needs maintenance — security patches, infrastructure updates, and improvements as your business evolves. We offer a Development Subscription for ongoing support, or hand over the codebase with documentation for your internal team. You own everything we build.",
+      'All software needs maintenance — security patches, infrastructure updates, and improvements as your business evolves. We offer a Development Subscription for ongoing support, or hand over the codebase with documentation for your internal team. You own everything we build.',
   },
 ]
 
 export default function OperationsDigitalisationPage() {
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -104,15 +104,16 @@ export default function OperationsDigitalisationPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.08}>
             <h1 className="text-page-h1 mt-4 mb-6 max-w-4xl">
-              Stop running your business on{' '}
-              <span className="text-sky-accent">spreadsheets</span> and WhatsApp chains.
+              Stop running your business on <span className="text-sky-accent">spreadsheets</span>{' '}
+              and WhatsApp chains.
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              Every day your team copies data between systems, chases approvals over group chats, and re-enters
-              information that should flow automatically — that's revenue leaking through process gaps. We map
-              your operations, design the system, and build it. Built on the LUDA™ Framework.
+              Every day your team copies data between systems, chases approvals over group chats,
+              and re-enters information that should flow automatically — that's revenue leaking
+              through process gaps. We map your operations, design the system, and build it. Built
+              on the LUDA™ Framework.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
@@ -126,6 +127,9 @@ export default function OperationsDigitalisationPage() {
                 <Link href="/work">See Case Studies</Link>
               </Button>
             </div>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -137,8 +141,8 @@ export default function OperationsDigitalisationPage() {
             <SectionLabel>Real Scenarios</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">Operations problems we've solved.</h2>
             <p className="text-secondary max-w-2xl mb-16">
-              Not hypotheticals. These are the exact types of engagements we run — described in the same terms our
-              clients used before we started.
+              Not hypotheticals. These are the exact types of engagements we run — described in the
+              same terms our clients used before we started.
             </p>
           </AnimatedSection>
 
@@ -152,7 +156,9 @@ export default function OperationsDigitalisationPage() {
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-brand-navy)]/10 dark:bg-[var(--color-brand-sky)]/10">
                           <scenario.icon className="h-4 w-4 text-[var(--color-brand-navy)] dark:text-sky-accent" />
                         </div>
-                        <span className="text-xs font-semibold tracking-widest uppercase text-muted">{scenario.label}</span>
+                        <span className="text-xs font-semibold tracking-widest uppercase text-muted">
+                          {scenario.label}
+                        </span>
                       </div>
                       <h3 className="text-xl font-semibold mb-3">{scenario.problem}</h3>
                       <p className="text-secondary leading-relaxed">{scenario.detail}</p>
@@ -194,7 +200,9 @@ export default function OperationsDigitalisationPage() {
         <div className="max-w-3xl mx-auto">
           <AnimatedSection>
             <SectionLabel>FAQ</SectionLabel>
-            <h2 className="text-section-h2 mt-3 mb-12">Questions we hear before every engagement.</h2>
+            <h2 className="text-section-h2 mt-3 mb-12">
+              Questions we hear before every engagement.
+            </h2>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
@@ -219,14 +227,17 @@ export default function OperationsDigitalisationPage() {
               Tell us what's broken. We'll tell you what it costs to fix it.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              Adrian personally reviews every submission before the call. Not a junior sales rep. Not a template
-              pitch deck. A real conversation about your operations.
+              Adrian personally reviews every submission before the call. Not a junior sales rep.
+              Not a template pitch deck. A real conversation about your operations.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>

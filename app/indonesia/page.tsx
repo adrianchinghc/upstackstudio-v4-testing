@@ -4,11 +4,12 @@ import { GeoPage } from '@/components/geo/GeoPage'
 export const metadata: Metadata = {
   title: 'Software Development Indonesia | Upstack Studio',
   description:
-    'For Indonesian enterprises ready to move beyond manual operations. Operations digitalisation, AI integration, and custom platform development for Indonesia\'s growing companies.',
+    "For Indonesian enterprises ready to move beyond manual operations. Operations digitalisation, AI integration, and custom platform development for Indonesia's growing companies.",
   alternates: { canonical: 'https://upstackstudio.com/indonesia' },
   openGraph: {
     title: 'Software Development Indonesia | Upstack Studio',
-    description: 'For Indonesian enterprises ready to digitalise operations and build the infrastructure to compete. Senior Malaysian engineering team. Fixed pricing.',
+    description:
+      'For Indonesian enterprises ready to digitalise operations and build the infrastructure to compete. Senior Malaysian engineering team. Fixed pricing.',
     url: 'https://upstackstudio.com/indonesia',
     siteName: 'Upstack Studio',
     locale: 'en_ID',
