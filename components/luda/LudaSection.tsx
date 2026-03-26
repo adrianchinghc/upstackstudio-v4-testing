@@ -1,47 +1,52 @@
-'use client'
+"use client";
 
-import { cn } from '@/lib/utils'
-import { SectionLabel } from '@/components/common/SectionLabel'
-import { GuaranteeBar } from '@/components/common/GuaranteeBar'
-import { AnimatedSection } from '@/components/common/AnimatedSection'
-import { Users, Video, Calendar, Shield } from 'lucide-react'
+import { cn } from "@/lib/utils";
+import { SectionLabel } from "@/components/common/SectionLabel";
+import { GuaranteeBar } from "@/components/common/GuaranteeBar";
+import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { Users, Video, Calendar, Shield } from "lucide-react";
 
 const LUDA_PILLARS = [
   {
     icon: Users,
-    title: 'Dedicated Agile Squad',
+    title: "Dedicated Agile Squad",
     description:
-      'Fixed senior team from day one — PM, engineers, QA, designer. Same people, kickoff to launch. No juniors. No interns. No handoffs.',
+      "Fixed senior team from day one — PM, engineers, QA, designer. Same people, kickoff to launch. No juniors. No interns. No handoffs.",
   },
   {
     icon: Video,
-    title: 'Bi-weekly Progress Reviews',
+    title: "Bi-weekly Progress Reviews",
     description:
-      'Video call every two weeks. You see what was built, what\'s next, what needs your input. Slack always open. No waiting for a monthly report.',
+      "Video call every two weeks. You see what was built, what's next, what needs your input. Slack always open. No waiting for a monthly report.",
   },
   {
     icon: Calendar,
-    title: '16-Week Launch Commitment',
+    title: "16-Week Launch Commitment",
     description:
-      'We set a date and keep it. Delays on our side = we keep working at no extra cost. You never pay for our problems.',
+      "We set a date and keep it. Delays on our side = we keep working at no extra cost. You never pay for our problems.",
   },
   {
     icon: Shield,
-    title: 'Full IP & Source Code Ownership',
+    title: "Full IP & Source Code Ownership",
     description:
-      'Everything we build is yours — from kickoff to final delivery. No lock-in. No licensing. No platform dependency.',
+      "Everything we build is yours — from kickoff to final delivery. No lock-in. No licensing. No platform dependency.",
   },
-] as const
+] as const;
 
 interface LudaSectionProps {
-  variant?: 'full' | 'compact'
-  className?: string
+  variant?: "full" | "compact";
+  className?: string;
 }
 
-export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
-  if (variant === 'compact') {
+export function LudaSection({ variant = "full", className }: LudaSectionProps) {
+  if (variant === "compact") {
     return (
-      <div className={cn('rounded-2xl bg-surface border border-default p-6 md:p-8', className)}>
+      <div
+        className={cn(
+          "rounded-2xl bg-surface border border-default p-6 md:p-8",
+          className,
+        )}
+      >
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-brand-blue)]/10">
@@ -49,7 +54,9 @@ export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
             </div>
             <div>
               <SectionLabel>The LUDA™ Framework</SectionLabel>
-              <h3 className="text-lg font-semibold mt-1">Built so your project doesn't fail.</h3>
+              <h3 className="text-lg font-semibold mt-1">
+                Built so your project doesn't fail.
+              </h3>
             </div>
           </div>
 
@@ -65,24 +72,28 @@ export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
           <GuaranteeBar variant="compact" className="mt-4" />
         </div>
       </div>
-    )
+    );
   }
 
   return (
-    <section aria-labelledby="luda-heading" className={cn('py-24 md:py-32 bg-surface content-auto', className)}>
+    <section
+      aria-labelledby="luda-heading"
+      className={cn("py-24 md:py-32 bg-surface content-auto", className)}
+    >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <AnimatedSection className="text-center mb-16 md:mb-20">
-          <SectionLabel className="mb-4 block">The LUDA™ Framework</SectionLabel>
-          <h2 id="luda-heading" className="text-section-title mb-4">
-            70% of software projects fail.
-            <br />
+        <AnimatedSection className="mb-16 md:mb-20 max-w-3xl">
+          <SectionLabel className="mb-4 block">
+            The LUDA™ Framework
+          </SectionLabel>
+          <h2 id="luda-heading" className="text-section-title mb-6">
+            70% of software projects fail.{" "}
             <span className="text-gradient">
-              We built a framework so yours doesn't.
+              We built a framework so yours doesn&apos;t.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            The LUDA™ Framework is how we deliver every engagement — not a promise, a structure.
-            Every client, every project, every time.
+          <p className="text-lg md:text-xl text-secondary leading-relaxed">
+            The LUDA™ Framework is how we deliver every engagement — not a
+            promise, a structure. Every client, every project, every time.
           </p>
         </AnimatedSection>
 
@@ -115,5 +126,5 @@ export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }

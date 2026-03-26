@@ -90,6 +90,69 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    // Legal pages
+    {
+      url: `${SITE_URL}/privacy-policy`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/affiliate-disclaimer`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    // Additional pages
+    {
+      url: `${SITE_URL}/faq`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/careers`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/clutch-top-rated-app-development-agency`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    // Resource pages
+    {
+      url: `${SITE_URL}/app-developer-interview-questions`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/app-brief-template`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/app-validation-blueprint`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/zero-to-app-ready`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/app-development-mistakes-ebook`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
     // Geo pages
     {
       url: `${SITE_URL}/malaysia`,

@@ -1,0 +1,196 @@
+---
+title: "How To Build Apps With ChatGPT & OpenAI"
+description: "In Margin Call, a film based on the 2008 financial crisis, Jeremy Irons plays a ruthless CEO.&nbsp;"
+date: "2023-05-12"
+author: "Ashraf Farid"
+category: "Artificial Intelligence"
+tags: []
+canonical: "https://upstackstudio.com/blog/build-apps-with-chatgpt-openai"
+---
+
+![quote by Jeremy Irons in Margin Call regarding three ways to make a living in the business](/images/blog/2023-05-Jeremy-Irons-quote-1024x550.png)
+
+If you’re looking to integrate an OpenAI model into your Android, iOS or Web-based app, you have two options:
+
+- do it with Zapier (easier), or
+- try your hand at a bit of coding (trickier, but with some advantages)
+
+Before we show you how both of these steps work, let’s address some common misconceptions about ‘using ChatGPT in your app’ - and why it doesn’t *quite*work that way.
+
+## Can you use ChatGPT in an app and is it free?
+
+Until recently, the answer to both questions would have been a simple ‘no’.
+
+Today, it’s a bit less straightforward - we asked ChatGPT to answer as an American Idol judge and got this:
+
+![image describing chatgpt answering like an american idol judge](/images/blog/2023-05-Randy-Jackson-meme-quote-with-Open-AI.png)
+
+To be clear, **people saying integrate ‘ChatGPT’ often mean ‘an OpenAI model’ without realizing it.**
+
+There are a few OpenAI models and* ChatGPT is an example of an app built with one*, specifically GPT 3.5.
+
+GPT 3.5 specializes in natural language production and surface-level domain expertise.
+
+Other models like Whisper and the now deprecated Codex specialize in different areas.
+
+If you’re serious about creating an app powered by an OpenAI model, you need to know: 
+
+- your use case
+- available OpenAI models
+- their specializations, and
+- their cost - it’s not prohibitively expensive, but it’s not free
+
+You thought Sam Altman would let you hog his servers so you could generate AI pictures of cats?
+
+ChatGPT is free because it’s great advertising for what is at its core a [SaaS product](https://upstackstudio.com/blog/micro-saas-ideas/).
+
+SaaS products *always*give diluted free plans.
+
+But get ready to cough up some moolah for the real deal.
+
+Here’s a **[list of available OpenAI models and their cost](https://openai.com/pricing)**:
+
+![creepy man peeking at user asking can we use ChatGPT for free](/images/blog/2023-05-finding-use-cases-that-fit-need.png)
+
+So no, you can’t incorporate the actual ChatGPT in your app but you *can*integrate GPT 3.5 at the price displayed in the table.
+
+Regardless of the OpenAI model, these are the steps to integrate them:
+
+Steps 1 and 3 are pretty straightforward. 
+
+Step 2 is the tricky one - and there are two ways to do this if you’re someone without extensive technical knowledge.
+
+Like a Buddhist monk, let us first travel down the path of least resistance with Zapier.
+
+## Option 1: Integrating OpenAI via Zapier
+
+[**Zapier**](https://zapier.com/) is a SaaS that simplifies data transfer between other apps.
+
+It has prebuilt connections with thousands of other platforms so users can set up whatever data flows, triggers, and storage they want with zero coding knowledge.
+
+Since I too have zero coding knowledge, I was the perfect guinea pig.
+
+Upstack Studio’s resident boss-man Adrian <s>forced</s> encouraged me to try it out.
+
+**I understand enough about apps to know I needed a simple [tech stack](https://upstackstudio.com/blog/technology-stack/): **
+
+Ten minutes later I had a working app, [**which you can see here**](https://docs.google.com/spreadsheets/d/17GZ8avkYasLcOouRnIeT5Jn8Jrf7Aoy47FtKeHEgFkk/edit?usp=sharing)**.**
+
+![demo of using zapier for how to build apps with chatgpt](/images/blog/2023-05-african-cichlid-factsheet-zapier-open-ai-integration-demo-1024x576.png)
+
+Though far from pretty, it’s undeniably an app powered by OpenAI’s Davinci.
+
+My app helps fishkeepers learn about**[African cichlids](https://www.google.com/search?q=what+are+african+cichlids&sxsrf=APwXEdeEcD-IpRWcsmzvsqucqlN7_00OLQ%3A1683769216213&source=hp&ei=gEdcZM77CrbD4-EPofeu0AY&iflsig=AOEireoAAAAAZFxVkKKaexLbotGdfp5ACHD7YuSXUnYL&oq=what+are+african+c&gs_lcp=Cgdnd3Mtd2l6EAEYAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgjEIoFECc6BAgjECc6CwgAEIAEELEDEIMBOgsIABCKBRCxAxCDAToLCC4QgAQQsQMQgwE6BwgjEOoCECc6BwgjELECECc6BwgAEIAEEAo6CggAEIAEELEDEAo6DQgAEIAEELEDEIMBEAo6CggAEIAEEMkDEAo6CAgAEIoFEJIDOgsILhCvARDHARCABDoQCAAQgAQQsQMQgwEQsQMQCjoFCC4QgAQ6CwguEIAEEMcBENEDOggIABCABBCxAzoICAAQgAQQyQNQAFjCOmDbTmgJcAB4AYABgAOIAbsZkgEIOC4xNS4xLjGYAQCgAQGwAQo&sclient=gws-wiz)** - a diverse family of fish from Africa that frequently confuse beginners in our hobby.
+
+In Step 1, users manually fill in a common name of an African cichlid under column A.
+
+I’ve set this to trigger Zapier to send a prompt to OpenAI’s Davinci asking for the scientific name of the fish with that common name:
+
+![zapier automated worklfow](/images/blog/2023-05-zapier-step-1.png)
+
+I also set it so Zapier takes the scientific name returned by OpenAI and enters it into column B:
+
+![zapier automated workflow](/images/blog/2023-05-Zapier-step-3.png)
+
+I then set up another two prompts to be sent whenever a new scientific name is entered:
+
+![list of zapier zaps](/images/blog/2023-05-list-of-zapier-zaps-1024x469.png)
+
+I used Google Sheets, but remember that Zapier has integrations with** **[**tons of other platforms**](https://zapier.com/apps), including popular no-code app builders like**[Bubble](https://bubble.pxf.io/DKeNdy)**,**[Adalo](https://www.adalo.com/?via=adrianchinghc)**, and more.
+
+Pick a suitable app builder (or check out our [**recommended no-code app builders for non-tech founders**](https://upstackstudio.com/blog/no-code-app-builder/)) and start zapping away.
+
+As convenient as this is, there are a couple of downsides:
+
+If you’re up for a challenge, consider trying your hand at some minimal coding.
+
+## Option 2: Integrating OpenAI via Low Code
+
+We’ll need the same components as before - a frontend, backend, and server to connect them.
+
+The OpenAI model is still the backend but without Zapier, you’ll need to manually connect your OpenAI API key.
+
+For this, we’d recommend [**Locofy’s guide**](https://www.locofy.ai/blog/copywriting-app-with-locofy-and-chatgpt) to create a simple OpenAI copywriting app.
+
+![locofy starting](/images/blog/2023-05-locofy-guide-start-1024x506.png)
+
+We’ve spoken about Locofy before - it’s one of our favourite [**AI tools for app development**](https://upstackstudio.com/blog/ai-coding-tools/).
+
+Locofy’s guide will:
+
+- Give you a simple premade Figma design (pictured above)
+- help turn the design into a working user interface
+- guide you through exporting and extending the code with ChatGPT
+
+By the end of it, you should have something that works like this:
+
+![locofy finished product](/images/blog/2023-05-locofy-guide-1024x516.png)
+
+Again, it looks far from beautiful, but it’s an OpenAI-powered app, and it works.
+
+## What the heck - Option 2 is *way*too difficult
+
+First off, don’t sweat it - even minimal coding is extremely tricky for a non-tech person.
+
+There's a reason app developers aren’t too worried about AI taking our jobs.
+
+We often see questions like *‘How to Write Code Using ChatGPT?’*coming from non-tech folks hoping that they can now create complex apps unassisted.
+
+For the most part, **AI automates and speeds up tasks you already know how to do.**
+
+AI can’t turn non-coders into full-fledged developers any more than it can turn non-medically trained people into qualified nurses.
+
+![joker nurse to show non techs cannot learn how to Write Code Using ChatGPT ](/images/blog/2023-05-Dark-Knight-Heath-Ledger-Joker-Hospital-1024x512.webp)
+
+## Upstack Studio’s take on incorporating OpenAI into apps
+
+For non-tech founders, we suggest using Zapier to rapidly and cheaply validate any ideas you have.
+
+Once you sign up with OpenAI and get your API key, head over to the [**OpenAI Playground**](https://platform.openai.com/playground) where you can easily test out different prompts, models, and generate code with your API key. 
+
+![open AI playground](/images/blog/2023-05-openai-playground-1024x484.png)
+
+Then it’s all a matter of finding an app builder that is part of Zapier’s ecosystem.
+
+From there, it becomes an app project like any other - gather user feedback and iterate accordingly.
+
+Once the idea begins to grow a little too big for prebuilt configurations, it might be time for you to get in touch with a [**trustworthy web and mobile app developer.**](https://upstackstudio.com/)
+
+## *Should*you build an app with ChatGPT?
+
+For starters, that heading was a test.
+
+We hope by now you know that it’s not ‘ChatGPT’ but an 'OpenAI model'!
+
+Now, if ever a trend made us think of Jeff Goldblum’s famous Jurassic Park quote, this is it.
+
+![quote by Jeff Goldblum in Jurassic Park](/images/blog/2023-05-jeff-goldblum-quote-on-could-and-should.jpg)
+
+**Before you build an AI-powered app, ask yourself if the world really needs it.**
+
+Users don’t want a monopoly in the SaaS pool - there’s always room for competition. 
+
+*But we want options, not clones.*
+
+This tweet from founder Jon Yong Fook sums up our frustrations perfectly.
+
+<figure class="wp-block-embed aligncenter is-type-rich is-provider-twitter wp-block-embed-twitter">
+
+https://twitter.com/yongfook/status/1648466000147517441?s=20
+
+</figure>
+
+And you know what? 
+
+We think it *could be*because the ones creating all these clone apps are developers - not founders.
+
+These are people who have the technical skill to build a SaaS but **lack the imagination and life experience needed to build something meaningful.**
+
+That’s where you come in, dear non-tech founders.
+
+We don’t need you to learn how to code yourself - any decent**[mobile app developer](https://upstackstudio.com/)** can do that, and with AI tools, they do it twice as fast.
+
+We need you for your ideas, vision, and dedication to solving a worthwhile problem - always have and always will.
+
+*Hey there stranger, thanks for reading this all the way to the end. Join our mailing list for resources on developing apps with AI and becoming a well-rounded founder.* *Get a nifty list of**questions to ask app developers**when you sign up!*
+

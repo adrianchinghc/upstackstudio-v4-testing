@@ -126,7 +126,6 @@ export default function OperationsDigitalisationPage() {
                 <Link href="/work">See Case Studies</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>
@@ -228,7 +227,6 @@ export default function OperationsDigitalisationPage() {
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>

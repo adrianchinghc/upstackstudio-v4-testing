@@ -1,0 +1,214 @@
+---
+title: "How To Convert Websites Into Progressive Web Apps (PWA)"
+description: "PWAs can function like native apps on mobile devices and offer a seamless experience to users by combining the best of both worlds - web and native apps."
+date: "2024-10-29"
+author: "Ashraf Farid"
+category: "Web App"
+tags: []
+canonical: "https://upstackstudio.com/blog/convert-website-progressive-web-app"
+---
+
+## What is a Progressive Web App?
+
+A **Progressive Web App (PWA)** is a type of application software that is delivered through the web and is built using common web technologies like HTML, CSS, and JavaScript.
+
+![example of a progressive web app (pwa)](/images/blog/2024-10-chrono24-as-an-example-of-a-progressive-web-app-1024x679.png)
+
+PWAs can function like native apps on mobile devices and offer a seamless experience to users by combining the best of both worlds - web and native apps.
+
+Progressive Web App offer several features like offline access, push notifications, and the ability to install the app directly from a browser without the need for an app store.
+
+🧮**Researching custom app development?**
+
+Use our app development cost calculator to get tailored feature suggestions with estimated time and cost. Try it here or open in a new tab for the best experience 😄
+
+[Open the full calculator](https://appcost.upstackstudio.com)
+
+## How Progressive Web Apps Work
+
+Progressive Web Apps work by utilizing**service workers**, which are scripts that run in the background of a browser to enable functionalities like:
+
+- Offline caching
+- Background sync
+- Push notifications
+
+They also use**web app manifests**, a JSON file that defines metadata about the app, such as the app's name, icons, and behavior when installed on a device.
+
+## How to Make a Progressive Web App
+
+To convert your website into a Progressive Web App, follow these essential steps:
+
+### 1. Make Your Website Secure (HTTPS)
+
+Ensure that your website is hosted over HTTPS. PWAs require a secure connection to function effectively and access features like service workers.
+
+### 2. Create a Web App Manifest
+
+A**web app manifest** is a simple JSON file that provides metadata for your PWA. This file includes information like:
+
+- App name
+- App icons in different sizes
+- Start URL (the first page users see when launching the app)
+- Display mode (e.g., fullscreen, standalone)
+
+Here is an example of a basic manifest file:
+
+```json
+{
+  "name": "Your App Name",
+  "short_name": "App",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+### 3. Implement Service Workers
+
+Service workers are scripts that act as a network proxy, allowing you to cache assets and serve them even when offline. You can use the following code to register a service worker:
+
+```javascript
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+}
+```
+
+### 4. Make Your Website Responsive
+
+Ensure that your website is responsive so it can adapt to various screen sizes and orientations, delivering a consistent user experience across devices.
+
+### 5. Test for PWA Compliance
+
+You can test your PWA using Google's**Lighthouse** tool, which provides an audit report to evaluate whether your site meets PWA requirements, such as speed, offline capabilities, and performance.
+
+## How to Convert a Website to a PWA
+
+If you have an existing website and you want to convert it into a PWA, follow these steps:
+
+1. Set up HTTPS
+2. Create a web app manifest file
+3. Implement service workers
+4. Add offline functionality
+5. Test with Lighthouse
+6. Deploy and monitor
+
+## Installing a Web App from Chrome
+
+Once your website is PWA-ready, users can install it directly from the browser, such as Google Chrome.
+
+###**Steps to Install a PWA from Chrome:**
+
+1. Visit the PWA website in Chrome
+2. Click the install icon in the address bar
+3. Confirm the installation
+
+## 10 Examples of PWAs
+
+Here are ten of our favorite examples of progressive web applications (PWAs) from various industries:
+
+### 1. Tinder
+
+![Tinder logo](/images/blog/2024-10-tinder-logo-1024x400.png)
+
+Tinder's PWA, Tinder Online, was designed to improve user engagement without the need for a large app download. By optimizing code-splitting and lazy loading,**the PWA decreased load times from 11.9 to 4.6 seconds.**
+
+### 2. MakeMyTrip
+
+![MakeMyTrip logo](/images/blog/2024-10-Makemytrip_logo.png)
+
+This leading Indian travel agency adopted a PWA to tackle high bounce rates due to poor connectivity and outdated smartphones. The results were impressive:**a 3x increase in conversion rates and 160% more shopping sessions.**
+
+### 3. Yummly
+
+![Yummly logo](/images/blog/2024-10-Yummly-Logo.png)
+
+Yummly is a popular recipe platform that uses a PWA to improve user engagement. Push notifications and a smooth, app-like experience have enhanced customer satisfaction. This PWA strikes a balance between engaging users on the web and encouraging them to try the native app.
+
+### 4. Uber
+
+![Uber logo](/images/blog/2024-05-uber-logo.png)
+
+Uber's PWA was developed to reach users with slow internet connections and lower-end devices. By focusing on perceived performance and caching resources, Uber's PWA improved time-to-first-byte (TTFB) from 1.5 to 1.26 seconds, and it loads in just 3 seconds even on 2G networks.
+
+### 5. Pinterest
+
+![Pinterest logo](/images/blog/2024-03-pinterest-logo-to-show-image-sharing-company-using-react-native-1024x1024.png)
+
+Pinterest's PWA was developed to improve mobile web engagement, which had suffered due to poor performance. After restructuring the mobile experience, Pinterest saw a 40% increase in time spent on the app, a 60% rise in user engagement, and a 44% increase in ad revenue.
+
+### 6. Spotify
+
+![Spotify logo](/images/blog/2024-10-Spotify_logo.png)
+
+Spotify's PWA offers a seamless experience across devices. With its minimalist UI and fast performance, the PWA contributed to a significant rise in conversion rates (from 26.6% to 46%) and a 30% increase in monthly active users.
+
+### 7. Telegram Web
+
+![Telegram Web logo](/images/blog/2024-10-telegram-web-logo.png)
+
+Telegram's PWA offers users a fast and secure communication platform that works offline and across devices. Since launching, it has boosted user engagement by 175% and retention rates by 50%.
+
+### 8. 2048
+
+![2048 game running as a PWA](/images/blog/2024-10-2048-online-game-running-as-a-PWA-1024x576.avif)
+
+The game 2048 is a lightweight, addictive PWA that works seamlessly across devices. Its simplicity and intuitive design make it a popular example of an Angular-based PWA.
+
+### 9. Google Maps Go
+
+![Google Maps Go logo](/images/blog/2024-10-google-maps-go-logo.png)
+
+Google Maps Go PWA is a lightweight version of the full app, designed to work on devices with limited processing power. It offers fast loading times and reduces data usage, making it accessible on lower-end devices and slower connections.
+
+### 10. Flipboard
+
+![Flipboard logo](/images/blog/2024-10-flipboard-logo.png)
+
+Flipboard's PWA transformed its once mobile-only app into a multi-platform experience. With its data-efficient design, Flipboard's PWA has become one of the most popular sources of local news in North America.
+
+## Benefits of Progressive Web Apps
+
+Progressive Web Apps bring numerous benefits to both users and developers, including:
+
+-**Offline Access**: PWAs can work offline or in low-network conditions.
+
+-**Fast Loading**: Cached resources make the apps load faster after the first visit.
+
+-**Cross-Platform Compatibility**: PWAs work across all platforms and devices.
+
+-**Engagement**: Features like push notifications and home screen installation increase user engagement.
+
+-**No App Store Dependency**: Users can install PWAs directly from their browser without going through app stores.
+
+|**Native Apps** |**Progressive Web Apps** |
+|---|---|
+| Requires download from app stores | Can be installed from a browser |
+| Platform-specific development | Cross-platform using web standards |
+| High development cost | Lower cost using existing web code |
+| Frequent updates via app stores | Updates are handled by the browser |
+
+## Conclusion
+
+Progressive Web Apps provide the perfect balance between traditional websites and mobile applications, offering enhanced performance, offline support, and app-like experiences.
+
+By converting your website to a PWA, you not only improve user engagement but also expand your audience without the complexities of developing native apps.
+
+*If you're looking to build a mobile application, check out our portfolio of past projects and contact us if you like what you see. Also, consider joining our mailing list for a one-stop resource on everything from**[micro-SaaS validation](https://upstackstudio.com/blog/micro-saas-idea-validation/)** all the way to execution and promotion. Get a nifty list of questions to ask [app developers](https://upstackstudio.com/) when you sign up!*

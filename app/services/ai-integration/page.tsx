@@ -155,7 +155,6 @@ export default function AiIntegrationPage() {
                 <Link href="/work">See Our Work</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>
@@ -286,7 +285,6 @@ export default function AiIntegrationPage() {
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>

@@ -6,6 +6,9 @@ import { getAllPosts, POSTS_PER_PAGE } from '@/lib/blog'
 import { BLOG_CATEGORIES } from '@/lib/constants'
 import { ArrowRight, Clock, BookOpen } from 'lucide-react'
 
+// Force dynamic rendering due to searchParams usage
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Blog | Upstack Studio',
   description:

@@ -1,0 +1,161 @@
+---
+title: "How To Build An AI Agent With No Code"
+description: "Let’s set the record straight - an AI agent is NOT the same thing as an AI wrapper."
+date: "2024-08-27"
+author: "Ashraf Farid"
+category: "Product Development"
+tags: []
+canonical: "https://upstackstudio.com/blog/how-to-build-ai-agent"
+---
+
+## Difference Between AI Agent and AI Wrapper
+
+Let’s set the record straight - an AI agent is NOT the same thing as an AI wrapper.
+
+An AI agent is also powered by a LLM model, but one given access to:
+
+- external sources
+- unique internal databases
+- specific instructions on how to analyze various inputs 
+
+This enables the model to produce a highly accurate and reliable output.
+
+Additionally, it can be connected to external apps such as emails and no code app builders.
+
+When you see [AI-powered **apps where the AI performs complex tasks**](https://upstackstudio.com/blog/ai-based-apps/), it’s an agent at work.
+
+In this post, we’ll share how we used a no code tool called [**VectorShift**](https://vectorshift.ai/) to easily integrate a custom AI agent into our Flutterflow app. 
+
+## A User-Friendly Tool for Building Custom AI Agents
+
+**VectorShift**describes itself as an end-to-end AI automation platform.
+
+![How To Build An AI Agent With No Code](/images/blog/2024-08-vectorshift-ai-agent-builder-homepage-1024x480.png)
+
+If we had to describe it, we’d call it **a drag-and-drop AI workflow builder.**
+
+If you’ve ever created an automated instant message or email sequence on Mailchimp or Chat Daddy, the concept is similar, except here you’ll be building an AI workflow.
+
+![How To Build An AI Agent With No Code Create AI workflow](/images/blog/2024-08-drag-and-drop-GUI-of-an-ai-agent-built-with-no-code-on-vectorshift-1024x486.png)
+
+*It looks more complicated than it really is.*
+
+To begin building a custom AI agent on VectorShift, you really just need to understand two sections: **Pipelines**and**Knowledge Bases**. 
+
+### 1. VectorShift Pipelines
+
+This is VectorShift’s actual drag-and-drop interface where you build out your AI workflows.
+
+You can start a pipeline from scratch or use one of the many premade templates.
+
+![vectorshift pipelines to custom ai agent](/images/blog/2024-08-variosu-ai-agent-and-workflow-templates-on-vectorshift-1024x585.png)
+
+Once you enter the drag-and-drop interface, you’ll see a whole bunch of what are called ‘nodes’ along the top ribbon.
+
+![vectorshift drag and frop](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdvyTXslThvqRo9PqsPcl0P9XDutTg5l5d73uj--rB8-ojVBxh1SQXJXJQdu-UUuStOzMYPIaleUFviOvVmmLGf3uYmLZVBh2_fnKqYmgpecB9lcVb0Vzl3FYvtXkKRFbXvN0BaYQm3JY21igsJIu7uz96u?key=lVHeoPNj6Ege0dv_OnePdA)
+
+These are blocks of logic you drag and connect to each other similar to how you’d drag and drop on a no code app builder.
+
+There are tons of nodes at your disposal that allow the AI agent to:
+
+- Integrate with various external apps
+- Utilize a variety of LLMs
+- Search specific external data sources like Google and Wikipedia
+- Scrape specific URLs for data chunks
+
+### 2. VectorShift Knowledge Bases
+
+Vectorshift knowledge bases where you can create internal databases for your AI agent to retrieve information from.
+
+![vectorshift knowledge bases to custom ai agent](/images/blog/2024-08-knowledge-base-on-vectorshift-to-use-as-a-custom-databse-to-train-ai-agent-1024x492.png)
+
+Inside the knowledge base, you can:
+
+- Add various documents
+- Scrape URLs (pictured above)
+- Integrate external databases like email inboxes
+
+The result is the ability to effortlessly create unique sources of information that can give an AI agent very specific knowledge.
+
+## How We Built a Custom AI Agent with Vectorshift
+
+We wanted to test what it would look like to create an AI agent that could make accurate recommendations for [**no code app builders**](https://upstackstudio.com/blog/no-code-app-builder-comparison/) based on user needs.
+
+To do this, we wanted the agent to have access to three sources of information:
+
+1. The first thing was to upload a file containing all key app builder details.
+
+![upload a file on vectorshift containing app builder details](/images/blog/2024-08-custom-file-upload-to-vectoshift-to-create-ai-agent-1024x485.png)
+
+2. Then we created a knowledge base that would scrape information from app builder pricing pages on a weekly basis.
+
+![create knowledge base inside vectorshipft to create custom ai](/images/blog/2024-08-knowledge-base-on-vectorshift-to-use-as-a-custom-databse-to-train-ai-agent-1024x492.png)
+
+3. Then we used the SerpAPI node to generate a Google Search.
+
+![use serp ai to generate google search](/images/blog/2024-08-serp-api-node-to-conenct-ai-agent-to-google-search-results-1024x490.png)
+
+4. To ensure the LLM would keep track of a conversation, we added a Chat Memory node.
+
+![add chat memory node for llm conversion](/images/blog/2024-08-chat-memory-node-to-make-ai-agent-on-vectorshift-remember-past-conversations-1024x483.png)
+
+5. Finally, we made sure the LLM was properly prompted to retrieve information from our three sources.
+
+![llm is prompted](/images/blog/2024-08-custom-instructions-to-llm-as-part-of-ai-agent.png)
+
+6. We deployed and ran a test…and success!
+
+![](/images/blog/2024-08-testing-ai-agent.png)
+
+## Adding The AI Agent to a No Code App
+
+To power your no code app with a VectorShift AI agent, you just need to connect the pipeline’s API to wherever on your app you want to post or get information from.
+
+![connect pipelines api to source to get information ](/images/blog/2024-08-generating-API-key-for-AI-agent-1024x486.png)
+
+So long as your no code app builder supports custom API calls, this can be done.
+
+Here, we’ve created a super simple page on Flutterflow.
+
+![simple page on flutterflow](/images/blog/2024-08-sample-flutterflow-app-to-test-no-code-ai-agent-1024x498.png)
+
+We then set an API call to the ‘Submit’ button so that when clicked or tapped, it sends the query in the text field above it to our VectorShift pipeline, and then displays the pipeline’s output in the text field below it.
+
+Then we deploy it for testing.
+
+![deploy and testing stage on flutterflow](/images/blog/2024-08-interface-of-no-code-app-used-to-test-ai-agent-1024x510.png)
+
+Let’s test it out using the same question we asked on VectorShift…and success!
+
+![](/images/blog/2024-08-successful-output-from-ai-agent-on-no-code-app.png)
+
+Notice that it still contains the key pricing figure at the end, proof it’s our pipeline at work!
+
+If this was for a genuine app to be launched, we’d continue improving the prompt and data sources to streamline answers, but as a proof of concept, this absolutely works.
+
+And there’s no reason you can’t do the same with your own AI agent!
+
+## What Type of AI Agents Can You Build?
+
+The question is more like what type of AI agents CAN’T you build!
+
+You only have to glance around to see there are TONS of AI agents on the market.
+
+![ai agent market](/images/blog/2024-08-various-ai-agent-products-on-the-market.png)
+
+According to VectorShift, various companies across different industries are already using their AI pipelines to:
+
+- power the “backend” of their AI product features
+- automate report writing for clients
+- to automate sales proposals
+- search through their contract library to answer questions.
+- to create a chatbot to answer patient questions leveraging their extensive knowledge base
+
+Since we’re all about app development here at Upstack Studio, we’re guessing most of our readers would be interested in the first one.
+
+Though** **[**AI integration into existing apps**](https://upstackstudio.com/blog/ai-integration-examples/) also has lots of potential!
+
+This is really where we leave it to you - we’ve taken the horse to water, it’s up to you whether or not you want to take a drink!
+
+*Hey there stranger, thanks for reading all the way to the end. Consider joining our mailing list for a one-stop resource on everything from micro [**SaaS validation**](https://upstackstudio.com/blog/micro-saas-idea-validation/) all the way to execution and promotion.* *Get a nifty list of questions to ask [app developers](https://upstackstudio.com/)when you sign up!*
+

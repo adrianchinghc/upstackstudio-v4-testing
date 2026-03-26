@@ -1,0 +1,5 @@
+export { StatsGrid } from './StatsGrid'
+export { TeamGrid } from './TeamGrid'
+export { TeamPhotoCollage } from './TeamPhotoCollage'
+export { GlobalReach } from './GlobalReach'
+export { WrittenTestimonial } from './WrittenTestimonial'

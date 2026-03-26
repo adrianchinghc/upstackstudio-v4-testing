@@ -20,8 +20,8 @@ export const SOCIAL = {
 }
 
 // YouTube video IDs
-export const YT_JUSTIN = 'kRUL8NrM_Rk'
-export const YT_JASON = 'KdxPAqwEDHY'
+export const YT_JUSTIN = 'KdxPAqwEDHY'
+export const YT_JASON = 'kRUL8NrM_Rk'
 
 // Client names for marquee
 export const CLIENTS = [
@@ -108,3 +108,126 @@ export const ANIMATION_PRESETS = {
 
 export const EASE_OUT = [0.23, 1, 0.32, 1] as const
 export const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const
+
+// Team members — ordered by role hierarchy
+export const TEAM_MEMBERS = [
+  {
+    name: 'Adrian',
+    fullName: 'Adrian Ching',
+    role: 'Founder',
+    image: '/images/team/adrian.png',
+    linkedin: 'https://my.linkedin.com/in/adrianchinghc',
+  },
+  {
+    name: 'Derrick',
+    fullName: 'Derrick Yeoh',
+    role: 'Project Manager',
+    image: '/images/team/derrick.png',
+  },
+  {
+    name: 'Elly',
+    fullName: 'Elly Shazwani',
+    role: 'Content Strategist',
+    image: '/images/team/elly.png',
+  },
+  {
+    name: 'Yee Qing',
+    fullName: 'Yee Qing',
+    role: 'Product Designer',
+    image: '/images/team/yeeqing.png',
+  },
+  {
+    name: 'Arieff',
+    fullName: 'Arieff',
+    role: 'Product Designer',
+    image: '/images/team/arieff.png',
+  },
+  {
+    name: 'Syafiq',
+    fullName: 'Syafiq',
+    role: 'Software QA Engineer',
+    image: '/images/team/syafiq.png',
+  },
+  {
+    name: 'Alan',
+    fullName: 'Alan',
+    role: 'Software Developer',
+    image: '/images/team/alan.png',
+  },
+  {
+    name: 'Richard',
+    fullName: 'Richard',
+    role: 'Software Developer',
+    image: '/images/team/richard.png',
+  },
+  {
+    name: 'Jocelyn',
+    fullName: 'Jocelyn',
+    role: 'Software Developer',
+    image: '/images/team/jocelyn.png',
+  },
+  {
+    name: 'Wei Chen',
+    fullName: 'Wei Chen',
+    role: 'Software Developer',
+    image: '/images/team/weichen.png',
+  },
+  {
+    name: 'Kashi',
+    fullName: 'Kashi',
+    role: 'Software Developer',
+    image: '/images/team/kashi.png',
+  },
+  {
+    name: 'Noval',
+    fullName: 'Noval',
+    role: 'Software Developer',
+    image: '/images/team/noval.png',
+  },
+  {
+    name: 'Nielton',
+    fullName: 'Nielton',
+    role: 'Software Developer',
+    image: '/images/team/nielton.png',
+  },
+  {
+    name: 'Xavier',
+    fullName: 'Xavier',
+    role: 'Software Developer',
+    image: '/images/team/xavier.png',
+  },
+] as const
+
+// Company stats — for bento grid
+export const COMPANY_STATS = {
+  yearsInBusiness: 7,
+  projectsCompleted: 25,
+  teamMembers: 18,
+  clientsServed: 40,
+  fundingRaised: 0,
+  remotePercentage: 100,
+} as const
+
+// Countries served with flag emojis
+export const COUNTRIES_SERVED = [
+  { name: 'Malaysia', flag: '🇲🇾', code: 'MY' },
+  { name: 'Australia', flag: '🇦🇺', code: 'AU' },
+  { name: 'United States', flag: '🇺🇸', code: 'US' },
+  { name: 'United Kingdom', flag: '🇬🇧', code: 'UK' },
+  { name: 'Netherlands', flag: '🇳🇱', code: 'NL' },
+  { name: 'Singapore', flag: '🇸🇬', code: 'SG' },
+] as const
+
+// Featured testimonials — for written testimonial blocks
+export const FEATURED_TESTIMONIALS = [
+  {
+    quote:
+      "Working with Adrian and his team was a great experience. They handled everything professionally and made sure to address any potential issues before delivering the project. Even when our requirements changed, they were patient and worked with us to make the necessary adjustments, explaining everything clearly. Their dedication and passion made a huge difference compared to other vendors. They didn't just deliver and leave; they supported us every step of the way.",
+    name: 'Ivan Lee',
+    role: 'Executive Committee Member',
+    company: 'Association of Financial Advisers Malaysia',
+    companyShort: 'AFA',
+    image: '/images/clients/ivan-lee.png',
+    highlights: ['patient', 'explaining everything clearly', 'supported us every step of the way'],
+  },
+] as const

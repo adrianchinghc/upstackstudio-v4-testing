@@ -132,7 +132,6 @@ export default function CustomPlatformDevelopmentPage() {
                 <Link href="/work">See 17 Case Studies</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>
@@ -364,7 +363,6 @@ export default function CustomPlatformDevelopmentPage() {
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
           </AnimatedSection>
         </div>
       </section>

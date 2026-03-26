@@ -1,0 +1,370 @@
+---
+title: "Technology Stack: The Definitive Guide for Non-Tech Founders"
+description: "The technology stack, often just called the tech stack, can be an absolute head-scratcher for non-tech founders.&nbsp;"
+date: "2022-12-15"
+author: "Ashraf Farid"
+category: "Product Development"
+tags: []
+canonical: "https://upstackstudio.com/blog/technology-stack"
+---
+
+![Decks of card representing the developer technology stack](/images/blog/2022-12-sigmund-WvPMaqZe_Kk-unsplash-1024x683.jpg)
+
+Plenty of sources try to explain tech stacks, but *dang*, they sure do like to use jargon to explain even more jargon.
+
+Every sentence be like "...gajigimizing your despasitometer with twenty seconds of alternative flutterfuelgshock and ultimatatatron..." 
+
+And you reach the end of the article with the same amount of understanding: zero!
+
+It's a shame because we at Upstack Studio *absolutely*think non tech founders should know something about technology stacks, not a million software terms.
+
+**Deep down, you don’t care about tech stacks. Like,* at all.* **
+
+We get it.
+
+But you know damn well it's a huge part of app development.
+
+And it's *very*uncomfortable to be completely out of the loop on something so crucial to your project. 
+
+This is where you are right now:
+
+![The state where non-technical founders are usually at when it comes to technology stacks - they are neither aware of nor understand it](/images/blog/2022-12-tech-stack-1-1024x640.png)
+
+Tech stacks are an **unknown unknown** - like staring into a black hole or watching a Christopher Nolan film. 
+
+This is where we want to take you with this article:
+
+![The state where we want to take non-technical founders to after they start reading this article about technology stack - they are aware of but don't understand it yet](/images/blog/2022-12-tech-stack-2-1024x640.png)
+
+**We want non tech founders to*know what they don’t know* about tech stacks.**
+
+There’s no way to turn you into an expert on software architecture in five minutes.
+
+And honestly, there’s no point. 
+
+You’re paying a developer (a lot) to be the expert. 
+
+You just need to know enough to make sure they’re actually experts!
+
+You need to remember:
+
+Understand these two and**you understand how a tech stack affects your product** (which is what you care about anyway).
+
+We’ve tried our best to be as simple as possible while still retaining crucial information.
+
+With that out of the way, fasten your seatbelts, let’s talk about tech stacks for non-techs. 
+
+## So, what the hell is a Tech Stack?
+
+Easiest question in the world. 
+
+We stole this definition from a MongoDB article:
+
+>**“A set of technologies that are stacked together to build an application**.”
+
+We like it. We think it’s accurate and easy to understand, though we would like to add a little Upstack Studio touch to it.
+
+We think technologies can be expanded to include apps, platforms, and software.
+
+![Pizza as a necessity to build a decent software or app](/images/blog/2022-12-lukas-bee-T-SkHm-18qQ-unsplash-1024x683.jpg)
+
+And it’s not just to build applications; it’s to build *any*digital product or service, really. 
+
+So our definition of a tech stack would be:
+
+> ***“A set of technologies (apps, platforms, and software) that are stacked together to build a digital product or service.”***
+> 
+> 
+> 
+> 
+Next!
+
+## Components of a Tech Stack
+
+Every tech stack***ever***will have these components:
+
+![Components of a technology stack from the front end and back end](/images/blog/2022-12-front-backend-1-1024x535.jpeg)
+
+It could be several individual software services that a developer manually connects.
+
+It could all be contained within a single platform (like**[no-code app builders](https://upstackstudio.com/no-code-app-builder/)**).
+
+Point is, these components will be there in one form or another, so don’t freak out if your developer doesn’t have one of each.
+
+**In fact, if you can get away with less, do it**.
+
+So what do these different components do?
+
+We’d rather not just list out their functions one by one;**we want you to understand how the parts work together**. 
+
+Let’s start with where the magic happens.
+
+## The Backend
+
+Let’s pretend you're a piece of data - this is what your eternity looks like:
+
+### The Database
+
+Most of the time, you’re just chilling in the database with all the other pieces of data until a user wants to access you. 
+
+![Box full of lego representing a database](/images/blog/2022-12-james-orr-38CyKJ1hkQc-unsplash-1-1024x681.jpg)
+
+**That’s part of what a database does, it stores data.**
+
+And that's all an app is: just a big old ball of data. 
+
+Obviously, the more data you want to store, the bigger the database has to be.
+
+If a user only wants to see *half*of you, the database needs to cut you in half before sending it to them. 
+
+![lego head cut in halff to show database and backend tech stack function](/images/blog/2022-12-PngItem_1867381-3-1.png)
+
+**That’s something else a database does - it manipulates data.**
+
+They can be simple manipulations, they can be *really*complex, and everything in between.
+
+It all depends on what your users need.
+
+In any case, you (the piece of data cut in half) are ready to be transported to the user via the server.
+
+### The Server
+
+The user enters a request via the front end: **I want to see half of this piece of data.**
+
+The frontend relays this request to the server, 
+
+The server relays this to the database.
+
+The database goes *chop chop*,** **then hands it to the server. 
+
+The Server takes it and delivers it to the frontend for the user to see.
+
+![Lego head representing the server](/images/blog/2022-12-david-lusvardi-Qm02_QbnLDw-unsplash-1-1024x814.jpg)
+
+The user is happy, and the server goes on to handle the next request.
+
+The server is the middle man between the front and backends - like a waiter taking customer orders to the kitchen and then delivering the meal as requested. 
+
+Only in a restaurant, it's perfectly reasonable to wait ten minutes for your order to arrive.
+
+On an app, this must happen *instantaneously*, or as close to it as possible. 
+
+If *two*users want to access data at the same time, the server needs to transport data to both of them simultaneously.             
+
+Same thing if a *hundred*users want access. 
+
+**The more users a server must serve simultaneously, the bigger it has to be.** 
+
+This is irrespective of how big your database is - remember, the database only handles data volume and manipulation.
+
+If your server is only meant to handle one user at a time and suddenly one hundred people put in a request, none of them gets to see anything - they’ll crash your server. 
+
+That’s pretty much what you need to know about the backend tech stack.** It stores and modifies data, and without those abilities, you don’t have an app.**
+
+Now, if the backend is where the magic happens, the frontend is where the magic is shown.
+
+## The Frontend
+
+Remember: you’re a piece of data, and a user has requested that you be cut in half.
+
+You will now appear on the user’s browser, interface, or screen.
+
+Now they can interact with you. See you, hear you, read you. 
+
+If you’re a png, you appear as half a picture.
+
+If you’re an mp3, you appear as half an audio track.
+
+**Some of you may be thinking, why even have a frontend?All the data is already in the backend, and that's where work gets done anyways.**
+
+Well, because the backend looks like this:
+
+![Page showing complicated backend codes](/images/blog/2022-12-ferenc-almasi-0JD-LiIi2CU-unsplash-1024x704.jpg)
+
+All the data and functions of your app,**they’re there - but as code.**
+
+And to access it, you need to type out requests - *also*as code.
+
+That’s the backend! It’s just lines of logic talking to each other. 
+
+And even if you showed this to a *developer*who wasn’t familiar with this specific stack, they'd *struggle*to understand it. 
+
+To normal people, this looks like a cat just walked all over their keyboard.
+
+That’s why we have a frontend.
+
+The browser or interface translates all that mumbo jumbo into something *visually understandable* with normal human languages.
+
+It turns the abstract art above into a clearly legible interface:
+
+![Instagram login page created from technology stack backend codes](/images/blog/2022-12-cedrik-wesche-4Kb_U5iZG8Y-unsplash-1024x683.jpg)
+
+Anyone can glance at the screen above and understand what they’re looking at.
+
+Developers build this user-friendly browser with **programming languages** and**frameworks**. 
+
+We use them to organize sections of a page.
+
+We use them to change the way sections look and interact with users.
+
+**The programming language is the actual code we write**- the mumbo jumbo writing.  
+
+**A framework gives us sort of like a template of code**, so we don’t have to start from scratch. Many interfaces start out the same, then developers customize them further with our own code. 
+
+**ALL this takes place on an operating system:** Windows, IOS, Android, Linux etc. 
+
+They're like different countries, so a developer can use a native language that *only works in one country*, or we can use an international language that all countries understand* fairly well*, but not as well as their native tongue. 
+
+From a business perspective, which countries do your users live in?
+
+So that’s the frontend tech stack, and well, that’s a tech stack. 
+
+- Backend stores and manipulates data
+- Frontend makes it possible for anyone and *everyone*to understand and navigate that data (and have fun doing it)
+
+Moving on to the third question:
+
+## Factors Developers Consider When Choosing a Tech Stack
+
+There are a crap ton of tech stack options. 
+
+Too many if you ask us. 
+
+It definitely adds to the frustrations of a non-tech person. One function, but you have four or five options floating around?
+
+**Are they all special and different?Answer:***yes***.*Honest*answer: ***yes*,*but not different enough to matter most of the time. *
+
+They’re tools at the end of the day. 
+
+The simpler the task, the more tools you can use.
+
+If you wanted to hammer a nail into a plank of wood, you could use pretty much anything.
+
+![Factors to consider when choosing a tech stack](/images/blog/2022-12-r-d-smith-taQV2u1JM_4-unsplash-1024x683.jpg)
+
+On the other hand, if you wanted to put a nail through an inch of solid steel, you'd better have a big-ass hammer and forearms that look like Popeye.
+
+These are the things that go through a developer’s mind when they choose a tech stack.
+
+### Speed of MVP/MLP production
+
+Remember what we said about frameworks being like templates? 
+
+Some templates lend themselves very well to creating a simple but functional prototype. 
+
+If our priority is building something *fast*to test it out, there are certain stacks that work better for that.
+
+### Scalability
+
+This has to do with how your server and database can grow bigger OR smaller depending on traffic, and what kind of data manipulation is needed later.
+
+Some stacks limit this, some stacks allow you to expand forever just like the universe and yo momma's waistline!
+
+Sorry, it's just that things were getting a little dry there.
+
+As a general rule, development time and scalability always come at the price of the other. 
+
+It all depends on what your project and your business need more right now. 
+
+### Security
+
+Some tech stacks allow more robust and layered protection.
+
+If your app is going to be handling sensitive data or belongs to highly regulated industries like insurance and banking, you legally need to meet pretty high-security standards. 
+
+For others, take it on a case-by-case basis.
+
+**Remember:***It is entirely possible to over-engineer your security protocol.*
+
+Multi-factor authentication and OTPs sent via email? 
+
+To access a bank account, sure.
+
+To access the phone calculator? 
+
+We'd rather use a pen and paper.
+
+See what your developer has to say.
+
+### Popularity
+
+Developers like popular tech stacks. 
+
+Not trendy - *popular*.
+
+They have an active community, which means it's easy for us to find support if we ever need to ask a question.
+
+We’re a really fussy bunch, so if we all like something take it as a good sign. 
+
+Also, as an [**app development agency**](https://upstackstudio.com/), we need a tech stack that makes it easy to hire new developers as replacements or to grow our team.
+
+If we chose a stack that only two people knew how to use, that’s exactly how big our team could ever be.
+
+As the founder, you should be thinking the same way.
+
+You want a tech stack that other developers are familiar with, so you’re not stuck with your current one if they turn out to be rubbish.
+
+### Budget
+
+This is a minor detail compared to the others, but cost is something that we can never run away from.
+
+Think of it this way, when you’re faced with options, look for quality first. 
+
+If quality is equal or doesn’t matter, go with the cheaper option.
+
+## Can Non-Tech Founders Evaluate a Developer's Stack?
+
+Not directly, but first things first.
+
+*Before*you hyper-focus on the tech stack, we’d advise you to make sure your developers are good at *everything else*.
+
+**You do this by asking them a short list of six questions in our free template:**
+
+As for the tech stack itself, notice that** throughout the entire article, we’ve not named a single programming language or database.**
+
+There’s no point.
+
+You don’t need to know about any tech stack other than your developer’s.
+
+Once you know what tech stacks they like using, you need a reliable third party.
+
+![Importance of having a reliable developer to fully utilize the tech stack](/images/blog/2022-12-azamat-e-FP_N_InBPdg-unsplash-1024x683.jpg)
+
+If you have a friend with a software engineering degree, invite them to your house for a cup of coffee, then hit them on the head and lock them in your basement until they evaluate your developer’s stack.
+
+If you don’t have a friend you trust (probably because you like to kidnap them), you can always ask Reddit - we’d recommend the**[web developer subreddit](https://www.reddit.com/r/webdev/)** as a starting point.
+
+Just be mindful that this is a subreddit of technical people, for technical people. 
+
+So be***very clear*** that you're a non-techie, and just need help evaluating a developer’s tech stack. 
+
+Explain what you want your app to do, then share what your developer wants to use.
+
+**If Redditors think it's bad, ask them to please explain in business terms** - security, scalability, or speed, for example.
+
+If it's good, just say it's good! 
+
+And you can pretty comfortably go back to not caring.  
+
+You see, with this, you now go from this reasonable position:
+
+![The state where we want to take non-technical founders to after they start reading this article about technology stack - they are aware of but don't understand it yet](/images/blog/2022-12-tech-stack-2-1024x640.png)
+
+To the sweet spot: 
+
+![The state where we want to take non-technical founders to after finish reading this article about technology stack - they are aware of and understand](/images/blog/2022-12-tech-stack-3-1024x640.png)
+
+You know *just enough* about the concept and components of a tech stack, and your developer’s*specific *stack, to make an informed decision.
+
+It’s either yes, let's go with it, or no, I want something that gives better XYZ.
+
+It's never a situation where you need to blindly trust.
+
+This is ultimately one of those things where you want to stay out of the way as long as you know your developers are competent. 
+
+After that, just go back to the only stack that matters: *Butter, honey, cream and at least 10 inches of fluffy goodness.*
+
+![A stack of pancakes to represent the technology stack](/images/blog/2022-12-anna-zaro-iSfIp7k_2Us-unsplash-1024x789.jpg)
+
+***By the way: Like what you just read? Then read some more! Sign up for our newsletter and get tips, cheat sheets and easy-to-understand content on app development sent directly to your inbox.*
+

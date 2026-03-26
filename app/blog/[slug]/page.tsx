@@ -4,8 +4,15 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAllPostSlugs, getPostBySlug, getAllPosts } from '@/lib/blog'
 import { SectionLabel, AnimatedSection } from '@/components/common'
+import { ArticleJsonLd } from '@/components/seo/JsonLd'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, ArrowRight, Clock, Calendar, Tag } from 'lucide-react'
+import { YouTubeEmbed } from '@/components/blog/YouTubeEmbed'
+
+// MDX components mapping
+const mdxComponents = {
+  YouTubeEmbed,
+}
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -54,6 +61,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="bg-page min-h-screen">
+      {/* Article Structured Data */}
+      <ArticleJsonLd
+        title={post.title}
+        description={post.description}
+        author={post.author}
+        datePublished={post.date}
+        slug={post.slug}
+      />
+
       {/* Article Header */}
       <section className="pt-32 pb-10 md:pt-40 md:pb-14 px-6 border-b border-default">
         <div className="max-w-3xl mx-auto">
@@ -119,7 +135,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             prose-code:text-[var(--color-brand-sky)] prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
             prose-pre:bg-surface prose-pre:border prose-pre:border-default
             prose-img:rounded-xl prose-img:border prose-img:border-default">
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} components={mdxComponents} />
           </div>
 
           {/* Inline CTA - appears at end of article */}

@@ -90,9 +90,6 @@ export function GeoPage({
                 <Link href="/work">See Our Work</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">
-              Typical engagements from {transformPrice}. Scope confirmed on the call.
-            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -274,9 +271,6 @@ export function GeoPage({
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">
-              Typical engagements from {transformPrice}. Scope confirmed on the call.
-            </p>
           </AnimatedSection>
         </div>
       </section>

@@ -4,6 +4,12 @@ import { SectionLabel, AnimatedSection, TestimonialCard, YouTubeFacade, RatingsS
 import { HeroProofCard } from '@/components/hero/HeroProofCard'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { YT_JUSTIN } from '@/lib/constants'
 import Image from 'next/image'
 import {
@@ -11,6 +17,15 @@ import {
   MessageSquare,
   BarChart3,
   Cpu,
+  FileSpreadsheet,
+  AlertTriangle,
+  Clock,
+  Zap,
+  ShieldCheck,
+  Bot,
+  Target,
+  MessageCircle,
+  Users,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -103,29 +118,50 @@ const PAIN_CARDS: Array<{
   title: string
   description: string
   icon: typeof MessageSquare
-  accentColor: 'amber' | 'rose' | 'violet'
+  accentColor: 'amber' | 'rose' | 'violet' | 'emerald' | 'sky' | 'orange'
   href: string
 }> = [
   {
-    title: '"We\'re still doing approvals over WhatsApp"',
+    title: '"Procurement approvals run on email chains and WhatsApp"',
     description: 'Your team copies data between systems, chases sign-offs on group chats, and re-enters information that should flow automatically. Every new hire adds one more person to manage the chaos — not fix it.',
     icon: MessageSquare,
     accentColor: 'amber',
     href: '/services/operations-digitalisation',
   },
   {
-    title: '"I can\'t get a clear picture of what\'s happening"',
+    title: '"Field team and back office work from different versions of the truth"',
     description: "Sales has one version of the numbers. Finance has another. Operations has a spreadsheet nobody's updated this week. Decisions get made on gut feel because pulling accurate data takes half a day.",
-    icon: BarChart3,
+    icon: FileSpreadsheet,
     accentColor: 'rose',
     href: '/services/custom-platform-development',
   },
   {
-    title: '"Everyone says we need AI. Nobody can tell us where to start."',
-    description: "You've sat through demos. You've read the reports. But every vendor wants to sell you a chatbot, and none of it connects to how your business actually runs.",
-    icon: Cpu,
+    title: '"Zero real-time visibility into operations across locations"',
+    description: "You can't see what's happening at your branches until someone calls you about it. By the time you spot a problem, it's already cost you money. Your competitors have dashboards — you have monthly reports.",
+    icon: BarChart3,
     accentColor: 'violet',
-    href: '/services/ai-integration',
+    href: '/services/operations-digitalisation',
+  },
+  {
+    title: '"Every off-the-shelf system breaks on our specific workflow"',
+    description: "You've tried Salesforce. You've tried Zoho. You've tried the industry-specific solution. They all need so many workarounds that your team ends up back in Excel. Your business isn't generic — your software shouldn't be either.",
+    icon: Cpu,
+    accentColor: 'emerald',
+    href: '/services/custom-platform-development',
+  },
+  {
+    title: '"Our last software project failed. We can\'t afford another."',
+    description: "You spent six figures on a system that never launched. Or it launched and nobody uses it. The vendor disappeared. Now your board is skeptical of any technology investment. We get it.",
+    icon: AlertTriangle,
+    accentColor: 'orange',
+    href: '/services/operations-digitalisation',
+  },
+  {
+    title: '"Budget allocated. Deadline to spend. No clear plan."',
+    description: "RMK-13 funds, internal digital transformation budget, or year-end allocation that expires. You have the money — you just need a partner who can scope, plan, and deliver before the window closes.",
+    icon: Clock,
+    accentColor: 'sky',
+    href: '/strategy-session',
   },
 ]
 
@@ -203,10 +239,6 @@ export default function Home() {
                 <p className="text-base text-muted mb-4 font-medium">
                   No juniors. No handoffs. No disappearing after launch.
                 </p>
-                <p className="text-sm text-muted/80 mb-8">
-                  <span className="font-semibold">Typical engagements from USD 45,000.</span>{' '}
-                  <span className="opacity-80">Scope confirmed on the call.</span>
-                </p>
               </AnimatedSection>
 
               <AnimatedSection delay={0.24}>
@@ -277,6 +309,24 @@ export default function Home() {
                     icon: 'text-violet-600 dark:text-violet-400',
                     border: 'hover:border-violet-500/40',
                     accent: 'border-l-violet-500',
+                  },
+                  emerald: {
+                    iconBg: 'bg-emerald-500/10 dark:bg-emerald-400/10',
+                    icon: 'text-emerald-600 dark:text-emerald-400',
+                    border: 'hover:border-emerald-500/40',
+                    accent: 'border-l-emerald-500',
+                  },
+                  orange: {
+                    iconBg: 'bg-orange-500/10 dark:bg-orange-400/10',
+                    icon: 'text-orange-600 dark:text-orange-400',
+                    border: 'hover:border-orange-500/40',
+                    accent: 'border-l-orange-500',
+                  },
+                  sky: {
+                    iconBg: 'bg-sky-500/10 dark:bg-sky-400/10',
+                    icon: 'text-sky-600 dark:text-sky-400',
+                    border: 'hover:border-sky-500/40',
+                    accent: 'border-l-sky-500',
                   },
                 } as const
                 const colorClasses = colorMap[card.accentColor]
@@ -542,8 +592,195 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DNA / How We Work Section */}
+      <section aria-labelledby="dna-heading" className="pt-24 pb-20 md:pt-36 md:pb-28 bg-surface content-auto">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <AnimatedSection className="mb-12 md:mb-16">
+            <SectionLabel className="mb-4 block">How We Work</SectionLabel>
+            <h2 id="dna-heading" className="text-section-title max-w-3xl">
+              Our DNA. The principles that make projects succeed.
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1: Stay Agile */}
+            <AnimatedSection delay={0.1}>
+              <div className="group h-full rounded-2xl border border-default bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/40 hover:bg-surface-2">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center mb-6">
+                  <Zap className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 font-display">Stay Agile & Nimble</h3>
+                <p className="text-secondary text-base leading-relaxed">
+                  Two-week sprints. Demo every fortnight. Course-correct before small issues become expensive problems.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 2: Quality is Priority */}
+            <AnimatedSection delay={0.15}>
+              <div className="group h-full rounded-2xl border border-default bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/40 hover:bg-surface-2">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center mb-6">
+                  <ShieldCheck className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 font-display">Quality is Priority</h3>
+                <p className="text-secondary text-base leading-relaxed">
+                  Design review. Code review. QA testing. Three layers before anything reaches your users. No shortcuts.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 3: AI-Enabled Engineering */}
+            <AnimatedSection delay={0.2}>
+              <div className="group h-full rounded-2xl border-2 border-[var(--color-brand-blue)]/30 bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/60 hover:bg-surface-2 relative overflow-hidden">
+                {/* Subtle glow for AI card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/5 to-transparent pointer-events-none" />
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/15 flex items-center justify-center mb-6">
+                    <Bot className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <h3 className="text-xl font-bold font-display">AI-Enabled Engineering</h3>
+                    <span className="inline-flex px-2 py-0.5 rounded-full bg-[var(--color-lime-bg)] border border-[var(--color-lime-border)] text-[10px] font-bold uppercase tracking-wider text-[var(--color-lime-text)]">New</span>
+                  </div>
+                  <p className="text-secondary text-base leading-relaxed">
+                    We use Claude Code and the latest AI tools. Your timeline and codebase quality benefit from the best tools on the planet.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 4: Your Success, Our Goal */}
+            <AnimatedSection delay={0.25}>
+              <div className="group h-full rounded-2xl border border-default bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/40 hover:bg-surface-2">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center mb-6">
+                  <Target className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 font-display">Your Success, Our Goal</h3>
+                <p className="text-secondary text-base leading-relaxed">
+                  We push back on bad features. If something won't help your users, we'll tell you — even if you're paying for it.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 5: Overcommunicate */}
+            <AnimatedSection delay={0.3}>
+              <div className="group h-full rounded-2xl border border-default bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/40 hover:bg-surface-2">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center mb-6">
+                  <MessageCircle className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 font-display">Overcommunicate</h3>
+                <p className="text-secondary text-base leading-relaxed">
+                  Dedicated Slack channel. Bi-weekly sprint reviews. Live sprint board access. You always know exactly where things stand.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 6: Collaboration Over Silos */}
+            <AnimatedSection delay={0.35}>
+              <div className="group h-full rounded-2xl border border-default bg-page p-8 transition-all hover:border-[var(--color-brand-blue)]/40 hover:bg-surface-2">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center mb-6">
+                  <Users className="h-6 w-6 text-[var(--color-brand-blue)]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 font-display">Collaboration Over Silos</h3>
+                <p className="text-secondary text-base leading-relaxed">
+                  PM, designer, developers, and QA work as one squad. No handoffs. No "that's not my department." One team, one goal.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* LUDA Framework Section */}
       <LudaSection variant="full" />
+
+      {/* Awards Section */}
+      <section aria-labelledby="awards-heading" className="py-16 md:py-20 bg-surface border-y border-default content-auto">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <AnimatedSection className="text-center mb-10 md:mb-12">
+            <SectionLabel className="mb-3 block">Recognition</SectionLabel>
+            <h2 id="awards-heading" className="text-2xl md:text-3xl font-bold font-display">
+              Recognised by the industry
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              {/* Award badges — grayscale with hover color */}
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/clutch-top-developers.svg"
+                  alt="Clutch Top Developers Malaysia 2024"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">Clutch 2024</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/designrush-best-agency.svg"
+                  alt="DesignRush Best Agency"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">DesignRush</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/goodfirms-top-software.svg"
+                  alt="GoodFirms Top Software Company"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">GoodFirms</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/topdevelopers-2024.svg"
+                  alt="TopDevelopers 2024"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">TopDevelopers</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/mdec-certified.svg"
+                  alt="MDEC MSC Status"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">MDEC MSC</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/clutch-global-2023.svg"
+                  alt="Clutch Global Leader 2023"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">Clutch Global</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/images/awards/google-partner.svg"
+                  alt="Google Partner"
+                  width={80}
+                  height={80}
+                  className="grayscale hover:grayscale-0 transition-all"
+                />
+                <span className="text-xs text-muted">Google Partner</span>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* Client Logo Marquee */}
       <section aria-label="Our clients" className="py-10 md:py-14 border-y border-default overflow-hidden group/marquee">
@@ -620,6 +857,82 @@ export default function Home() {
               <TestimonialCard {...TESTIMONIALS[3]} />
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section aria-labelledby="faq-heading" className="py-20 md:py-28 bg-surface content-auto">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+          <AnimatedSection className="text-center mb-12 md:mb-16">
+            <SectionLabel className="mb-4 block">Questions</SectionLabel>
+            <h2 id="faq-heading" className="text-section-title">
+              Frequently asked questions
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <Accordion type="single" collapsible className="space-y-4">
+              {/* Scout question: Process */}
+              <AccordionItem value="item-1" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  What does the engagement process look like?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  It starts with a strategy call where we understand your pain points and goals. If we're a fit, we move to a discovery phase (typically 2 weeks) where we map your processes and define the scope. Then we build in 2-week sprints with demos every fortnight. You're involved throughout — this isn't a black box. Most MVPs launch in 12-16 weeks.
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Decision-maker question: Pricing */}
+              <AccordionItem value="item-2" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  How much does a typical project cost?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  Typical engagements start from USD 45,000 for a production-ready MVP. That includes discovery, design, development, and QA. Larger transformations or multi-phase projects range from USD 75,000 to USD 150,000+. We give you a fixed quote after the strategy call — no surprises, no scope creep billing.
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Scout question: Technical */}
+              <AccordionItem value="item-3" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  What technologies do you use?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  We're stack-agnostic but opinionated. For web apps: Next.js, React, TypeScript, and PostgreSQL. For mobile: React Native or Flutter depending on your needs. For AI integrations: we work with OpenAI, Anthropic, and open-source models. We pick what's right for your project, not what's trendy this month.
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Decision-maker question: Risk */}
+              <AccordionItem value="item-4" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  What if the project doesn't work out?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  Our LUDA™ Framework is specifically designed to mitigate this. We lock scope before building (no moving goalposts), use structured milestones (you see progress every 2 weeks), and have clear off-ramp clauses if you need to pause. You own the code from day one. We've delivered over 50 projects — our track record speaks for itself.
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Scout question: Team */}
+              <AccordionItem value="item-5" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  Who will actually work on my project?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  The same senior team from kickoff to handover. No bait-and-switch with juniors. You'll have a dedicated project manager, a senior designer, and senior developers. Adrian personally reviews key milestones. We don't subcontract your project to a white-label agency overseas.
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Decision-maker question: Post-launch */}
+              <AccordionItem value="item-6" className="border border-default rounded-xl px-6 data-[state=open]:bg-surface-2 transition-colors">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold py-5 hover:no-underline">
+                  What happens after launch?
+                </AccordionTrigger>
+                <AccordionContent className="text-secondary text-base leading-relaxed pb-5">
+                  We don't disappear. Every project includes 30 days of post-launch support. After that, you can continue with a maintenance retainer (most clients do) or take the codebase in-house — it's yours. We also offer development subscriptions for ongoing feature work if you need continuous improvement without the overhead of hiring.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </AnimatedSection>
         </div>
       </section>
 
