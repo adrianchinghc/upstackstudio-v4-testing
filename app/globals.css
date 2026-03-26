@@ -5,44 +5,80 @@
    ================================ */
 
 @theme inline {
-  /* Brand Colors — from Upstack_brand_guideline.pdf */
-  --color-brand-navy: #302D83;
-  --color-brand-sky: #75C7DA;
-  --color-brand-black: #231F20;
-  --color-brand-grey: #414042;
+  /* Brand Colors — from upstack-studio-brand.pdf (March 2025) */
+  --color-brand-blue: #0A4DFF;
+  --color-brand-lime: #E6FE52;
+  --color-brand-black: #000000;
+  --color-brand-grey: #BDBDBD;
+  --color-brand-white: #FFFFFF;
 
-  /* CTA Gradient */
-  --cta-gradient: linear-gradient(197.95deg, #0099FF 0%, #1300FF 100%);
+  /* Legacy aliases — for backward compatibility during migration */
+  --color-brand-navy: #0A4DFF;  /* Mapped to new blue */
+  --color-brand-sky: #00D4FF;   /* Mapped to cyan from gradient */
 
-  /* Font families */
-  --font-display: var(--font-bricolage);
-  --font-body: var(--font-inter);
+  /* Gradients — from brand PDF */
+  --gradient-text: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);
+  --gradient-cta: linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);
+  --gradient-glow: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);
+
+  /* Legacy CTA gradient alias */
+  --cta-gradient: linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);
+
+  /* Font families — uses CSS variables from next/font */
+  --font-display: var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: var(--font-body), 'Inter', system-ui, sans-serif;
 }
 
 /* ================================
    LIGHT MODE (Default)
    ================================ */
 :root {
-  --bg: #fafafa;
-  --surface: #ffffff;
-  --surface-2: #f4f3fa;
-  --border: #e4e3ef;
-  --muted: #8e8ba0;
-  --text: #1a1928;
-  --text-secondary: #4a4862;
+  --bg: #FFFFFF;
+  --surface: #FAFAFA;
+  --surface-2: #F5F5F5;
+  --border: #E5E5E5;
+  --muted: #737373;
+  --text: #000000;
+  --text-secondary: #525252;
+
+  /* Light mode gradient — darker for contrast (4.5:1+ against white) */
+  --gradient-text-mode: linear-gradient(135deg, #0066CC 0%, #0A4DFF 100%);
+
+  /* Light mode lime — softer, less neon */
+  --color-lime-text: #4d7c0f;  /* lime-700 */
+  --color-lime-bg: rgba(132, 204, 22, 0.15);  /* lime-500/15 */
+  --color-lime-border: rgba(132, 204, 22, 0.3);
+
+  /* Light mode sky — darker for contrast */
+  --color-sky-accent: #0066CC;  /* Passes 4.5:1 on white */
+  --color-sky-faint-bg: rgba(0, 102, 204, 0.08);
+  --color-sky-faint-border: rgba(0, 102, 204, 0.2);
 }
 
 /* ================================
    DARK MODE
    ================================ */
 .dark {
-  --bg: #05050a;
-  --surface: #0f0e18;
-  --surface-2: #12111e;
-  --border: #1e1d2e;
-  --muted: #6b6880;
-  --text: #e8e8f4;
-  --text-secondary: #a8a6b8;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #141414;
+  --border: #262626;
+  --muted: #737373;
+  --text: #FFFFFF;
+  --text-secondary: #a3a3a3;
+
+  /* Dark mode gradient — original cyan-to-blue works well */
+  --gradient-text-mode: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);
+
+  /* Dark mode lime — vibrant is fine on dark */
+  --color-lime-text: #E6FE52;
+  --color-lime-bg: rgba(230, 254, 82, 0.1);
+  --color-lime-border: rgba(230, 254, 82, 0.2);
+
+  /* Dark mode sky — cyan works well on dark */
+  --color-sky-accent: #00D4FF;
+  --color-sky-faint-bg: rgba(0, 212, 255, 0.1);
+  --color-sky-faint-border: rgba(0, 212, 255, 0.2);
 }
 
 /* ================================
@@ -104,7 +140,21 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-brand-sky);
+  color: var(--color-brand-blue);
+}
+
+/* Page H1 (alias for service pages using text-page-h1) */
+.text-page-h1 {
+  font-size: clamp(32px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Section H2 (alias for service pages using text-section-h2) */
+.text-section-h2 {
+  font-size: clamp(26px, 3.2vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
 }
 
 /* ================================
@@ -136,13 +186,70 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Brand gradient for CTAs */
 .bg-cta-gradient {
-  background: linear-gradient(197.95deg, #0099FF 0%, #1300FF 100%);
+  background: var(--gradient-cta);
+}
+
+/* Gradient text — mode-aware for proper contrast */
+.text-gradient {
+  background: var(--gradient-text-mode);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Lime accent text — use sparingly for high-impact */
+.text-brand-lime {
+  color: var(--color-brand-lime);
+}
+
+/* Lime accent background — badges, highlights */
+.bg-brand-lime {
+  background-color: var(--color-brand-lime);
+  color: var(--color-brand-black);
+}
+
+/* Brand blue utilities — extracted from repeated inline styles */
+.text-brand-blue {
+  color: var(--color-brand-blue);
+}
+
+.bg-brand-blue {
+  background-color: var(--color-brand-blue);
+}
+
+.bg-brand-blue-faint {
+  background-color: color-mix(in oklch, var(--color-brand-blue) 10%, transparent);
+}
+
+.border-brand-blue {
+  border-color: var(--color-brand-blue);
+}
+
+.icon-brand-blue {
+  color: var(--color-brand-blue);
+}
+
+/* Sky accent utilities — mode-aware for proper contrast */
+.text-sky-accent {
+  color: var(--color-sky-accent);
+}
+
+.bg-sky-faint {
+  background-color: var(--color-sky-faint-bg);
+}
+
+.border-sky-faint {
+  border-color: var(--color-sky-faint-border);
+}
+
+.icon-sky-accent {
+  color: var(--color-sky-accent);
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--color-brand-sky);
-  color: var(--color-brand-black);
+  background-color: var(--color-brand-blue);
+  color: var(--color-brand-white);
 }
 
 /* Scrollbar (dark mode) */
@@ -165,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Focus states */
 *:focus-visible {
-  outline: 2px solid var(--color-brand-sky);
+  outline: 2px solid var(--color-brand-blue);
   outline-offset: 2px;
 }
 
@@ -181,10 +288,163 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* ================================
+   SCROLL-DRIVEN PARALLAX (OVERDRIVE)
+   Uses scroll-timeline for 60fps depth
+   ================================ */
+
+/* Hero section creates a scroll timeline */
+.hero-parallax-container {
+  timeline-scope: --hero-scroll;
+}
+
+.hero-parallax-container .hero-section {
+  view-timeline: --hero-scroll block;
+}
+
+/* Parallax keyframes — different speeds create depth */
+@keyframes parallax-slow {
+  from { transform: translateY(0); }
+  to { transform: translateY(100px); }
+}
+
+@keyframes parallax-medium {
+  from { transform: translateY(0); }
+  to { transform: translateY(60px); }
+}
+
+@keyframes parallax-fast {
+  from { transform: translateY(0); }
+  to { transform: translateY(30px); }
+}
+
+@keyframes parallax-reverse {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40px); }
+}
+
+@keyframes diagonal-drift {
+  from { transform: rotate(-12deg) translateY(0); }
+  to { transform: rotate(-8deg) translateY(80px); }
+}
+
+@keyframes diagonal-drift-reverse {
+  from { transform: rotate(12deg) translateY(0); }
+  to { transform: rotate(16deg) translateY(60px); }
+}
+
+/* Apply parallax with scroll-driven animation */
+@supports (animation-timeline: scroll()) {
+  .parallax-slow {
+    animation: parallax-slow linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .parallax-medium {
+    animation: parallax-medium linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .parallax-fast {
+    animation: parallax-fast linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .parallax-reverse {
+    animation: parallax-reverse linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .parallax-diagonal-left {
+    animation: diagonal-drift linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+
+  .parallax-diagonal-right {
+    animation: diagonal-drift-reverse linear forwards;
+    animation-timeline: --hero-scroll;
+    animation-range: exit 0% exit 100%;
+  }
+}
+
+/* ================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================ */
+
+/* Content-visibility for below-fold sections — defers rendering */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Layout containment for independent sections */
+.contain-layout {
+  contain: layout style;
+}
+
+/* GPU acceleration hints for animated elements */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize paint for fixed/sticky elements */
+.contain-paint {
+  contain: paint;
+}
+
+/* ================================
+   REDUCED MOTION — ACCESSIBILITY
+   Respects prefers-reduced-motion
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
+
+  /* Remove will-change when no motion */
+  .gpu-accelerated {
+    will-change: auto;
+  }
 }

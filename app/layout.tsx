@@ -4,20 +4,24 @@ import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { CookieConsent } from '@/components/layout/CookieConsent'
 import './globals.css'
 
-const display = Bricolage_Grotesque({
+// Optimized font loading with next/font — no render blocking
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-bricolage',
+  variable: '--font-display',
   display: 'swap',
+  preload: true,
 })
 
-const body = Inter({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
   display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -65,10 +69,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${display.variable} ${body.variable} font-sans antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning className={`${bricolage.variable} ${inter.variable}`}>
+      <body className="antialiased font-body">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <main className="min-h-screen">{children}</main>
@@ -83,6 +85,7 @@ export default function RootLayout({
               },
             }}
           />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

@@ -44,11 +44,11 @@ export const CLIENTS = [
   'Fitness Annotations',
 ] as const
 
-// Directory ratings
+// Directory ratings (scores as strings to preserve decimal formatting)
 export const RATINGS = {
-  clutch: { score: 4.9, label: 'Clutch' },
-  techBehemoths: { score: 5.0, label: 'TechBehemoths' },
-  google: { score: 4.9, label: 'Google' },
+  clutch: { score: '4.9', label: 'Clutch' },
+  techBehemoths: { score: '5.0', label: 'TechBehemoths' },
+  google: { score: '4.9', label: 'Google' },
 } as const
 
 // Press
@@ -90,3 +90,21 @@ export const INDUSTRIES = [
   'Cybersecurity',
   'Social Impact',
 ] as const
+
+// Service guarantees — displayed in GuaranteeBar
+export const GUARANTEES = [
+  '2-Week Risk-Free Trial',
+  'No Extra Charge for Our Delays',
+  'Transparent Pricing',
+  '24-Hour Response SLA',
+] as const
+
+// Animation presets — extracted from components for consistency
+export const ANIMATION_PRESETS = {
+  counter: { stiffness: 50, damping: 15 },
+  sectionEnter: { duration: 0.4, delay: 0 },
+  parallax: { stiffness: 150, damping: 20 },
+} as const
+
+export const EASE_OUT = [0.23, 1, 0.32, 1] as const
+export const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const

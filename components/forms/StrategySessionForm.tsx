@@ -152,19 +152,19 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
         <div className={cn(
           'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
           step >= 1
-            ? 'bg-[var(--color-brand-sky)] text-white'
+            ? 'bg-[var(--color-brand-blue)] text-white'
             : 'bg-surface-2 text-muted'
         )}>
           1
         </div>
         <div className={cn(
           'flex-1 h-1 rounded-full transition-colors',
-          step >= 2 ? 'bg-[var(--color-brand-sky)]' : 'bg-surface-2'
+          step >= 2 ? 'bg-[var(--color-brand-blue)]' : 'bg-surface-2'
         )} />
         <div className={cn(
           'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
           step >= 2
-            ? 'bg-[var(--color-brand-sky)] text-white'
+            ? 'bg-[var(--color-brand-blue)] text-white'
             : 'bg-surface-2 text-muted'
         )}>
           2
@@ -178,14 +178,14 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
         <form onSubmit={step1Form.handleSubmit(handleStep1Submit)} className="space-y-6">
           <div>
             <label htmlFor="biggest_operational_pain" className="block text-sm font-medium mb-2">
-              What&apos;s the one operational problem costing you the most time or money right now? <span className="text-red-500">*</span>
+              What's the one operational problem costing you the most time or money right now? <span className="text-red-500">*</span>
             </label>
             <textarea
               id="biggest_operational_pain"
               {...step1Form.register('biggest_operational_pain')}
               rows={4}
               placeholder="Be specific — the more detail you give, the more useful the call."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)] resize-none"
+              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
             />
             {step1Form.formState.errors.biggest_operational_pain && (
               <p className="mt-1 text-sm text-red-500">
@@ -203,7 +203,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               {...step1Form.register('cost_of_inaction')}
               rows={4}
               placeholder="Think about the cost: in revenue, headcount, competitive ground lost."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)] resize-none"
+              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
             />
             {step1Form.formState.errors.cost_of_inaction && (
               <p className="mt-1 text-sm text-red-500">
@@ -221,12 +221,12 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               {...step1Form.register('previous_attempts')}
               rows={3}
               placeholder="Previous vendors, internal attempts, off-the-shelf tools — anything."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)] resize-none"
+              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
             />
           </div>
 
           <Button type="submit" size="lg" className="w-full">
-            Show me what&apos;s possible
+            Show me what's possible
             <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
 
@@ -249,7 +249,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="firstname"
                 type="text"
                 {...step2Form.register('firstname')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
               {step2Form.formState.errors.firstname && (
                 <p className="mt-1 text-sm text-red-500">
@@ -265,7 +265,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="lastname"
                 type="text"
                 {...step2Form.register('lastname')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
             </div>
           </div>
@@ -280,7 +280,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="email"
                 type="email"
                 {...step2Form.register('email')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
               {step2Form.formState.errors.email && (
                 <p className="mt-1 text-sm text-red-500">
@@ -296,7 +296,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="phone"
                 type="tel"
                 {...step2Form.register('phone')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
             </div>
           </div>
@@ -311,7 +311,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="company"
                 type="text"
                 {...step2Form.register('company')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
               {step2Form.formState.errors.company && (
                 <p className="mt-1 text-sm text-red-500">
@@ -327,7 +327,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 id="jobtitle"
                 type="text"
                 {...step2Form.register('jobtitle')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
             </div>
           </div>
@@ -342,7 +342,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               type="url"
               {...step2Form.register('website')}
               placeholder="https://"
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
             />
           </div>
 
@@ -355,7 +355,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               <select
                 id="project_timeline"
                 {...step2Form.register('project_timeline')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               >
                 <option value="">Select timeline</option>
                 {TIMELINE_OPTIONS.map((option) => (
@@ -377,7 +377,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               <select
                 id="budget_range"
                 {...step2Form.register('budget_range')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               >
                 <option value="">Select budget</option>
                 {BUDGET_OPTIONS.map((option) => (
@@ -425,7 +425,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
             <select
               id="how_did_you_hear"
               {...step2Form.register('how_did_you_hear')}
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
             >
               <option value="">Select source</option>
               {SOURCE_OPTIONS.map((option) => (
@@ -467,7 +467,7 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
           </div>
 
           <p className="text-sm text-muted text-center">
-            We&apos;ll review your answers and confirm within 1 business day.
+            We'll review your answers and confirm within 1 business day.
           </p>
         </form>
       )}

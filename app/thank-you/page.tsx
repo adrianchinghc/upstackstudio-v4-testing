@@ -27,8 +27,8 @@ export default function ThankYouPage() {
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <AnimatedSection className="text-center mb-12">
           <div className="flex justify-center mb-6">
-            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-brand-sky)]/10">
-              <CheckCircle className="h-10 w-10 text-[var(--color-brand-sky)]" />
+            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-sky-faint">
+              <CheckCircle className="h-10 w-10 text-sky-accent" />
             </div>
           </div>
 
@@ -45,14 +45,14 @@ export default function ThankYouPage() {
         <AnimatedSection delay={0.1} className="mb-12">
           <div className="rounded-2xl border border-default bg-surface p-6 md:p-8">
             <h2 className="text-xl font-semibold mb-6 flex items-center gap-3">
-              <Calendar className="h-5 w-5 text-[var(--color-brand-sky)]" />
+              <Calendar className="h-5 w-5 text-sky-accent" />
               What to expect on the call
             </h2>
 
             <ul className="space-y-4">
               {WHAT_TO_EXPECT.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] font-semibold text-xs">
+                  <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-faint text-sky-accent font-semibold text-xs">
                     {index + 1}
                   </span>
                   <span className="text-secondary pt-0.5">{item}</span>
@@ -66,18 +66,18 @@ export default function ThankYouPage() {
         {/* <!-- TODO: Get pre-call video ID for /thank-you page --> */}
         <AnimatedSection delay={0.2} className="mb-12">
           <div className="rounded-2xl border border-default bg-surface-2 p-6 md:p-8 text-center">
-            <Youtube className="h-10 w-10 text-[var(--color-brand-sky)] mx-auto mb-4" />
+            <Youtube className="h-10 w-10 text-sky-accent mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">
               Watch while you wait
             </h3>
             <p className="text-secondary mb-4">
-              See how we&apos;ve helped companies like yours build software that actually works.
+              See how we've helped companies like yours build software that actually works.
             </p>
             <a
               href={SOCIAL.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[var(--color-brand-sky)] hover:underline font-medium"
+              className="inline-flex items-center gap-2 text-sky-accent hover:underline font-medium"
             >
               Visit our YouTube channel
               <ArrowRight className="h-4 w-4" />

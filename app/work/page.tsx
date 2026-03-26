@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 // Case studies data from the brief
 const CASE_STUDIES = [
   {
-    client: 'BookXcess / Big Bad Wolf',
+    client: 'BookXcess',
     industry: 'Retail · Events',
     outcome: '15× ecommerce revenue growth',
     description: 'Shopify migration and optimization that transformed their online revenue.',
@@ -113,23 +113,23 @@ export default function WorkPage() {
             Work that moves businesses forward.
           </h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Projects delivered across Malaysia, Australia, the US, UK, and the Netherlands. From 15× revenue growth to rebuilding failed projects — here&apos;s what we&apos;ve built.
+            Projects delivered across Malaysia, Australia, the US, UK, and the Netherlands. From 15× revenue growth to rebuilding failed projects — here's what we've built.
           </p>
         </AnimatedSection>
 
         {/* Featured Case Study - BookXcess */}
         <AnimatedSection className="mb-12 md:mb-16">
-          <div className="rounded-2xl border border-[var(--color-brand-sky)]/30 bg-surface p-8 md:p-12">
+          <div className="rounded-2xl border border-[var(--color-brand-blue)]/30 bg-surface p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <span className="inline-flex rounded-full bg-[var(--color-brand-sky)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-sky)] mb-4">
+                <span className="inline-flex rounded-full bg-[var(--color-lime-bg)] border border-[var(--color-lime-border)] px-3 py-1 text-xs font-medium text-[var(--color-lime-text)] mb-4">
                   Featured
                 </span>
-                <h2 className="text-section-title mb-4">BookXcess / Big Bad Wolf</h2>
+                <h2 className="text-section-title mb-4">BookXcess</h2>
                 <p className="text-lg text-secondary mb-6">
                   When BookXcess needed to transform their ecommerce operations, we delivered a Shopify migration that drove results nobody expected.
                 </p>
-                <blockquote className="text-base italic text-secondary border-l-2 border-[var(--color-brand-sky)] pl-4 mb-6">
+                <blockquote className="text-base italic text-secondary border-l-2 border-[var(--color-brand-blue)] pl-4 mb-6">
                   &ldquo;Brilliant job guys! Just brilliant! So many amazing changes in just a few days.&rdquo;
                   <footer className="text-sm text-muted mt-2 not-italic">
                     — Andrew Yap, Founder
@@ -137,7 +137,7 @@ export default function WorkPage() {
                 </blockquote>
               </div>
               <div className="text-center">
-                <div className="text-7xl md:text-9xl font-extrabold text-[var(--color-brand-sky)] font-display">
+                <div className="text-7xl md:text-9xl font-extrabold text-gradient font-display">
                   15×
                 </div>
                 <p className="text-xl font-semibold">ecommerce revenue growth</p>
@@ -148,7 +148,7 @@ export default function WorkPage() {
 
         {/* Case Studies Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {CASE_STUDIES.filter(cs => cs.client !== 'BookXcess / Big Bad Wolf').map((caseStudy, index) => (
+          {CASE_STUDIES.filter(cs => cs.client !== 'BookXcess').map((caseStudy, index) => (
             <AnimatedSection key={caseStudy.client} delay={index * 0.05}>
               <CaseStudyCard {...caseStudy} />
             </AnimatedSection>

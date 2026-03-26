@@ -31,10 +31,10 @@ export default function StrategySessionPage() {
                 <div>
                   <h3 className="font-semibold text-[var(--text)] mb-2">What the call covers</h3>
                   <ul className="space-y-2 text-base">
-                    <li>— The specific operational problem you&apos;re trying to solve</li>
+                    <li>— The specific operational problem you're trying to solve</li>
                     <li>— Whether software is the right solution right now</li>
                     <li>— What a realistic timeline and investment looks like</li>
-                    <li>— Whether we&apos;re the right team for it</li>
+                    <li>— Whether we're the right team for it</li>
                   </ul>
                 </div>
 
@@ -49,16 +49,16 @@ export default function StrategySessionPage() {
 
                 <div className="pt-4 border-t border-default">
                   <p className="text-base italic">
-                    &ldquo;Whether you&apos;re the person who owns this problem — or the person building the case for solving it — this call is for you.&rdquo;
+                    &ldquo;Whether you're the person who owns this problem — or the person building the case for solving it — this call is for you.&rdquo;
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-[var(--color-brand-sky)]/30 bg-surface p-6">
+                <div className="rounded-xl border border-sky-faint bg-surface p-6">
                   <h3 className="font-semibold text-[var(--text)] mb-2">
                     Had a bad experience with another developer?
                   </h3>
                   <p className="text-base">
-                    Some of our strongest client relationships started as rescues. Jason Anderson came to us after his previous team spent his budget and couldn&apos;t finish. We rebuilt everything. He called it &ldquo;basically crushed it.&rdquo;
+                    Some of our strongest client relationships started as rescues. Jason Anderson came to us after his previous team spent his budget and couldn't finish. We rebuilt everything. He called it &ldquo;basically crushed it.&rdquo;
                   </p>
                 </div>
               </div>

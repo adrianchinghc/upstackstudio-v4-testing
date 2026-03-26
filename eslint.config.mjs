@@ -11,6 +11,14 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Font loaded via <link> in layout.tsx head — intended for App Router
+      "@next/next/no-page-custom-font": "off",
+      // Allow unescaped apostrophes in JSX text content
+      "react/no-unescaped-entities": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

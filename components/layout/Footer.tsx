@@ -55,7 +55,7 @@ export function Footer() {
                 <span className="text-sm">Petaling Jaya, Selangor, Malaysia</span>
               </div>
 
-              {/* Adrian&apos;s social links */}
+              {/* Adrian's social links */}
               <div className="space-y-3">
                 <p className="text-xs font-medium text-muted uppercase tracking-wider">
                   Follow Adrian
@@ -67,10 +67,10 @@ export function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-10 h-10 rounded-lg border border-default bg-surface-2 hover:bg-[var(--color-brand-sky)]/10 hover:border-[var(--color-brand-sky)]/30 transition-colors"
+                      className="flex items-center justify-center w-10 h-10 rounded-lg border border-default bg-surface-2 hover:bg-sky-faint hover:border-sky-faint transition-colors"
                       aria-label={social.label}
                     >
-                      <social.icon className="h-4 w-4 text-muted hover:text-[var(--color-brand-sky)]" />
+                      <social.icon className="h-4 w-4 text-muted hover:text-sky-accent" />
                     </a>
                   ))}
                 </div>
@@ -78,7 +78,7 @@ export function Footer() {
                   href={SOCIAL.podcast}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-[var(--color-brand-sky)] hover:underline"
+                  className="inline-flex items-center gap-2 text-sm text-sky-accent hover:underline"
                 >
                   <Podcast className="h-4 w-4" />
                   Tech It Or Leave It Podcast

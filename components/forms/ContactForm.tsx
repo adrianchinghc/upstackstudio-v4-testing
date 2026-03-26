@@ -70,10 +70,10 @@ export function ContactForm({ className }: ContactFormProps) {
   if (isSubmitted) {
     return (
       <div className={cn('text-center py-12', className)}>
-        <CheckCircle className="h-16 w-16 text-[var(--color-brand-sky)] mx-auto mb-6" />
+        <CheckCircle className="h-16 w-16 text-sky-accent mx-auto mb-6" />
         <h3 className="text-xl font-semibold mb-3">Thanks for reaching out.</h3>
         <p className="text-secondary">
-          We&apos;ll get back to you within 1 business day.
+          We'll get back to you within 1 business day.
         </p>
       </div>
     )
@@ -90,7 +90,7 @@ export function ContactForm({ className }: ContactFormProps) {
           id="firstname"
           type="text"
           {...register('firstname')}
-          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
         />
         {errors.firstname && (
           <p className="mt-1 text-sm text-red-500">{errors.firstname.message}</p>
@@ -106,7 +106,7 @@ export function ContactForm({ className }: ContactFormProps) {
           id="email"
           type="email"
           {...register('email')}
-          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -122,7 +122,7 @@ export function ContactForm({ className }: ContactFormProps) {
           id="company"
           type="text"
           {...register('company')}
-          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
         />
       </div>
 
@@ -134,7 +134,7 @@ export function ContactForm({ className }: ContactFormProps) {
         <select
           id="subject"
           {...register('subject')}
-          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)]"
+          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
         >
           {SUBJECT_OPTIONS.map((option) => (
             <option key={option.value} value={option.value}>
@@ -154,7 +154,7 @@ export function ContactForm({ className }: ContactFormProps) {
           {...register('message')}
           rows={5}
           placeholder="How can we help?"
-          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-sky)] resize-none"
+          className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
