@@ -72,9 +72,7 @@ export function ContactForm({ className }: ContactFormProps) {
       <div className={cn('text-center py-12', className)}>
         <CheckCircle className="h-16 w-16 text-sky-accent mx-auto mb-6" />
         <h3 className="text-xl font-semibold mb-3">Thanks for reaching out.</h3>
-        <p className="text-secondary">
-          We'll get back to you within 1 business day.
-        </p>
+        <p className="text-secondary">We'll get back to you within 1 business day.</p>
       </div>
     )
   }
@@ -108,9 +106,7 @@ export function ContactForm({ className }: ContactFormProps) {
           {...register('email')}
           className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
         />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-        )}
+        {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
       </div>
 
       {/* Company */}
@@ -156,9 +152,7 @@ export function ContactForm({ className }: ContactFormProps) {
           placeholder="How can we help?"
           className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
         />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
-        )}
+        {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
       </div>
 
       {/* Submit */}

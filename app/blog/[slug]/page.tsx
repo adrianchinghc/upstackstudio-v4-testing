@@ -108,7 +108,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article Content */}
       <article className="py-12 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="prose prose-lg dark:prose-invert max-w-none
+          <div
+            className="prose prose-lg dark:prose-invert max-w-none
             prose-headings:font-display prose-headings:tracking-tight
             prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4
             prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3
@@ -118,7 +119,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             prose-blockquote:border-l-[var(--color-brand-sky)] prose-blockquote:text-secondary
             prose-code:text-[var(--color-brand-sky)] prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
             prose-pre:bg-surface prose-pre:border prose-pre:border-default
-            prose-img:rounded-xl prose-img:border prose-img:border-default">
+            prose-img:rounded-xl prose-img:border prose-img:border-default"
+          >
             <MDXRemote source={post.content} />
           </div>
 
@@ -129,7 +131,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Building something like this? Let's talk.
             </h2>
             <p className="text-secondary mb-6 max-w-sm mx-auto text-sm">
-              45 minutes with Adrian. No scripts. No generic questions. A real conversation about your operations.
+              45 minutes with Adrian. No scripts. No generic questions. A real conversation about
+              your operations.
             </p>
             <Button asChild>
               <Link href="/strategy-session">

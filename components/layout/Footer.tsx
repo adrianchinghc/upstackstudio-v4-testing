@@ -47,7 +47,8 @@ export function Footer() {
             <div className="lg:col-span-2 space-y-6">
               <Logo className="opacity-80" />
               <p className="text-secondary text-base max-w-sm leading-relaxed">
-                AI-enabled software engineering for established, growing companies. Built on the LUDA™ Framework.
+                AI-enabled software engineering for established, growing companies. Built on the
+                LUDA™ Framework.
               </p>
 
               <div className="flex items-center gap-2 text-muted">

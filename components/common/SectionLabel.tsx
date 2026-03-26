@@ -6,14 +6,5 @@ interface SectionLabelProps {
 }
 
 export function SectionLabel({ children, className }: SectionLabelProps) {
-  return (
-    <span
-      className={cn(
-        'text-section-label',
-        className
-      )}
-    >
-      {children}
-    </span>
-  )
+  return <span className={cn('text-section-label', className)}>{children}</span>
 }

@@ -7,7 +7,8 @@ import { CheckCircle, Youtube, ArrowRight, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Thank You',
-  description: 'Your strategy session has been booked. Here\'s what to expect on the call with Adrian.',
+  description:
+    "Your strategy session has been booked. Here's what to expect on the call with Adrian.",
   alternates: {
     canonical: '/thank-you',
   },
@@ -33,9 +34,7 @@ export default function ThankYouPage() {
           </div>
 
           <SectionLabel className="mb-4 block">Confirmed</SectionLabel>
-          <h1 className="text-page-title mb-4">
-            Your strategy session is booked.
-          </h1>
+          <h1 className="text-page-title mb-4">Your strategy session is booked.</h1>
           <p className="text-lg text-secondary">
             Check your email for calendar details and a Zoom link.
           </p>
@@ -67,9 +66,7 @@ export default function ThankYouPage() {
         <AnimatedSection delay={0.2} className="mb-12">
           <div className="rounded-2xl border border-default bg-surface-2 p-6 md:p-8 text-center">
             <Youtube className="h-10 w-10 text-sky-accent mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">
-              Watch while you wait
-            </h3>
+            <h3 className="text-lg font-semibold mb-2">Watch while you wait</h3>
             <p className="text-secondary mb-4">
               See how we've helped companies like yours build software that actually works.
             </p>
@@ -86,7 +83,10 @@ export default function ThankYouPage() {
         </AnimatedSection>
 
         {/* Actions */}
-        <AnimatedSection delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <AnimatedSection
+          delay={0.3}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
           <Button asChild variant="outline">
             <Link href="/work">View Our Work</Link>
           </Button>

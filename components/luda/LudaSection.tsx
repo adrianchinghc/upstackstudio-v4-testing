@@ -17,7 +17,7 @@ const LUDA_PILLARS = [
     icon: Video,
     title: 'Bi-weekly Progress Reviews',
     description:
-      'Video call every two weeks. You see what was built, what\'s next, what needs your input. Slack always open. No waiting for a monthly report.',
+      "Video call every two weeks. You see what was built, what's next, what needs your input. Slack always open. No waiting for a monthly report.",
   },
   {
     icon: Calendar,
@@ -69,16 +69,17 @@ export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
   }
 
   return (
-    <section aria-labelledby="luda-heading" className={cn('py-24 md:py-32 bg-surface content-auto', className)}>
+    <section
+      aria-labelledby="luda-heading"
+      className={cn('py-24 md:py-32 bg-surface content-auto', className)}
+    >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <AnimatedSection className="text-center mb-16 md:mb-20">
           <SectionLabel className="mb-4 block">The LUDA™ Framework</SectionLabel>
           <h2 id="luda-heading" className="text-section-title mb-4">
             70% of software projects fail.
             <br />
-            <span className="text-gradient">
-              We built a framework so yours doesn't.
-            </span>
+            <span className="text-gradient">We built a framework so yours doesn't.</span>
           </h2>
           <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
             The LUDA™ Framework is how we deliver every engagement — not a promise, a structure.
@@ -100,9 +101,7 @@ export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
                 </div>
                 <div>
                   <h3 className="text-card-title mb-3">{pillar.title}</h3>
-                  <p className="text-base text-secondary leading-relaxed">
-                    {pillar.description}
-                  </p>
+                  <p className="text-base text-secondary leading-relaxed">{pillar.description}</p>
                 </div>
               </div>
             </AnimatedSection>

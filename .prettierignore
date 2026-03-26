@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Generated files
+*.min.js
+*.min.css
+
+# Cache
+.cache/
+.turbo/
+
+# Coverage
+coverage/
+
+# Public assets
+public/images/
+public/*.svg

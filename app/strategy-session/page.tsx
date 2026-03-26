@@ -20,9 +20,7 @@ export default function StrategySessionPage() {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <AnimatedSection>
               <SectionLabel className="mb-4 block">Strategy Session</SectionLabel>
-              <h1 className="text-page-title mb-6">
-                Before we talk, help us help you.
-              </h1>
+              <h1 className="text-page-title mb-6">Before we talk, help us help you.</h1>
               <p className="text-lg text-secondary leading-relaxed mb-8">
                 3 questions. 2 minutes. We read every answer before your call.
               </p>
@@ -49,7 +47,8 @@ export default function StrategySessionPage() {
 
                 <div className="pt-4 border-t border-default">
                   <p className="text-base italic">
-                    &ldquo;Whether you're the person who owns this problem — or the person building the case for solving it — this call is for you.&rdquo;
+                    &ldquo;Whether you're the person who owns this problem — or the person building
+                    the case for solving it — this call is for you.&rdquo;
                   </p>
                 </div>
 
@@ -58,7 +57,9 @@ export default function StrategySessionPage() {
                     Had a bad experience with another developer?
                   </h3>
                   <p className="text-base">
-                    Some of our strongest client relationships started as rescues. Jason Anderson came to us after his previous team spent his budget and couldn't finish. We rebuilt everything. He called it &ldquo;basically crushed it.&rdquo;
+                    Some of our strongest client relationships started as rescues. Jason Anderson
+                    came to us after his previous team spent his budget and couldn't finish. We
+                    rebuilt everything. He called it &ldquo;basically crushed it.&rdquo;
                   </p>
                 </div>
               </div>

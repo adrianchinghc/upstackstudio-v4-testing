@@ -38,7 +38,10 @@ async function migrate() {
   for (const item of items) {
     // Only published posts
     if (item['wp:post_type']?.[0] !== 'post') continue
-    if (item['wp:status']?.[0] !== 'publish') { skipped++; continue }
+    if (item['wp:status']?.[0] !== 'publish') {
+      skipped++
+      continue
+    }
 
     const title = (item.title?.[0] || '').replace(/"/g, '\\"').replace(/\n/g, ' ').trim()
     const slug = item['wp:post_name']?.[0] || ''
@@ -54,7 +57,10 @@ async function migrate() {
       .filter((c: Record<string, Record<string, string>>) => c.$?.domain === 'post_tag')
       .map((c: Record<string, string>) => c._)
 
-    if (!slug) { skipped++; continue }
+    if (!slug) {
+      skipped++
+      continue
+    }
 
     const body = td.turndown(html)
     const rawDesc = td.turndown(excerptHtml).substring(0, 155).replace(/\n/g, ' ')

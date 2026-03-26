@@ -101,7 +101,6 @@ const FAQS = [
 export default function CustomPlatformDevelopmentPage() {
   return (
     <div className="bg-page min-h-screen">
-
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">
@@ -116,9 +115,9 @@ export default function CustomPlatformDevelopmentPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.16}>
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
-              Your business has specific requirements, specific workflows, and specific exceptions that no generic
-              platform was designed for. We build the exact tool your business needs — mobile app, web platform,
-              or progressive web app — on a technology you own outright.
+              Your business has specific requirements, specific workflows, and specific exceptions
+              that no generic platform was designed for. We build the exact tool your business needs
+              — mobile app, web platform, or progressive web app — on a technology you own outright.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
@@ -132,7 +131,9 @@ export default function CustomPlatformDevelopmentPage() {
                 <Link href="/work">See 17 Case Studies</Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -148,9 +149,10 @@ export default function CustomPlatformDevelopmentPage() {
                   Off-the-shelf software is designed for the average business.
                 </h2>
                 <p className="text-secondary leading-relaxed">
-                  Yours isn't average. Your approval chains, your data relationships, your exception handling —
-                  all have specific requirements that generic platforms weren't designed for. By year two, the
-                  workaround cost exceeds what a custom build would have cost from the start.
+                  Yours isn't average. Your approval chains, your data relationships, your exception
+                  handling — all have specific requirements that generic platforms weren't designed
+                  for. By year two, the workaround cost exceeds what a custom build would have cost
+                  from the start.
                 </p>
               </div>
               <div className="rounded-2xl border border-default bg-page p-8">
@@ -179,11 +181,14 @@ export default function CustomPlatformDevelopmentPage() {
               <div>
                 <SectionLabel>Mobile App Development Malaysia</SectionLabel>
                 {/* keyword: mobile app development Malaysia */}
-                <h2 className="text-section-h2 mt-2 mb-4">iOS & Android apps your users actually use.</h2>
+                <h2 className="text-section-h2 mt-2 mb-4">
+                  iOS & Android apps your users actually use.
+                </h2>
                 <p className="text-secondary max-w-2xl leading-relaxed">
-                  We build React Native apps — a single codebase for iOS and Android, with native performance and
-                  access to device hardware. Consumer-facing apps, enterprise mobile tools, field operations apps,
-                  and AI-powered mobile experiences. Built and tested on real devices before every release.
+                  We build React Native apps — a single codebase for iOS and Android, with native
+                  performance and access to device hardware. Consumer-facing apps, enterprise mobile
+                  tools, field operations apps, and AI-powered mobile experiences. Built and tested
+                  on real devices before every release.
                 </p>
               </div>
             </div>
@@ -214,12 +219,15 @@ export default function CustomPlatformDevelopmentPage() {
               <div>
                 <SectionLabel>Web App Development Malaysia</SectionLabel>
                 {/* keyword: web app development Malaysia */}
-                <h2 className="text-section-h2 mt-2 mb-4">Custom web platforms that run your operations.</h2>
+                <h2 className="text-section-h2 mt-2 mb-4">
+                  Custom web platforms that run your operations.
+                </h2>
                 <p className="text-secondary max-w-2xl leading-relaxed">
-                  Internal portals, customer-facing platforms, SaaS products, operations dashboards — built on
-                  Next.js with a TypeScript + PostgreSQL backend. Designed for performance, scalability, and the
-                  specific requirements of your operations. Not a WordPress site. Not a page builder. Real
-                  engineering for real business requirements.
+                  Internal portals, customer-facing platforms, SaaS products, operations dashboards
+                  — built on Next.js with a TypeScript + PostgreSQL backend. Designed for
+                  performance, scalability, and the specific requirements of your operations. Not a
+                  WordPress site. Not a page builder. Real engineering for real business
+                  requirements.
                 </p>
               </div>
             </div>
@@ -250,12 +258,15 @@ export default function CustomPlatformDevelopmentPage() {
               <div>
                 <SectionLabel>PWA Development Malaysia</SectionLabel>
                 {/* keyword: PWA development Malaysia */}
-                <h2 className="text-section-h2 mt-2 mb-4">One codebase. App-like experience on every device.</h2>
+                <h2 className="text-section-h2 mt-2 mb-4">
+                  One codebase. App-like experience on every device.
+                </h2>
                 <p className="text-secondary max-w-2xl leading-relaxed">
-                  Progressive Web Apps (PWAs) run in the browser but behave like native apps — installable, offline-capable,
-                  and push notification–enabled. A single codebase serves iOS, Android, and desktop. Companies that
-                  switch to PWA report up to 76% higher conversion rates and significantly lower development and maintenance
-                  costs compared to maintaining separate native apps.
+                  Progressive Web Apps (PWAs) run in the browser but behave like native apps —
+                  installable, offline-capable, and push notification–enabled. A single codebase
+                  serves iOS, Android, and desktop. Companies that switch to PWA report up to 76%
+                  higher conversion rates and significantly lower development and maintenance costs
+                  compared to maintaining separate native apps.
                 </p>
               </div>
             </div>
@@ -292,13 +303,17 @@ export default function CustomPlatformDevelopmentPage() {
                 <div className="rounded-2xl border border-default bg-page p-8 md:p-10">
                   <div className="grid md:grid-cols-5 gap-8">
                     <div className="md:col-span-3">
-                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">{scenario.label}</span>
+                      <span className="text-xs font-semibold tracking-widest uppercase text-muted mb-4 block">
+                        {scenario.label}
+                      </span>
                       <h3 className="text-xl font-semibold mb-3">{scenario.problem}</h3>
                       <p className="text-secondary leading-relaxed">{scenario.detail}</p>
                     </div>
                     <div className="md:col-span-2">
                       <div className="h-full rounded-xl bg-[var(--color-brand-navy)]/5 dark:bg-[var(--color-brand-sky)]/5 border border-[var(--color-brand-navy)]/10 dark:border-[var(--color-brand-sky)]/10 p-6">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">What we built</p>
+                        <p className="text-xs font-semibold tracking-widest uppercase text-sky-accent mb-3">
+                          What we built
+                        </p>
                         <p className="text-sm leading-relaxed text-secondary">{scenario.outcome}</p>
                       </div>
                     </div>
@@ -356,15 +371,18 @@ export default function CustomPlatformDevelopmentPage() {
               Tell us what you need to build. We'll tell you how we'd build it.
             </h2>
             <p className="text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-              We work best with companies that know what problem they're solving — even if they don't know
-              what the solution looks like yet. Come to the call with the problem. Leave with a plan.
+              We work best with companies that know what problem they're solving — even if they
+              don't know what the solution looks like yet. Come to the call with the problem. Leave
+              with a plan.
             </p>
             <Button size="lg" asChild>
               <Link href="/strategy-session">
                 Book a Strategy Call <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-4 text-sm text-muted">Typical engagements from USD 45,000. Scope confirmed on the call.</p>
+            <p className="mt-4 text-sm text-muted">
+              Typical engagements from USD 45,000. Scope confirmed on the call.
+            </p>
           </AnimatedSection>
         </div>
       </section>

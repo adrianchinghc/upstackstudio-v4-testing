@@ -40,10 +40,7 @@ export function getAllPostSlugs(): string[] {
 
 export function getPostBySlug(slug: string): BlogPost | null {
   ensureBlogDir()
-  const filePaths = [
-    path.join(BLOG_DIR, `${slug}.mdx`),
-    path.join(BLOG_DIR, `${slug}.md`),
-  ]
+  const filePaths = [path.join(BLOG_DIR, `${slug}.mdx`), path.join(BLOG_DIR, `${slug}.md`)]
 
   const filePath = filePaths.find((p) => fs.existsSync(p))
   if (!filePath) return null

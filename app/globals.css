@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ================================
    UPSTACK STUDIO — BRAND TOKENS
@@ -6,23 +6,23 @@
 
 @theme inline {
   /* Brand Colors — from upstack-studio-brand.pdf (March 2025) */
-  --color-brand-blue: #0A4DFF;
-  --color-brand-lime: #E6FE52;
+  --color-brand-blue: #0a4dff;
+  --color-brand-lime: #e6fe52;
   --color-brand-black: #000000;
-  --color-brand-grey: #BDBDBD;
-  --color-brand-white: #FFFFFF;
+  --color-brand-grey: #bdbdbd;
+  --color-brand-white: #ffffff;
 
   /* Legacy aliases — for backward compatibility during migration */
-  --color-brand-navy: #0A4DFF;  /* Mapped to new blue */
-  --color-brand-sky: #00D4FF;   /* Mapped to cyan from gradient */
+  --color-brand-navy: #0a4dff; /* Mapped to new blue */
+  --color-brand-sky: #00d4ff; /* Mapped to cyan from gradient */
 
   /* Gradients — from brand PDF */
-  --gradient-text: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);
-  --gradient-cta: linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);
-  --gradient-glow: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);
+  --gradient-text: linear-gradient(135deg, #00d4ff 0%, #0a4dff 100%);
+  --gradient-cta: linear-gradient(135deg, #0a4dff 0%, #0033cc 100%);
+  --gradient-glow: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
 
   /* Legacy CTA gradient alias */
-  --cta-gradient: linear-gradient(135deg, #0A4DFF 0%, #0033CC 100%);
+  --cta-gradient: linear-gradient(135deg, #0a4dff 0%, #0033cc 100%);
 
   /* Font families — uses CSS variables from next/font */
   --font-display: var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
@@ -33,24 +33,24 @@
    LIGHT MODE (Default)
    ================================ */
 :root {
-  --bg: #FFFFFF;
-  --surface: #FAFAFA;
-  --surface-2: #F5F5F5;
-  --border: #E5E5E5;
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --surface-2: #f5f5f5;
+  --border: #e5e5e5;
   --muted: #737373;
   --text: #000000;
   --text-secondary: #525252;
 
   /* Light mode gradient — darker for contrast (4.5:1+ against white) */
-  --gradient-text-mode: linear-gradient(135deg, #0066CC 0%, #0A4DFF 100%);
+  --gradient-text-mode: linear-gradient(135deg, #0066cc 0%, #0a4dff 100%);
 
   /* Light mode lime — softer, less neon */
-  --color-lime-text: #4d7c0f;  /* lime-700 */
-  --color-lime-bg: rgba(132, 204, 22, 0.15);  /* lime-500/15 */
+  --color-lime-text: #4d7c0f; /* lime-700 */
+  --color-lime-bg: rgba(132, 204, 22, 0.15); /* lime-500/15 */
   --color-lime-border: rgba(132, 204, 22, 0.3);
 
   /* Light mode sky — darker for contrast */
-  --color-sky-accent: #0066CC;  /* Passes 4.5:1 on white */
+  --color-sky-accent: #0066cc; /* Passes 4.5:1 on white */
   --color-sky-faint-bg: rgba(0, 102, 204, 0.08);
   --color-sky-faint-border: rgba(0, 102, 204, 0.2);
 }
@@ -64,19 +64,19 @@
   --surface-2: #141414;
   --border: #262626;
   --muted: #737373;
-  --text: #FFFFFF;
+  --text: #ffffff;
   --text-secondary: #a3a3a3;
 
   /* Dark mode gradient — original cyan-to-blue works well */
-  --gradient-text-mode: linear-gradient(135deg, #00D4FF 0%, #0A4DFF 100%);
+  --gradient-text-mode: linear-gradient(135deg, #00d4ff 0%, #0a4dff 100%);
 
   /* Dark mode lime — vibrant is fine on dark */
-  --color-lime-text: #E6FE52;
+  --color-lime-text: #e6fe52;
   --color-lime-bg: rgba(230, 254, 82, 0.1);
   --color-lime-border: rgba(230, 254, 82, 0.2);
 
   /* Dark mode sky — cyan works well on dark */
-  --color-sky-accent: #00D4FF;
+  --color-sky-accent: #00d4ff;
   --color-sky-faint-bg: rgba(0, 212, 255, 0.1);
   --color-sky-faint-border: rgba(0, 212, 255, 0.2);
 }
@@ -99,7 +99,12 @@ body {
 /* ================================
    TYPOGRAPHY
    ================================ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -289,13 +294,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes accordion-down {
-  from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 .animate-accordion-down {
@@ -330,33 +343,57 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Parallax keyframes — different speeds create depth */
 @keyframes parallax-slow {
-  from { transform: translateY(0); }
-  to { transform: translateY(100px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100px);
+  }
 }
 
 @keyframes parallax-medium {
-  from { transform: translateY(0); }
-  to { transform: translateY(60px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(60px);
+  }
 }
 
 @keyframes parallax-fast {
-  from { transform: translateY(0); }
-  to { transform: translateY(30px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(30px);
+  }
 }
 
 @keyframes parallax-reverse {
-  from { transform: translateY(0); }
-  to { transform: translateY(-40px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
 }
 
 @keyframes diagonal-drift {
-  from { transform: rotate(-12deg) translateY(0); }
-  to { transform: rotate(-8deg) translateY(80px); }
+  from {
+    transform: rotate(-12deg) translateY(0);
+  }
+  to {
+    transform: rotate(-8deg) translateY(80px);
+  }
 }
 
 @keyframes diagonal-drift-reverse {
-  from { transform: rotate(12deg) translateY(0); }
-  to { transform: rotate(16deg) translateY(60px); }
+  from {
+    transform: rotate(12deg) translateY(0);
+  }
+  to {
+    transform: rotate(16deg) translateY(60px);
+  }
 }
 
 /* Apply parallax with scroll-driven animation */

@@ -35,7 +35,10 @@ const LOGO_CONFIG = {
 } as const
 
 export function RatingsStrip({ className, variant = 'default' }: RatingsStripProps) {
-  const ratingEntries = Object.entries(RATINGS) as [keyof typeof RATINGS, typeof RATINGS[keyof typeof RATINGS]][]
+  const ratingEntries = Object.entries(RATINGS) as [
+    keyof typeof RATINGS,
+    (typeof RATINGS)[keyof typeof RATINGS],
+  ][]
 
   return (
     <div
@@ -52,21 +55,22 @@ export function RatingsStrip({ className, variant = 'default' }: RatingsStripPro
         return (
           <div
             key={rating.label}
-            className={cn(
-              'flex items-center gap-3',
-              variant === 'compact' && 'gap-2'
-            )}
+            className={cn('flex items-center gap-3', variant === 'compact' && 'gap-2')}
           >
             {/* Rating score with star */}
             <div className="flex items-center gap-1">
-              <Star className={cn(
-                'text-amber-400 fill-amber-400',
-                variant === 'default' ? 'h-4 w-4' : 'h-3.5 w-3.5'
-              )} />
-              <span className={cn(
-                'font-bold font-display',
-                variant === 'default' ? 'text-lg' : 'text-base'
-              )}>
+              <Star
+                className={cn(
+                  'text-amber-400 fill-amber-400',
+                  variant === 'default' ? 'h-4 w-4' : 'h-3.5 w-3.5'
+                )}
+              />
+              <span
+                className={cn(
+                  'font-bold font-display',
+                  variant === 'default' ? 'text-lg' : 'text-base'
+                )}
+              >
                 {rating.score}
               </span>
             </div>

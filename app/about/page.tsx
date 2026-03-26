@@ -27,22 +27,26 @@ export const metadata: Metadata = {
 const VALUES = [
   {
     title: 'Growth Mindset',
-    description: 'We learn from every project. Every failure teaches us something. Every success is a chance to raise the bar.',
+    description:
+      'We learn from every project. Every failure teaches us something. Every success is a chance to raise the bar.',
     icon: TrendingUp,
   },
   {
     title: 'Uncompromising Standards',
-    description: "We push back on bad features. We tell you the truth about what's possible. We don't cut corners.",
+    description:
+      "We push back on bad features. We tell you the truth about what's possible. We don't cut corners.",
     icon: ShieldCheck,
   },
   {
     title: 'Proactive by Default',
-    description: "We don't wait for problems to become crises. We flag issues early, propose solutions, and move fast.",
+    description:
+      "We don't wait for problems to become crises. We flag issues early, propose solutions, and move fast.",
     icon: Zap,
   },
   {
     title: 'People Before Technology',
-    description: 'Technology is a tool. The goal is always better outcomes for people — your team, your customers, your business.',
+    description:
+      'Technology is a tool. The goal is always better outcomes for people — your team, your customers, your business.',
     icon: Users,
   },
 ]
@@ -68,7 +72,8 @@ const QUALIFYING_QUESTIONS = [
   },
   {
     question: 'Why us?',
-    description: "Are we the right team for this specific problem? Sometimes we're not — and we'll tell you.",
+    description:
+      "Are we the right team for this specific problem? Sometimes we're not — and we'll tell you.",
   },
 ]
 
@@ -83,7 +88,8 @@ export default function AboutPage() {
             We exist for one reason: to help growing companies build technology that actually works.
           </h1>
           <p className="text-lg text-secondary leading-relaxed">
-            Not technology that looks good in a demo. Technology that runs your business, day after day, without breaking.
+            Not technology that looks good in a demo. Technology that runs your business, day after
+            day, without breaking.
           </p>
         </AnimatedSection>
 
@@ -95,17 +101,24 @@ export default function AboutPage() {
                 <SectionLabel className="mb-4 block">How We Build</SectionLabel>
                 <h2 className="text-section-title mb-4">AI-Enabled Engineering</h2>
                 <p className="text-lg text-secondary mb-6 leading-relaxed">
-                  We build software the way the world's best engineers build it — with AI. Our team uses Claude Code, AI-assisted code review, and automated testing on every sprint. Not because it's trendy. Because it makes us faster, more thorough, and more predictable.
+                  We build software the way the world's best engineers build it — with AI. Our team
+                  uses Claude Code, AI-assisted code review, and automated testing on every sprint.
+                  Not because it's trendy. Because it makes us faster, more thorough, and more
+                  predictable.
                 </p>
                 <p className="text-base text-muted">
-                  AI-enabled doesn't mean AI-replaced. It means your project gets our senior engineers plus the best tools on the planet. That's why 16 weeks is achievable when competitors quote 12 months.
+                  AI-enabled doesn't mean AI-replaced. It means your project gets our senior
+                  engineers plus the best tools on the planet. That's why 16 weeks is achievable
+                  when competitors quote 12 months.
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-6xl md:text-7xl font-extrabold text-sky-accent font-display mb-2">
                   17+
                 </div>
-                <p className="text-xl font-semibold">projects shipped with AI-enabled engineering</p>
+                <p className="text-xl font-semibold">
+                  projects shipped with AI-enabled engineering
+                </p>
               </div>
             </div>
           </div>
@@ -121,16 +134,23 @@ export default function AboutPage() {
 
             <div className="prose prose-lg text-secondary max-w-none">
               <p>
-                We started in a café in Petaling Jaya. Just a few engineers who believed there had to be a better way to build software for growing companies.
+                We started in a café in Petaling Jaya. Just a few engineers who believed there had
+                to be a better way to build software for growing companies.
               </p>
               <p>
-                We've walked away from a RM350,000 prospect because there were too many red flags. Both co-founders left within a year. We survived 3 months with no clients — team still on payroll — and had to tell a prospect honestly: &ldquo;I don't know whether I will still be here.&rdquo;
+                We've walked away from a RM350,000 prospect because there were too many red flags.
+                Both co-founders left within a year. We survived 3 months with no clients — team
+                still on payroll — and had to tell a prospect honestly: &ldquo;I don't know whether
+                I will still be here.&rdquo;
               </p>
               <p>
-                We've carried RM80,000 in bad debt from a client who doubled scope then refused to pay. Every one of those failures taught us something that now protects our clients.
+                We've carried RM80,000 in bad debt from a client who doubled scope then refused to
+                pay. Every one of those failures taught us something that now protects our clients.
               </p>
               <p>
-                From those lessons came the LUDA™ Framework and the three qualifying questions we ask before every engagement. Now we're delivering for 9-figure brands and public-listed companies across six countries.
+                From those lessons came the LUDA™ Framework and the three qualifying questions we
+                ask before every engagement. Now we're delivering for 9-figure brands and
+                public-listed companies across six countries.
               </p>
             </div>
 
@@ -155,9 +175,7 @@ export default function AboutPage() {
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="max-w-3xl">
             <SectionLabel className="mb-4 block">Before Every Engagement</SectionLabel>
-            <h2 className="text-section-title mb-8">
-              Three questions we ask before we say yes.
-            </h2>
+            <h2 className="text-section-title mb-8">Three questions we ask before we say yes.</h2>
 
             <div className="grid gap-6">
               {QUALIFYING_QUESTIONS.map((item, index) => (
@@ -180,9 +198,7 @@ export default function AboutPage() {
         <section className="mb-16 md:mb-24">
           <AnimatedSection className="text-center mb-12">
             <SectionLabel className="mb-4 block">Our Values</SectionLabel>
-            <h2 className="text-section-title">
-              What we stand for.
-            </h2>
+            <h2 className="text-section-title">What we stand for.</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -202,9 +218,7 @@ export default function AboutPage() {
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="rounded-2xl bg-surface border border-default p-8 md:p-12">
             <SectionLabel className="mb-4 block">7 Reasons</SectionLabel>
-            <h2 className="text-section-title mb-8">
-              Why work with us?
-            </h2>
+            <h2 className="text-section-title mb-8">Why work with us?</h2>
 
             <ol className="space-y-4">
               {WHY_US.map((reason, index) => (
@@ -223,11 +237,11 @@ export default function AboutPage() {
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="max-w-3xl">
             <SectionLabel className="mb-4 block">The Team</SectionLabel>
-            <h2 className="text-section-title mb-6">
-              A lean, senior team.
-            </h2>
+            <h2 className="text-section-title mb-6">A lean, senior team.</h2>
             <p className="text-lg text-secondary leading-relaxed mb-8">
-              Engineers, designers, and strategists — all full-time, all based in Malaysia. No distributed freelance networks. No offshore handoffs at midnight. The people who scope your project are the people who build it.
+              Engineers, designers, and strategists — all full-time, all based in Malaysia. No
+              distributed freelance networks. No offshore handoffs at midnight. The people who scope
+              your project are the people who build it.
             </p>
 
             <div className="rounded-xl border border-default bg-surface p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
@@ -238,7 +252,8 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold">Adrian Ching</h3>
                 <p className="text-muted mb-3">Founder</p>
                 <p className="text-secondary text-base">
-                  Adrian personally reviews every strategy session submission and leads client relationships from start to finish.
+                  Adrian personally reviews every strategy session submission and leads client
+                  relationships from start to finish.
                 </p>
               </div>
             </div>
@@ -252,9 +267,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-24">
           <AnimatedSection className="text-center mb-12">
             <SectionLabel className="mb-4 block">Learn How We Think</SectionLabel>
-            <h2 className="text-section-title">
-              Watch. Listen. Decide.
-            </h2>
+            <h2 className="text-section-title">Watch. Listen. Decide.</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -317,11 +330,10 @@ export default function AboutPage() {
 
         {/* CTA */}
         <AnimatedSection className="text-center">
-          <h2 className="text-section-title mb-6">
-            Ready to talk?
-          </h2>
+          <h2 className="text-section-title mb-6">Ready to talk?</h2>
           <p className="text-lg text-secondary mb-8 max-w-2xl mx-auto">
-            45 minutes with Adrian. Not a sales pitch. A real conversation about your operations and what we'd do about it.
+            45 minutes with Adrian. Not a sales pitch. A real conversation about your operations and
+            what we'd do about it.
           </p>
           <Button asChild size="lg">
             <Link href="/strategy-session">
