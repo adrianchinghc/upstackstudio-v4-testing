@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/app-validation-blueprint',
   },
+  openGraph: {
+    title: 'App Validation Blueprint | Upstack Studio',
+    description:
+      'A practical framework to test demand and reduce the risk of building something nobody wants.',
+    url: '/app-validation-blueprint',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'App Validation Blueprint',
+    description: 'Validate your app idea before building with this practical framework.',
+  },
 }
 
 const VALIDATION_STEPS = [
@@ -58,19 +72,19 @@ const VALIDATION_STEPS = [
     questions: [
       'Can you solve the problem manually first?',
       'Could a landing page + spreadsheet work initially?',
-      'What\'s the smallest feature set that delivers value?',
+      "What's the smallest feature set that delivers value?",
       'Can you test with 5-10 users before scaling?',
     ],
   },
 ]
 
 const WARNING_SIGNS = [
-  'You can\'t find 10 people with the problem willing to talk',
+  "You can't find 10 people with the problem willing to talk",
   'Everyone thinks it\'s "interesting" but nobody will commit',
   'The problem is real but the market is too small',
-  'You\'re the only person who thinks this is a problem',
+  "You're the only person who thinks this is a problem",
   'Existing solutions are "good enough" for most users',
-  'The problem exists but people won\'t pay to solve it',
+  "The problem exists but people won't pay to solve it",
 ]
 
 export default function AppValidationBlueprintPage() {
@@ -82,7 +96,8 @@ export default function AppValidationBlueprintPage() {
           <SectionLabel className="mb-4 block">Resource</SectionLabel>
           <h1 className="text-page-title mb-6">App Validation Blueprint</h1>
           <p className="text-lg text-secondary max-w-2xl">
-            The most expensive mistake in software development is building something nobody wants. Validate before you invest.
+            The most expensive mistake in software development is building something nobody wants.
+            Validate before you invest.
           </p>
         </AnimatedSection>
 
@@ -97,16 +112,12 @@ export default function AppValidationBlueprintPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-sm text-muted font-medium">
-                        Step {step.step}
-                      </span>
+                      <span className="text-sm text-muted font-medium">Step {step.step}</span>
                     </div>
                     <h2 className="text-xl font-semibold mb-2">{step.title}</h2>
                     <p className="text-secondary mb-4">{step.description}</p>
                     <div className="bg-surface-2 rounded-lg p-4">
-                      <p className="text-sm font-medium text-muted mb-3">
-                        Questions to answer:
-                      </p>
+                      <p className="text-sm font-medium text-muted mb-3">Questions to answer:</p>
                       <ul className="space-y-2">
                         {step.questions.map((question, qIndex) => (
                           <li
@@ -135,17 +146,15 @@ export default function AppValidationBlueprintPage() {
             </div>
             <ul className="space-y-3">
               {WARNING_SIGNS.map((sign, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-secondary"
-                >
+                <li key={index} className="flex items-start gap-3 text-secondary">
                   <span className="text-yellow-500 mt-1">⚠</span>
                   <span>{sign}</span>
                 </li>
               ))}
             </ul>
             <p className="mt-6 text-sm text-muted">
-              Seeing these signs doesn&apos;t mean you should give up — but it does mean you need to dig deeper before investing in development.
+              Seeing these signs doesn&apos;t mean you should give up — but it does mean you need to
+              dig deeper before investing in development.
             </p>
           </div>
         </AnimatedSection>
@@ -157,7 +166,8 @@ export default function AppValidationBlueprintPage() {
               Have a Validated Idea? Let&apos;s Build It.
             </h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              If you&apos;ve done the validation work and you&apos;re ready to build, we&apos;d love to help. Our strategy session will assess your readiness and scope the project.
+              If you&apos;ve done the validation work and you&apos;re ready to build, we&apos;d love
+              to help. Our strategy session will assess your readiness and scope the project.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">
@@ -167,9 +177,7 @@ export default function AppValidationBlueprintPage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/blog/app-idea-validation">
-                  Read More on Validation
-                </Link>
+                <Link href="/blog/app-idea-validation">Read More on Validation</Link>
               </Button>
             </div>
           </div>

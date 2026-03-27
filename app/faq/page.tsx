@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection } from '@/components/common'
+import { FAQJsonLd } from '@/components/seo/JsonLd'
 import { Button } from '@/components/ui/button'
 import {
   Accordion,
@@ -16,6 +17,20 @@ export const metadata: Metadata = {
     'Common questions about working with Upstack Studio — our expertise, process, pricing, and what to expect when building custom software.',
   alternates: {
     canonical: '/faq',
+  },
+  openGraph: {
+    title: 'FAQ | Upstack Studio',
+    description:
+      'Common questions about working with Upstack Studio — our expertise, process, pricing, and what to expect.',
+    url: '/faq',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ | Upstack Studio',
+    description: 'Common questions about working with Upstack Studio.',
   },
 }
 
@@ -96,7 +111,7 @@ const FAQ_CATEGORIES = [
       {
         question: 'What are your payment terms?',
         answer:
-          'We typically ask for 30% upfront to begin work, then invoice bi-weekly based on completed sprints. This pay-as-you-go model means you never pay for work that hasn\'t been delivered, and you can stop the engagement at any sprint boundary if circumstances change.',
+          "We typically ask for 30% upfront to begin work, then invoice bi-weekly based on completed sprints. This pay-as-you-go model means you never pay for work that hasn't been delivered, and you can stop the engagement at any sprint boundary if circumstances change.",
       },
       {
         question: 'Do you take equity or revenue share deals?',
@@ -116,7 +131,7 @@ const FAQ_CATEGORIES = [
       {
         question: 'Who will be working on my project?',
         answer:
-          "You get a dedicated squad: one project manager, one UI/UX designer, and one or more senior developers depending on project complexity. The same team stays with you from kickoff to handover — no junior rotations, no surprise reassignments. Adrian personally reviews every project at kickoff and key milestones.",
+          'You get a dedicated squad: one project manager, one UI/UX designer, and one or more senior developers depending on project complexity. The same team stays with you from kickoff to handover — no junior rotations, no surprise reassignments. Adrian personally reviews every project at kickoff and key milestones.',
       },
       {
         question: 'Do you outsource any work?',
@@ -132,28 +147,27 @@ const FAQ_CATEGORIES = [
   },
 ]
 
+// Flatten all questions for JSON-LD
+const ALL_FAQ_QUESTIONS = FAQ_CATEGORIES.flatMap((category) => category.questions)
+
 export default function FAQPage() {
   return (
     <div className="bg-page pt-20 md:pt-24 pb-16 md:pb-24 min-h-screen">
+      <FAQJsonLd questions={ALL_FAQ_QUESTIONS} />
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         {/* Header */}
         <AnimatedSection className="mb-12 md:mb-16">
           <SectionLabel className="mb-4 block">FAQ</SectionLabel>
-          <h1 className="text-page-title mb-4">
-            Frequently Asked Questions
-          </h1>
+          <h1 className="text-page-title mb-4">Frequently Asked Questions</h1>
           <p className="text-lg text-secondary max-w-2xl">
-            Common questions about working with us — our expertise, process, pricing, and what to expect when building custom software.
+            Common questions about working with us — our expertise, process, pricing, and what to
+            expect when building custom software.
           </p>
         </AnimatedSection>
 
         {/* FAQ Categories */}
         {FAQ_CATEGORIES.map((category, categoryIndex) => (
-          <AnimatedSection
-            key={category.title}
-            delay={categoryIndex * 0.05}
-            className="mb-12"
-          >
+          <AnimatedSection key={category.title} delay={categoryIndex * 0.05} className="mb-12">
             <h2 className="text-xl font-semibold mb-6 pb-3 border-b border-default">
               {category.title}
             </h2>
@@ -179,11 +193,10 @@ export default function FAQPage() {
         {/* CTA */}
         <AnimatedSection delay={0.2} className="mt-16 text-center">
           <div className="rounded-2xl border border-default bg-surface p-8 md:p-12">
-            <h2 className="text-2xl font-semibold mb-4">
-              Still have questions?
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Still have questions?</h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              The best way to get answers specific to your situation is a 45-minute strategy call. No sales pitch — just honest answers.
+              The best way to get answers specific to your situation is a 45-minute strategy call.
+              No sales pitch — just honest answers.
             </p>
             <Button asChild size="lg">
               <Link href="/strategy-session">

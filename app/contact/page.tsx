@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  openGraph: {
+    title: 'Contact | Upstack Studio',
+    description: 'Get in touch with Upstack Studio. For project enquiries, book a strategy call.',
+    url: '/contact',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact | Upstack Studio',
+    description: 'Get in touch with Upstack Studio.',
+  },
 }
 
 export default function ContactPage() {

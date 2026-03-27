@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Software Development UK | Upstack Studio',
   description:
     'UK companies expanding into Southeast Asia — or building APAC-ready infrastructure. Senior engineering team based in Malaysia. Operations digitalisation, AI integration, custom platform development.',
-  alternates: { canonical: 'https://upstackstudio.com/united-kingdom' },
+  alternates: { canonical: '/united-kingdom' },
   openGraph: {
     title: 'Software Development UK | Upstack Studio',
     description:
       'UK companies building APAC-ready software with a senior Malaysian engineering team. Transparent process, fixed pricing, full IP ownership.',
-    url: 'https://upstackstudio.com/united-kingdom',
+    url: '/united-kingdom',
     siteName: 'Upstack Studio',
     locale: 'en_GB',
     type: 'website',

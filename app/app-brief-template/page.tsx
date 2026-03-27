@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/app-brief-template',
   },
+  openGraph: {
+    title: 'App Brief Template | Upstack Studio',
+    description: 'Free template to document your software project requirements.',
+    url: '/app-brief-template',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'App Brief Template',
+    description: 'Free template for documenting project goals, features, timeline, and budget.',
+  },
 }
 
 const BRIEF_SECTIONS = [
@@ -18,7 +31,7 @@ const BRIEF_SECTIONS = [
     title: 'Business Context',
     items: [
       'Company background and industry',
-      'The problem you\'re trying to solve',
+      "The problem you're trying to solve",
       'Who experiences this problem (target users)',
       'What happens if the problem remains unsolved',
     ],
@@ -27,7 +40,7 @@ const BRIEF_SECTIONS = [
     title: 'Project Goals',
     items: [
       'Primary objective for this project',
-      'How you\'ll measure success',
+      "How you'll measure success",
       'Key metrics or KPIs to track',
       'What "done" looks like in 6-12 months',
     ],
@@ -65,12 +78,12 @@ const TIPS = [
   {
     tip: 'Focus on the problem, not the solution',
     explanation:
-      'Describe what\'s broken in your business. Let the development team recommend solutions — that\'s what you\'re paying them for.',
+      "Describe what's broken in your business. Let the development team recommend solutions — that's what you're paying them for.",
   },
   {
     tip: 'Be honest about budget',
     explanation:
-      'Sharing your budget range helps developers scope appropriately. Hiding it wastes everyone\'s time.',
+      "Sharing your budget range helps developers scope appropriately. Hiding it wastes everyone's time.",
   },
   {
     tip: 'Include the "why now"',
@@ -93,7 +106,8 @@ export default function AppBriefTemplatePage() {
           <SectionLabel className="mb-4 block">Resource</SectionLabel>
           <h1 className="text-page-title mb-6">App Brief Template</h1>
           <p className="text-lg text-secondary max-w-2xl">
-            A clear project brief is the foundation of successful software development. Use this structure to communicate your requirements effectively.
+            A clear project brief is the foundation of successful software development. Use this
+            structure to communicate your requirements effectively.
           </p>
         </AnimatedSection>
 
@@ -107,16 +121,16 @@ export default function AppBriefTemplatePage() {
 
             <div className="space-y-8">
               {BRIEF_SECTIONS.map((section, index) => (
-                <div key={section.title} className="pb-8 border-b border-border last:border-0 last:pb-0">
+                <div
+                  key={section.title}
+                  className="pb-8 border-b border-border last:border-0 last:pb-0"
+                >
                   <h3 className="text-lg font-semibold mb-4">
                     {index + 1}. {section.title}
                   </h3>
                   <ul className="grid md:grid-cols-2 gap-3">
                     {section.items.map((item, itemIndex) => (
-                      <li
-                        key={itemIndex}
-                        className="flex items-start gap-2 text-secondary"
-                      >
+                      <li key={itemIndex} className="flex items-start gap-2 text-secondary">
                         <CheckCircle className="h-4 w-4 text-brand-blue mt-0.5 flex-shrink-0" />
                         <span>{item}</span>
                       </li>
@@ -133,10 +147,7 @@ export default function AppBriefTemplatePage() {
           <h2 className="text-section-title mb-8">Tips for a Better Brief</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {TIPS.map((item, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-surface border border-border"
-              >
+              <div key={index} className="p-6 rounded-xl bg-surface border border-border">
                 <h3 className="font-semibold mb-2">{item.tip}</h3>
                 <p className="text-secondary text-sm">{item.explanation}</p>
               </div>
@@ -147,11 +158,10 @@ export default function AppBriefTemplatePage() {
         {/* CTA */}
         <AnimatedSection className="text-center">
           <div className="rounded-2xl bg-surface-2 border border-default p-8 md:p-12">
-            <h2 className="text-2xl font-semibold mb-4">
-              Need Help Defining Your Project?
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Need Help Defining Your Project?</h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              Our strategy session includes a guided discovery process. We&apos;ll help you clarify requirements, identify risks, and scope your project properly.
+              Our strategy session includes a guided discovery process. We&apos;ll help you clarify
+              requirements, identify risks, and scope your project properly.
             </p>
             <Button asChild size="lg">
               <Link href="/strategy-session">

@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/strategy-session',
   },
+  openGraph: {
+    title: 'Book a Strategy Session | Upstack Studio',
+    description:
+      'Schedule a 45-minute strategy call with Adrian. Not a sales pitch — a real conversation about your operations.',
+    url: '/strategy-session',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book a Strategy Session | Upstack Studio',
+    description: 'Schedule a 45-minute strategy call with Adrian.',
+  },
 }
 
 export default function StrategySessionPage() {

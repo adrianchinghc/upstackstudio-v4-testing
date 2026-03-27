@@ -11,6 +11,10 @@ import {
   Calculator,
   FileText,
   ExternalLink,
+  Target,
+  Rocket,
+  AlertTriangle,
+  HelpCircle,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -19,6 +23,20 @@ export const metadata: Metadata = {
     'Blog posts, videos, podcasts, and tools to help you make better decisions about software development for your business.',
   alternates: {
     canonical: '/resources',
+  },
+  openGraph: {
+    title: 'Resources | Upstack Studio',
+    description:
+      'Blog posts, videos, podcasts, and tools for better software development decisions.',
+    url: '/resources',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Resources | Upstack Studio',
+    description: 'Blog posts, videos, podcasts, and tools for your business.',
   },
 }
 
@@ -53,17 +71,43 @@ const TOOLS = [
   {
     title: 'App Cost Calculator',
     description: 'Get a rough estimate of what your software project might cost.',
-    href: '#', // TODO: Add actual URL when available
+    href: 'https://appcost.upstackstudio.com/',
     icon: Calculator,
-    coming: true,
+    external: true,
   },
   {
-    title: 'Project Brief Template',
+    title: 'App Brief Template',
     description:
       'A template to help you document your requirements before talking to any developer.',
-    href: '#', // TODO: Add actual URL when available
+    href: '/app-brief-template',
     icon: FileText,
-    coming: true,
+  },
+  {
+    title: 'App Validation Blueprint',
+    description:
+      'Validate your app idea before building. Test demand, refine features, reduce risk.',
+    href: '/app-validation-blueprint',
+    icon: Target,
+  },
+  {
+    title: 'Zero to App Ready Guide',
+    description:
+      'Everything you need to know before building your first app — from validation to launch.',
+    href: '/zero-to-app-ready',
+    icon: Rocket,
+  },
+  {
+    title: 'App Development Mistakes',
+    description: 'Common mistakes that cost founders time and money — and how to avoid them.',
+    href: '/app-development-mistakes-ebook',
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Developer Interview Questions',
+    description:
+      'Essential questions to ask when hiring an app developer. Evaluate skills and red flags.',
+    href: '/app-developer-interview-questions',
+    icon: HelpCircle,
   },
 ]
 
@@ -135,39 +179,57 @@ export default function ResourcesPage() {
           </div>
         </section>
 
-        {/* Tools */}
+        {/* Tools & Guides */}
         <section className="mb-16 md:mb-24">
           <AnimatedSection className="mb-8">
-            <h2 className="text-section-title">Tools</h2>
+            <h2 className="text-section-title">Tools & Guides</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {TOOLS.map((tool, index) => (
-              <AnimatedSection key={tool.title} delay={index * 0.1}>
-                <div className="rounded-2xl border border-default bg-surface p-6 md:p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface-2">
-                      <tool.icon className="h-6 w-6 text-sky-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold">{tool.title}</h3>
-                        {tool.coming && (
-                          <span className="inline-flex rounded-full bg-surface-2 px-2 py-0.5 text-xs font-medium text-muted">
-                            Coming soon
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-secondary">{tool.description}</p>
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TOOLS.map((tool, index) => {
+              const CardContent = (
+                <>
+                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface-2 mb-4">
+                    <tool.icon className="h-6 w-6 text-sky-accent" />
                   </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-sky-accent transition-colors">
+                    {tool.title}
+                  </h3>
+                  <p className="text-secondary text-sm mb-4 flex-1">{tool.description}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-sky-accent transition-colors mt-auto">
+                    {tool.external ? 'Open' : 'Read'}
+                    {tool.external ? (
+                      <ExternalLink className="h-4 w-4" />
+                    ) : (
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    )}
+                  </span>
+                </>
+              )
 
-          {/* TODO comment for resources */}
-          {/* <!-- TODO: Confirm which resource URLs are live (app-cost-calculator, brief template, etc.) --> */}
+              return (
+                <AnimatedSection key={tool.title} delay={index * 0.05}>
+                  {tool.external ? (
+                    <a
+                      href={tool.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 transition-all hover:border-sky-faint"
+                    >
+                      {CardContent}
+                    </a>
+                  ) : (
+                    <Link
+                      href={tool.href}
+                      className="group flex flex-col h-full rounded-2xl border border-default bg-surface p-6 transition-all hover:border-sky-faint"
+                    >
+                      {CardContent}
+                    </Link>
+                  )}
+                </AnimatedSection>
+              )
+            })}
+          </div>
         </section>
 
         {/* CTA */}

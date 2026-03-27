@@ -7,6 +7,7 @@ import {
   YouTubeFacade,
   RatingsStrip,
 } from '@/components/common'
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 import { HeroProofCard } from '@/components/hero/HeroProofCard'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
@@ -33,24 +34,6 @@ export const metadata: Metadata = {
     title: 'Upstack Studio | AI-Enabled Software Engineering',
     description: 'AI-enabled software engineering for established, growing companies.',
   },
-}
-
-const JSON_LD = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Upstack Studio',
-  url: 'https://upstackstudio.com',
-  foundingDate: '2017',
-  founder: { '@type': 'Person', name: 'Adrian Ching' },
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Petaling Jaya',
-    addressRegion: 'Selangor',
-    addressCountry: 'MY',
-  },
-  areaServed: ['MY', 'SG', 'AU', 'GB', 'US', 'ID', 'TH', 'PH'],
-  description:
-    'AI-enabled software engineering firm specialising in operations digitalisation, AI integration, and custom platform development for established companies.',
 }
 
 // Testimonials data
@@ -174,10 +157,8 @@ const SERVICES = [
 export default function Home() {
   return (
     <div className="bg-page hero-parallax-container">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
-      />
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
       {/* Hero Section — Asymmetric two-column layout */}
       <section
         aria-labelledby="hero-heading"

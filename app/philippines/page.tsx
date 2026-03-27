@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Software Development Philippines | Upstack Studio',
   description:
     'For Philippine enterprises that have outgrown off-the-shelf software. Operations digitalisation, AI integration, and custom platform development for the Philippines.',
-  alternates: { canonical: 'https://upstackstudio.com/philippines' },
+  alternates: { canonical: '/philippines' },
   openGraph: {
     title: 'Software Development Philippines | Upstack Studio',
     description:
       'Philippine enterprises building custom software to replace the tools that no longer fit. Senior ASEAN engineering team. Fixed pricing. Full IP ownership.',
-    url: 'https://upstackstudio.com/philippines',
+    url: '/philippines',
     siteName: 'Upstack Studio',
     locale: 'en_PH',
     type: 'website',

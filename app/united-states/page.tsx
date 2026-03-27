@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Software Development USA | Upstack Studio',
   description:
     'US companies that need APAC-ready software built to the same standard they expect at home. Senior engineering team, transparent process, fixed pricing. Operations digitalisation, AI integration, custom platforms.',
-  alternates: { canonical: 'https://upstackstudio.com/united-states' },
+  alternates: { canonical: '/united-states' },
   openGraph: {
     title: 'Software Development USA | Upstack Studio',
     description:
       'US companies that need APAC-ready software at a fraction of US agency prices. Senior engineers, clean codebase, no juniors, no handoffs.',
-    url: 'https://upstackstudio.com/united-states',
+    url: '/united-states',
     siteName: 'Upstack Studio',
     locale: 'en_US',
     type: 'website',

@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Software Development Agency Singapore | Upstack Studio',
   description:
     'For Singapore companies that need enterprise-grade software — without enterprise prices. Operations digitalisation, AI integration, and custom platform development.',
-  alternates: { canonical: 'https://upstackstudio.com/singapore' },
+  alternates: { canonical: '/singapore' },
   openGraph: {
     title: 'Software Development Agency Singapore | Upstack Studio',
     description:
       'Singapore companies building enterprise-grade software at a price that makes sense. Based in Malaysia, delivering to Singapore and beyond.',
-    url: 'https://upstackstudio.com/singapore',
+    url: '/singapore',
     siteName: 'Upstack Studio',
     locale: 'en_SG',
     type: 'website',

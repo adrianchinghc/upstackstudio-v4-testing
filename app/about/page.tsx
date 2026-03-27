@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection, RatingsStrip } from '@/components/common'
+import { OrganizationJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { SOCIAL, PRESS, YT_JUSTIN, YT_JASON } from '@/lib/constants'
@@ -21,6 +22,21 @@ export const metadata: Metadata = {
     'We exist for one reason: to help growing companies build technology that actually works. Learn about our story, values, and the LUDA™ Framework.',
   alternates: {
     canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Us | Upstack Studio',
+    description:
+      'We exist for one reason: to help growing companies build technology that actually works. Learn about our story, values, and the LUDA™ Framework.',
+    url: '/about',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us | Upstack Studio',
+    description:
+      'We exist for one reason: to help growing companies build technology that actually works.',
   },
 }
 
@@ -80,6 +96,7 @@ const QUALIFYING_QUESTIONS = [
 export default function AboutPage() {
   return (
     <div className="bg-page pt-20 md:pt-24 pb-16 md:pb-24">
+      <OrganizationJsonLd />
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Header */}
         <AnimatedSection className="max-w-3xl mb-16 md:mb-20">

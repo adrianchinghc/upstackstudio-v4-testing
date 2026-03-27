@@ -29,12 +29,7 @@ export function OrganizationJsonLd({ className }: OrganizationJsonLdProps) {
       email: 'hello@upstackstudio.com',
       url: `${SITE_URL}/strategy-session`,
     },
-    sameAs: [
-      SOCIAL.companyLinkedin,
-      SOCIAL.companyInstagram,
-      SOCIAL.youtube,
-      SOCIAL.twitter,
-    ],
+    sameAs: [SOCIAL.companyLinkedin, SOCIAL.companyInstagram, SOCIAL.youtube, SOCIAL.twitter],
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
@@ -132,12 +127,7 @@ interface ServiceJsonLdProps {
  * Service structured data for service pages.
  * Helps search engines understand what services are offered.
  */
-export function ServiceJsonLd({
-  name,
-  description,
-  url,
-  className,
-}: ServiceJsonLdProps) {
+export function ServiceJsonLd({ name, description, url, className }: ServiceJsonLdProps) {
   const serviceData = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -257,7 +247,7 @@ export function LocalBusinessJsonLd({ className }: LocalBusinessJsonLdProps) {
     description:
       'AI-enabled software engineering agency specializing in custom web and mobile app development for established companies.',
     url: SITE_URL,
-    telephone: '+60-000-0000', // Update with actual phone
+    telephone: '+60-3-7960-5766',
     email: 'hello@upstackstudio.com',
     address: {
       '@type': 'PostalAddress',
@@ -310,8 +300,7 @@ export function WebSiteJsonLd({ className }: WebSiteJsonLdProps) {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
-    description:
-      'AI-enabled software engineering for established, growing companies.',
+    description: 'AI-enabled software engineering for established, growing companies.',
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,

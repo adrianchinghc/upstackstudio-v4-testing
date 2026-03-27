@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/app-development-mistakes-ebook',
   },
+  openGraph: {
+    title: 'App Development Mistakes | Upstack Studio',
+    description: 'Learn from real project failures and avoid costly app development mistakes.',
+    url: '/app-development-mistakes-ebook',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'App Development Mistakes',
+    description: 'Common mistakes that cost founders time and money — and how to avoid them.',
+  },
 }
 
 const MISTAKES = [
@@ -19,7 +32,7 @@ const MISTAKES = [
     cost: 'Months of wasted development',
     description:
       'Founders fall in love with their solution before confirming the problem is real. The result: beautifully built software that nobody wants.',
-    fix: 'Talk to 10+ potential users before writing code. If you can\'t find people with the problem, you don\'t have a business.',
+    fix: "Talk to 10+ potential users before writing code. If you can't find people with the problem, you don't have a business.",
   },
   {
     mistake: 'Hiring on price alone',
@@ -33,7 +46,7 @@ const MISTAKES = [
     cost: '50-100% budget overrun',
     description:
       '"Just one more feature" compounds. Without discipline, projects bloat, timelines slip, and budgets explode.',
-    fix: 'Define your MVP ruthlessly. Say no to features that don\'t serve launch. Use a formal change request process for additions.',
+    fix: "Define your MVP ruthlessly. Say no to features that don't serve launch. Use a formal change request process for additions.",
   },
   {
     mistake: 'Skipping design',
@@ -61,7 +74,7 @@ const MISTAKES = [
     cost: 'Missed market opportunity',
     description:
       'Polishing endlessly while competitors ship. Perfect is the enemy of good. Users need value, not perfection.',
-    fix: 'Launch when core features work. Iterate based on real user feedback. V1 doesn\'t need to be V10.',
+    fix: "Launch when core features work. Iterate based on real user feedback. V1 doesn't need to be V10.",
   },
 ]
 
@@ -69,7 +82,7 @@ const LESSONS = [
   'Validation before development saves 10× the cost of building the wrong thing',
   'Communication quality matters more than technical skills',
   'Fixed scope protects both sides from scope creep',
-  'Design is not decoration — it\'s decision-making made visible',
+  "Design is not decoration — it's decision-making made visible",
   'The cheapest option is rarely the best value',
   'Post-launch is where most software value is created or destroyed',
 ]
@@ -85,7 +98,8 @@ export default function AppDevelopmentMistakesPage() {
             7 App Development Mistakes That Cost Founders Millions
           </h1>
           <p className="text-lg text-secondary max-w-2xl">
-            We&apos;ve seen these patterns destroy projects over and over. Learn from other founders&apos; expensive lessons — before you make the same mistakes.
+            We&apos;ve seen these patterns destroy projects over and over. Learn from other
+            founders&apos; expensive lessons — before you make the same mistakes.
           </p>
         </AnimatedSection>
 
@@ -142,7 +156,8 @@ export default function AppDevelopmentMistakesPage() {
               Don&apos;t Want to Learn These Lessons the Hard Way?
             </h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              Book a strategy session. We&apos;ll assess your project, identify risks, and make sure you&apos;re set up for success — not failure.
+              Book a strategy session. We&apos;ll assess your project, identify risks, and make sure
+              you&apos;re set up for success — not failure.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">

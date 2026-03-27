@@ -11,6 +11,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/work',
   },
+  openGraph: {
+    title: 'Our Work | Upstack Studio',
+    description:
+      'Projects delivered across Malaysia, Australia, the US, UK, and the Netherlands. See our case studies.',
+    url: '/work',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Work | Upstack Studio',
+    description: 'See how we help established companies build software that actually works.',
+  },
 }
 
 // Case studies data from the brief
