@@ -113,13 +113,19 @@ const PAIN_CARDS: Array<{
 // w/h computed from each SVG's actual content bounds (viewBox cropped to content):
 //   Daikin  300×64.6  ratio 4.64 → h=22 w=102
 //   TMI     135×45    ratio 3.00 → h=30 w=90  (stacked icon+text, needs more height)
-//   Acson  1050×534   ratio 1.97 → h=28 w=55  (viewBox cropped to remove surrounding whitespace)
+//   Acson  1050×355   ratio 2.96 → h=42 w=124 (viewBox cropped to content bounds)
 //   Teleme  173×24    ratio 7.21 → h=14 w=101 (ultra-wide wordmark — shorter height keeps width manageable)
 // TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 102, h: 22 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 90, h: 30 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 83, h: 42 },
+  {
+    name: 'The Malaysian Insight',
+    src: '/images/client-logos/tmi.svg',
+    w: 90,
+    h: 30,
+    naturalColor: true,
+  },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 124, h: 42 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 101, h: 14 },
 ]
 
@@ -128,8 +134,14 @@ const HERO_LOGOS = [
 const MARQUEE_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 130, h: 28 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 130, h: 18 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 84, h: 28 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 83, h: 42 },
+  {
+    name: 'The Malaysian Insight',
+    src: '/images/client-logos/tmi.svg',
+    w: 84,
+    h: 28,
+    naturalColor: true,
+  },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 124, h: 42 },
   { name: 'NiuAce', src: '/images/client-logos/niuace.svg', w: 111, h: 28 },
   { name: 'Whitman', src: '/images/client-logos/whitman.svg', w: 122, h: 28 },
 ]
@@ -268,7 +280,7 @@ export default async function Home() {
                       alt={logo.name}
                       width={logo.w}
                       height={logo.h}
-                      className="flex-shrink-0 self-center [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+                      className={`flex-shrink-0 self-center opacity-60 hover:opacity-100 transition-opacity${logo.naturalColor ? '' : ' [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]'}`}
                     />
                   ))}
                 </div>
@@ -795,7 +807,7 @@ export default async function Home() {
               alt={logo.name}
               width={logo.w}
               height={logo.h}
-              className="mx-10 md:mx-14 flex-shrink-0 self-center [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+              className={`mx-10 md:mx-14 flex-shrink-0 self-center opacity-60 hover:opacity-100 transition-opacity${logo.naturalColor ? '' : ' [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]'}`}
             />
           ))}
         </div>
