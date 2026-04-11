@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/common/Logo'
 import { SOCIAL, SITE_NAME, SITE_TAGLINE } from '@/lib/constants'
-import { Youtube, Instagram, Linkedin, MapPin, Podcast, Download } from 'lucide-react'
+import { Youtube, Instagram, Linkedin, MapPin, Podcast } from 'lucide-react'
 
 const FOOTER_LINKS = {
   services: [
@@ -21,7 +21,7 @@ const FOOTER_LINKS = {
   ],
   resources: [
     {
-      label: 'Scoping Sprint one-pager',
+      label: 'Scoping Sprint Brief',
       href: '/downloads/scoping-sprint-brief.pdf',
       download: true,
     },
@@ -58,7 +58,7 @@ export function Footer() {
 
               <div className="flex items-center gap-2 text-muted">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">Petaling Jaya, Selangor, Malaysia</span>
+                <span className="text-sm">Kuala Lumpur, Malaysia</span>
               </div>
 
               {/* Adrian's social links */}
@@ -135,9 +135,8 @@ export function Footer() {
                     <a
                       href={link.href}
                       download={link.download ? true : undefined}
-                      className="inline-flex items-center gap-1.5 text-sm text-secondary hover:text-[var(--text)] transition-colors"
+                      className="text-sm text-secondary hover:text-[var(--text)] transition-colors"
                     >
-                      {link.download && <Download className="h-3.5 w-3.5 shrink-0" />}
                       {link.label}
                     </a>
                   </li>

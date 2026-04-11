@@ -113,19 +113,19 @@ const PAIN_CARDS: Array<{
 // TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 24 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 22 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 22 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 18 },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 24 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 24 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 24 },
 ]
 
-// Marquee logos
+// Marquee logos — all the same height for visual consistency
 const MARQUEE_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 28 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 20 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 32 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 36 },
-  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', height: 24 },
-  { name: 'Whitman', src: '/images/client-logos/whitman.svg', height: 26 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 28 },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 28 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 28 },
+  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', height: 28 },
+  { name: 'Whitman', src: '/images/client-logos/whitman.svg', height: 28 },
 ]
 
 // Services — entry points to the LUDA framework
@@ -263,7 +263,7 @@ export default async function Home() {
                       width={120}
                       height={logo.height}
                       style={{ height: logo.height, width: 'auto' }}
-                      className="object-contain brightness-0 dark:invert opacity-50 hover:opacity-90 transition-opacity"
+                      className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
                     />
                   ))}
                 </div>
@@ -791,7 +791,7 @@ export default async function Home() {
                 width={200}
                 height={logo.height}
                 style={{ height: logo.height, width: 'auto' }}
-                className="object-contain brightness-0 dark:invert opacity-50 hover:opacity-90 transition-opacity"
+                className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
               />
             </div>
           ))}
