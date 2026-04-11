@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection, TestimonialCard, RatingsStrip } from '@/components/common'
+import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { YT_JUSTIN, YT_JASON } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
@@ -210,6 +211,11 @@ export default function TestimonialsPage() {
             ))}
           </div>
         </section>
+
+        {/* LUDA Framework */}
+        <div className="mb-16 md:mb-24">
+          <LudaSection variant="compact" />
+        </div>
 
         {/* CTA */}
         <AnimatedSection className="text-center">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection, CaseStudyCard } from '@/components/common'
+import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 
@@ -169,6 +170,11 @@ export default function WorkPage() {
               <CaseStudyCard {...caseStudy} />
             </AnimatedSection>
           ))}
+        </div>
+
+        {/* LUDA Framework */}
+        <div className="mb-16 md:mb-24">
+          <LudaSection variant="compact" />
         </div>
 
         {/* CTA */}
