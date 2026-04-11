@@ -1,6 +1,16 @@
 export const SITE_URL = 'https://upstackstudio.com'
 export const SITE_NAME = 'Upstack Studio'
 
+/**
+ * Positioning v2 — locked 2026-04-10. Source of truth: context/positioning.md
+ * Do not edit without updating positioning.md first.
+ */
+export const SITE_TAGLINE =
+  'Custom software for growing companies. Built with AI, launched in 16 weeks.'
+
+export const SITE_DEFAULT_DESCRIPTION =
+  'Custom software development for growing companies in Malaysia, Singapore, and SEA. Built with AI, launched in 16 weeks. Start with a 2-week Scoping Sprint. Senior-led from Petaling Jaya.'
+
 export const CALENDLY_URL = 'https://calendly.com/upstackstudio/45-minute-strategy-session'
 
 export const SOCIAL = {

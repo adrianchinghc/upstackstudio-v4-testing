@@ -74,6 +74,30 @@ const nextConfig: NextConfig = {
       // Legacy landing pages redirect to strategy session
       { source: '/course/', destination: '/strategy-session', permanent: true },
       { source: '/course', destination: '/strategy-session', permanent: true },
+
+      // Wave 1 — retired service URL slugs → new canonical paths
+      // /services/ai-automation-subscription and /services/development-subscription
+      // are replaced by /services/devsub (Wave 3). Redirect now so inbound links + sitemap stay clean.
+      {
+        source: '/services/ai-automation-subscription',
+        destination: '/services/devsub',
+        permanent: true,
+      },
+      {
+        source: '/services/ai-automation-subscription/',
+        destination: '/services/devsub',
+        permanent: true,
+      },
+      {
+        source: '/services/development-subscription',
+        destination: '/services/devsub',
+        permanent: true,
+      },
+      {
+        source: '/services/development-subscription/',
+        destination: '/services/devsub',
+        permanent: true,
+      },
     ]
   },
 }

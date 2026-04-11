@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   SectionLabel,
   AnimatedSection,
@@ -7,23 +8,21 @@ import {
   YouTubeFacade,
   RatingsStrip,
 } from '@/components/common'
+import { Price } from '@/components/common/Price'
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd'
 import { HeroProofCard } from '@/components/hero/HeroProofCard'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
-import { YT_JUSTIN } from '@/lib/constants'
-import Image from 'next/image'
-import { ArrowRight, MessageSquare, BarChart3, Cpu } from 'lucide-react'
+import { YT_JUSTIN, SITE_DEFAULT_DESCRIPTION } from '@/lib/constants'
+import { ArrowRight, CheckCircle2, XCircle, MessageSquare, BarChart3, Cpu } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Upstack Studio | AI-Enabled Software Engineering Malaysia',
-  description:
-    'AI-enabled software engineering for established companies. Operations digitalisation, AI integration, and custom platform development. Trusted by Daikin, Magnum 4D, BookXcess. Built on the LUDA™ Framework.',
+  title: 'Upstack Studio | Custom Software Development Malaysia',
+  description: SITE_DEFAULT_DESCRIPTION,
   alternates: { canonical: 'https://upstackstudio.com' },
   openGraph: {
-    title: 'Upstack Studio | AI-Enabled Software Engineering Malaysia',
-    description:
-      'Operations digitalisation, AI integration, and custom platform development for established, growing companies.',
+    title: 'Upstack Studio | Custom Software Development Malaysia',
+    description: SITE_DEFAULT_DESCRIPTION,
     url: 'https://upstackstudio.com',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
@@ -31,12 +30,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Upstack Studio | AI-Enabled Software Engineering',
-    description: 'AI-enabled software engineering for established, growing companies.',
+    title: 'Upstack Studio | Custom Software Development Malaysia',
+    description: SITE_DEFAULT_DESCRIPTION,
   },
 }
 
-// Testimonials data
+// Testimonials
 const TESTIMONIALS = [
   {
     quote:
@@ -70,60 +69,56 @@ const TESTIMONIALS = [
     company: 'The Malaysian Insight',
     image: '/images/clients/heidzirjamaraji.png',
   },
-  {
-    quote:
-      'We worked closely with Adrian and his team during the project and their response was very quick and timely. Work is delivered on time and sometimes, they even go out of their way to complete urgent tasks which we really appreciate.',
-    author: 'Dinie Johari',
-    role: 'Assistant Manager',
-    company: 'BookXcess',
-    image: '/images/clients/diniejohari.png',
-  },
-  {
-    quote:
-      'The management team are satisfied with the deliverables, and decided to continue engaging Upstack team for the ongoing product enhancement and support. We were very satisfied with their work every step of the way.',
-    author: 'Tan Loo Toon',
-    role: 'CTO',
-    company: 'NiuAce for Builders',
-    image: '/images/clients/loo-toon-tan.jpg',
-  },
 ]
 
-// Pain cards data — each links to relevant service
+// Pain cards — each maps to a service entry point
 const PAIN_CARDS: Array<{
   title: string
   description: string
   icon: typeof MessageSquare
   accentColor: 'amber' | 'rose' | 'violet'
   href: string
+  linkLabel: string
 }> = [
   {
-    title: '"We\'re still doing approvals over WhatsApp"',
+    title: '"We are still running the business on spreadsheets and WhatsApp."',
     description:
-      'Your team copies data between systems, chases sign-offs on group chats, and re-enters information that should flow automatically. Every new hire adds one more person to manage the chaos — not fix it.',
+      'Every approval is a group chat. Every report takes half a day to stitch together from five different places. Every new hire adds one more person to the chaos instead of one more person to solve it. You know the cost is real. Nobody can put a number on it.',
     icon: MessageSquare,
     accentColor: 'amber',
     href: '/services/operations-digitalisation',
+    linkLabel: 'See how we would rebuild it',
   },
   {
-    title: '"I can\'t get a clear picture of what\'s happening"',
+    title: '"I cannot get a clear picture of what is actually happening."',
     description:
-      "Sales has one version of the numbers. Finance has another. Operations has a spreadsheet nobody's updated this week. Decisions get made on gut feel because pulling accurate data takes half a day.",
+      'Sales has one version of the numbers. Finance has another. Operations has a spreadsheet nobody has updated this week. Decisions get made on gut feel because pulling a real answer takes half a day and two angry Slack messages.',
     icon: BarChart3,
     accentColor: 'rose',
     href: '/services/custom-platform-development',
+    linkLabel: 'See how we would fix it',
   },
   {
     title: '"Everyone says we need AI. Nobody can tell us where to start."',
     description:
-      "You've sat through demos. You've read the reports. But every vendor wants to sell you a chatbot, and none of it connects to how your business actually runs.",
+      'You have sat through the demos. You have read the reports. Every vendor wants to sell you a chatbot, and none of it connects to how your business actually runs. You do not need AI theatre. You need someone to tell you which three things to actually change.',
     icon: Cpu,
     accentColor: 'violet',
     href: '/services/ai-integration',
+    linkLabel: 'See what we would recommend',
   },
 ]
 
-// Client logos with SVGs available — heights tuned for visual consistency
-const CLIENT_LOGOS = [
+// Hero — 4 named client logos, compact static row
+const HERO_LOGOS = [
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 24 },
+  { name: 'Magnum 4D', src: '/images/client-logos/magnum.svg', height: 22 },
+  { name: 'BookXcess', src: '/images/client-logos/bookxcess.svg', height: 24 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 18 },
+]
+
+// Marquee logos
+const MARQUEE_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 28 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 20 },
   { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 32 },
@@ -132,34 +127,55 @@ const CLIENT_LOGOS = [
   { name: 'Whitman', src: '/images/client-logos/whitman.svg', height: 26 },
 ]
 
-// Services preview
+// Services — entry points to the LUDA framework
 const SERVICES = [
   {
     title: 'Operations Digitalisation',
     description:
-      'Replace manual processes, spreadsheets, and WhatsApp chains with systems that run your business.',
+      'Replace spreadsheets, WhatsApp, and disconnected systems with custom software built around your workflows. Not bent around someone else&#8217;s template.',
     href: '/services/operations-digitalisation',
-  },
-  {
-    title: 'AI Integration',
-    description:
-      "AI isn't magic — but in the right place, it's the highest-ROI investment you can make.",
-    href: '/services/ai-integration',
   },
   {
     title: 'Custom Platform Development',
     description:
-      'When off-the-shelf software stops fitting — we build what actually works for your business.',
+      'When off-the-shelf software has reached its limit, we design and build the production-grade system your business actually runs on.',
     href: '/services/custom-platform-development',
+  },
+  {
+    title: 'AI Integration',
+    description:
+      'Embedded AI where it has real ROI. Classification, extraction, agents, automated decisioning. Not demos. Not chatbots. Judgement automation.',
+    href: '/services/ai-integration',
   },
 ]
 
-export default function Home() {
+// Pre-qualification: who this is for and who it is not
+const FOR_SIGNALS = [
+  'Your company has 50+ staff and at least RM 5M in annual revenue',
+  'Operations run on spreadsheets, WhatsApp, or disconnected tools',
+  'You have tried off-the-shelf software and it did not fit your workflow',
+  'You have internal buy-in to invest seriously (RM 180K or USD 55K and above)',
+  'You want a vendor who pushes back when you are building the wrong thing',
+  'You are ready to move in the next 3 to 6 months',
+]
+
+const NOT_FOR_SIGNALS = [
+  'Startups or pre-revenue companies',
+  'Buyers who need software in under 12 weeks',
+  'Anyone whose first question is whether we can do it cheaper',
+  'Proof-of-concept requests under RM 50K',
+  'Buyers who want to "just try AI" without a specific operational problem',
+]
+
+export default async function Home() {
   return (
     <div className="bg-page hero-parallax-container">
       <OrganizationJsonLd />
       <WebSiteJsonLd />
-      {/* Hero Section — Asymmetric two-column layout */}
+
+      {/* ------------------------------------------------------------------ */}
+      {/* Hero                                                                 */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="hero-heading"
         className="hero-section relative min-h-[85vh] flex items-center pt-20 md:pt-28 pb-16 md:pb-20 overflow-hidden"
@@ -173,7 +189,7 @@ export default function Home() {
           }}
         />
 
-        {/* Subtle background glow — dark mode only */}
+        {/* Subtle glow — dark mode only */}
         <div
           className="hidden dark:block absolute top-1/4 left-1/3 w-[600px] h-[400px] rounded-full opacity-[0.08] blur-[100px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, #0A4DFF 0%, transparent 70%)' }}
@@ -181,33 +197,40 @@ export default function Home() {
 
         <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            {/* Left column — Content */}
+            {/* Left column */}
             <div className="lg:col-span-7">
               <AnimatedSection delay={0}>
-                <SectionLabel className="mb-5">AI-Enabled Software Engineering</SectionLabel>
+                <SectionLabel className="mb-5">
+                  Custom Software for Growing Companies &middot; Built in Petaling Jaya
+                </SectionLabel>
               </AnimatedSection>
 
               <AnimatedSection delay={0.08}>
                 <h1 id="hero-heading" className="mb-6">
                   <span className="block text-[clamp(36px,5.5vw,72px)] font-extrabold font-display tracking-[-0.03em] leading-[0.95]">
-                    Your revenue has scaled.
+                    Custom software, built with AI,
                   </span>
                   <span className="block text-[clamp(36px,5.5vw,72px)] font-extrabold font-display tracking-[-0.03em] leading-[0.95] text-gradient mt-1">
-                    Your operations haven't.
+                    launched in 16 weeks.
                   </span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={0.16}>
                 <p className="text-lg md:text-xl text-secondary max-w-xl leading-relaxed mb-3">
-                  We map your broken processes, design the system, and build it in 16 weeks.
+                  For growing companies in Malaysia, Singapore, and SEA whose operations are
+                  breaking under spreadsheets, WhatsApp, and disconnected tools.
                 </p>
                 <p className="text-base text-muted mb-4 font-medium">
-                  No juniors. No handoffs. No disappearing after launch.
+                  We map the workflow, build the system, and stay on after launch. No juniors. No
+                  handoffs. No disappearing.
                 </p>
                 <p className="text-sm text-muted/80 mb-8">
-                  <span className="font-semibold">Typical engagements from USD 45,000.</span>{' '}
-                  <span className="opacity-80">Scope confirmed on the call.</span>
+                  <span className="font-semibold">
+                    Start with a 2-week Scoping Sprint from{' '}
+                    <Price anchor="scopingSprint" className="text-[var(--color-brand-blue)]" />.
+                  </span>{' '}
+                  <span className="opacity-80">Senior-led from day one.</span>
                 </p>
               </AnimatedSection>
 
@@ -215,22 +238,42 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
                   <Button asChild size="lg" className="h-12 px-6 text-base">
                     <Link href="/strategy-session">
-                      Book a Strategy Call
+                      Book a Discovery Call
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                    <Link href="/work">See Our Work</Link>
+                    <Link href="/work">See Three Client Stories</Link>
                   </Button>
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.3}>
+              {/* 4-logo compact row */}
+              <AnimatedSection delay={0.28}>
+                <div className="flex items-center gap-6 mb-6 flex-wrap">
+                  <span className="text-xs text-muted font-medium uppercase tracking-widest shrink-0">
+                    Trusted by
+                  </span>
+                  {HERO_LOGOS.map((logo) => (
+                    <Image
+                      key={logo.name}
+                      src={logo.src}
+                      alt={logo.name}
+                      width={120}
+                      height={logo.height}
+                      style={{ height: logo.height, width: 'auto' }}
+                      className="object-contain opacity-70 dark:opacity-50 hover:opacity-100 dark:hover:opacity-80 transition-opacity"
+                    />
+                  ))}
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.32}>
                 <RatingsStrip variant="compact" className="justify-start" />
               </AnimatedSection>
             </div>
 
-            {/* Right column — Proof card */}
+            {/* Right column — proof card */}
             <div className="lg:col-span-5 relative hidden lg:block">
               <HeroProofCard />
             </div>
@@ -238,20 +281,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pain Cards Section — Left-aligned header, varied card weights */}
+      {/* ------------------------------------------------------------------ */}
+      {/* Pain Cards                                                           */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="pain-heading"
         className="pt-16 pb-24 md:pt-24 md:pb-40 bg-surface content-auto"
       >
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left column — Header (sticky on scroll) */}
             <div className="lg:col-span-4">
               <AnimatedSection>
                 <div className="lg:sticky lg:top-32">
                   <SectionLabel className="mb-4 block">Sound Familiar?</SectionLabel>
                   <h2 id="pain-heading" className="text-section-title mb-6">
-                    The problems that got you here won't solve themselves.
+                    The problems that got you here won&rsquo;t solve themselves.
                   </h2>
                   <p className="text-secondary text-lg leading-relaxed">
                     These are the conversations we have every week with operations leaders across
@@ -261,10 +305,8 @@ export default function Home() {
               </AnimatedSection>
             </div>
 
-            {/* Right column — Cards with semantic color accents */}
             <div className="lg:col-span-8 space-y-6">
               {PAIN_CARDS.map((card, index) => {
-                // Semantic color classes for each pain type
                 const colorMap = {
                   amber: {
                     iconBg: 'bg-amber-500/10 dark:bg-amber-400/10',
@@ -313,7 +355,7 @@ export default function Home() {
                             {card.description}
                           </p>
                           <span className="inline-flex items-center gap-2 text-sm font-medium text-muted group-hover:text-[var(--color-brand-blue)] transition-colors">
-                            See how we solve this
+                            {card.linkLabel}
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </span>
                         </div>
@@ -327,7 +369,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Preview — Asymmetric grid with featured first card */}
+      {/* ------------------------------------------------------------------ */}
+      {/* Services Preview                                                     */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="services-heading"
         className="pt-20 pb-28 md:pt-28 md:pb-44 bg-surface content-auto"
@@ -336,29 +380,26 @@ export default function Home() {
           <AnimatedSection className="mb-16 md:mb-20 max-w-3xl">
             <SectionLabel className="mb-4 block">How We Help</SectionLabel>
             <h2 id="services-heading" className="text-section-title">
-              We don't build apps.
-              <span className="text-gradient">
-                {' '}
-                We build the infrastructure your business runs on.
-              </span>
+              One framework. Three ways in. <span className="text-gradient">One outcome.</span>
             </h2>
+            <p className="text-secondary text-lg leading-relaxed mt-6 max-w-2xl">
+              Every engagement runs on the LUDA&#8482; framework. Whether you come in through
+              operations, custom platform, or an AI-specific problem. The entry point changes. The
+              discipline does not.
+            </p>
           </AnimatedSection>
 
-          {/* Asymmetric grid — first card spans full width */}
           <div className="space-y-6 mb-12">
-            {/* Featured first service — dramatic, full width */}
+            {/* Featured first service */}
             <AnimatedSection delay={0.1}>
               <Link
                 href={SERVICES[0].href}
                 className="group block relative rounded-2xl border-2 border-[var(--color-brand-blue)]/20 bg-surface-2 p-10 md:p-14 transition-all duration-300 hover:border-[var(--color-brand-blue)]/50 overflow-hidden shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-blue)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
               >
-                {/* Bold accent line — cyan to blue gradient */}
                 <div
                   className="absolute top-0 left-0 w-1.5 h-full"
                   style={{ background: 'var(--gradient-text)' }}
                 />
-
-                {/* Background glow on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center relative">
@@ -369,9 +410,10 @@ export default function Home() {
                     <h3 className="text-3xl md:text-4xl font-bold mb-5 group-hover:text-[var(--color-brand-blue)] transition-colors font-display tracking-tight">
                       {SERVICES[0].title}
                     </h3>
-                    <p className="text-secondary text-lg md:text-xl leading-relaxed mb-8">
-                      {SERVICES[0].description}
-                    </p>
+                    <p
+                      className="text-secondary text-lg md:text-xl leading-relaxed mb-8"
+                      dangerouslySetInnerHTML={{ __html: SERVICES[0].description }}
+                    />
                     <span className="inline-flex items-center gap-3 text-lg font-semibold text-muted group-hover:text-[var(--color-brand-blue)] transition-colors">
                       Explore this service
                       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
@@ -386,21 +428,18 @@ export default function Home() {
               </Link>
             </AnimatedSection>
 
-            {/* Secondary services — 2-column grid with color accents */}
+            {/* Secondary services */}
             <div className="grid md:grid-cols-2 gap-6">
               {SERVICES.slice(1).map((service, index) => {
-                // AI Integration = violet, Custom Platform = emerald
                 const cardColors =
                   index === 0
                     ? {
-                        accent: 'violet',
                         border: 'hover:border-violet-500/40',
                         numeral: 'group-hover:text-violet-500/15',
                         title: 'group-hover:text-violet-500 dark:group-hover:text-violet-400',
                         link: 'group-hover:text-violet-500 dark:group-hover:text-violet-400',
                       }
                     : {
-                        accent: 'emerald',
                         border: 'hover:border-emerald-500/40',
                         numeral: 'group-hover:text-emerald-500/15',
                         title: 'group-hover:text-emerald-500 dark:group-hover:text-emerald-400',
@@ -413,13 +452,11 @@ export default function Home() {
                       href={service.href}
                       className={`group block h-full relative rounded-2xl border border-default bg-surface p-8 md:p-10 transition-all duration-300 ${cardColors.border} hover:bg-surface-2 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-blue)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]`}
                     >
-                      {/* Large numeral in background */}
                       <div
                         className={`absolute -top-4 -right-4 text-[100px] font-extrabold font-display text-[var(--border)] ${cardColors.numeral} transition-colors leading-none tracking-tighter pointer-events-none`}
                       >
                         0{index + 2}
                       </div>
-
                       <div className="relative">
                         <h3
                           className={`text-xl md:text-2xl font-bold ${cardColors.title} transition-colors mb-4 font-display tracking-tight`}
@@ -451,7 +488,137 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Studies — Before/After proof of outcomes */}
+      {/* ------------------------------------------------------------------ */}
+      {/* Scoping Sprint Wedge                                                 */}
+      {/* ------------------------------------------------------------------ */}
+      <section
+        aria-labelledby="scoping-heading"
+        className="pt-24 pb-24 md:pt-36 md:pb-36 bg-page content-auto"
+      >
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <AnimatedSection>
+                <SectionLabel className="mb-4 block">Start Here</SectionLabel>
+                <h2
+                  id="scoping-heading"
+                  className="text-[clamp(28px,4vw,48px)] font-bold font-display tracking-tight mb-6"
+                >
+                  Every serious engagement starts with a Scoping Sprint.
+                </h2>
+                <p className="text-secondary text-lg leading-relaxed mb-6">
+                  Two weeks. A senior engineer on-site with your team. We map the workflows,
+                  quantify the cost of staying manual, and come back with a written plan plus a
+                  fixed price for the full project.
+                </p>
+                <p className="text-secondary text-lg leading-relaxed mb-8">
+                  You walk away with a plan you can execute. With us, or with someone else. You keep
+                  the plan either way.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-10 text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 text-[var(--color-brand-blue)]">
+                    <Price anchor="scopingSprint" className="font-bold" />
+                  </span>
+                  <span className="text-muted">2 weeks</span>
+                  <span className="text-muted">Senior-led</span>
+                  <span className="text-muted">Written deliverable</span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button asChild size="lg" className="h-12 px-6 text-base">
+                    <Link href="/strategy-session">
+                      Book a Discovery Call
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
+                  </Button>
+                  {/* TODO: Wave 2 — create /services/scoping-sprint before enabling this link */}
+                  <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
+                    <Link href="/services">Read the full Scoping Sprint brief</Link>
+                  </Button>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            <div className="lg:col-span-5">
+              <AnimatedSection delay={0.15}>
+                <div className="rounded-2xl border border-default bg-surface p-8 md:p-10 space-y-5">
+                  <h3 className="font-semibold text-base mb-2">What you receive</h3>
+                  {[
+                    'Written operational assessment (30+ pages) mapping every manual workflow in scope',
+                    'Cost-of-inaction analysis in RM and headcount hours',
+                    'Phased digitalization roadmap with expected ROI per project',
+                    'Build-vs-buy recommendation per system (sometimes the answer is "stay on Odoo" and we will tell you)',
+                    'Scoped proposal for Phase 1 with a locked timeline and price',
+                    '60-minute findings presentation to your leadership team',
+                  ].map((item) => (
+                    <div key={item} className="flex gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[var(--color-brand-blue)] shrink-0 mt-0.5" />
+                      <p className="text-secondary text-sm leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* Pre-qualification Block                                              */}
+      {/* ------------------------------------------------------------------ */}
+      <section
+        aria-labelledby="prequalify-heading"
+        className="pt-16 pb-24 md:pt-20 md:pb-36 bg-surface content-auto"
+      >
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+          <AnimatedSection className="mb-12 max-w-2xl">
+            <SectionLabel className="mb-4 block">Who This Is For</SectionLabel>
+            <h2 id="prequalify-heading" className="text-section-title">
+              We work with a small number of clients at any one time.
+            </h2>
+            <p className="text-secondary text-lg leading-relaxed mt-4">
+              We are not the right team for everyone. Here is how to tell quickly.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <AnimatedSection delay={0.1}>
+              <div className="rounded-2xl border border-[var(--color-brand-blue)]/20 bg-surface p-8 h-full">
+                <h3 className="font-semibold text-lg mb-6 text-[var(--color-brand-blue)]">
+                  This is for you if
+                </h3>
+                <div className="space-y-4">
+                  {FOR_SIGNALS.map((signal) => (
+                    <div key={signal} className="flex gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[var(--color-brand-blue)] shrink-0 mt-0.5" />
+                      <p className="text-secondary text-base leading-relaxed">{signal}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.15}>
+              <div className="rounded-2xl border border-default bg-surface-2 p-8 h-full">
+                <h3 className="font-semibold text-lg mb-6 text-muted">This is not for you if</h3>
+                <div className="space-y-4">
+                  {NOT_FOR_SIGNALS.map((signal) => (
+                    <div key={signal} className="flex gap-3">
+                      <XCircle className="h-5 w-5 text-muted shrink-0 mt-0.5" />
+                      <p className="text-secondary text-base leading-relaxed">{signal}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* Case Studies                                                         */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="work-heading"
         className="pt-24 pb-16 md:pt-36 md:pb-20 bg-page content-auto"
@@ -464,19 +631,17 @@ export default function Home() {
             </h2>
           </AnimatedSection>
 
-          {/* Featured case study — BookXcess */}
+          {/* Featured — BookXcess */}
           <AnimatedSection delay={0.1} className="mb-8">
             <div className="group relative rounded-2xl border-2 border-[var(--color-brand-blue)]/20 bg-surface p-8 md:p-12 transition-all hover:border-[var(--color-brand-blue)]/40 overflow-hidden">
-              {/* Accent line */}
               <div
                 className="absolute top-0 left-0 w-1.5 h-full"
                 style={{ background: 'var(--gradient-text)' }}
               />
-
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
                   <span className="inline-flex rounded-full bg-[var(--color-brand-blue)]/10 border border-[var(--color-brand-blue)]/20 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-brand-blue)] mb-6">
-                    Retail · Ecommerce
+                    Retail &middot; Ecommerce
                   </span>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 font-display tracking-tight">
                     BookXcess
@@ -495,7 +660,7 @@ export default function Home() {
                 </div>
                 <div className="text-center md:text-right">
                   <div className="text-[80px] md:text-[120px] font-extrabold text-gradient leading-none font-display tracking-[-0.04em]">
-                    15×
+                    15&times;
                   </div>
                   <p className="text-xl font-semibold mt-2">ecommerce revenue growth</p>
                 </div>
@@ -503,7 +668,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          {/* Secondary case studies — 2 cards with images */}
+          {/* Secondary case studies */}
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <AnimatedSection delay={0.15}>
               <div className="group h-full rounded-2xl border border-default bg-surface overflow-hidden transition-all hover:border-[var(--color-brand-blue)]/40">
@@ -513,7 +678,6 @@ export default function Home() {
                     background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%)',
                   }}
                 >
-                  {/* Subtle dot pattern overlay */}
                   <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
@@ -531,7 +695,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 md:p-8">
                   <span className="inline-flex rounded-full bg-[var(--color-brand-blue)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-blue)] mb-4">
-                    Manufacturing · IoT
+                    Manufacturing &middot; IoT
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold mb-3 font-display tracking-tight">
                     Daikin Malaysia
@@ -560,7 +724,6 @@ export default function Home() {
                     background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%)',
                   }}
                 >
-                  {/* Subtle dot pattern overlay */}
                   <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
@@ -578,7 +741,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 md:p-8">
                   <span className="inline-flex rounded-full bg-[var(--color-brand-blue)]/10 px-3 py-1 text-xs font-medium text-[var(--color-brand-blue)] mb-4">
-                    Healthcare · Telemedicine
+                    Healthcare &middot; Telemedicine
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold mb-3 font-display tracking-tight">
                     Teleme
@@ -592,7 +755,7 @@ export default function Home() {
                       #1
                     </span>
                     <span className="text-base text-muted font-medium">
-                      best dev partner they've had
+                      best dev partner they&rsquo;ve had
                     </span>
                   </div>
                 </div>
@@ -611,7 +774,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUDA Framework Section */}
+      {/* LUDA Framework */}
       <LudaSection variant="full" />
 
       {/* Client Logo Marquee */}
@@ -620,7 +783,7 @@ export default function Home() {
         className="py-10 md:py-14 border-y border-default overflow-hidden group/marquee"
       >
         <div className="flex animate-marquee items-center group-hover/marquee:[animation-play-state:paused]">
-          {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, index) => (
+          {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
               className="mx-10 md:mx-14 flex-shrink-0 opacity-90 hover:opacity-100 transition-all duration-300 dark:opacity-70 dark:hover:opacity-100"
@@ -638,16 +801,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials — Video-first layout breaks the pattern */}
+      {/* ------------------------------------------------------------------ */}
+      {/* Testimonials                                                         */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="testimonials-heading"
         className="relative pt-28 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-surface content-auto"
       >
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          {/* Video leads — no header above, creates pattern break */}
           <AnimatedSection className="mb-16 md:mb-20">
             <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-              {/* Video — takes 3 columns */}
               <div className="lg:col-span-3">
                 <div className="rounded-2xl overflow-hidden bg-surface-2 border border-[var(--border)] shadow-lg">
                   <YouTubeFacade
@@ -657,7 +820,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-              {/* Quote excerpt — takes 2 columns */}
               <div className="lg:col-span-2">
                 <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-6">
                   &ldquo;You had a great process. You had a great team. Your service offerings
@@ -665,13 +827,14 @@ export default function Home() {
                 </blockquote>
                 <div>
                   <p className="font-semibold">Justin Ruffier</p>
-                  <p className="text-muted text-sm">Founder, Whisker Tracker · San Diego, USA</p>
+                  <p className="text-muted text-sm">
+                    Founder, Whisker Tracker &middot; San Diego, USA
+                  </p>
                 </div>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Section header comes AFTER video — reversed pattern */}
           <AnimatedSection
             delay={0.1}
             className="mb-10 flex items-end justify-between gap-4 flex-wrap"
@@ -687,7 +850,6 @@ export default function Home() {
             </Button>
           </AnimatedSection>
 
-          {/* Text testimonials — 3 cards */}
           <div className="grid md:grid-cols-3 gap-6">
             <AnimatedSection delay={0.15}>
               <TestimonialCard {...TESTIMONIALS[0]} />
@@ -702,12 +864,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA — Clear, confident, no redundancy */}
+      {/* ------------------------------------------------------------------ */}
+      {/* Final CTA                                                            */}
+      {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="cta-heading"
         className="relative pt-32 pb-28 md:pt-48 md:pb-40 overflow-hidden content-auto"
       >
-        {/* Subtle background glow — dark mode only */}
         <div className="hidden dark:block absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[500px] opacity-[0.08] blur-[80px]"
@@ -718,32 +881,53 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
-          <AnimatedSection className="max-w-3xl mx-auto text-center">
-            <h2
-              id="cta-heading"
-              className="text-[clamp(32px,5vw,56px)] font-bold font-display tracking-[-0.02em] leading-[1.1] mb-8"
-            >
-              Ready to fix your operations? <span className="text-gradient">Let's talk.</span>
-            </h2>
-            <p className="text-xl text-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
-              We work best with established businesses ready to invest seriously. Adrian personally
-              reviews every submission before the call.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button asChild size="lg" className="h-14 px-8 text-base">
-                <Link href="/strategy-session">
-                  Book Your Strategy Call
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Link>
-              </Button>
-              <Link
-                href="/work"
-                className="text-muted hover:text-[var(--text)] transition-colors text-base font-medium underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--text)]"
+          <div className="max-w-3xl mx-auto text-center">
+            <AnimatedSection>
+              <h2
+                id="cta-heading"
+                className="text-[clamp(32px,5vw,56px)] font-bold font-display tracking-[-0.02em] leading-[1.1] mb-8"
               >
-                Or see our case studies first
-              </Link>
-            </div>
-          </AnimatedSection>
+                You have probably tried this before.{' '}
+                <span className="text-gradient">We respect the scars.</span>
+              </h2>
+              <p className="text-xl text-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+                Most of our clients come to us after either a RM 1M ERP that took two years and
+                never shipped, or a freelancer who disappeared with the deposit. A 45-minute
+                discovery call is free, senior-led, and will not waste your time. We will tell you
+                honestly whether we are the right team. If we are not, we will tell you who is.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <Button asChild size="lg" className="h-14 px-8 text-base">
+                  <Link href="/strategy-session">
+                    Book Your Discovery Call
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </Link>
+                </Button>
+                <Link
+                  href="/work"
+                  className="text-muted hover:text-[var(--text)] transition-colors text-base font-medium underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--text)]"
+                >
+                  Or see three client stories first
+                </Link>
+              </div>
+
+              {/* Adrian caption */}
+              <div className="inline-flex items-center gap-4 border border-default rounded-2xl px-6 py-4 bg-surface">
+                <Image
+                  src="/images/team/adrian.png"
+                  alt="Adrian Ching, Founder of Upstack Studio"
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover"
+                />
+                <p className="text-sm text-secondary text-left">
+                  <span className="font-semibold text-[var(--text)]">Adrian Ching</span>
+                  <br />
+                  Adrian takes every first call personally.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
     </div>
