@@ -110,26 +110,26 @@ const PAIN_CARDS: Array<{
 ]
 
 // Hero — 4 named client logos, compact static row.
-// w/h tuned per logo's natural viewBox aspect ratio for visual balance:
+// w/h computed from each SVG's actual content bounds (viewBox cropped to content):
 //   Daikin  300×64.6  ratio 4.64 → h=22 w=102
 //   TMI     135×45    ratio 3.00 → h=30 w=90  (stacked icon+text, needs more height)
-//   Acson  1152×1152  ratio 1.00 → h=44 w=44  (square icon — large enough to read at this scale)
+//   Acson  1050×534   ratio 1.97 → h=28 w=55  (viewBox cropped to remove surrounding whitespace)
 //   Teleme  173×24    ratio 7.21 → h=14 w=101 (ultra-wide wordmark — shorter height keeps width manageable)
 // TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 102, h: 22 },
   { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 90, h: 30 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 44, h: 44 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 55, h: 28 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 101, h: 14 },
 ]
 
-// Marquee logos — heights chosen so no logo dominates the scrolling strip.
+// Marquee logos — all at h=28, widths from natural aspect ratios.
 // Teleme (7.21:1) capped at same width as Daikin to avoid dominating the strip.
 const MARQUEE_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 130, h: 28 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 130, h: 18 },
   { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 84, h: 28 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 44, h: 44 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 55, h: 28 },
   { name: 'NiuAce', src: '/images/client-logos/niuace.svg', w: 111, h: 28 },
   { name: 'Whitman', src: '/images/client-logos/whitman.svg', w: 122, h: 28 },
 ]
