@@ -41,28 +41,42 @@ interface LudaSectionProps {
 export function LudaSection({ variant = 'full', className }: LudaSectionProps) {
   if (variant === 'compact') {
     return (
-      <div className={cn('rounded-2xl bg-surface border border-default p-6 md:p-8', className)}>
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-brand-blue)]/10">
-              <Shield className="h-5 w-5 text-[var(--color-brand-blue)]" />
+      <div
+        className={cn('rounded-2xl border border-default bg-surface overflow-hidden', className)}
+      >
+        {/* Header */}
+        <div className="px-6 md:px-8 pt-7 pb-6 border-b border-default">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-brand-blue)]/10 shrink-0">
+              <Shield className="h-4 w-4 text-[var(--color-brand-blue)]" />
             </div>
-            <div>
-              <SectionLabel>The LUDA™ Framework</SectionLabel>
-              <h3 className="text-lg font-semibold mt-1">Built so your project doesn't fail.</h3>
-            </div>
+            <SectionLabel>The LUDA™ Framework</SectionLabel>
           </div>
+          <h3 className="text-2xl font-bold mb-2 leading-tight">
+            Built so your project doesn't fail.
+          </h3>
+          <p className="text-sm text-secondary leading-relaxed max-w-xl">
+            A structured delivery framework — not a promise. Every client, every project, every
+            time.
+          </p>
+        </div>
 
-          <ul className="grid gap-2 text-sm text-secondary">
-            {LUDA_PILLARS.map((pillar) => (
-              <li key={pillar.title} className="flex items-start gap-2">
-                <pillar.icon className="h-4 w-4 text-[var(--color-brand-blue)] shrink-0 mt-0.5" />
-                <span>{pillar.title}</span>
-              </li>
-            ))}
-          </ul>
+        {/* 2×2 pillar grid — divided by borders */}
+        <div className="grid sm:grid-cols-2 gap-px bg-border">
+          {LUDA_PILLARS.map((pillar) => (
+            <div key={pillar.title} className="bg-surface p-6 md:p-7">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-brand-blue)]/10 mb-3">
+                <pillar.icon className="h-5 w-5 text-[var(--color-brand-blue)]" />
+              </div>
+              <h4 className="font-semibold text-sm mb-1.5">{pillar.title}</h4>
+              <p className="text-xs text-secondary leading-relaxed">{pillar.description}</p>
+            </div>
+          ))}
+        </div>
 
-          <GuaranteeBar variant="compact" className="mt-4" />
+        {/* Guarantee bar */}
+        <div className="px-6 md:px-8 py-5 bg-surface-2 border-t border-default">
+          <GuaranteeBar variant="compact" />
         </div>
       </div>
     )
