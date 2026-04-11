@@ -268,7 +268,7 @@ export default async function Home() {
                       alt={logo.name}
                       width={logo.w}
                       height={logo.h}
-                      className="flex-shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+                      className="flex-shrink-0 self-center [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
                     />
                   ))}
                 </div>
@@ -795,7 +795,7 @@ export default async function Home() {
               alt={logo.name}
               width={logo.w}
               height={logo.h}
-              className="mx-10 md:mx-14 flex-shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+              className="mx-10 md:mx-14 flex-shrink-0 self-center [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
             />
           ))}
         </div>
