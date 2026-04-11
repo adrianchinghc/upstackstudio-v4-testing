@@ -25,9 +25,9 @@
   /* Legacy CTA gradient alias */
   --cta-gradient: linear-gradient(135deg, #0a4dff 0%, #0033cc 100%);
 
-  /* Font families — uses CSS variables from next/font */
-  --font-display: var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
-  --font-body: var(--font-body), 'Inter', system-ui, sans-serif;
+  /* Font families — reference next/font CSS vars (distinct names avoid circular reference) */
+  --font-display: var(--font-bricolage), 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
 }
 
 /* ================================
@@ -92,7 +92,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -106,7 +106,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display), system-ui, sans-serif;
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--text);
