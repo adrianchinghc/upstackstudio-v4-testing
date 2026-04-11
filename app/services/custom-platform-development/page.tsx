@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Smartphone, Globe, Layers, CheckCircle } from 'lucide-react'
-import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { SectionLabel, AnimatedSection } from '@/components/common'
 import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
@@ -123,7 +123,8 @@ export default function CustomPlatformDevelopmentPage() {
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
               Your business has specific requirements, specific workflows, and specific exceptions
               that no generic platform was designed for. We build the exact tool your business needs
-              — mobile app, web platform, or progressive web app — on a technology you own outright.
+              — mobile app, web platform, or progressive web app — in 16 weeks, with AI-enabled
+              engineering and a codebase you own outright.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
@@ -339,13 +340,6 @@ export default function CustomPlatformDevelopmentPage() {
           </AnimatedSection>
         </div>
       </section>
-
-      {/* Guarantee Bar */}
-      <div className="px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
-          <GuaranteeBar />
-        </div>
-      </div>
 
       {/* FAQ */}
       <section className="py-20 md:py-28 px-6 bg-surface">

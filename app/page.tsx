@@ -109,22 +109,41 @@ const PAIN_CARDS: Array<{
   },
 ]
 
-// Hero — 4 named client logos, compact static row
+// Hero — 4 named client logos, compact static row.
+// w/h computed from each SVG's actual content bounds (viewBox cropped to content):
+//   Daikin  300×64.6  ratio 4.64 → h=22 w=102
+//   TMI     135×45    ratio 3.00 → h=30 w=90  (stacked icon+text, needs more height)
+//   Acson  1050×355   ratio 2.96 → h=42 w=124 (viewBox cropped to content bounds)
+//   Teleme  173×24    ratio 7.21 → h=14 w=101 (ultra-wide wordmark — shorter height keeps width manageable)
+// TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 24 },
-  { name: 'Magnum 4D', src: '/images/client-logos/magnum.svg', height: 22 },
-  { name: 'BookXcess', src: '/images/client-logos/bookxcess.svg', height: 24 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 18 },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 102, h: 22 },
+  {
+    name: 'The Malaysian Insight',
+    src: '/images/client-logos/tmi.svg',
+    w: 90,
+    h: 30,
+    naturalColor: true,
+  },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 124, h: 42 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 101, h: 14 },
 ]
 
-// Marquee logos
+// Marquee logos — all at h=28, widths from natural aspect ratios.
+// Teleme (7.21:1) capped at same width as Daikin to avoid dominating the strip.
 const MARQUEE_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 28 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 20 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 32 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 36 },
-  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', height: 24 },
-  { name: 'Whitman', src: '/images/client-logos/whitman.svg', height: 26 },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 130, h: 28 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 130, h: 18 },
+  {
+    name: 'The Malaysian Insight',
+    src: '/images/client-logos/tmi.svg',
+    w: 84,
+    h: 28,
+    naturalColor: true,
+  },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 124, h: 42 },
+  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', w: 111, h: 28 },
+  { name: 'Whitman', src: '/images/client-logos/whitman.svg', w: 122, h: 28 },
 ]
 
 // Services — entry points to the LUDA framework
@@ -201,7 +220,7 @@ export default async function Home() {
             <div className="lg:col-span-7">
               <AnimatedSection delay={0}>
                 <SectionLabel className="mb-5">
-                  Custom Software for Growing Companies &middot; Built in Petaling Jaya
+                  Custom Software for Growing Companies &middot; Built in Kuala Lumpur
                 </SectionLabel>
               </AnimatedSection>
 
@@ -259,10 +278,9 @@ export default async function Home() {
                       key={logo.name}
                       src={logo.src}
                       alt={logo.name}
-                      width={120}
-                      height={logo.height}
-                      style={{ height: logo.height, width: 'auto' }}
-                      className="object-contain opacity-70 dark:opacity-50 hover:opacity-100 dark:hover:opacity-80 transition-opacity"
+                      width={logo.w}
+                      height={logo.h}
+                      className={`flex-shrink-0 self-center opacity-60 hover:opacity-100 transition-opacity${logo.naturalColor ? '' : ' [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]'}`}
                     />
                   ))}
                 </div>
@@ -532,9 +550,8 @@ export default async function Home() {
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>
                   </Button>
-                  {/* TODO: Wave 2 — create /services/scoping-sprint before enabling this link */}
                   <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                    <Link href="/services">Read the full Scoping Sprint brief</Link>
+                    <Link href="/services/scoping-sprint">Read the full Scoping Sprint brief</Link>
                   </Button>
                 </div>
               </AnimatedSection>
@@ -784,19 +801,14 @@ export default async function Home() {
       >
         <div className="flex animate-marquee items-center group-hover/marquee:[animation-play-state:paused]">
           {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, index) => (
-            <div
+            <Image
               key={`${logo.name}-${index}`}
-              className="mx-10 md:mx-14 flex-shrink-0 opacity-90 hover:opacity-100 transition-all duration-300 dark:opacity-70 dark:hover:opacity-100"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                width={200}
-                height={logo.height}
-                style={{ height: logo.height, width: 'auto' }}
-                className="object-contain"
-              />
-            </div>
+              src={logo.src}
+              alt={logo.name}
+              width={logo.w}
+              height={logo.h}
+              className={`mx-10 md:mx-14 flex-shrink-0 self-center opacity-60 hover:opacity-100 transition-opacity${logo.naturalColor ? '' : ' [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]'}`}
+            />
           ))}
         </div>
       </section>

@@ -1,30 +1,33 @@
-import { cookies, headers } from 'next/headers'
+import { headers } from 'next/headers'
 
 export type Region = 'MY' | 'INTL'
 
 /**
  * Resolve the visitor's region for geo-aware pricing.
  *
- * Priority order:
- *   1. Cookie override (region=MY|INTL) — set by the footer region toggle
- *   2. Vercel's x-vercel-ip-country header (free on all Vercel plans)
+ * Resolution order:
+ *   1. NEXT_DEV_REGION env var — local dev override (set in .env.local)
+ *   2. CDN geo headers — checked in priority order across providers:
+ *      - x-vercel-ip-country  (Vercel)
+ *      - cf-ipcountry         (Cloudflare)
+ *      - cloudfront-viewer-country (AWS CloudFront)
+ *      - x-country-code       (generic CDN fallback)
  *   3. Fallback: 'INTL'
  *
  * Server-only — call this from Server Components or Route Handlers only.
  */
 export async function resolveRegion(): Promise<Region> {
-  // 1. Cookie override (user manually selected their region in the footer)
-  const cookieStore = await cookies()
-  const regionCookie = cookieStore.get('region')?.value
-  if (regionCookie === 'MY' || regionCookie === 'INTL') {
-    return regionCookie
-  }
+  // Dev override: set NEXT_DEV_REGION=MY in .env.local to simulate Malaysian IP locally
+  const devRegion = process.env.NEXT_DEV_REGION
+  if (devRegion === 'MY' || devRegion === 'INTL') return devRegion
 
-  // 2. Vercel geo header — set automatically by Vercel's edge network
   const headerStore = await headers()
-  const country = headerStore.get('x-vercel-ip-country')
-  if (country === 'MY') return 'MY'
+  const country =
+    headerStore.get('x-vercel-ip-country') ??
+    headerStore.get('cf-ipcountry') ??
+    headerStore.get('cloudfront-viewer-country') ??
+    headerStore.get('x-country-code')
 
-  // 3. Fallback to international pricing
+  if (country === 'MY') return 'MY'
   return 'INTL'
 }

@@ -151,8 +151,8 @@ export default function AboutPage() {
 
             <div className="prose prose-lg text-secondary max-w-none">
               <p>
-                We started in a café in Petaling Jaya. Just a few engineers who believed there had
-                to be a better way to build software for growing companies.
+                We started in a café in Kuala Lumpur. Just a few engineers who believed there had to
+                be a better way to build software for growing companies.
               </p>
               <p>
                 We've walked away from a RM350,000 prospect because there were too many red flags.
