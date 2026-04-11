@@ -58,7 +58,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold mb-1">Location</h3>
                   <p className="text-secondary">
-                    Petaling Jaya, Selangor
+                    Kuala Lumpur
                     <br />
                     Malaysia
                   </p>

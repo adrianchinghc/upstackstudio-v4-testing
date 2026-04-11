@@ -86,7 +86,7 @@ export default function OgImage() {
         }}
       >
         Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16
-        weeks. Senior-led from Petaling Jaya.
+        weeks. Senior-led from Kuala Lumpur.
       </div>
 
       {/* Trust line */}

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
-import { SectionLabel, AnimatedSection, GuaranteeBar, TestimonialCard } from '@/components/common'
+import { SectionLabel, AnimatedSection, TestimonialCard } from '@/components/common'
 import { LocalBusinessJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
@@ -268,13 +268,6 @@ export function GeoPage({
           </AnimatedSection>
         </div>
       </section>
-
-      {/* Guarantee Bar */}
-      <div className="px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
-          <GuaranteeBar />
-        </div>
-      </div>
 
       {/* CTA */}
       <section className="py-20 md:py-28 px-6 bg-surface">

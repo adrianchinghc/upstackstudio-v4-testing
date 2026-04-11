@@ -16,7 +16,7 @@ export function OrganizationJsonLd({ className }: OrganizationJsonLdProps) {
     url: SITE_URL,
     logo: `${SITE_URL}/logo-dark.svg`,
     description:
-      'Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16 weeks. Senior-led from Petaling Jaya.',
+      'Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16 weeks. Senior-led from Kuala Lumpur.',
     foundingDate: '2017',
     address: {
       '@type': 'PostalAddress',

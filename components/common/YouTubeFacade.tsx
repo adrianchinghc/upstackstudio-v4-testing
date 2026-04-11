@@ -28,7 +28,7 @@ export function YouTubeFacade({ videoId, title, className }: YouTubeFacadeProps)
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        className={className}
+        className={`block ${className ?? ''}`}
       />
     )
   }
@@ -41,12 +41,12 @@ export function YouTubeFacade({ videoId, title, className }: YouTubeFacadeProps)
       aria-label={`Play video: ${title}`}
     >
       {/* Thumbnail with fallback */}
-      <picture>
+      <picture className="block">
         <source srcSet={thumbnailUrl} type="image/jpeg" />
         <img
           src={fallbackThumbnail}
           alt={title}
-          className="w-full h-full object-cover"
+          className="block w-full h-full object-cover"
           loading="eager" // Above fold, load immediately
         />
       </picture>

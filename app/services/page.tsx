@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { SectionLabel, AnimatedSection } from '@/components/common'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Settings, Brain, Zap, Code, RefreshCw } from 'lucide-react'
@@ -140,11 +140,6 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
-
-        {/* Guarantee Bar */}
-        <AnimatedSection className="mb-16 md:mb-24">
-          <GuaranteeBar />
-        </AnimatedSection>
 
         {/* LUDA Section */}
         <LudaSection variant="full" />
