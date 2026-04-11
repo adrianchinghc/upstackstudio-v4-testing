@@ -119,7 +119,7 @@ const PAIN_CARDS: Array<{
 const HERO_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 102, h: 22 },
   { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 90, h: 30 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 55, h: 28 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 83, h: 42 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 101, h: 14 },
 ]
 
@@ -129,7 +129,7 @@ const MARQUEE_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 130, h: 28 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 130, h: 18 },
   { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 84, h: 28 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 55, h: 28 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 83, h: 42 },
   { name: 'NiuAce', src: '/images/client-logos/niuace.svg', w: 111, h: 28 },
   { name: 'Whitman', src: '/images/client-logos/whitman.svg', w: 122, h: 28 },
 ]
