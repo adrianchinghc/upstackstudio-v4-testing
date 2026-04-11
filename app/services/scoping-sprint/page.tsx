@@ -16,7 +16,7 @@ import {
   Calendar,
   Building2,
 } from 'lucide-react'
-import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { SectionLabel, AnimatedSection } from '@/components/common'
 import { Price } from '@/components/common/Price'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { ServiceJsonLd } from '@/components/seo/JsonLd'
@@ -607,11 +607,6 @@ export default async function ScopingSprintPage() {
             </div>
           </div>
         </section>
-
-        {/* ── Guarantee bar ────────────────────────────────────── */}
-        <AnimatedSection>
-          <GuaranteeBar />
-        </AnimatedSection>
 
         {/* ── What happens on the call ─────────────────────────── */}
         <section className="py-16 md:py-24 bg-surface">

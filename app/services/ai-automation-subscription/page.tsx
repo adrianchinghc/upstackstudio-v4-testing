@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Zap, RefreshCw, GitBranch, Bot } from 'lucide-react'
-import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { SectionLabel, AnimatedSection } from '@/components/common'
 import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
@@ -276,13 +276,6 @@ export default function AiAutomationSubscriptionPage() {
           </AnimatedSection>
         </div>
       </section>
-
-      {/* Guarantee Bar */}
-      <div className="px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
-          <GuaranteeBar />
-        </div>
-      </div>
 
       {/* FAQ */}
       <section className="py-20 md:py-28 px-6 bg-surface">
