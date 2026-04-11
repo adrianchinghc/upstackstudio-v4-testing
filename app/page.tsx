@@ -110,22 +110,24 @@ const PAIN_CARDS: Array<{
 ]
 
 // Hero — 4 named client logos, compact static row
+// Each logo renders inside a fixed-size slot (w-24 h-7); object-contain handles
+// aspect ratio so wide logos (Teleme) and narrow logos (Acson) occupy equal visual space.
 // TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 24 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 24 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 24 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 24 },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg' },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg' },
+  { name: 'Acson', src: '/images/client-logos/acson.svg' },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg' },
 ]
 
-// Marquee logos — all the same height for visual consistency
+// Marquee logos — fixed-size slot (w-28 h-8) per logo for visual consistency
 const MARQUEE_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 28 },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 28 },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 28 },
-  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 28 },
-  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', height: 28 },
-  { name: 'Whitman', src: '/images/client-logos/whitman.svg', height: 28 },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg' },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg' },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg' },
+  { name: 'Acson', src: '/images/client-logos/acson.svg' },
+  { name: 'NiuAce', src: '/images/client-logos/niuace.svg' },
+  { name: 'Whitman', src: '/images/client-logos/whitman.svg' },
 ]
 
 // Services — entry points to the LUDA framework
@@ -256,15 +258,14 @@ export default async function Home() {
                     Trusted by
                   </span>
                   {HERO_LOGOS.map((logo) => (
-                    <Image
-                      key={logo.name}
-                      src={logo.src}
-                      alt={logo.name}
-                      width={120}
-                      height={logo.height}
-                      style={{ height: logo.height, width: 'auto' }}
-                      className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
-                    />
+                    <div key={logo.name} className="relative w-24 h-7 flex-shrink-0">
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        fill
+                        className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+                      />
+                    </div>
                   ))}
                 </div>
               </AnimatedSection>
@@ -784,13 +785,14 @@ export default async function Home() {
       >
         <div className="flex animate-marquee items-center group-hover/marquee:[animation-play-state:paused]">
           {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, index) => (
-            <div key={`${logo.name}-${index}`} className="mx-10 md:mx-14 flex-shrink-0">
+            <div
+              key={`${logo.name}-${index}`}
+              className="relative mx-10 md:mx-14 flex-shrink-0 w-28 h-8"
+            >
               <Image
                 src={logo.src}
                 alt={logo.name}
-                width={200}
-                height={logo.height}
-                style={{ height: logo.height, width: 'auto' }}
+                fill
                 className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
               />
             </div>
