@@ -1,43 +1,43 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { AnimatedSection } from "@/components/common";
+import Image from 'next/image'
+import { AnimatedSection } from '@/components/common'
 
 // Culture photos — team events, dinners, office moments
 const CULTURE_PHOTOS = [
   {
-    src: "/images/team/culture-photos/21e98305d31d91e6b7eb7ed4debfb9fbfc2b5a43.png",
-    alt: "Team gathering",
+    src: '/images/team/culture-photos/21e98305d31d91e6b7eb7ed4debfb9fbfc2b5a43.png',
+    alt: 'Team gathering',
   },
   {
-    src: "/images/team/culture-photos/2f83aa90f6d36e86ba27f361479892e4b90672c3.jpg",
-    alt: "Team event",
+    src: '/images/team/culture-photos/2f83aa90f6d36e86ba27f361479892e4b90672c3.jpg',
+    alt: 'Team event',
   },
   {
-    src: "/images/team/culture-photos/481852f5410885da879bb63dd7202b19201e45d2.jpg",
-    alt: "Office collaboration",
+    src: '/images/team/culture-photos/481852f5410885da879bb63dd7202b19201e45d2.jpg',
+    alt: 'Office collaboration',
   },
   {
-    src: "/images/team/culture-photos/7d6e4535219fa16ceea32f282efa5be1f93924f1.png",
-    alt: "Team celebration",
+    src: '/images/team/culture-photos/7d6e4535219fa16ceea32f282efa5be1f93924f1.png',
+    alt: 'Team celebration',
   },
   {
-    src: "/images/team/culture-photos/8651ba74bcbfe0cacc10b57a7f292aca5bfe233b.png",
-    alt: "Team dinner",
+    src: '/images/team/culture-photos/8651ba74bcbfe0cacc10b57a7f292aca5bfe233b.png',
+    alt: 'Team dinner',
   },
   {
-    src: "/images/team/culture-photos/8e5d59e63dc93a299b5a9ba293c7fcba2f0e3b05.jpg",
-    alt: "Podcast recording",
+    src: '/images/team/culture-photos/8e5d59e63dc93a299b5a9ba293c7fcba2f0e3b05.jpg',
+    alt: 'Podcast recording',
   },
   {
-    src: "/images/team/culture-photos/97212112db955ad46e577732f4a2aaefa58d31c8.png",
-    alt: "Team awards",
+    src: '/images/team/culture-photos/97212112db955ad46e577732f4a2aaefa58d31c8.png',
+    alt: 'Team awards',
   },
   {
-    src: "/images/team/culture-photos/a5324b254e4f3129d54e3e24071f32e506c27d8c.png",
-    alt: "Team outing",
+    src: '/images/team/culture-photos/a5324b254e4f3129d54e3e24071f32e506c27d8c.png',
+    alt: 'Team outing',
   },
-];
+]
 
 export function TeamPhotoCollage() {
   return (
@@ -150,7 +150,7 @@ export function TeamPhotoCollage() {
                 <div
                   key={photo.src}
                   className={`flex-shrink-0 snap-start relative w-[55vw] h-[280px] overflow-hidden ${
-                    index % 2 === 0 ? "rounded-sm" : ""
+                    index % 2 === 0 ? 'rounded-sm' : ''
                   }`}
                 >
                   <Image
@@ -167,5 +167,5 @@ export function TeamPhotoCollage() {
         </AnimatedSection>
       </div>
     </section>
-  );
+  )
 }

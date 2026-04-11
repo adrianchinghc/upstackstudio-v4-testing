@@ -19,6 +19,13 @@ const eslintConfig = [
       'react/no-unescaped-entities': 'off',
     },
   },
+  {
+    // Node.js utility scripts use CommonJS require() — exempt from ESM rule
+    files: ['scripts/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 ]
 
 export default eslintConfig

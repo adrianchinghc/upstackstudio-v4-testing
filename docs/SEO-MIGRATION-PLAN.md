@@ -11,6 +11,7 @@ This document outlines the SEO migration strategy to preserve Domain Authority (
 ### WordPress Site Structure (from sitemap)
 
 **Pages (19 total):**
+
 - `/` - Homepage
 - `/blog/` - Blog index
 - `/about/`
@@ -32,12 +33,14 @@ This document outlines the SEO migration strategy to preserve Domain Authority (
 - `/app-validation-blueprint/`
 
 **Landing Pages (2):**
+
 - `/course/`
 - `/app-development-mistakes-ebook/`
 
 **Blog Posts:** 200+ posts at `/blog/[slug]/` (with trailing slash)
 
 **Category Pages (12):**
+
 - `/blog/category/product-growth/`
 - `/blog/category/inside-upstack-studio/`
 - `/blog/category/tech/`
@@ -54,6 +57,7 @@ This document outlines the SEO migration strategy to preserve Domain Authority (
 ### New Site Structure
 
 **Implemented:**
+
 - `/` - Homepage
 - `/about`
 - `/work`
@@ -146,6 +150,7 @@ async redirects() {
 ### 3. 🔴 TODO - Create Missing Pages
 
 **Required pages to create:**
+
 - [ ] `/privacy-policy` - Privacy policy page
 - [ ] `/terms` - Terms of service (optional but recommended)
 
@@ -247,11 +252,13 @@ Each page should have proper canonical URLs. Check:
 ### 6. 🔴 TODO - Submit to Search Console
 
 **Pre-launch:**
+
 1. Add new sitemap to Google Search Console (GSC)
 2. Request indexing for key pages
 3. Monitor crawl errors
 
 **Post-launch:**
+
 1. Submit updated sitemap.xml
 2. Use URL Inspection tool to check key pages
 3. Monitor Index Coverage report for errors
@@ -261,6 +268,7 @@ Each page should have proper canonical URLs. Check:
 ### 7. 🔴 TODO - Update External Links
 
 **High-priority backlinks to verify still work:**
+
 - Clutch profile links
 - Guest post backlinks
 - Directory listings
@@ -269,6 +277,7 @@ Each page should have proper canonical URLs. Check:
 ### 8. ✅ DONE - Meta Tags
 
 Already implemented in `app/layout.tsx`:
+
 - Title template
 - Meta description
 - Open Graph tags
@@ -296,6 +305,7 @@ Already implemented in `app/layout.tsx`:
 ## Migration Checklist
 
 ### Pre-Launch
+
 - [x] All redirects configured in next.config.ts
 - [x] Privacy policy page created
 - [x] JSON-LD structured data added
@@ -307,6 +317,7 @@ Already implemented in `app/layout.tsx`:
 - [x] All blog posts migrated with correct URLs
 
 ### Launch Day
+
 - [ ] Deploy to production
 - [ ] Verify redirects working (test 10+ URLs)
 - [ ] Submit sitemap to Google Search Console
@@ -314,6 +325,7 @@ Already implemented in `app/layout.tsx`:
 - [ ] Monitor for crawl errors
 
 ### Post-Launch (Week 1)
+
 - [ ] Check Google Search Console for crawl errors
 - [ ] Monitor 404 errors in analytics
 - [ ] Verify key pages indexed
@@ -321,6 +333,7 @@ Already implemented in `app/layout.tsx`:
 - [ ] Monitor organic traffic in analytics
 
 ### Post-Launch (Month 1)
+
 - [ ] Compare organic traffic to pre-migration baseline
 - [ ] Check Index Coverage report
 - [ ] Fix any remaining redirect issues
@@ -331,23 +344,29 @@ Already implemented in `app/layout.tsx`:
 ## Risk Mitigation
 
 ### Temporary Traffic Drop
+
 Expected: 10-20% drop for 2-4 weeks during re-indexing. This is normal.
 
 **Mitigation:**
+
 - Proper 301 redirects (not 302)
 - Keep old domain active during transition
 - Don't change URLs unnecessarily
 - Maintain content parity
 
 ### Lost Rankings
+
 **Mitigation:**
+
 - Don't change page titles drastically
 - Keep meta descriptions similar
 - Maintain internal linking structure
 - Keep content quality same or better
 
 ### Broken Backlinks
+
 **Mitigation:**
+
 - Comprehensive redirect map
 - Test all known backlink URLs
 - Reach out to high-value backlink sources if URLs changed
