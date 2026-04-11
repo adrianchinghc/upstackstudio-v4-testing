@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, AlertCircle, TrendingUp } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
   description:
     'Replace manual processes, spreadsheets, and WhatsApp approval chains with systems that run your business. Operations digitalisation company Malaysia.',
   alternates: {
-    canonical: 'https://upstackstudio.com/services/operations-digitalisation',
+    canonical: '/services/operations-digitalisation',
   },
   openGraph: {
     title: 'Operations Digitalisation | Upstack Studio',
     description:
       'Stop running your business on spreadsheets and WhatsApp chains. We map your operations and build the systems to replace them — in 16 weeks.',
-    url: 'https://upstackstudio.com/services/operations-digitalisation',
+    url: '/services/operations-digitalisation',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -96,6 +97,11 @@ const FAQS = [
 export default function OperationsDigitalisationPage() {
   return (
     <div className="bg-page min-h-screen">
+      <ServiceJsonLd
+        name="Operations Digitalisation"
+        description="Replace manual processes, spreadsheets, and WhatsApp approval chains with systems that run your business."
+        url="/services/operations-digitalisation"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

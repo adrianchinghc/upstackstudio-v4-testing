@@ -3,16 +3,7 @@ import Link from 'next/link'
 import { SectionLabel, AnimatedSection } from '@/components/common'
 import { Button } from '@/components/ui/button'
 import { SOCIAL } from '@/lib/constants'
-import {
-  ArrowRight,
-  Zap,
-  Users,
-  Rocket,
-  Coffee,
-  Laptop,
-  Heart,
-  ExternalLink,
-} from 'lucide-react'
+import { ArrowRight, Zap, Users, Rocket, Coffee, Laptop, Heart, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Careers',
@@ -20,6 +11,20 @@ export const metadata: Metadata = {
     'Join Upstack Studio — build software for growing companies with a senior team that values craft, ownership, and AI-enabled engineering.',
   alternates: {
     canonical: '/careers',
+  },
+  openGraph: {
+    title: 'Careers | Upstack Studio',
+    description:
+      'Join Upstack Studio — build software for growing companies with a senior team that values craft and ownership.',
+    url: '/careers',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Careers | Upstack Studio',
+    description: 'Join Upstack Studio — a senior team that values craft and ownership.',
   },
 }
 
@@ -57,7 +62,7 @@ const PERKS = [
   {
     title: 'Clients Who Care',
     description:
-      "We work with established companies solving real problems — not vaporware startups or demanding clients.",
+      'We work with established companies solving real problems — not vaporware startups or demanding clients.',
     icon: Heart,
   },
 ]
@@ -92,11 +97,11 @@ export default function CareersPage() {
         {/* Header */}
         <AnimatedSection className="max-w-3xl mb-16 md:mb-24">
           <SectionLabel className="mb-4 block">Careers</SectionLabel>
-          <h1 className="text-page-title mb-6">
-            Build Software That Matters
-          </h1>
+          <h1 className="text-page-title mb-6">Build Software That Matters</h1>
           <p className="text-lg md:text-xl text-secondary leading-relaxed mb-4">
-            We&apos;re a small, senior team building custom software for companies that can&apos;t afford another failed project. If you care about craft and want to work with AI-enabled tools alongside experienced engineers — keep reading.
+            We&apos;re a small, senior team building custom software for companies that can&apos;t
+            afford another failed project. If you care about craft and want to work with AI-enabled
+            tools alongside experienced engineers — keep reading.
           </p>
           <p className="text-base text-muted">
             Kuala Lumpur-based, remote-first. Currently hiring selectively.
@@ -117,9 +122,7 @@ export default function CareersPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">{perk.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">
-                    {perk.description}
-                  </p>
+                  <p className="text-sm text-secondary leading-relaxed">{perk.description}</p>
                 </div>
               </div>
             ))}
@@ -137,12 +140,8 @@ export default function CareersPage() {
                     {index + 1}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">
-                      {value.title}
-                    </h3>
-                    <p className="text-secondary leading-relaxed">
-                      {value.description}
-                    </p>
+                    <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+                    <p className="text-secondary leading-relaxed">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -155,16 +154,15 @@ export default function CareersPage() {
           <div className="rounded-2xl border border-default bg-surface p-8 md:p-12">
             <h2 className="text-section-title mb-6">Current Openings</h2>
             <p className="text-secondary mb-8 max-w-2xl">
-              We hire slowly and carefully. If you don&apos;t see a role that fits, reach out anyway — we&apos;re always interested in meeting exceptional people.
+              We hire slowly and carefully. If you don&apos;t see a role that fits, reach out anyway
+              — we&apos;re always interested in meeting exceptional people.
             </p>
 
             <div className="space-y-4 mb-8">
               <div className="p-6 rounded-xl bg-surface-2 border border-border">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
-                    <h3 className="text-lg font-semibold">
-                      Senior Full-Stack Developer
-                    </h3>
+                    <h3 className="text-lg font-semibold">Senior Full-Stack Developer</h3>
                     <p className="text-sm text-muted">
                       Ruby on Rails + React · Remote (Malaysia) · Full-time
                     </p>
@@ -219,10 +217,13 @@ export default function CareersPage() {
             <div className="max-w-xl">
               <h2 className="text-xl font-semibold mb-4">About Upstack Studio</h2>
               <p className="text-secondary leading-relaxed mb-4">
-                We&apos;re a software development studio based in Kuala Lumpur, building custom applications for established companies across Southeast Asia and beyond. Our clients include Daikin, BookXcess, Teleme, and The Malaysian Insight.
+                We&apos;re a software development studio based in Kuala Lumpur, building custom
+                applications for established companies across Southeast Asia and beyond. Our clients
+                include Daikin, BookXcess, Teleme, and The Malaysian Insight.
               </p>
               <p className="text-secondary leading-relaxed">
-                Since 2017, we&apos;ve delivered 40+ projects with a team that stays from kickoff to handover. No juniors. No outsourcing. No bullshit.
+                Since 2017, we&apos;ve delivered 40+ projects with a team that stays from kickoff to
+                handover. No juniors. No outsourcing. No bullshit.
               </p>
             </div>
             <div className="flex flex-col gap-3">
@@ -233,11 +234,7 @@ export default function CareersPage() {
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <a
-                  href={SOCIAL.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer">
                   Follow on LinkedIn
                   <ExternalLink className="h-4 w-4 ml-2" />
                 </a>

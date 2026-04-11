@@ -8,7 +8,8 @@ const fs = require('fs')
 const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
 
-const INPUT_FILE = process.argv[2] || '/Users/adrianching/Downloads/Personal/upstackstudio.WordPress.2026-03-19.xml'
+const INPUT_FILE =
+  process.argv[2] || '/Users/adrianching/Downloads/Personal/upstackstudio.WordPress.2026-03-19.xml'
 const OUTPUT_DIR = path.join(__dirname, '..', 'content', 'blog')
 
 // Helper to extract value from CDATA wrapper
@@ -56,10 +57,7 @@ function cleanContent(html) {
   )
 
   // Convert standalone img tags
-  content = content.replace(
-    /<img[^>]*src="([^"]+)"[^>]*alt="([^"]*)"[^>]*\/?>/gi,
-    '![$2]($1)'
-  )
+  content = content.replace(/<img[^>]*src="([^"]+)"[^>]*alt="([^"]*)"[^>]*\/?>/gi, '![$2]($1)')
 
   // Convert headings
   content = content.replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, '\n# $1\n')
@@ -76,10 +74,7 @@ function cleanContent(html) {
   })
 
   // Convert code blocks
-  content = content.replace(
-    /<pre[^>]*><code[^>]*>([\s\S]*?)<\/code><\/pre>/gi,
-    '\n```\n$1\n```\n'
-  )
+  content = content.replace(/<pre[^>]*><code[^>]*>([\s\S]*?)<\/code><\/pre>/gi, '\n```\n$1\n```\n')
   content = content.replace(/<code[^>]*>([\s\S]*?)<\/code>/gi, '`$1`')
 
   // Convert lists
@@ -95,11 +90,15 @@ function cleanContent(html) {
   content = content.replace(/<ol[^>]*>([\s\S]*?)<\/ol>/gi, (match, inner) => {
     let counter = 0
     const items = inner.match(/<li[^>]*>([\s\S]*?)<\/li>/gi) || []
-    return items.map(item => {
-      counter++
-      const text = item.replace(/<\/?li[^>]*>/gi, '').trim()
-      return `${counter}. ${text}`
-    }).join('\n') + '\n'
+    return (
+      items
+        .map((item) => {
+          counter++
+          const text = item.replace(/<\/?li[^>]*>/gi, '').trim()
+          return `${counter}. ${text}`
+        })
+        .join('\n') + '\n'
+    )
   })
 
   // Convert links
@@ -202,7 +201,7 @@ function generateFrontmatter(post) {
   const tags = []
 
   if (Array.isArray(post.category)) {
-    post.category.forEach(cat => {
+    post.category.forEach((cat) => {
       if (typeof cat === 'object') {
         const catValue = getCdata(cat) || cat['@_nicename']
         if (cat['@_domain'] === 'category' && catValue) {
@@ -231,9 +230,9 @@ description: "${description}"
 date: "${date}"
 author: "${author}"
 category: "${category}"
-tags: [${tags.map(t => `"${t}"`).join(', ')}]
+tags: [${tags.map((t) => `"${t}"`).join(', ')}]
 canonical: "https://upstackstudio.com/blog/${slug}"
----`
+---`,
   }
 }
 
@@ -263,7 +262,7 @@ async function migrate() {
   console.log(`📦 Total items in XML: ${items.length}`)
 
   // Filter for published posts only
-  const posts = items.filter(item => {
+  const posts = items.filter((item) => {
     const postType = getCdata(item['wp:post_type']).trim()
     const status = getCdata(item['wp:status']).trim()
     return postType === 'post' && status === 'publish'
@@ -314,7 +313,7 @@ async function migrate() {
 
   if (errors.length > 0) {
     console.log('\nErrors:')
-    errors.forEach(e => console.log(`  - ${e.title}: ${e.error}`))
+    errors.forEach((e) => console.log(`  - ${e.title}: ${e.error}`))
   }
 }
 

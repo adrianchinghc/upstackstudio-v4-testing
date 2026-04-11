@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar, TestimonialCard } from '@/components/common'
+import { LocalBusinessJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { type Market, formatPrice, PRICING } from '@/lib/currency'
@@ -70,6 +71,7 @@ export function GeoPage({
 
   return (
     <div className="bg-page min-h-screen">
+      <LocalBusinessJsonLd />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

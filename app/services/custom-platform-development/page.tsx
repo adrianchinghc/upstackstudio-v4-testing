@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Smartphone, Globe, Layers, CheckCircle } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
   description:
     'Custom software development Malaysia. Mobile app, web app, and PWA development for established companies. Built on the LUDA™ Framework — delivered in 16 weeks.',
   alternates: {
-    canonical: 'https://upstackstudio.com/services/custom-platform-development',
+    canonical: '/services/custom-platform-development',
   },
   openGraph: {
     title: 'Custom Platform Development | Upstack Studio',
     description:
       'When off-the-shelf software stops fitting — we build what actually works. Mobile apps, web platforms, and PWAs for Malaysia and beyond.',
-    url: 'https://upstackstudio.com/services/custom-platform-development',
+    url: '/services/custom-platform-development',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -101,6 +102,11 @@ const FAQS = [
 export default function CustomPlatformDevelopmentPage() {
   return (
     <div className="bg-page min-h-screen">
+      <ServiceJsonLd
+        name="Custom Platform Development"
+        description="Custom software development — mobile apps, web apps, and PWAs for established companies. Built on the LUDA™ Framework."
+        url="/services/custom-platform-development"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/clutch-top-rated-app-development-agency',
   },
+  openGraph: {
+    title: 'Top Rated App Development Agency | Upstack Studio',
+    description: 'Recognized by Clutch with 4.9★ rating and 40+ reviews from enterprise clients.',
+    url: '/clutch-top-rated-app-development-agency',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Top Rated App Development Agency | Upstack Studio',
+    description: 'Recognized by Clutch with 4.9★ rating and 40+ reviews.',
+  },
 }
 
 const CLUTCH_HIGHLIGHTS = [
@@ -47,7 +60,7 @@ const AWARDS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Upstack Studio delivered exactly what we needed — a reliable, scalable platform that our team actually uses. Their communication throughout the project was exceptional.",
+      'Upstack Studio delivered exactly what we needed — a reliable, scalable platform that our team actually uses. Their communication throughout the project was exceptional.',
     author: 'Operations Director',
     company: 'Manufacturing Company, Malaysia',
     rating: 5,
@@ -61,7 +74,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Our eCommerce revenue grew 15× after launching the platform they built. The ROI was clear within the first quarter.",
+      'Our eCommerce revenue grew 15× after launching the platform they built. The ROI was clear within the first quarter.',
     author: 'Managing Director',
     company: 'Retail Chain, Malaysia',
     rating: 5,
@@ -78,11 +91,10 @@ export default function ClutchPage() {
             <Award className="h-4 w-4" />
             Clutch Verified
           </div>
-          <h1 className="text-page-title mb-6">
-            Top Rated App Development Agency
-          </h1>
+          <h1 className="text-page-title mb-6">Top Rated App Development Agency</h1>
           <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-8">
-            Recognized by Clutch as one of the top software development companies in Malaysia. Our 4.9★ rating comes from 40+ verified client reviews.
+            Recognized by Clutch as one of the top software development companies in Malaysia. Our
+            4.9★ rating comes from 40+ verified client reviews.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg">
@@ -128,10 +140,7 @@ export default function ClutchPage() {
             <h2 className="text-section-title mb-8">Awards & Accolades</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {AWARDS.map((award) => (
-                <div
-                  key={award}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-surface-2"
-                >
+                <div key={award} className="flex items-center gap-3 p-4 rounded-lg bg-surface-2">
                   <Award className="h-5 w-5 text-brand-blue flex-shrink-0" />
                   <span className="font-medium">{award}</span>
                 </div>
@@ -143,21 +152,13 @@ export default function ClutchPage() {
         {/* Testimonials */}
         <AnimatedSection className="mb-16 md:mb-24">
           <SectionLabel className="mb-4 block">Client Reviews</SectionLabel>
-          <h2 className="text-section-title mb-8">
-            What Clients Say on Clutch
-          </h2>
+          <h2 className="text-section-title mb-8">What Clients Say on Clutch</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((testimonial, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-surface border border-border"
-              >
+              <div key={index} className="p-6 rounded-xl bg-surface border border-border">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                    />
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 <blockquote className="text-secondary mb-4 leading-relaxed">
@@ -194,11 +195,10 @@ export default function ClutchPage() {
               Ready to Work With a Top-Rated Team?
             </h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              Book a 45-minute strategy call with Adrian. You&apos;ll walk away with a clear picture of what your project would look like — whether you work with us or not.
+              Book a 45-minute strategy call with Adrian. You&apos;ll walk away with a clear picture
+              of what your project would look like — whether you work with us or not.
             </p>
-            <p className="text-muted mb-8">
-              Typical engagements from USD 45,000.
-            </p>
+            <p className="text-muted mb-8">Typical engagements from USD 45,000.</p>
             <Button asChild size="lg">
               <Link href="/strategy-session">
                 Book Your Strategy Call

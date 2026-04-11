@@ -48,12 +48,28 @@ const nextConfig: NextConfig = {
       { source: '/careers/', destination: '/careers', permanent: true },
       { source: '/privacy-policy/', destination: '/privacy-policy', permanent: true },
       { source: '/affiliate-disclaimer/', destination: '/affiliate-disclaimer', permanent: true },
-      { source: '/clutch-top-rated-app-development-agency/', destination: '/clutch-top-rated-app-development-agency', permanent: true },
-      { source: '/app-developer-interview-questions/', destination: '/app-developer-interview-questions', permanent: true },
+      {
+        source: '/clutch-top-rated-app-development-agency/',
+        destination: '/clutch-top-rated-app-development-agency',
+        permanent: true,
+      },
+      {
+        source: '/app-developer-interview-questions/',
+        destination: '/app-developer-interview-questions',
+        permanent: true,
+      },
       { source: '/app-brief-template/', destination: '/app-brief-template', permanent: true },
-      { source: '/app-validation-blueprint/', destination: '/app-validation-blueprint', permanent: true },
+      {
+        source: '/app-validation-blueprint/',
+        destination: '/app-validation-blueprint',
+        permanent: true,
+      },
       { source: '/zero-to-app-ready/', destination: '/zero-to-app-ready', permanent: true },
-      { source: '/app-development-mistakes-ebook/', destination: '/app-development-mistakes-ebook', permanent: true },
+      {
+        source: '/app-development-mistakes-ebook/',
+        destination: '/app-development-mistakes-ebook',
+        permanent: true,
+      },
 
       // Legacy landing pages redirect to strategy session
       { source: '/course/', destination: '/strategy-session', permanent: true },

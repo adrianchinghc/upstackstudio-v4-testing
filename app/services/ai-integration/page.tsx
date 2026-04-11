@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, FileSearch, Cog, BrainCircuit } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
   description:
     'AI integration services Malaysia. We build AI that connects to how your business actually runs — document intelligence, operational automation, and internal AI tools.',
   alternates: {
-    canonical: 'https://upstackstudio.com/services/ai-integration',
+    canonical: '/services/ai-integration',
   },
   openGraph: {
     title: 'AI Integration Services | Upstack Studio',
     description:
       "AI isn't magic. But in the right place, it's the highest-ROI investment you can make. We'll tell you directly if it's not the right answer yet.",
-    url: 'https://upstackstudio.com/services/ai-integration',
+    url: '/services/ai-integration',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -131,6 +132,11 @@ const FAQS = [
 export default function AiIntegrationPage() {
   return (
     <div className="bg-page min-h-screen">
+      <ServiceJsonLd
+        name="AI Integration Services"
+        description="AI integration that connects to how your business actually runs — document intelligence, operational automation, and internal AI tools."
+        url="/services/ai-integration"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

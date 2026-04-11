@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/thank-you',
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 const WHAT_TO_EXPECT = [

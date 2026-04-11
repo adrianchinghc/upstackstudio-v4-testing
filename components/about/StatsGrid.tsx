@@ -1,47 +1,47 @@
-"use client";
+'use client'
 
-import { AnimatedSection, AnimatedCounter } from "@/components/common";
-import { COMPANY_STATS } from "@/lib/constants";
+import { AnimatedSection, AnimatedCounter } from '@/components/common'
+import { COMPANY_STATS } from '@/lib/constants'
 
 const stats = [
   {
     value: COMPANY_STATS.yearsInBusiness,
-    suffix: "+",
-    label: "Years Shipping Software",
-    sublabel: "Still here. Still growing.",
+    suffix: '+',
+    label: 'Years Shipping Software',
+    sublabel: 'Still here. Still growing.',
   },
   {
     value: COMPANY_STATS.projectsCompleted,
-    suffix: "+",
-    label: "Projects Delivered",
-    sublabel: "In production today",
+    suffix: '+',
+    label: 'Projects Delivered',
+    sublabel: 'In production today',
   },
   {
     value: COMPANY_STATS.teamMembers,
-    suffix: "",
-    label: "Full-Time Team",
-    sublabel: "No contractors",
+    suffix: '',
+    label: 'Full-Time Team',
+    sublabel: 'No contractors',
   },
   {
     value: COMPANY_STATS.clientsServed,
-    suffix: "+",
-    label: "Clients Trusted Us",
-    sublabel: "RM20M to RM500M+ companies",
+    suffix: '+',
+    label: 'Clients Trusted Us',
+    sublabel: 'RM20M to RM500M+ companies',
   },
   {
     value: COMPANY_STATS.fundingRaised,
-    prefix: "$",
-    suffix: "",
-    label: "Outside Funding",
-    sublabel: "Bootstrapped. Profitable.",
+    prefix: '$',
+    suffix: '',
+    label: 'Outside Funding',
+    sublabel: 'Bootstrapped. Profitable.',
   },
   {
     value: COMPANY_STATS.remotePercentage,
-    suffix: "%",
-    label: "Malaysia-Based",
-    sublabel: "Same timezone, same values",
+    suffix: '%',
+    label: 'Malaysia-Based',
+    sublabel: 'Same timezone, same values',
   },
-];
+]
 
 export function StatsGrid() {
   return (
@@ -64,13 +64,11 @@ export function StatsGrid() {
                 {stat.suffix && <span>{stat.suffix}</span>}
               </div>
               <p className="text-base md:text-lg font-medium">{stat.label}</p>
-              {stat.sublabel && (
-                <p className="text-sm text-muted mt-1">{stat.sublabel}</p>
-              )}
+              {stat.sublabel && <p className="text-sm text-muted mt-1">{stat.sublabel}</p>}
             </div>
           </AnimatedSection>
         ))}
       </div>
     </section>
-  );
+  )
 }

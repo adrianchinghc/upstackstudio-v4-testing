@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/zero-to-app-ready',
   },
+  openGraph: {
+    title: 'Zero to App Ready | Upstack Studio',
+    description: 'From validation to launch, a practical guide for non-technical founders.',
+    url: '/zero-to-app-ready',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zero to App Ready',
+    description: 'Everything you need to know before building your first app.',
+  },
 }
 
 const JOURNEY_STAGES = [
@@ -65,7 +78,7 @@ const JOURNEY_STAGES = [
   {
     stage: 'Launch',
     icon: CheckCircle,
-    description: 'Deploy to production and get the software into users\' hands.',
+    description: "Deploy to production and get the software into users' hands.",
     timeline: '1-2 weeks',
     activities: [
       'Production deployment',
@@ -108,7 +121,8 @@ export default function ZeroToAppReadyPage() {
           <SectionLabel className="mb-4 block">Guide</SectionLabel>
           <h1 className="text-page-title mb-6">Zero to App Ready</h1>
           <p className="text-lg text-secondary">
-            Building software for the first time? This guide covers the journey from idea to launch — the stages, decisions, and timeline you should expect.
+            Building software for the first time? This guide covers the journey from idea to launch
+            — the stages, decisions, and timeline you should expect.
           </p>
         </AnimatedSection>
 
@@ -138,10 +152,7 @@ export default function ZeroToAppReadyPage() {
                     <p className="text-secondary mb-4">{stage.description}</p>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {stage.activities.map((activity) => (
-                        <div
-                          key={activity}
-                          className="flex items-center gap-2 text-sm text-muted"
-                        >
+                        <div key={activity} className="flex items-center gap-2 text-sm text-muted">
                           <CheckCircle className="h-3 w-3 text-brand-blue" />
                           {activity}
                         </div>
@@ -172,26 +183,23 @@ export default function ZeroToAppReadyPage() {
         {/* Timeline Summary */}
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="bg-surface-2 rounded-2xl p-8 md:p-10 text-center">
-            <h2 className="text-xl font-semibold mb-4">
-              Typical Timeline: 16-26 Weeks
-            </h2>
+            <h2 className="text-xl font-semibold mb-4">Typical Timeline: 16-26 Weeks</h2>
             <p className="text-secondary max-w-2xl mx-auto mb-6">
-              From validated idea to launched product. Faster is possible for simpler projects. Complex enterprise software takes longer. Anyone who promises faster without knowing your requirements is lying.
+              From validated idea to launched product. Faster is possible for simpler projects.
+              Complex enterprise software takes longer. Anyone who promises faster without knowing
+              your requirements is lying.
             </p>
-            <p className="text-muted">
-              Typical investment: USD 45,000 – USD 150,000
-            </p>
+            <p className="text-muted">Typical investment: USD 45,000 – USD 150,000</p>
           </div>
         </AnimatedSection>
 
         {/* CTA */}
         <AnimatedSection className="text-center">
           <div className="rounded-2xl bg-surface border border-default p-8 md:p-12">
-            <h2 className="text-2xl font-semibold mb-4">
-              Ready to Start Your Journey?
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Ready to Start Your Journey?</h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              Book a strategy session and we&apos;ll help you map out your specific path from idea to launch.
+              Book a strategy session and we&apos;ll help you map out your specific path from idea
+              to launch.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">

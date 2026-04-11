@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, X } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import {
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
   description:
     'Your platform launched. Now it needs to keep up with your business. Ongoing development subscriptions for platforms built by Upstack Studio — from RM 4,995/month.',
   alternates: {
-    canonical: 'https://upstackstudio.com/services/development-subscription',
+    canonical: '/services/development-subscription',
   },
   openGraph: {
     title: 'Development Subscription | Upstack Studio',
     description:
       'Ongoing development for your live platform. Same senior team. Predictable monthly cost. Pause or cancel with one month notice.',
-    url: 'https://upstackstudio.com/services/development-subscription',
+    url: '/services/development-subscription',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -139,6 +140,11 @@ const FAQS = [
 export default function DevelopmentSubscriptionPage() {
   return (
     <div className="bg-page min-h-screen">
+      <ServiceJsonLd
+        name="Development Subscription"
+        description="Ongoing development for your live platform. Same senior team. Predictable monthly cost. Pause or cancel with one month notice."
+        url="/services/development-subscription"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

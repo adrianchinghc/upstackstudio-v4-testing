@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Software Development Australia | Upstack Studio',
   description:
     'Australian companies building digital infrastructure across Asia-Pacific. Operations digitalisation, AI integration, and custom platform development — delivered by a senior Malaysian team.',
-  alternates: { canonical: 'https://upstackstudio.com/australia' },
+  alternates: { canonical: '/australia' },
   openGraph: {
     title: 'Software Development Australia | Upstack Studio',
     description:
       'Australian companies building digital infrastructure for APAC expansion. Senior engineering team, transparent process, fixed pricing.',
-    url: 'https://upstackstudio.com/australia',
+    url: '/australia',
     siteName: 'Upstack Studio',
     locale: 'en_AU',
     type: 'website',

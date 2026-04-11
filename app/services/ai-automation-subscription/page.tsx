@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Zap, RefreshCw, GitBranch, Bot } from 'lucide-react'
 import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
   description:
     'Automate operations, eliminate manual work, and scale without adding headcount. Unlimited AI workflow automation on a monthly subscription.',
   alternates: {
-    canonical: 'https://upstackstudio.com/services/ai-automation-subscription',
+    canonical: '/services/ai-automation-subscription',
   },
   openGraph: {
     title: 'AI Automation Subscription | Upstack Studio',
     description:
       'Automate operations, eliminate manual work, and scale without adding headcount. Unlimited AI workflow automation on a monthly subscription.',
-    url: 'https://upstackstudio.com/services/ai-automation-subscription',
+    url: '/services/ai-automation-subscription',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -135,6 +136,11 @@ const FAQS = [
 export default function AiAutomationSubscriptionPage() {
   return (
     <div className="bg-page min-h-screen">
+      <ServiceJsonLd
+        name="AI Automation Subscription"
+        description="Automate operations, eliminate manual work, and scale without adding headcount. Unlimited AI workflow automation on a monthly subscription."
+        url="/services/ai-automation-subscription"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-5xl mx-auto">

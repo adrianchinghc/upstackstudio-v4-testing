@@ -1,11 +1,11 @@
 ---
-title: "How To Convert Websites Into Progressive Web Apps (PWA)"
-description: "PWAs can function like native apps on mobile devices and offer a seamless experience to users by combining the best of both worlds - web and native apps."
-date: "2024-10-29"
-author: "Ashraf Farid"
-category: "Web App"
+title: 'How To Convert Websites Into Progressive Web Apps (PWA)'
+description: 'PWAs can function like native apps on mobile devices and offer a seamless experience to users by combining the best of both worlds - web and native apps.'
+date: '2024-10-29'
+author: 'Ashraf Farid'
+category: 'Web App'
 tags: []
-canonical: "https://upstackstudio.com/blog/convert-website-progressive-web-app"
+canonical: 'https://upstackstudio.com/blog/convert-website-progressive-web-app'
 ---
 
 ## What is a Progressive Web App?
@@ -81,13 +81,14 @@ Service workers are scripts that act as a network proxy, allowing you to cache a
 
 ```javascript
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(function(registration) {
-      console.log('Service Worker registered with scope:', registration.scope);
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function (registration) {
+      console.log('Service Worker registered with scope:', registration.scope)
     })
-    .catch(function(error) {
-      console.log('Service Worker registration failed:', error);
-    });
+    .catch(function (error) {
+      console.log('Service Worker registration failed:', error)
+    })
 }
 ```
 
@@ -198,12 +199,12 @@ Progressive Web Apps bring numerous benefits to both users and developers, inclu
 
 -**No App Store Dependency**: Users can install PWAs directly from their browser without going through app stores.
 
-|**Native Apps** |**Progressive Web Apps** |
-|---|---|
-| Requires download from app stores | Can be installed from a browser |
-| Platform-specific development | Cross-platform using web standards |
-| High development cost | Lower cost using existing web code |
-| Frequent updates via app stores | Updates are handled by the browser |
+| **Native Apps**                   | **Progressive Web Apps**           |
+| --------------------------------- | ---------------------------------- |
+| Requires download from app stores | Can be installed from a browser    |
+| Platform-specific development     | Cross-platform using web standards |
+| High development cost             | Lower cost using existing web code |
+| Frequent updates via app stores   | Updates are handled by the browser |
 
 ## Conclusion
 
@@ -211,4 +212,4 @@ Progressive Web Apps provide the perfect balance between traditional websites an
 
 By converting your website to a PWA, you not only improve user engagement but also expand your audience without the complexities of developing native apps.
 
-*If you're looking to build a mobile application, check out our portfolio of past projects and contact us if you like what you see. Also, consider joining our mailing list for a one-stop resource on everything from**[micro-SaaS validation](https://upstackstudio.com/blog/micro-saas-idea-validation/)** all the way to execution and promotion. Get a nifty list of questions to ask [app developers](https://upstackstudio.com/) when you sign up!*
+_If you're looking to build a mobile application, check out our portfolio of past projects and contact us if you like what you see. Also, consider joining our mailing list for a one-stop resource on everything from**[micro-SaaS validation](https://upstackstudio.com/blog/micro-saas-idea-validation/)** all the way to execution and promotion. Get a nifty list of questions to ask [app developers](https://upstackstudio.com/) when you sign up!_

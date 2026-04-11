@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/app-developer-interview-questions',
   },
+  openGraph: {
+    title: 'App Developer Interview Questions | Upstack Studio',
+    description: 'Essential questions to ask when hiring an app developer.',
+    url: '/app-developer-interview-questions',
+    siteName: 'Upstack Studio',
+    locale: 'en_MY',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'App Developer Interview Questions',
+    description: 'Evaluate technical skills, process, and red flags before hiring.',
+  },
 }
 
 const QUESTION_CATEGORIES = [
@@ -19,9 +32,9 @@ const QUESTION_CATEGORIES = [
     icon: CheckCircle,
     questions: [
       'What tech stack do you recommend for my project, and why?',
-      'Can you show me similar projects you\'ve built?',
-      "How do you handle projects outside your core stack?",
-      'What\'s your approach to technical debt?',
+      "Can you show me similar projects you've built?",
+      'How do you handle projects outside your core stack?',
+      "What's your approach to technical debt?",
       'How do you ensure code quality and maintainability?',
     ],
   },
@@ -63,7 +76,7 @@ const KEY_QUESTIONS = [
     why: 'Any reputable agency should be willing to connect you with satisfied clients. Hesitation here is a major red flag.',
   },
   {
-    question: 'What if I\'m not happy with the work?',
+    question: "What if I'm not happy with the work?",
     why: 'Understand the feedback process, revision policy, and worst-case scenarios before you sign anything.',
   },
 ]
@@ -75,31 +88,23 @@ export default function AppDeveloperInterviewQuestionsPage() {
         {/* Header */}
         <AnimatedSection className="mb-12 md:mb-16">
           <SectionLabel className="mb-4 block">Resource</SectionLabel>
-          <h1 className="text-page-title mb-6">
-            Questions to Ask Before Hiring an App Developer
-          </h1>
+          <h1 className="text-page-title mb-6">Questions to Ask Before Hiring an App Developer</h1>
           <p className="text-lg text-secondary max-w-2xl">
-            Hiring the wrong developer is expensive — not just in money, but in time and opportunity cost. Ask these questions to find a partner who will actually deliver.
+            Hiring the wrong developer is expensive — not just in money, but in time and opportunity
+            cost. Ask these questions to find a partner who will actually deliver.
           </p>
         </AnimatedSection>
 
         {/* Question Categories */}
         {QUESTION_CATEGORIES.map((category, categoryIndex) => (
-          <AnimatedSection
-            key={category.title}
-            delay={categoryIndex * 0.05}
-            className="mb-10"
-          >
+          <AnimatedSection key={category.title} delay={categoryIndex * 0.05} className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <category.icon className="h-5 w-5 text-brand-blue" />
               <h2 className="text-xl font-semibold">{category.title}</h2>
             </div>
             <ul className="space-y-3 pl-8">
               {category.questions.map((question, index) => (
-                <li
-                  key={index}
-                  className="text-secondary flex items-start gap-3"
-                >
+                <li key={index} className="text-secondary flex items-start gap-3">
                   <span className="text-brand-blue mt-1">•</span>
                   <span>{question}</span>
                 </li>
@@ -111,9 +116,7 @@ export default function AppDeveloperInterviewQuestionsPage() {
         {/* Key Questions Deep Dive */}
         <AnimatedSection className="mb-16 md:mb-24">
           <div className="rounded-2xl bg-surface border border-default p-8 md:p-10">
-            <h2 className="text-section-title mb-8">
-              4 Questions That Matter Most
-            </h2>
+            <h2 className="text-section-title mb-8">4 Questions That Matter Most</h2>
             <div className="space-y-8">
               {KEY_QUESTIONS.map((item, index) => (
                 <div key={index} className="pb-8 border-b border-border last:border-0 last:pb-0">
@@ -121,8 +124,7 @@ export default function AppDeveloperInterviewQuestionsPage() {
                     {index + 1}. {item.question}
                   </h3>
                   <p className="text-secondary">
-                    <span className="font-medium text-muted">Why it matters:</span>{' '}
-                    {item.why}
+                    <span className="font-medium text-muted">Why it matters:</span> {item.why}
                   </p>
                 </div>
               ))}
@@ -133,11 +135,10 @@ export default function AppDeveloperInterviewQuestionsPage() {
         {/* CTA */}
         <AnimatedSection className="text-center">
           <div className="rounded-2xl bg-surface-2 border border-default p-8 md:p-12">
-            <h2 className="text-2xl font-semibold mb-4">
-              Want to See These Principles in Action?
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Want to See These Principles in Action?</h2>
             <p className="text-secondary mb-6 max-w-lg mx-auto">
-              Book a strategy call with us. We&apos;ll answer every question on this page — and you can see firsthand how a senior team operates.
+              Book a strategy call with us. We&apos;ll answer every question on this page — and you
+              can see firsthand how a senior team operates.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">

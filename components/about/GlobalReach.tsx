@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { AnimatedSection } from "@/components/common";
-import { COUNTRIES_SERVED } from "@/lib/constants";
+import { AnimatedSection } from '@/components/common'
+import { COUNTRIES_SERVED } from '@/lib/constants'
 
 export function GlobalReach() {
   return (
@@ -34,5 +34,5 @@ export function GlobalReach() {
         </div>
       </AnimatedSection>
     </section>
-  );
+  )
 }

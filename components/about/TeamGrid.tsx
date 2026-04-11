@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { AnimatedSection, SectionLabel } from "@/components/common";
-import { TEAM_MEMBERS } from "@/lib/constants";
-import { Linkedin } from "lucide-react";
+import Image from 'next/image'
+import { AnimatedSection, SectionLabel } from '@/components/common'
+import { TEAM_MEMBERS } from '@/lib/constants'
+import { Linkedin } from 'lucide-react'
 
 export function TeamGrid() {
   return (
@@ -16,8 +16,8 @@ export function TeamGrid() {
             These are the people who&apos;ll build your software.
           </h2>
           <p className="text-xl md:text-2xl text-secondary leading-relaxed">
-            Not contractors. Not outsourced. Full-time engineers and designers
-            based in Malaysia — the same faces from kickoff to launch.
+            Not contractors. Not outsourced. Full-time engineers and designers based in Malaysia —
+            the same faces from kickoff to launch.
           </p>
         </div>
       </AnimatedSection>
@@ -26,14 +26,14 @@ export function TeamGrid() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-16">
         {TEAM_MEMBERS.map((member, index) => {
           // Create visual rhythm with staggered delays
-          const row = Math.floor(index / 5);
-          const isOffsetRow = row % 2 === 1;
+          const row = Math.floor(index / 5)
+          const isOffsetRow = row % 2 === 1
 
           return (
             <AnimatedSection
               key={member.name}
               delay={index * 0.04}
-              className={isOffsetRow ? "lg:translate-y-6" : ""}
+              className={isOffsetRow ? 'lg:translate-y-6' : ''}
             >
               <div className="group cursor-default">
                 {/* Photo with dramatic hover */}
@@ -61,7 +61,7 @@ export function TeamGrid() {
                     <span className="group-hover:text-brand-blue transition-colors duration-300">
                       {member.name}
                     </span>
-                    {"linkedin" in member && member.linkedin && (
+                    {'linkedin' in member && member.linkedin && (
                       <a
                         href={member.linkedin}
                         target="_blank"
@@ -73,13 +73,11 @@ export function TeamGrid() {
                       </a>
                     )}
                   </h3>
-                  <p className="text-sm text-muted tracking-wide">
-                    {member.role}
-                  </p>
+                  <p className="text-sm text-muted tracking-wide">{member.role}</p>
                 </div>
               </div>
             </AnimatedSection>
-          );
+          )
         })}
       </div>
 
@@ -88,5 +86,5 @@ export function TeamGrid() {
         <div className="w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
     </section>
-  );
+  )
 }
