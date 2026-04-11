@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection } from '@/components/common'
 import { Button } from '@/components/ui/button'
-import { getAllPosts, POSTS_PER_PAGE } from '@/lib/blog'
-import { BLOG_CATEGORIES } from '@/lib/constants'
+import { getAllPosts, getCategories, POSTS_PER_PAGE } from '@/lib/blog'
+import { SITE_URL } from '@/lib/constants'
 import { ArrowRight, Clock, BookOpen } from 'lucide-react'
 
 // Force dynamic rendering due to searchParams usage
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   title: 'Blog | Upstack Studio',
   description:
     'In-depth articles on software development, AI integration, operations digitalisation, and digital transformation for established companies.',
-  alternates: { canonical: 'https://upstackstudio.com/blog' },
+  alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
     title: 'Blog | Upstack Studio',
     description:
       'Software development, AI integration, and digital transformation insights for established companies.',
-    url: 'https://upstackstudio.com/blog',
+    url: `${SITE_URL}/blog`,
     siteName: 'Upstack Studio',
     locale: 'en_MY',
     type: 'website',
@@ -34,6 +34,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const selectedCategory = params.category || 'All'
   const currentPage = parseInt(params.page || '1', 10)
 
+  const categories = getCategories()
   const allPosts = getAllPosts(selectedCategory === 'All' ? undefined : selectedCategory)
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE)
   const posts = allPosts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
@@ -60,7 +61,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <section className="sticky top-16 z-10 border-b border-default bg-page/95 backdrop-blur-sm px-6 py-4">
         <div className="max-w-5xl mx-auto overflow-x-auto">
           <div className="flex gap-2 min-w-max">
-            {BLOG_CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <Link
                 key={cat}
                 href={`/blog${cat === 'All' ? '' : `?category=${encodeURIComponent(cat)}`}`}

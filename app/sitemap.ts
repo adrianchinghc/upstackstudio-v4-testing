@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getAllPostSlugs } from '@/lib/blog'
+import { getAllPosts } from '@/lib/blog'
 import { SITE_URL } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -210,11 +210,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Blog posts
-  const blogSlugs = getAllPostSlugs()
-  const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    lastModified: now,
+  // Blog posts — use actual post dates for accurate lastModified
+  const blogPosts = getAllPosts()
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : now,
     changeFrequency: 'yearly' as const,
     priority: 0.6,
   }))

@@ -16,6 +16,7 @@ export interface BlogPost {
   canonical: string
   readingTime: string
   content: string
+  published?: boolean
 }
 
 export type BlogPostMeta = Omit<BlogPost, 'content'>
@@ -61,6 +62,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       canonical: data.canonical || `https://upstackstudio.com/blog/${slug}`,
       readingTime: rt.text,
       content,
+      published: data.published !== false,
     }
   } catch {
     return null
@@ -78,10 +80,17 @@ export function getAllPosts(category?: string): BlogPostMeta[] {
       return meta
     })
     .filter((p): p is BlogPostMeta => p !== null)
+    .filter((p) => p.published !== false)
     .filter((p) => !category || category === 'All' || p.category === category)
     .sort((a, b) => (a.date < b.date ? 1 : -1))
 
   return posts
+}
+
+export function getCategories(): string[] {
+  const posts = getAllPosts()
+  const categorySet = new Set(posts.map((p) => p.category))
+  return ['All', ...Array.from(categorySet).sort()]
 }
 
 export const POSTS_PER_PAGE = 20
