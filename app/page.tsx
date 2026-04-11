@@ -110,10 +110,11 @@ const PAIN_CARDS: Array<{
 ]
 
 // Hero — 4 named client logos, compact static row
+// TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
   { name: 'Daikin', src: '/images/client-logos/daikin.svg', height: 24 },
-  { name: 'Magnum 4D', src: '/images/client-logos/magnum.svg', height: 22 },
-  { name: 'BookXcess', src: '/images/client-logos/bookxcess.svg', height: 24 },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', height: 22 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', height: 22 },
   { name: 'Teleme', src: '/images/client-logos/teleme.svg', height: 18 },
 ]
 
@@ -262,7 +263,7 @@ export default async function Home() {
                       width={120}
                       height={logo.height}
                       style={{ height: logo.height, width: 'auto' }}
-                      className="object-contain opacity-70 dark:opacity-50 hover:opacity-100 dark:hover:opacity-80 transition-opacity"
+                      className="object-contain brightness-0 dark:invert opacity-50 hover:opacity-90 transition-opacity"
                     />
                   ))}
                 </div>
@@ -783,17 +784,14 @@ export default async function Home() {
       >
         <div className="flex animate-marquee items-center group-hover/marquee:[animation-play-state:paused]">
           {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, index) => (
-            <div
-              key={`${logo.name}-${index}`}
-              className="mx-10 md:mx-14 flex-shrink-0 opacity-90 hover:opacity-100 transition-all duration-300 dark:opacity-70 dark:hover:opacity-100"
-            >
+            <div key={`${logo.name}-${index}`} className="mx-10 md:mx-14 flex-shrink-0">
               <Image
                 src={logo.src}
                 alt={logo.name}
                 width={200}
                 height={logo.height}
                 style={{ height: logo.height, width: 'auto' }}
-                className="object-contain"
+                className="object-contain brightness-0 dark:invert opacity-50 hover:opacity-90 transition-opacity"
               />
             </div>
           ))}

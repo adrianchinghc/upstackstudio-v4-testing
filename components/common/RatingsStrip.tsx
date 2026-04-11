@@ -83,10 +83,7 @@ export function RatingsStrip({ className, variant = 'default' }: RatingsStripPro
                 alt={rating.label}
                 width={Math.round(logo.width * scale)}
                 height={Math.round(logo.height * scale)}
-                className={cn(
-                  'hidden dark:block opacity-70 hover:opacity-100 transition-opacity',
-                  variant === 'compact' && 'opacity-60'
-                )}
+                className="hidden dark:block"
               />
               {/* Light mode logo */}
               <Image
@@ -94,11 +91,7 @@ export function RatingsStrip({ className, variant = 'default' }: RatingsStripPro
                 alt={rating.label}
                 width={Math.round(logo.width * scale)}
                 height={Math.round(logo.height * scale)}
-                className={cn(
-                  'block dark:hidden opacity-80 hover:opacity-100 transition-opacity',
-                  logo.invertLight && 'invert',
-                  variant === 'compact' && 'opacity-70'
-                )}
+                className={cn('block dark:hidden', logo.invertLight && 'invert')}
               />
             </div>
           </div>
