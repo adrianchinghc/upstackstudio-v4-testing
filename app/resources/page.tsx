@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SectionLabel, AnimatedSection } from '@/components/common'
+import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
 import { SOCIAL } from '@/lib/constants'
 import {
@@ -231,6 +232,11 @@ export default function ResourcesPage() {
             })}
           </div>
         </section>
+
+        {/* LUDA Framework */}
+        <div className="mb-16 md:mb-24">
+          <LudaSection variant="compact" />
+        </div>
 
         {/* CTA */}
         <AnimatedSection className="text-center">

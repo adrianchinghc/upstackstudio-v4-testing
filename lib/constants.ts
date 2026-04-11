@@ -9,7 +9,7 @@ export const SITE_TAGLINE =
   'Custom software for growing companies. Built with AI, launched in 16 weeks.'
 
 export const SITE_DEFAULT_DESCRIPTION =
-  'Custom software development for growing companies in Malaysia, Singapore, and SEA. Built with AI, launched in 16 weeks. Start with a 2-week Scoping Sprint. Senior-led from Petaling Jaya.'
+  'Custom software development for growing companies in Malaysia, Singapore, and SEA. Built with AI, launched in 16 weeks. Start with a 2-week Scoping Sprint. Senior-led from Kuala Lumpur.'
 
 export const CALENDLY_URL = 'https://calendly.com/upstackstudio/45-minute-strategy-session'
 

@@ -10,8 +10,8 @@ interface PriceProps {
 /**
  * Async Server Component — renders the correct price label for the visitor's region.
  *
- * Resolution order: cookie override → Vercel IP country → INTL fallback.
- * See lib/geo.ts for full logic.
+ * Region is resolved automatically from the visitor's IP address via Vercel's
+ * x-vercel-ip-country header. Malaysian IPs show RM pricing; all others show USD.
  *
  * Usage:
  *   <Price anchor="scopingSprint" />           → "RM 15,000" or "USD 15,000"

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SectionLabel, AnimatedSection, GuaranteeBar } from '@/components/common'
+import { SectionLabel, AnimatedSection } from '@/components/common'
 import { LudaSection } from '@/components/luda/LudaSection'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Settings, Brain, Zap, Code, RefreshCw } from 'lucide-react'
+import { ArrowRight, Settings, Brain, Zap, Code, RefreshCw, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
 }
 
 const SERVICES = [
+  {
+    title: 'Scoping Sprint',
+    description:
+      'Two weeks. One senior engineer. A written plan you can defend internally — before committing to a build.',
+    href: '/services/scoping-sprint',
+    icon: Target,
+  },
   {
     title: 'Operations Digitalisation',
     description:
@@ -59,9 +66,9 @@ const PROCESS_STEPS = [
   },
   {
     number: '02',
-    title: 'Discovery & Scoping',
+    title: 'Scoping Sprint',
     description:
-      'We map your processes, define requirements, and deliver a detailed proposal with fixed scope and timeline.',
+      'Two weeks of discovery. We map your processes, define requirements, and deliver a written plan with fixed scope, timeline, and cost.',
   },
   {
     number: '03',
@@ -87,7 +94,8 @@ export default function ServicesPage() {
           </h1>
           <p className="text-lg text-secondary leading-relaxed">
             Every engagement starts with understanding your operations — not a feature list. We
-            engineer the exact solution your business needs, built on the LUDA™ Framework.
+            engineer the exact solution your business needs, built on the LUDA™ Framework, with
+            AI-enabled engineering and a senior team from kickoff to handover.
           </p>
         </AnimatedSection>
 
@@ -141,11 +149,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Guarantee Bar */}
-        <AnimatedSection className="mb-16 md:mb-24">
-          <GuaranteeBar />
-        </AnimatedSection>
-
         {/* LUDA Section */}
         <LudaSection variant="full" />
 
@@ -154,13 +157,18 @@ export default function ServicesPage() {
           <div className="max-w-2xl mx-auto">
             <h2 className="text-section-title mb-6">Pricing</h2>
             <p className="text-lg text-secondary mb-4">
-              Typical zero-to-launch engagements start from{' '}
-              <span className="font-semibold text-[var(--text)]">USD 45,000</span> for a single
-              platform delivered in 16 weeks.
+              Start with a{' '}
+              <Link href="/services/scoping-sprint" className="text-sky-accent hover:underline">
+                Scoping Sprint
+              </Link>{' '}
+              at <span className="font-semibold text-[var(--text)]">USD 15,000</span> — a 2-week
+              written plan before you commit to a build. Zero-to-launch projects from{' '}
+              <span className="font-semibold text-[var(--text)]">USD 45,000</span>, delivered in 16
+              weeks.
             </p>
             <p className="text-muted mb-8">
-              Development subscriptions available from USD 2,995/month. All pricing confirmed on the
-              strategy call.
+              Development subscriptions from USD 2,995/month. All pricing confirmed on the strategy
+              call.
             </p>
             <Button asChild size="lg">
               <Link href="/strategy-session">
