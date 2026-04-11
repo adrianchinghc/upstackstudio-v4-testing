@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Upstack Studio — AI-Enabled Software Engineering'
+export const alt = 'Upstack Studio — Custom Software for Growing Companies'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -58,7 +58,7 @@ export default function OgImage() {
           color: '#75C7DA',
         }}
       >
-        AI-Enabled Software Engineering
+        Custom Software · Built with AI · 16 Weeks
       </div>
 
       {/* Headline */}
@@ -85,8 +85,8 @@ export default function OgImage() {
           marginBottom: '48px',
         }}
       >
-        Operations digitalisation, AI integration, and custom platform development for established,
-        growing companies.
+        Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16
+        weeks. Senior-led from Petaling Jaya.
       </div>
 
       {/* Trust line */}

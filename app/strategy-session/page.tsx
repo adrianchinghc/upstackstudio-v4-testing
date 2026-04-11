@@ -3,16 +3,16 @@ import { SectionLabel, AnimatedSection } from '@/components/common'
 import { StrategySessionForm } from '@/components/forms/StrategySessionForm'
 
 export const metadata: Metadata = {
-  title: 'Book a Strategy Session',
+  title: 'Book a Strategy Call | Upstack Studio',
   description:
-    'Schedule a 45-minute strategy call with Adrian. Not a sales pitch — a real conversation about your operations and how we can help.',
+    'Tell us what is costing you the most time or money. We read every answer before the call. Custom software for growing companies, built with AI, launched in 16 weeks.',
   alternates: {
     canonical: '/strategy-session',
   },
   openGraph: {
-    title: 'Book a Strategy Session | Upstack Studio',
+    title: 'Book a Strategy Call | Upstack Studio',
     description:
-      'Schedule a 45-minute strategy call with Adrian. Not a sales pitch — a real conversation about your operations.',
+      'Tell us what is costing you the most time or money. We read every answer before the call.',
     url: '/strategy-session',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
@@ -20,8 +20,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Book a Strategy Session | Upstack Studio',
-    description: 'Schedule a 45-minute strategy call with Adrian.',
+    title: 'Book a Strategy Call | Upstack Studio',
+    description:
+      'Tell us what is costing you the most time or money. We read every answer before the call.',
   },
 }
 

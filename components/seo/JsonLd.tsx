@@ -16,7 +16,7 @@ export function OrganizationJsonLd({ className }: OrganizationJsonLdProps) {
     url: SITE_URL,
     logo: `${SITE_URL}/logo-dark.svg`,
     description:
-      'AI-enabled software engineering for established, growing companies. Custom web and mobile app development in Malaysia.',
+      'Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16 weeks. Senior-led from Petaling Jaya.',
     foundingDate: '2017',
     address: {
       '@type': 'PostalAddress',
@@ -245,7 +245,7 @@ export function LocalBusinessJsonLd({ className }: LocalBusinessJsonLdProps) {
     '@type': 'LocalBusiness',
     name: SITE_NAME,
     description:
-      'AI-enabled software engineering agency specializing in custom web and mobile app development for established companies.',
+      'Custom software agency for growing companies in Malaysia and SEA. Built with AI-enabled engineering, launched in 16 weeks.',
     url: SITE_URL,
     telephone: '+60-3-7960-5766',
     email: 'hello@upstackstudio.com',
@@ -300,7 +300,8 @@ export function WebSiteJsonLd({ className }: WebSiteJsonLdProps) {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
-    description: 'AI-enabled software engineering for established, growing companies.',
+    description:
+      'Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16 weeks.',
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,

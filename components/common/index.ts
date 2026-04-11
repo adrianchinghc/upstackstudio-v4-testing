@@ -1,4 +1,6 @@
 export { Logo } from './Logo'
+// NOTE: Price is a Server-only async component — do NOT re-export from this barrel.
+// Import directly: import { Price } from '@/components/common/Price'
 export { SectionLabel } from './SectionLabel'
 export { AnimatedSection } from './AnimatedSection'
 export { AnimatedCounter } from './AnimatedCounter'

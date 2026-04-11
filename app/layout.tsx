@@ -5,6 +5,7 @@ import { Toaster } from 'sonner'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { CookieConsent } from '@/components/layout/CookieConsent'
+import { SITE_DEFAULT_DESCRIPTION } from '@/lib/constants'
 import './globals.css'
 
 // Optimized font loading with next/font — no render blocking
@@ -26,19 +27,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Upstack Studio | AI-Enabled Software Engineering',
+    default: 'Upstack Studio | Custom Software for Growing Companies',
     template: '%s | Upstack Studio',
   },
-  description:
-    'AI-enabled software engineering for established, growing companies. We digitalize operations, integrate AI, and build custom platforms — delivered on the LUDA™ Framework.',
+  description: SITE_DEFAULT_DESCRIPTION,
   metadataBase: new URL('https://upstackstudio.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Upstack Studio | AI-Enabled Software Engineering',
-    description:
-      'AI-enabled software engineering for established, growing companies. We digitalize operations, integrate AI, and build custom platforms.',
+    title: 'Upstack Studio | Custom Software for Growing Companies',
+    description: SITE_DEFAULT_DESCRIPTION,
     url: 'https://upstackstudio.com',
     siteName: 'Upstack Studio',
     locale: 'en_MY',
@@ -46,8 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Upstack Studio | AI-Enabled Software Engineering',
-    description: 'AI-enabled software engineering for established, growing companies.',
+    title: 'Upstack Studio | Custom Software for Growing Companies',
+    description:
+      'Custom software for growing companies in Malaysia and SEA. Built with AI, launched in 16 weeks.',
   },
   robots: {
     index: true,

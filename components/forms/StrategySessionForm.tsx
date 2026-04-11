@@ -1,74 +1,103 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { cn } from '@/lib/utils'
 import { buildCalendlyUrl } from '@/lib/utils'
-import { submitToHubSpot } from '@/lib/hubspot'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
-import { ArrowRight, Loader2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
 
-// Step 1 Schema - Pain Primer
-const step1Schema = z.object({
-  biggest_operational_pain: z
-    .string()
-    .min(10, 'Please share more detail about your operational challenge'),
-  cost_of_inaction: z.string().min(10, 'Please describe what happens if this remains unsolved'),
-  previous_attempts: z.string().optional(),
-})
+// ─── Constants ────────────────────────────────────────────────────────────────
 
-// Step 2 Schema - Contact & Qualify
-const step2Schema = z.object({
+const STORAGE_KEY = 'pain_primer_v1'
+
+const SYMPTOMS = [
+  'Operations running on spreadsheets or manual processes',
+  'Approvals happen over WhatsApp or email chains',
+  'Different departments have different versions of the same data',
+  'Monthly reporting takes 3 or more days to produce',
+  'Cannot see what is happening across locations in real time',
+  'Growing headcount without growing capacity',
+  'Previous tech project failed or was abandoned',
+  'Off-the-shelf software does not fit our specific workflows',
+  'Key team members hold too much knowledge in their heads',
+  'Customer complaints are increasing due to operational errors',
+  'Finance and operations are not in sync',
+  'New employees take too long to onboard and get up to speed',
+  'Compliance or audit pressure to modernise records',
+  'Board or investor pressure to demonstrate operational maturity',
+  'We see clear AI opportunities but have no clear starting point',
+]
+
+const MOTIVATION_LABELS: Record<number, string> = {
+  1: 'Just exploring',
+  2: 'Early awareness',
+  3: 'Interested but no urgency',
+  4: 'Pain is real, timing is unclear',
+  5: 'Actively evaluating',
+  6: 'Ready to move in 3 months',
+  7: 'Ready to move in 6 weeks',
+  8: 'Urgent — this costs us every week',
+  9: 'Urgent — we have budget and sign-off',
+  10: 'Critical — this cannot wait',
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+type Screen = 1 | 2 | 3 | 'result'
+
+type RoutingBucket = 'hot' | 'warm' | 'ambivalent' | 'cold'
+
+interface FormState {
+  symptoms: string[]
+  costText: string
+  previousAttempts: string
+  motivation: number
+  firstname: string
+  lastname: string
+  email: string
+  company: string
+  jobtitle: string
+  timeline: string
+  budget: string
+  source: string
+}
+
+const DEFAULT_STATE: FormState = {
+  symptoms: [],
+  costText: '',
+  previousAttempts: '',
+  motivation: 5,
+  firstname: '',
+  lastname: '',
+  email: '',
+  company: '',
+  jobtitle: '',
+  timeline: '',
+  budget: '',
+  source: '',
+}
+
+// ─── Validation ───────────────────────────────────────────────────────────────
+
+const contactSchema = z.object({
   firstname: z.string().min(1, 'First name is required'),
-  lastname: z.string().optional(),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().optional(),
+  email: z.string().email('Please enter a valid email'),
   company: z.string().min(1, 'Company name is required'),
-  jobtitle: z.string().optional(),
-  website: z.string().optional(),
-  project_timeline: z.string().min(1, 'Please select a timeline'),
-  budget_range: z.string().min(1, 'Please select a budget range'),
-  existing_assets: z.array(z.string()).optional(),
-  how_did_you_hear: z.string().optional(),
 })
 
-type Step1Data = z.infer<typeof step1Schema>
-type Step2Data = z.infer<typeof step2Schema>
+// ─── Routing ─────────────────────────────────────────────────────────────────
 
-const TIMELINE_OPTIONS = [
-  { value: 'asap', label: 'ASAP — we need to move now' },
-  { value: '3_months', label: 'Within 3 months' },
-  { value: '3_6_months', label: '3–6 months' },
-  { value: 'exploring', label: 'Just exploring for now' },
-]
+function scoreToBucket(score: number): RoutingBucket {
+  if (score >= 8) return 'hot'
+  if (score >= 6) return 'warm'
+  if (score >= 4) return 'ambivalent'
+  return 'cold'
+}
 
-const BUDGET_OPTIONS = [
-  { value: '20k_45k', label: 'USD 20,000–45,000' },
-  { value: '45k_100k', label: 'USD 45,000–100,000' },
-  { value: '100k_plus', label: 'USD 100,000+' },
-  { value: 'not_sure', label: "Not sure yet — let's talk" },
-]
-
-const ASSETS_OPTIONS = [
-  { value: 'designs', label: 'Figma designs or mockups' },
-  { value: 'spec', label: 'Technical specification' },
-  { value: 'codebase', label: 'Existing codebase to build on' },
-  { value: 'apis', label: 'Third-party APIs to integrate' },
-  { value: 'none', label: 'None — starting from scratch' },
-]
-
-const SOURCE_OPTIONS = [
-  { value: 'google', label: 'Google search' },
-  { value: 'linkedin', label: 'LinkedIn' },
-  { value: 'referral', label: 'Referral from someone I know' },
-  { value: 'youtube', label: 'YouTube or podcast' },
-  { value: 'social', label: 'Social media' },
-  { value: 'other', label: 'Other' },
-]
+// ─── Component ───────────────────────────────────────────────────────────────
 
 interface StrategySessionFormProps {
   className?: string
@@ -76,169 +105,324 @@ interface StrategySessionFormProps {
 
 export function StrategySessionForm({ className }: StrategySessionFormProps) {
   const router = useRouter()
-  const [step, setStep] = useState<1 | 2>(1)
-  const [step1Data, setStep1Data] = useState<Step1Data | null>(null)
+  const [screen, setScreen] = useState<Screen>(1)
+  const [form, setForm] = useState<FormState>(DEFAULT_STATE)
+  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [bucket, setBucket] = useState<RoutingBucket | null>(null)
+  const topRef = useRef<HTMLDivElement>(null)
 
-  // Step 1 form
-  const step1Form = useForm<Step1Data>({
-    resolver: zodResolver(step1Schema),
-    defaultValues: {
-      biggest_operational_pain: '',
-      cost_of_inaction: '',
-      previous_attempts: '',
-    },
-  })
+  // ── Restore from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      if (saved) {
+        const parsed = JSON.parse(saved) as Partial<FormState>
+        setForm((prev) => ({ ...prev, ...parsed }))
+      }
+    } catch {
+      // ignore parse errors
+    }
+  }, [])
 
-  // Step 2 form
-  const step2Form = useForm<Step2Data>({
-    resolver: zodResolver(step2Schema),
-    defaultValues: {
-      firstname: '',
-      lastname: '',
-      email: '',
-      phone: '',
-      company: '',
-      jobtitle: '',
-      website: '',
-      project_timeline: '',
-      budget_range: '',
-      existing_assets: [],
-      how_did_you_hear: '',
-    },
-  })
+  // ── Persist to localStorage on every change
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(form))
+    } catch {
+      // ignore quota errors
+    }
+  }, [form])
 
-  const handleStep1Submit = (data: Step1Data) => {
-    setStep1Data(data)
-    setStep(2)
+  function scrollToTop() {
+    topRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const handleStep2Submit = async (data: Step2Data) => {
-    if (!step1Data) return
+  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm((prev) => ({ ...prev, [key]: value }))
+    if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }))
+  }
 
-    setIsSubmitting(true)
+  function toggleSymptom(symptom: string) {
+    setForm((prev) => ({
+      ...prev,
+      symptoms: prev.symptoms.includes(symptom)
+        ? prev.symptoms.filter((s) => s !== symptom)
+        : [...prev.symptoms, symptom],
+    }))
+    if (errors.symptoms) setErrors((prev) => ({ ...prev, symptoms: undefined }))
+  }
 
-    // Combine all fields
-    const allFields = {
-      ...step1Data,
-      ...data,
-      existing_assets: data.existing_assets?.join(', ') || '',
+  // ── Screen navigation
+  function goToScreen2() {
+    if (form.symptoms.length === 0) {
+      setErrors({ symptoms: 'Select at least one symptom to continue.' })
+      return
     }
+    setScreen(2)
+    scrollToTop()
+  }
 
-    // Submit to HubSpot
-    const { success, error } = await submitToHubSpot(allFields, 'strategy')
+  function goToScreen3() {
+    if (!form.costText.trim()) {
+      setErrors({ costText: 'Please describe the cost — even a rough estimate helps.' })
+      return
+    }
+    setScreen(3)
+    scrollToTop()
+  }
 
-    if (!success) {
-      toast.error(error ?? 'Something went wrong. Please try again.')
-      setIsSubmitting(false)
+  // ── Final submit
+  async function handleSubmit() {
+    const validation = contactSchema.safeParse(form)
+    if (!validation.success) {
+      const fieldErrors: typeof errors = {}
+      for (const issue of validation.error.issues) {
+        const key = issue.path[0] as keyof FormState
+        fieldErrors[key] = issue.message
+      }
+      setErrors(fieldErrors)
       return
     }
 
-    // Redirect to Calendly with pre-filled info
-    const calendlyUrl = buildCalendlyUrl(data.firstname, data.lastname || '', data.email)
-    router.push(calendlyUrl)
+    setIsSubmitting(true)
+
+    try {
+      const res = await fetch('/api/strategy-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          symptoms: form.symptoms,
+          cost_text: form.costText,
+          previous_attempts: form.previousAttempts,
+          motivation_score: form.motivation,
+          firstname: form.firstname,
+          lastname: form.lastname,
+          email: form.email,
+          company: form.company,
+          jobtitle: form.jobtitle,
+          timeline: form.timeline,
+          budget: form.budget,
+          source: form.source,
+        }),
+      })
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string }
+        throw new Error(data.error ?? 'Submission failed')
+      }
+
+      const data = (await res.json()) as { bucket: RoutingBucket }
+      const resolvedBucket = data.bucket ?? scoreToBucket(form.motivation)
+      setBucket(resolvedBucket)
+
+      // Clear localStorage after successful submit
+      try {
+        localStorage.removeItem(STORAGE_KEY)
+      } catch {
+        /* ignore */
+      }
+
+      if (resolvedBucket === 'hot' || resolvedBucket === 'warm') {
+        // Redirect to Calendly with pre-filled fields
+        const calendlyUrl = buildCalendlyUrl(form.firstname, form.lastname, form.email)
+        router.push(calendlyUrl)
+      } else {
+        setScreen('result')
+        scrollToTop()
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      toast.error(message)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
+  // ── Progress indicator
+  const currentStep = screen === 'result' ? 3 : (screen as number)
+
   return (
-    <div className={cn('w-full', className)}>
-      {/* Progress indicator */}
-      <div className="flex items-center gap-2 mb-8">
-        <div
-          className={cn(
-            'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
-            step >= 1 ? 'bg-[var(--color-brand-blue)] text-white' : 'bg-surface-2 text-muted'
-          )}
-        >
-          1
+    <div ref={topRef} className={cn('w-full', className)}>
+      {/* Progress bar */}
+      {screen !== 'result' && (
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-3">
+            {[1, 2, 3].map((step) => (
+              <div key={step} className="flex items-center gap-2 flex-1 last:flex-none">
+                <div
+                  className={cn(
+                    'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold shrink-0 transition-colors',
+                    currentStep >= step
+                      ? 'bg-[var(--color-brand-blue)] text-white'
+                      : 'bg-surface-2 text-muted'
+                  )}
+                >
+                  {currentStep > step ? <CheckCircle2 className="h-4 w-4" /> : step}
+                </div>
+                {step < 3 && (
+                  <div
+                    className={cn(
+                      'flex-1 h-1 rounded-full transition-colors',
+                      currentStep > step ? 'bg-[var(--color-brand-blue)]' : 'bg-surface-2'
+                    )}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted">
+            {screen === 1 && 'Step 1 of 3 — What is the pain?'}
+            {screen === 2 && 'Step 2 of 3 — What does it cost you?'}
+            {screen === 3 && 'Step 3 of 3 — How urgent is this?'}
+          </p>
         </div>
-        <div
-          className={cn(
-            'flex-1 h-1 rounded-full transition-colors',
-            step >= 2 ? 'bg-[var(--color-brand-blue)]' : 'bg-surface-2'
-          )}
-        />
-        <div
-          className={cn(
-            'flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-colors',
-            step >= 2 ? 'bg-[var(--color-brand-blue)] text-white' : 'bg-surface-2 text-muted'
-          )}
-        >
-          2
-        </div>
-      </div>
+      )}
 
-      <p className="text-sm text-muted mb-6">Step {step} of 2</p>
-
-      {/* Step 1: Pain Primer */}
-      {step === 1 && (
-        <form onSubmit={step1Form.handleSubmit(handleStep1Submit)} className="space-y-6">
+      {/* ── Screen 1: Symptoms ─────────────────────────────────────────────── */}
+      {screen === 1 && (
+        <div className="space-y-6">
           <div>
-            <label htmlFor="biggest_operational_pain" className="block text-sm font-medium mb-2">
-              What's the one operational problem costing you the most time or money right now?{' '}
-              <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="biggest_operational_pain"
-              {...step1Form.register('biggest_operational_pain')}
-              rows={4}
-              placeholder="Be specific — the more detail you give, the more useful the call."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
-            />
-            {step1Form.formState.errors.biggest_operational_pain && (
-              <p className="mt-1 text-sm text-red-500">
-                {step1Form.formState.errors.biggest_operational_pain.message}
-              </p>
-            )}
+            <h2 className="text-lg font-semibold mb-1">What is breaking in your operations?</h2>
+            <p className="text-sm text-muted mb-5">
+              Select all that apply. Be honest — we have heard them all.
+            </p>
+
+            <div className="grid grid-cols-1 gap-2">
+              {SYMPTOMS.map((symptom) => {
+                const checked = form.symptoms.includes(symptom)
+                return (
+                  <button
+                    key={symptom}
+                    type="button"
+                    onClick={() => toggleSymptom(symptom)}
+                    className={cn(
+                      'flex items-start gap-3 p-4 rounded-xl border text-left text-sm transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-blue)]',
+                      checked
+                        ? 'border-[var(--color-brand-blue)] bg-[var(--color-brand-blue)]/5 text-[var(--text)]'
+                        : 'border-default bg-surface hover:bg-surface-2 text-secondary'
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-colors',
+                        checked
+                          ? 'bg-[var(--color-brand-blue)] border-[var(--color-brand-blue)]'
+                          : 'border-default'
+                      )}
+                    >
+                      {checked && (
+                        <svg
+                          className="w-3 h-3 text-white"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2 6l3 3 5-5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                    {symptom}
+                  </button>
+                )
+              })}
+            </div>
+
+            {errors.symptoms && <p className="mt-3 text-sm text-red-500">{errors.symptoms}</p>}
           </div>
 
-          <div>
-            <label htmlFor="cost_of_inaction" className="block text-sm font-medium mb-2">
-              What happens to your business if this problem is still unsolved 12 months from now?{' '}
-              <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="cost_of_inaction"
-              {...step1Form.register('cost_of_inaction')}
-              rows={4}
-              placeholder="Think about the cost: in revenue, headcount, competitive ground lost."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
-            />
-            {step1Form.formState.errors.cost_of_inaction && (
-              <p className="mt-1 text-sm text-red-500">
-                {step1Form.formState.errors.cost_of_inaction.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="previous_attempts" className="block text-sm font-medium mb-2">
-              Have you tried to solve this before? What happened?
-            </label>
-            <textarea
-              id="previous_attempts"
-              {...step1Form.register('previous_attempts')}
-              rows={3}
-              placeholder="Previous vendors, internal attempts, off-the-shelf tools — anything."
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
-            />
-          </div>
-
-          <Button type="submit" size="lg" className="w-full">
-            Show me what's possible
+          <Button type="button" size="lg" className="w-full" onClick={goToScreen2}>
+            Continue
             <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
 
-          <p className="text-sm text-muted text-center">
-            We read every submission before the call. Not a bot.
+          <p className="text-xs text-muted text-center">
+            Your answers are saved in your browser as you go.
           </p>
-        </form>
+        </div>
       )}
 
-      {/* Step 2: Contact & Qualify */}
-      {step === 2 && (
-        <form onSubmit={step2Form.handleSubmit(handleStep2Submit)} className="space-y-6">
-          {/* Name row */}
-          <div className="grid md:grid-cols-2 gap-4">
+      {/* ── Screen 2: Cost ─────────────────────────────────────────────────── */}
+      {screen === 2 && (
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-lg font-semibold mb-1">
+              What does it cost you to stay as you are?
+            </h2>
+            <p className="text-sm text-muted mb-5">
+              Think in real terms: headcount hours, missed revenue, delay costs, manual rework. Even
+              a rough estimate helps us understand what we are solving for.
+            </p>
+
+            <label htmlFor="costText" className="block text-sm font-medium mb-2">
+              If this problem is still unsolved 12 months from now, what happens?{' '}
+              <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="costText"
+              value={form.costText}
+              onChange={(e) => update('costText', e.target.value)}
+              rows={5}
+              placeholder="Example: We waste about 3 days every month stitching together reports. Our sales team loses 2 hours per day chasing approvals. We lost a client last quarter because of a dispatch error that would not happen with a proper system."
+              className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
+            />
+            {errors.costText && <p className="mt-1 text-sm text-red-500">{errors.costText}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="previousAttempts" className="block text-sm font-medium mb-2">
+              Have you tried to fix this before? What happened?{' '}
+              <span className="text-muted font-normal">(optional)</span>
+            </label>
+            <textarea
+              id="previousAttempts"
+              value={form.previousAttempts}
+              onChange={(e) => update('previousAttempts', e.target.value)}
+              rows={3}
+              placeholder="Previous vendors, internal builds, off-the-shelf tools, Odoo, SAP — anything. What broke?"
+              className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)] resize-none"
+            />
+          </div>
+
+          <div className="flex gap-3">
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              className="flex-1"
+              onClick={() => {
+                setScreen(1)
+                scrollToTop()
+              }}
+            >
+              Back
+            </Button>
+            <Button type="button" size="lg" className="flex-1" onClick={goToScreen3}>
+              Continue
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Screen 3: Contact + Motivation ─────────────────────────────────── */}
+      {screen === 3 && (
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-lg font-semibold mb-1">Almost done. Who are we talking to?</h2>
+            <p className="text-sm text-muted mb-5">
+              We read every submission before the call. Adrian personally reviews these.
+            </p>
+          </div>
+
+          {/* Contact fields */}
+          <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstname" className="block text-sm font-medium mb-2">
                 First Name <span className="text-red-500">*</span>
@@ -246,14 +430,11 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               <input
                 id="firstname"
                 type="text"
-                {...step2Form.register('firstname')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                value={form.firstname}
+                onChange={(e) => update('firstname', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
-              {step2Form.formState.errors.firstname && (
-                <p className="mt-1 text-sm text-red-500">
-                  {step2Form.formState.errors.firstname.message}
-                </p>
-              )}
+              {errors.firstname && <p className="mt-1 text-sm text-red-500">{errors.firstname}</p>}
             </div>
             <div>
               <label htmlFor="lastname" className="block text-sm font-medium mb-2">
@@ -262,60 +443,40 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               <input
                 id="lastname"
                 type="text"
-                {...step2Form.register('lastname')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                value={form.lastname}
+                onChange={(e) => update('lastname', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
             </div>
           </div>
 
-          {/* Email and Phone */}
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Work Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...step2Form.register('email')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
-              />
-              {step2Form.formState.errors.email && (
-                <p className="mt-1 text-sm text-red-500">
-                  {step2Form.formState.errors.email.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                Phone Number
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                {...step2Form.register('phone')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
-              />
-            </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Work Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={(e) => update('email', e.target.value)}
+              className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+            />
+            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
           </div>
 
-          {/* Company and Role */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="company" className="block text-sm font-medium mb-2">
-                Company Name <span className="text-red-500">*</span>
+                Company <span className="text-red-500">*</span>
               </label>
               <input
                 id="company"
                 type="text"
-                {...step2Form.register('company')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                value={form.company}
+                onChange={(e) => update('company', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
-              {step2Form.formState.errors.company && (
-                <p className="mt-1 text-sm text-red-500">
-                  {step2Form.formState.errors.company.message}
-                </p>
-              )}
+              {errors.company && <p className="mt-1 text-sm text-red-500">{errors.company}</p>}
             </div>
             <div>
               <label htmlFor="jobtitle" className="block text-sm font-medium mb-2">
@@ -324,119 +485,131 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
               <input
                 id="jobtitle"
                 type="text"
-                {...step2Form.register('jobtitle')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                value={form.jobtitle}
+                onChange={(e) => update('jobtitle', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               />
             </div>
           </div>
 
-          {/* Website */}
-          <div>
-            <label htmlFor="website" className="block text-sm font-medium mb-2">
-              Website
-            </label>
-            <input
-              id="website"
-              type="url"
-              {...step2Form.register('website')}
-              placeholder="https://"
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
-            />
-          </div>
-
-          {/* Timeline and Budget */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="project_timeline" className="block text-sm font-medium mb-2">
-                When are you hoping to start? <span className="text-red-500">*</span>
+              <label htmlFor="timeline" className="block text-sm font-medium mb-2">
+                When are you hoping to start?
               </label>
               <select
-                id="project_timeline"
-                {...step2Form.register('project_timeline')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                id="timeline"
+                value={form.timeline}
+                onChange={(e) => update('timeline', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               >
                 <option value="">Select timeline</option>
-                {TIMELINE_OPTIONS.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="asap">ASAP</option>
+                <option value="3_months">Within 3 months</option>
+                <option value="3_6_months">3 to 6 months</option>
+                <option value="exploring">Just exploring</option>
               </select>
-              {step2Form.formState.errors.project_timeline && (
-                <p className="mt-1 text-sm text-red-500">
-                  {step2Form.formState.errors.project_timeline.message}
-                </p>
-              )}
             </div>
             <div>
-              <label htmlFor="budget_range" className="block text-sm font-medium mb-2">
-                Budget range <span className="text-red-500">*</span>
+              <label htmlFor="budget" className="block text-sm font-medium mb-2">
+                Budget range
               </label>
               <select
-                id="budget_range"
-                {...step2Form.register('budget_range')}
-                className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+                id="budget"
+                value={form.budget}
+                onChange={(e) => update('budget', e.target.value)}
+                className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
               >
                 <option value="">Select budget</option>
-                {BUDGET_OPTIONS.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="scoping_only">RM 15K / USD 15K — Scoping Sprint only</option>
+                <option value="ztl_essential">RM 180K / USD 55K (ZTL Essential)</option>
+                <option value="ztl_growth">RM 280K / USD 85K (ZTL Growth)</option>
+                <option value="ztl_scale">RM 380K / USD 115K (ZTL Scale)</option>
+                <option value="not_sure">Not sure yet</option>
               </select>
-              {step2Form.formState.errors.budget_range && (
-                <p className="mt-1 text-sm text-red-500">
-                  {step2Form.formState.errors.budget_range.message}
-                </p>
-              )}
             </div>
           </div>
 
-          {/* Existing Assets */}
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Do you already have any of the following?
-            </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {ASSETS_OPTIONS.map((option) => (
-                <label
-                  key={option.value}
-                  className="flex items-center gap-3 p-3 rounded-lg border border-default bg-surface hover:bg-surface-2 cursor-pointer transition-colors"
-                >
-                  <input
-                    type="checkbox"
-                    value={option.value}
-                    {...step2Form.register('existing_assets')}
-                    className="rounded border-default"
-                  />
-                  <span className="text-sm">{option.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Source */}
-          <div>
-            <label htmlFor="how_did_you_hear" className="block text-sm font-medium mb-2">
-              How did you hear about us?
+            <label htmlFor="source" className="block text-sm font-medium mb-2">
+              How did you find us?
             </label>
             <select
-              id="how_did_you_hear"
-              {...step2Form.register('how_did_you_hear')}
-              className="w-full rounded-lg border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
+              id="source"
+              value={form.source}
+              onChange={(e) => update('source', e.target.value)}
+              className="w-full rounded-xl border border-default bg-surface px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-blue)]"
             >
               <option value="">Select source</option>
-              {SOURCE_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+              <option value="google">Google search</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="referral">Referral from someone I know</option>
+              <option value="youtube">YouTube or podcast</option>
+              <option value="social">Social media</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
-          {/* Actions */}
-          <div className="flex flex-col gap-4">
-            <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+          {/* Motivation slider */}
+          <div className="pt-2">
+            <label className="block text-sm font-medium mb-4">
+              On a scale of 1 to 10, how urgent is solving this?
+            </label>
+
+            <div className="space-y-3">
+              <input
+                type="range"
+                min={1}
+                max={10}
+                step={1}
+                value={form.motivation}
+                onChange={(e) => update('motivation', Number(e.target.value))}
+                className="w-full accent-[var(--color-brand-blue)] cursor-pointer"
+                aria-label="Urgency score"
+              />
+
+              <div className="flex justify-between text-xs text-muted">
+                <span>1 — Just looking</span>
+                <span>10 — Critical</span>
+              </div>
+
+              <div
+                className={cn(
+                  'rounded-xl px-4 py-3 text-sm font-medium text-center transition-colors',
+                  form.motivation >= 8
+                    ? 'bg-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)]'
+                    : form.motivation >= 6
+                      ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+                      : 'bg-surface-2 text-muted'
+                )}
+              >
+                <span className="font-bold text-lg mr-2">{form.motivation}</span>
+                {MOTIVATION_LABELS[form.motivation]}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-3">
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              className="flex-1"
+              onClick={() => {
+                setScreen(2)
+                scrollToTop()
+              }}
+              disabled={isSubmitting}
+            >
+              Back
+            </Button>
+            <Button
+              type="button"
+              size="lg"
+              className="flex-1"
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -449,20 +622,53 @@ export function StrategySessionForm({ className }: StrategySessionFormProps) {
                 </>
               )}
             </Button>
-
-            <button
-              type="button"
-              onClick={() => setStep(1)}
-              className="text-sm text-muted hover:text-[var(--text)] transition-colors"
-            >
-              ← Back to previous step
-            </button>
           </div>
 
-          <p className="text-sm text-muted text-center">
-            We'll review your answers and confirm within 1 business day.
+          <p className="text-xs text-muted text-center">
+            We will confirm within 1 business day. Adrian reviews every submission personally.
           </p>
-        </form>
+        </div>
+      )}
+
+      {/* ── Result: ambivalent / cold ───────────────────────────────────────── */}
+      {screen === 'result' && bucket && (
+        <div className="text-center space-y-6 py-4">
+          {bucket === 'ambivalent' ? (
+            <>
+              <CheckCircle2 className="h-12 w-12 text-amber-500 mx-auto" />
+              <h2 className="text-xl font-bold">We have received your submission.</h2>
+              <p className="text-secondary leading-relaxed max-w-md mx-auto">
+                Based on your answers, now might not be the right moment to book a call immediately.
+                We will reach out within 2 business days with a few thoughts on your situation. No
+                sales pitch. Just honest perspective.
+              </p>
+              <p className="text-sm text-muted">
+                In the meantime, you might find our{' '}
+                <a href="/work" className="underline hover:text-[var(--text)] transition-colors">
+                  case studies
+                </a>{' '}
+                useful context.
+              </p>
+            </>
+          ) : (
+            <>
+              <CheckCircle2 className="h-12 w-12 text-muted mx-auto" />
+              <h2 className="text-xl font-bold">Got it. We will be in touch.</h2>
+              <p className="text-secondary leading-relaxed max-w-md mx-auto">
+                It sounds like the timing may not be right for a discovery call yet. We have saved
+                your details and will follow up with some resources relevant to what you described.
+                When the moment is right, we will be here.
+              </p>
+              <p className="text-sm text-muted">
+                If you would like to reach us directly:{' '}
+                <a href="/contact" className="underline hover:text-[var(--text)] transition-colors">
+                  contact us here
+                </a>
+                .
+              </p>
+            </>
+          )}
+        </div>
       )}
     </div>
   )
