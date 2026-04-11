@@ -603,7 +603,7 @@ H1: `We exist for one reason: to help growing companies build technology that ac
 
 Story (use these confirmed facts, write in Adrian's voice):
 
-- Started at a café in Petaling Jaya
+- Started at a café in Kuala Lumpur
 - Walked away from a RM350,000 prospect — too many red flags
 - Both co-founders left within a year
 - 3 months with no clients, team still on payroll
@@ -654,7 +654,7 @@ couldn't finish. We rebuilt everything. He called it "basically crushed it."
 
 LUDA™ compact section here.
 
-Petaling Jaya, Selangor, Malaysia
+Kuala Lumpur, Malaysia
 ```
 
 Right column: Multi-step contact form (Section 11)
@@ -916,7 +916,7 @@ export const metadata: Metadata = {
   "founder": { "@type": "Person", "name": "Adrian Ching" },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Petaling Jaya",
+    "addressLocality": "Kuala Lumpur",
     "addressRegion": "Selangor",
     "addressCountry": "MY"
   },

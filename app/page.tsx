@@ -208,7 +208,7 @@ export default async function Home() {
             <div className="lg:col-span-7">
               <AnimatedSection delay={0}>
                 <SectionLabel className="mb-5">
-                  Custom Software for Growing Companies &middot; Built in Petaling Jaya
+                  Custom Software for Growing Companies &middot; Built in Kuala Lumpur
                 </SectionLabel>
               </AnimatedSection>
 

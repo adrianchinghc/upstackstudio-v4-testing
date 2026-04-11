@@ -167,7 +167,7 @@ const FAQS = [
       'No. A senior engineer runs every session. Adrian joins for the kickoff and the leadership presentation. That is the commitment and it does not change.',
   },
   {
-    question: 'We are not in Petaling Jaya. Can you still do this?',
+    question: 'We are not in Kuala Lumpur. Can you still do this?',
     answer:
       'Yes. We run Scoping Sprints for clients across Malaysia, Singapore, and SEA. For clients outside Klang Valley, the on-site days are grouped into 2–3 focused on-site visits rather than spread across the two weeks. Travel costs are billed at cost.',
   },

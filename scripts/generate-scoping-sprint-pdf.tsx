@@ -291,7 +291,7 @@ const ScopingSprintBrief = () => (
           <Text style={s.companyTagline}>Built with AI, launched in 16 weeks.</Text>
         </View>
         <View style={s.headerRight}>
-          <Text style={s.headerLabel}>Petaling Jaya, Malaysia</Text>
+          <Text style={s.headerLabel}>Kuala Lumpur, Malaysia</Text>
           <Text style={s.headerValue}>hello@upstackstudio.com</Text>
           <Text style={s.headerValue}>upstackstudio.com</Text>
         </View>
@@ -361,9 +361,7 @@ const ScopingSprintBrief = () => (
 
       {/* Footer */}
       <View style={s.footer} fixed>
-        <Text style={s.footerText}>
-          Upstack Studio · Petaling Jaya, Selangor, Malaysia · Confidential
-        </Text>
+        <Text style={s.footerText}>Upstack Studio · Kuala Lumpur, Malaysia · Confidential</Text>
         <Text style={s.footerText}>Page 1 of 2</Text>
       </View>
     </Page>
@@ -531,7 +529,7 @@ const ScopingSprintBrief = () => (
           </View>
           <View style={s.col}>
             <Text style={s.h3}>Upstack Studio</Text>
-            <Text style={[s.body, s.muted]}>Petaling Jaya, Selangor, Malaysia</Text>
+            <Text style={[s.body, s.muted]}>Kuala Lumpur, Malaysia</Text>
             <Text style={[s.body, s.muted]}>hello@upstackstudio.com</Text>
             <Link src="https://upstackstudio.com" style={s.footerLink}>
               upstackstudio.com
@@ -542,9 +540,7 @@ const ScopingSprintBrief = () => (
 
       {/* Footer */}
       <View style={s.footer} fixed>
-        <Text style={s.footerText}>
-          Upstack Studio · Petaling Jaya, Selangor, Malaysia · Confidential
-        </Text>
+        <Text style={s.footerText}>Upstack Studio · Kuala Lumpur, Malaysia · Confidential</Text>
         <Text style={s.footerText}>Page 2 of 2</Text>
       </View>
     </Page>
