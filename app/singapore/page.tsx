@@ -24,7 +24,7 @@ export default function SingaporePage() {
       country="Singapore"
       h1="For Singapore companies that need enterprise-grade software — without enterprise prices."
       keyword="software development agency Singapore"
-      subCopy="Singapore companies pay Singapore prices for local agencies. We deliver the same enterprise-grade engineering — with a senior Malaysian team, at a cost structure that lets you invest more in what you're building. Delivered across ASEAN and beyond."
+      subCopy="Singapore companies pay Singapore prices for local agencies. We deliver the same enterprise-grade engineering — with AI-enabled tools, a senior Malaysian team, and a cost structure that lets you invest more in what you're building. Delivered across ASEAN and beyond."
       clientsHeadline="Trusted by companies across Southeast Asia and beyond."
     />
   )

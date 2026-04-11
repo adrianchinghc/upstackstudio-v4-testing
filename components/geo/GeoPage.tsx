@@ -49,6 +49,7 @@ const WHY_US = [
   'Bi-weekly calls. Slack always open. You always know where your project stands.',
   'If we cause delays, we pay for them — not you.',
   'You own everything we build, from kickoff to final delivery.',
+  "AI-enabled engineering — our team uses the same tools as the world's best software engineers.",
   'Delivered across manufacturing, financial services, healthcare, media, logistics, consumer tech, and sports.',
 ]
 
@@ -144,8 +145,34 @@ export function GeoPage({
             <SectionLabel>Pricing</SectionLabel>
             <h2 className="text-section-h2 mt-3 mb-4">Transparent pricing. No surprises.</h2>
             <p className="text-secondary max-w-2xl mb-12">
-              We scope precisely in discovery and give you a fixed price before any work begins.
+              Every engagement starts with a Scoping Sprint — a 2-week discovery that gives you a
+              written plan with fixed scope, timeline, and cost before any build begins.
             </p>
+          </AnimatedSection>
+
+          {/* Scoping Sprint entry */}
+          <AnimatedSection>
+            <div className="rounded-xl border border-sky-faint bg-sky-faint/30 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <p className="font-semibold mb-1">
+                  Start with a Scoping Sprint —{' '}
+                  {formatPrice(
+                    market === 'malaysia' ? PRICING.scopingSprint.myr : PRICING.scopingSprint.usd,
+                    market
+                  )}{' '}
+                  fixed
+                </p>
+                <p className="text-sm text-secondary">
+                  Two weeks. One senior engineer. A written plan you can defend internally — before
+                  committing to a build. No Scoping Sprint, no build.
+                </p>
+              </div>
+              <Button variant="outline" asChild className="shrink-0">
+                <Link href="/services/scoping-sprint">
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">

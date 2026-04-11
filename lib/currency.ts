@@ -1,6 +1,13 @@
 export type Market = 'malaysia' | 'international'
 
 export const PRICING = {
+  // Scoping Sprint entry point
+  scopingSprint: {
+    myr: 15000,
+    usd: 15000,
+    weeks: 2,
+    description: 'Written plan before you commit',
+  },
   // Zero to Launch packages
   transform: {
     myr: 155000,
