@@ -29,8 +29,8 @@ const LOGO_CONFIG = {
     light: '/images/review-sites/google.svg',
     dark: '/images/review-sites/google.svg',
     invertLight: false,
-    width: 70,
-    height: 24,
+    width: 90,
+    height: 30,
   },
 } as const
 
