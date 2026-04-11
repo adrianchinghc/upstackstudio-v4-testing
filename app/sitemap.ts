@@ -32,7 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // NOTE: /services/ai-automation-subscription and /services/development-subscription
     // have been retired and now redirect to /services/devsub (Wave 3).
-    // Add /services/devsub and /services/scoping-sprint to sitemap in Wave 3.
+    // Add /services/devsub to sitemap in Wave 3.
+    {
+      url: `${SITE_URL}/services/scoping-sprint`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${SITE_URL}/services/custom-platform-development`,
       lastModified: now,

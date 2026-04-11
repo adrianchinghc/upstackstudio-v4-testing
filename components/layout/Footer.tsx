@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/common/Logo'
 import { SOCIAL, SITE_NAME, SITE_TAGLINE } from '@/lib/constants'
 import { RegionToggle } from '@/components/layout/RegionToggle'
-import { Youtube, Instagram, Linkedin, MapPin, Podcast } from 'lucide-react'
+import { Youtube, Instagram, Linkedin, MapPin, Podcast, Download } from 'lucide-react'
 
 const FOOTER_LINKS = {
   services: [
@@ -11,6 +11,7 @@ const FOOTER_LINKS = {
     { label: 'AI Automation', href: '/services/ai-automation-subscription' },
     { label: 'Custom Development', href: '/services/custom-platform-development' },
     { label: 'Dev Subscription', href: '/services/development-subscription' },
+    { label: 'Scoping Sprint', href: '/services/scoping-sprint' },
   ],
   company: [
     { label: 'About', href: '/about' },
@@ -18,6 +19,13 @@ const FOOTER_LINKS = {
     { label: 'Testimonials', href: '/testimonials' },
     { label: 'Resources', href: '/resources' },
     { label: 'Contact', href: '/contact' },
+  ],
+  resources: [
+    {
+      label: 'Scoping Sprint one-pager',
+      href: '/downloads/scoping-sprint-brief.pdf',
+      download: true,
+    },
   ],
   regions: [
     { label: 'Malaysia', href: '/malaysia' },
@@ -43,7 +51,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Main footer content */}
         <div className="py-16 md:py-20">
-          <div className="grid gap-12 md:gap-8 lg:grid-cols-5">
+          <div className="grid gap-12 md:gap-8 lg:grid-cols-6">
             {/* Brand column */}
             <div className="lg:col-span-2 space-y-6">
               <Logo className="opacity-80" />
@@ -119,6 +127,25 @@ export function Footer() {
                     >
                       {link.label}
                     </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-sm font-semibold mb-4">Resources</h4>
+              <ul className="space-y-3">
+                {FOOTER_LINKS.resources.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      download={link.download ? true : undefined}
+                      className="inline-flex items-center gap-1.5 text-sm text-secondary hover:text-[var(--text)] transition-colors"
+                    >
+                      {link.download && <Download className="h-3.5 w-3.5 shrink-0" />}
+                      {link.label}
+                    </a>
                   </li>
                 ))}
               </ul>

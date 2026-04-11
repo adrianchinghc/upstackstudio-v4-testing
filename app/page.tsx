@@ -532,9 +532,8 @@ export default async function Home() {
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>
                   </Button>
-                  {/* TODO: Wave 2 — create /services/scoping-sprint before enabling this link */}
                   <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                    <Link href="/services">Read the full Scoping Sprint brief</Link>
+                    <Link href="/services/scoping-sprint">Read the full Scoping Sprint brief</Link>
                   </Button>
                 </div>
               </AnimatedSection>
