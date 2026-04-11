@@ -12,7 +12,7 @@ import './globals.css'
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-display',
+  variable: '--font-bricolage',
   display: 'swap',
   preload: true,
 })
@@ -20,7 +20,7 @@ const bricolage = Bricolage_Grotesque({
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
+  variable: '--font-inter',
   display: 'swap',
   preload: true,
 })
