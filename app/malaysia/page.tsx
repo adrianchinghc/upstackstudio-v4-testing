@@ -24,7 +24,7 @@ export default function MalaysiaPage() {
       country="Malaysia"
       h1="Malaysia's growing companies trust Upstack Studio to build what their operations need."
       keyword="software development company Malaysia"
-      subCopy="From Daikin to Magnum 4D to BookXcess — we've helped some of Malaysia's most recognised companies replace manual processes, integrate AI, and build the infrastructure they need to compete. Based in Kuala Lumpur. Delivering across Malaysia and beyond."
+      subCopy="From Daikin to Magnum 4D to BookXcess — we've helped some of Malaysia's most recognised companies replace manual processes, integrate AI, and build the infrastructure they need to compete. AI-enabled engineering and the same senior team from kickoff to handover. Based in Kuala Lumpur. Delivering across Malaysia and beyond."
       clientsHeadline="Trusted by some of Malaysia's most recognised companies."
     />
   )
