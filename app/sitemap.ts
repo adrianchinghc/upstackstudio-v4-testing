@@ -30,9 +30,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    // NOTE: /services/ai-automation-subscription and /services/development-subscription
-    // have been retired and now redirect to /services/devsub (Wave 3).
-    // Add /services/devsub to sitemap in Wave 3.
+    {
+      url: `${SITE_URL}/services/ai-automation-subscription`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/services/development-subscription`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${SITE_URL}/services/scoping-sprint`,
       lastModified: now,
