@@ -109,25 +109,29 @@ const PAIN_CARDS: Array<{
   },
 ]
 
-// Hero — 4 named client logos, compact static row
-// Each logo renders inside a fixed-size slot (w-24 h-7); object-contain handles
-// aspect ratio so wide logos (Teleme) and narrow logos (Acson) occupy equal visual space.
+// Hero — 4 named client logos, compact static row.
+// w/h are computed from each SVG's natural viewBox at a tuned display height:
+//   Daikin  300×64.6  ratio 4.64 → h=22 w=102
+//   TMI     135×45    ratio 3.00 → h=30 w=90  (stacked icon+text, needs more height)
+//   Acson  1152×1152  ratio 1.00 → h=28 w=28  (square icon — this IS its natural form)
+//   Teleme  173×24    ratio 7.21 → h=18 w=130 (ultra-wide wordmark — shorter height keeps it proportionate)
 // TODO: add magnum.svg + bookxcess.svg to /public/images/client-logos/ to restore those logos
 const HERO_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg' },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg' },
-  { name: 'Acson', src: '/images/client-logos/acson.svg' },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg' },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 102, h: 22 },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 90, h: 30 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 28, h: 28 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 130, h: 18 },
 ]
 
-// Marquee logos — fixed-size slot (w-28 h-8) per logo for visual consistency
+// Marquee logos — all at h=28, widths computed from natural SVG viewBox.
+// Wide logos (Teleme 202px) are fine in a scrolling strip — they scroll past.
 const MARQUEE_LOGOS = [
-  { name: 'Daikin', src: '/images/client-logos/daikin.svg' },
-  { name: 'Teleme', src: '/images/client-logos/teleme.svg' },
-  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg' },
-  { name: 'Acson', src: '/images/client-logos/acson.svg' },
-  { name: 'NiuAce', src: '/images/client-logos/niuace.svg' },
-  { name: 'Whitman', src: '/images/client-logos/whitman.svg' },
+  { name: 'Daikin', src: '/images/client-logos/daikin.svg', w: 130, h: 28 },
+  { name: 'Teleme', src: '/images/client-logos/teleme.svg', w: 202, h: 28 },
+  { name: 'The Malaysian Insight', src: '/images/client-logos/tmi.svg', w: 84, h: 28 },
+  { name: 'Acson', src: '/images/client-logos/acson.svg', w: 28, h: 28 },
+  { name: 'NiuAce', src: '/images/client-logos/niuace.svg', w: 111, h: 28 },
+  { name: 'Whitman', src: '/images/client-logos/whitman.svg', w: 122, h: 28 },
 ]
 
 // Services — entry points to the LUDA framework
@@ -258,14 +262,14 @@ export default async function Home() {
                     Trusted by
                   </span>
                   {HERO_LOGOS.map((logo) => (
-                    <div key={logo.name} className="relative w-24 h-7 flex-shrink-0">
-                      <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        fill
-                        className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
-                      />
-                    </div>
+                    <Image
+                      key={logo.name}
+                      src={logo.src}
+                      alt={logo.name}
+                      width={logo.w}
+                      height={logo.h}
+                      className="flex-shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+                    />
                   ))}
                 </div>
               </AnimatedSection>
@@ -785,17 +789,14 @@ export default async function Home() {
       >
         <div className="flex animate-marquee items-center group-hover/marquee:[animation-play-state:paused]">
           {[...MARQUEE_LOGOS, ...MARQUEE_LOGOS].map((logo, index) => (
-            <div
+            <Image
               key={`${logo.name}-${index}`}
-              className="relative mx-10 md:mx-14 flex-shrink-0 w-28 h-8"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                fill
-                className="object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
-              />
-            </div>
+              src={logo.src}
+              alt={logo.name}
+              width={logo.w}
+              height={logo.h}
+              className="mx-10 md:mx-14 flex-shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] opacity-50 hover:opacity-90 transition-opacity"
+            />
           ))}
         </div>
       </section>
