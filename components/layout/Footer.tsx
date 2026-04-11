@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Logo } from '@/components/common/Logo'
 import { SOCIAL, SITE_NAME, SITE_TAGLINE } from '@/lib/constants'
-import { RegionToggle } from '@/components/layout/RegionToggle'
 import { Youtube, Instagram, Linkedin, MapPin, Podcast, Download } from 'lucide-react'
 
 const FOOTER_LINKS = {
@@ -56,11 +55,6 @@ export function Footer() {
             <div className="lg:col-span-2 space-y-6">
               <Logo className="opacity-80" />
               <p className="text-secondary text-base max-w-sm leading-relaxed">{SITE_TAGLINE}</p>
-
-              <div className="flex items-center gap-3">
-                <RegionToggle />
-                <span className="text-xs text-muted">Toggle price currency</span>
-              </div>
 
               <div className="flex items-center gap-2 text-muted">
                 <MapPin className="h-4 w-4" />
