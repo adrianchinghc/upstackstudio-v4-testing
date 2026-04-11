@@ -79,7 +79,7 @@ const FAQS = [
   {
     question: 'How long does a typical operations project take?',
     answer:
-      'Most operations digitalisation projects land in the 12–20 week range depending on complexity. The LUDA™ Framework gives you a committed launch date at kickoff — not a range. If we cause delays, we absorb the cost.',
+      'Most operations digitalisation projects launch within 16 weeks. The LUDA™ Framework gives you a committed date at kickoff — not a range. If we cause delays, we absorb the cost.',
   },
   {
     question:
@@ -118,8 +118,8 @@ export default function OperationsDigitalisationPage() {
             <p className="text-lg text-secondary max-w-2xl mb-8 leading-relaxed">
               Every day your team copies data between systems, chases approvals over group chats,
               and re-enters information that should flow automatically — that's revenue leaking
-              through process gaps. We map your operations, design the system, and build it. Built
-              on the LUDA™ Framework.
+              through process gaps. We map your operations, design the system, and build it in 16
+              weeks — with AI-enabled engineering and the same senior team from kickoff to handover.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.24}>
